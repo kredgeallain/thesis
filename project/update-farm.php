@@ -56,35 +56,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
 
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title> Update Farm </title>
-	<link rel="stylesheet" type="text/css" href="">
-	<link rel="icon" href="../image/logo.png" type="image/icon type">
-</head>
-<body>
-		<section class="header">
-		<div class="logo">
-			<img src="../image/logo.png" alt="Department of Agriculture Logo" width="80px", height="80px">
-			<p>Republic of the Philippines</p>
-			<h1>DEPARTMENT OF AGRICULTURE</h1>
-		</div>
-
-		<div class="text">
-			<p>San Lorenzo, Guimaras</p>
-
-		</div>
-
-					<section class="nav">
-				<a href="adminpage.php">HOME</a>
-				<a href="">EDIT DATA</a>
-				<a href="">VIEW DATA</a>
-				<div class="user">
-					<a href=""><img src="../image/user2.png" alt="User" width="70px", height="70px"></a>
-				</div>
-			</section>
-	</section>
+<?php include ("header.php");  ?>
 
 	<section class="log-in">
 		<form action="#" method="post">
@@ -98,7 +70,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 			<input type="hidden" name="farmID" placeholder="FarmID" id="farmID" value= "<?php echo $farmID; ?>"  >
 		</div>
 
-		<div class="input">
+		<div class="inputUser">
 			<p>Farm Name</p>	
 			<input type="text" name="farmname" placeholder="Farmname" id="farmname" value= "<?php echo $farmname; ?>" required >
 		</div>
@@ -122,73 +94,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
     <! style >
 <style type="text/css">
-body{
-	font-family: tahoma;
-	padding: 0px;
-	margin: 0px;
-}
-.header{
-	background-color: #0e2a83;
-	padding: 15px;
-}
-.logo {
-	margin-left: -10px;
-	margin-top: -10px;
-	display: flex;
-	padding-bottom: 10px;
-}
-.logo p{
-color: white;
-padding-left: 20px;
-}
-.logo img{
-	padding-top: 5px;
-}
-.logo h1{
-	color: white;
-	text-decoration: overline;
-	font-size: 25px;
-	padding-left: 15px;
-	padding-right: 10px;
-	padding-top: 15px;
-	padding-bottom: 10px;
-	margin-left: -200px;
-}
-.text p{
-	color: white;
-	margin-top: -50px;
-	padding-top: 5px;
-	padding-left: 90px;
-	margin-bottom: 5px;
-}
-.title{
-	font-size: 20px;
-	display:flex;
-	justify-content: center;
-	padding-bottom: 10px;
-}
-.nav{
-	display: flex;
-	margin-top: -25px;
-	padding-bottom: 5px;
-	margin-bottom: -15px;
-	position: absolute;
-	right: 0;
-}
-.nav a{
-	text-decoration: none;
-	color: white;
-	text-shadow: 1px 1px #9a9b9e;
-	padding-right: 40px;
-	padding-left: 40px;
-}
-.user{
-	margin-top: -45px;
-}
-.nav a:hover{
-	background-color: blue;
-	border-radius: 20px;
-}
+
 .log-in{
 	box-shadow: 2px 2px 2px 2px grey;
 	border-radius: 30px;
@@ -249,13 +155,9 @@ padding-left: 20px;
 	margin-top: 35px;
 }
 .submit{
-	text-align: center;
-	margin: auto;
-	padding: 3%;
 	display: flex;
-	display: grid;
-	width: 110px;
-	height: 50px;
+	justify-content:center;
+
 }
 .btn{
 	height: 80%;

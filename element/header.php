@@ -347,7 +347,7 @@
             <div class="dropdown2">
                 <button class="dropbtn2"> Farm </button>
                 <div class="dropdown-content2">
-                    <a href="farm-detail.html"> View Farm</a>
+                    <a href="view-farm.php"> View Farm</a>
                     <a href="add-farm.php">Add Farm</a>
                     <a href="map.html"> View farm Map</a>
                 </div>
