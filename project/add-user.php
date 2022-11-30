@@ -79,7 +79,7 @@ if(isset($_POST['submit'])){
 		</div>
 	</section>
 
-	<! style >
+	<!--style-->
 
 <style type="text/css">
 

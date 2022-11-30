@@ -88,7 +88,7 @@ if (isset($_POST['upload'])) {
     
     </div>
 </body>
-	<! style >
+	<!--style-->
     <style type="text/css">
 
 body{

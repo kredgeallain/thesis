@@ -106,6 +106,7 @@ if ($result = $mysqli->query($query)){
         </div>
     </div>
 
+    <!--style-->
 
         <style type="text/css">
 
