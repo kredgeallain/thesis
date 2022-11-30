@@ -10,7 +10,7 @@ if(isset($_POST['submit'])){
    $mobile_no = $_POST['mobile_no'];
    $position = $_POST['position'];
 
-   $sql="select * from user where username='".$username."' AND password='".$password."' ";
+   $sql="SELECT * from user where username='".$username."' AND password='".$password."' ";
 
    $result = mysqli_query($data, $sql);
 
