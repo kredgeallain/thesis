@@ -108,7 +108,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 		</div>
 	</section>
 
-    <! style >
+    <!--style-->
 <style type="text/css">
 
 .log-in{

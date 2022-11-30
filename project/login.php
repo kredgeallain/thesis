@@ -88,7 +88,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 	</details>
 </section>
 
-	<! style >
+	<!--style-->
 
 <style type="text/css">
 
