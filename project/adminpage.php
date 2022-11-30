@@ -289,12 +289,13 @@ summary :hover{
 	border-radius: 5px;
 }
 .logout{
+	top: 100px;
 	display: inline-block;
-	border-radius: 5px;
-	box-shadow: 2px 2px 2px 2px grey;
-	margin-top: 0px;
-	margin-right:80px;
-	margin-left: 500px;
+	border-radius: 20px;
+	box-shadow: 5px 10px 20px 25px grey;
+	margin-top: -100px;
+	margin-right:100px;
+	margin-left: 550px;
 	background-color: #f9faff;
 	padding: 30px;
 }
@@ -345,12 +346,17 @@ button {
 	font-size: 15px;
 	font-weight: bolder;
 	background-color: #0e2a83;
-	border-radius: 5px;
+	border-radius: 15px;
 	cursor: pointer;
 }
 .button a{
 	color: white;
 	text-decoration: none; 
+}
+
+.button button:hover{
+	background-color:blue;
+	color:white;
 }
 
 </body>
