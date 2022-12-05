@@ -10,20 +10,21 @@ if(isset($_POST['submit'])){
    $mobile_no = $_POST['mobile_no'];
    $position = $_POST['position'];
 
-   $sql="SELECT * from user where username='".$username."' AND password='".$password."' ";
+   $sql="SELECT * from user where username='".$username."' OR password='".$password."' ";
 
    $result = mysqli_query($data, $sql);
 
    if(mysqli_num_rows($result) > 0){
 
-      $error[] = '<script> alert("User Already Exist!") </script>';
+      //$errors[] = 'User Already Exist!';
+
+	  header('location:add-user.php?add=error');
 
    }else{
-
          $insert = "INSERT INTO user(name, username, password, mobile_no, position) VALUES('$name','$username','$password','$mobile_no','$position')";
          mysqli_query($data, $insert);
 		 sleep(1);
-         header('location:add-user.php');
+         header('location:add-user.php?add=success');
    }
 
 };
@@ -37,11 +38,29 @@ if(isset($_POST['submit'])){
 			<p><b>Registration</b></p>
 		</div>
 		<?php
-      		if(isset($error)){
-         		foreach($error as $error){
-            		echo '<span class="error-msg">'.$error.'</span>';
-         		};
-      		};
+      	  if(isset($_GET['add'])){
+			$add = $_GET['add'];
+			if($add=='success'){
+				echo ' <div class ="d-flex justify-content-center"> <span class="alert alert-success">User Successfuly Added</span> </div>';
+			}
+			else if($add=='error'){
+				echo ' <div class ="d-flex justify-content-center"> <span class="alert alert-danger">User Already Exist</span> </div>';
+			}
+	
+		
+		
+	 };
+         		
+         		
+      		/*
+
+			  if(isset($_GET['add'])){
+				echo ' <div class ="d-flex justify-content-center"> <span class="alert alert-danger">User Already Exist </span> </div>';
+				
+				   echo ' <div class ="d-flex justify-content-center"> <span class="alert alert-success">User Successfuly Added</span> </div>';
+				
+			 }; 
+			 */
     	?>
 
 		<div class="input">

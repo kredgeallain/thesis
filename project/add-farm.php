@@ -23,9 +23,17 @@ if(isset($_POST['submit'])){
 	$unit = $_POST ['unit'];
 	$initial = $_POST ['initial'];
 
+	$check_farm_id = "SELECT * from farm  WHERE farmname = '".$fname."' ";
 
+	$result = mysqli_query($data, $check_farm_id);
 
-$sql = " SELECT * from  farm as f
+	if(mysqli_num_rows($result) > 0){
+ 
+	   header('location:add-farm.php?add=error1');
+ 
+	}else{
+		  
+		$sql = " SELECT * from  farm as f
 		INNER JOIN baranggay as b ON b.baranggayID = f.baranggayID";
 		mysqli_query($data, $sql);
 
@@ -34,28 +42,24 @@ $sql = " SELECT * from  farm as f
 					VALUES ('$fname', '$fowner', '$contactno', '$brgy');";	
 		$sql2 = mysqli_query($data, $sqlInsert);
 		$farmID = mysqli_insert_id($data);
-		echo '<script> alert("New Farm Added") </script>';
-
-	
-	
-
-	 if ($sql2) {
-
-		$sqlx = " SELECT * from  batch as s
-		INNER JOIN farm as f ON s.farmID = f.farmID";
-		mysqli_query($data, $sqlx);
+		//echo '<script> alert("New Farm Added") </script>';
 
 
-		$sqlInsert2 = "INSERT INTO batch (date,batch,unit, initial,farmID) 
-		VALUES ('$date', '$batch', '$unit', '$initial', '$farmID');"; 
-			$sql3 = mysqli_query($data, $sqlInsert2);
+	 	if ($sql2) {
+			/*$sqlx = " SELECT * from  batch as s
+			INNER JOIN farm as f ON s.farmID = f.farmID";
+			mysqli_query($data, $sqlx); */
 
-	 }
+			$sqlInsert2 = "INSERT INTO batch (date,batch,unit, initial,farmID) 
+			VALUES ('$date', '$batch', '$unit', '$initial', '$farmID');"; 
+				$sql3 = mysqli_query($data, $sqlInsert2);
 
+		}else {
 
-	else {
+			header('location:add-farm.php?add=error2');
+		}
 
-		echo "error";
+		header('location:add-farm.php?add=success');
 	}
 
 
@@ -71,6 +75,23 @@ $sql = " SELECT * from  farm as f
 	<section class = "form">
 	<form action="#" method="post">
 		<h2>Poultry Farm Registration Form</h2>
+		<?php
+
+			  if(isset($_GET['add'])){
+					$add = $_GET['add'];
+					if($add=='success'){
+						echo ' <div class ="d-flex justify-content-center"> <span class="alert alert-success">Farm Successfuly Added</span> </div>';
+					}
+					else if($add=='error1'){
+						echo ' <div class ="d-flex justify-content-center"> <span class="alert alert-danger">Farm Already Exist</span> </div>';
+					}
+					else if($add=='error2'){
+						echo ' <div class ="d-flex justify-content-center"> <span class="alert alert-danger">Batch Error</span> </div>';
+					}
+				
+				
+			 };
+    	?>
 
 		 <div class="form-body">
 		 <form action="" method="post">
