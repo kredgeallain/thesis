@@ -205,6 +205,7 @@ summary :hover{
 	border-radius: 5px;
 }
 .logout{
+  margin-top:250px;
   margin-left:350px;
   margin-right:350px;
   justify-content:center;
