@@ -358,6 +358,7 @@ button {
 	background-color:blue;
 	color:white;
 }
+</style>
 
 </body>
 </html>
