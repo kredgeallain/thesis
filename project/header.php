@@ -371,7 +371,7 @@
                         <ul>
                             <li><a href="">Contact Us</a></li>
                             <li><a href="">Help</a></li>
-                            <li><a href="">Log out</a></li>
+                            <li><a href="logout.php">Log out</a></li>
                         </ul>
                     </div>
                 </details>

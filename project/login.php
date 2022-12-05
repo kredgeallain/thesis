@@ -25,7 +25,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 		header("location:agentpage.php");
 	}
 
-	elseif($row["position"]=="admin")
+	else if($row["position"]=="admin")
 	{
 
 		$_SESSION["username"]=$username;
@@ -35,7 +35,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 
 	else
 	{
-		echo "username or password incorrect";
+		echo '<script> alert("Invalid username or Password") </script>';
 	}
 
 }

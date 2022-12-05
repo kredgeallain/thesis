@@ -78,11 +78,11 @@ $sql = " SELECT * from  farm as f
 			
 			<div class="form-floating mb-3">
 				<input type="text" class="form-control" id="farmname" name="farmname" placeholder="name@example.com">
-				<label for="floatingInput" required>Farm Name</label>
+				<label for="floatingInput" require>Farm Name</label>
 			  </div>
 			  <div class="form-floating mb-3">
 				<input type="text" class="form-control" name="farmowner" id="farmowner" placeholder="name@example.com">
-				<label for="floatingInput" required>Farm Owner</label>
+				<label for="floatingInput" require>Farm Owner</label>
 			  </div>
 			  <select class="form-select" name="baranggayID" aria-label="Default select example">
 				<option disabled selected>Barangay</option>
@@ -90,7 +90,7 @@ $sql = " SELECT * from  farm as f
 			  </select>
 			  <div class="form-floating mb-3">
 				<input type="contact" class="form-control" name="contactno" id="contactno" placeholder="name@example.com">
-				<label for="floatingInput" required>Contact No.</label>
+				<label for="floatingInput" require>Contact No.</label>
 			  </div>
 <!--Add batch-->
 			  <p>
@@ -113,10 +113,10 @@ $sql = " SELECT * from  farm as f
 					<div class="modal-body">
 		  <!--modal content-->
 		  <div class="card card-body">
-			<input type="date" class="form-control" id="date" name="date" aria-describedby="emailHelp" required>
+			<input type="date" class="form-control" id="date" name="date" aria-describedby="emailHelp" require>
 
 			 <div class="form-floating mb-3">
-			   <input type="text" class="form-control" id="batch" name="batch" placeholder="name@example.com" required>
+			   <input type="text" class="form-control" id="batch" name="batch" placeholder="name@example.com" require>
 			   <label for="floatingInput">Batch Name</label>
 			 </div>
 			 <select class="form-select form-select-sm" name="unit" aria-label=".form-select-sm example">
@@ -125,7 +125,7 @@ $sql = " SELECT * from  farm as f
 			   <option value="broiler">Broiler</option>
 			 </select>
 			 <div class="form-floating mb-3">
-				<input type="number" class="form-control" id="intial" name="initial" placeholder="name@example.com" required>
+				<input type="number" class="form-control" id="intial" name="initial" placeholder="name@example.com" require>
 				<label for="floatingInput">Initial Number</label>
 			  </div>
 	   </div>

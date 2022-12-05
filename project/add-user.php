@@ -16,7 +16,7 @@ if(isset($_POST['submit'])){
 
    if(mysqli_num_rows($result) > 0){
 
-      $error[] = 'user already exist!';
+      $error[] = '<script> alert("User Already Exist!") </script>';
 
    }else{
 

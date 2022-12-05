@@ -1,9 +1,21 @@
+<?php 
+		 include_once '..\project\connect.php'; 
+		 $query = "SELECT * FROM baranggay "; 
+ 		$result = mysqli_query($conn,$query);	
+ 		?>
+
 <!DOCTYPE html>
 <html>
-<head>
+<head>	
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title> Recording and Inventory System for Poultry Products!</title>
 	<link rel="icon" href="../image/logo.png" type="image/icon type">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<section class="header">
@@ -70,55 +82,38 @@
 
 
 
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-
+	
 	
 <section class="wrapper">
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 
 	<section class="wrapper-brgy">
 	<div class="brgy">
 		<label for="brgy">Barangay</label>
-		<select id="brgy"> 
-			<option></option>
-			<option>1</option>
-			<option>2</option>
-			<option>3</option>
-			<option>4</option>
-			<option>5</option>
-			<option>6</option>
-			<option>7</option>
-			<option>8</option>
+		<select id="baranggay"  name="baranggay"> 
+			<option selected disabled> Select Barangay </option>
+			<?php while ($row = mysqli_fetch_assoc($result)) : ?>
+                            <option value="<?php echo $row['baranggayID']; ?>"> <?php echo $row['baranggay']; ?> </option>
+                        <?php endwhile; ?>
 		</select>
 	</div>
 
 	<div class="brgy-farm">
-		<label for="brgy-farm">Select farm</label>
-		<select id="brgy-farm">
-				<option></option>
-				<option>1</option>
-				<option>2</option>
-				<option>3</option>
-				<option>4</option>
-				<option>5</option>
-				<option>6</option>
-				<option>7</option>
-				<option>8</option>
-				<option>9</option>
+		<label for="farm">Select farm</label>
+		<select id="farm" name="farm">
+		<option> Select Farm</option>
+			
 		</select>
 	</div>
 	</section>
 
 	<section class="wrapper-batch">
 		<div class="batch">
-			<label id="batch">Select Batch</label>
-			<select id="batch">
-				<option>1</option>
-				<option>2</option>
-				<option>3</option>
-				<option>4</option>
-				<option>5</option>
-				<option>6</option>
-				<option>7</option>
+			<label for="batch">Select Batch</label>
+			<select id="batch" name="batch">
+			<option selected disabled> Select Batch</option>
+				
 			</select>
 		</div>
 
@@ -131,6 +126,57 @@
 			</select>
 		</div>
 	</section>
+
+
+	<script>
+
+  $('#baranggay').on('change',function() {
+  var baranggayID = this.value;
+  	console.log(baranggayID);  
+  
+    $.ajax({
+      type:"POST",
+      url:'getfarm.php',
+   	data:{
+		baranggay_data: baranggayID
+	},
+      success: function(result) {
+		$('#farm').html(result);	
+	  }	
+	})
+});
+
+$('#farm').on('change',function(){
+  var farmID = this.value;  
+  
+    $.ajax({
+      type:"POST",
+      url:"getbatch.php",
+   	data:{
+		farm_data: farmID
+	},
+      success: function(result) {
+		$('#batch').html(result);
+	  }	
+	})
+});    
+ 
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <section class="record">
 	<details>
