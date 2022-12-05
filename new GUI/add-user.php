@@ -47,14 +47,14 @@
             
                       
                         <div class="form-floating mb-3">
-                          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                          <input type="text" class="form-control" id="floatingInput" placeholder="Name">
                           <label for="floatingInput">Firstname/ M.I / Lastname </label>
                           </div>
                   
                   
                     
                         <div class="form-floating mb-3">
-                          <input type="username" class="form-control" id="floatingInput" placeholder="name@example.com">
+                          <input type="username" class="form-control" id="floatingInput" placeholder="username">
                           <label for="floatingInput">Username</label>
                           </div>
                     
@@ -74,7 +74,7 @@
                   
                       
                         <div class="form-floating mb-3">
-                          <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
+                          <input type="number" class="form-control" id="floatingInput" placeholder="09890138761">
                           <label for="floatingInput">Contact No.</label>
                           </div>
                       

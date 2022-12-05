@@ -128,6 +128,102 @@ font-weight: bold;
   color: white;
 }
 
+summary :hover{
+	box-shadow: 2px 2px 2px 2px #66ffcc ;
+	background-color: white;
+	border-radius: 5px;
+}
+.logout{
+  margin-top:250px;
+  margin-left:350px;
+  margin-right:350px;
+  justify-content:center;
+  display:grid;
+  align-items:center;
+	border-radius: 25px;
+	box-shadow: 5px 10px 20px 25px grey;
+	background-color: #f9faff;
+	padding: 30px;
+}
+
+.logout h2{
+  font-weight:bold;
+	font-size: 30px;
+	display: flex;
+	justify-content: center;
+	color: black;
+	text-decoration: none;
+	margin-bottom: 20px;
+}
+
+
+.summ{
+  margin-top:-260px;
+display:flex;
+justify-content:flex-end;
+	font-weight: bold;
+	font-size: 17px;
+	cursor: pointer;
+	list-style: none;
+
+}
+
+.summary p{
+	margin-right: 5px;
+	margin-left: 5px;
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-left:15px;
+	background-color: #f9faff;
+  border-radius:40px;
+	padding-right: 15px;
+}
+
+.button{
+	margin-left: 10px;
+}
+
+button {
+  margin:10px;
+	border:none;
+	color: white;
+	font-size: 15px;
+	font-weight: bolder;
+	background-color: #0e2a83;
+	border-radius: 20px;
+	cursor: pointer;
+}
+.button a{
+  padding-right:60px;
+  padding-left:60px;
+	color: white;
+	text-decoration: none; 
+}
+
+.button button:hover{
+	background-color:blue;
+	color:white;
+}
+
+
+details[open]:after {
+   content:;
+}
+details.test {
+    position: relative;
+    padding: 5px 0;
+}
+
+details.test[open]>summary::after {
+  font-size:20px;
+  top:70px;
+  left:920px;
+    justify-content:center;
+    position:absolute;
+    content: "X";
+    bottom: 0;
+}
+
 
       </style>
         </head>
@@ -182,8 +278,11 @@ font-weight: bold;
 
 </div>
 
-        
+     
+
         <div class="content">
             <section class="header-main">
               <h2>Poultry Products Recording and Inventory System</h2>
             </section>
+
+            

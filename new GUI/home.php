@@ -292,7 +292,7 @@ details.test {
 details.test[open]>summary::after {
   font-size:20px;
   top:70px;
-  left:920px;
+  left:910px;
     justify-content:center;
     position:absolute;
     content: "X";
