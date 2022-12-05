@@ -11,84 +11,125 @@
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
     </script>
     <title>Home</title>
+   
     <style>
-        body {
-          margin: 0;
-          font-family: tahoma;
-        }
-        
+      body {
+        margin: 0;
+        font-family: tahoma;
+      }
+      
+      .sidebar {
+        margin: 0;
+        padding: 0;
+        width: 200px;
+        background-color: #f1f1f1;
+        position: fixed;
+        height: 100%;
+        overflow: auto;
+      }
+      
+      .sidebar a {
+        display: block;
+        color: black;
+        padding: 16px;
+        text-decoration: none;
+
+      }
+       
+      .sidebar a.active {
+        background-color: #0e2a83;
+        color: white;
+      }
+      
+      .sidebar a:hover:not(.active) {
+        background-color: #555;
+        color: white;
+      }
+      
+      div.content {
+        margin-left: 200px;
+        padding: 1px 16px;
+        height: auto;
+      }
+      
+      @media screen and (max-width: 700px) {
         .sidebar {
-          margin: 0;
-          padding: 0;
-          width: 200px;
-          background-color: #f1f1f1;
-          position: fixed;
-          height: 100%;
-          overflow: auto;
+          width: 100%;
+          height: auto;
+          position: relative;
         }
-        
-        .sidebar a {
-          display: block;
-          color: black;
-          padding: 16px;
-          text-decoration: none;
-        }
-         
-        .sidebar a.active {
-          background-color: blue;
-          color: white;
-        }
-        
-        .sidebar a:hover:not(.active) {
-          background-color: #555;
-          color: white;
-        }
-        
-        div.content {
-          margin-left: 200px;
-          padding: 1px 16px;
-          height: 1000px;
-        }
-        
-        @media screen and (max-width: 700px) {
-          .sidebar {
-            width: 100%;
-            height: auto;
-            position: relative;
-          }
-          .sidebar a {float: left;}
-          div.content {margin-left: 0;}
-        }
-        
-        @media screen and (max-width: 400px) {
-          .sidebar a {
-            text-align: center;
-            float: none;
-          }
-        }
-
-        .header{
-          margin: 5px;
-          display: flex;
-          justify-content: space-evenly;
-        }
-
-        /* The navigation bar */
-.header-main {
-  margin: 0;
-  padding: 0;
+        .sidebar a {float: left;}
+        div.content {margin-left: 0;}
+        .production{
+          margin-top: 30px;
+  border-top: 1px solid black;
   display: flex;
   justify-content: center;
-  overflow: auto;
-  position: static;
-  background-color: #0e2a83;
-  color:white;
-  top: 0; 
-  width: 100%; 
+  align-items: center;
 }
-   
-        </style>
+        
+      }
+      
+      @media screen and (max-width: 400px) {
+        .sidebar a {
+          text-align: center;
+          float: none;
+        }
+        .production{
+          margin-top: 30px;
+  border-top: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+      }
 
+      .header{
+        margin: 5px;
+        display: flex;
+        justify-content: space-evenly;
+      }
+
+      /* The navigation bar */
+.header-main {
+
+margin: 0;
+padding: 0;
+display: flex;
+justify-content: center;
+overflow: auto;
+position: static;
+background-color: #0e2a83;
+color:white;
+top: 0; 
+width: 100%; 
+}
+
+.header-main h2{
+margin: 20px;
+font-weight: bold;
+}
+.production{
+  border-top: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.production p{
+  padding-left: 5px;
+  padding-top: 15px;
+}
+
+.home{
+  background-color: #0e2a83;
+}
+
+.home a{
+  color: white;
+}
+
+
+      </style>
         </head>
         <body>
  
@@ -98,21 +139,194 @@
             <div class="logo">
               <img src="../image/logo.png" alt="logo" width="80px">
             </div>
-
-         
           </section>
-          <a class="active" href="#home">Home</a>
-          <a href="#news">Production</a>
-          <a href="#contact">Farm</a>
-          <a href="#about">User</a>
+
+        <div class="home"> 
+          <a href="#home"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-house-door-fill" viewBox="1 1 20 16">
+            <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z"/>
+          </svg>Home</a>
+        </div>
+          <div class="production">
+            <img src="../image/1production-admin.png" alt="production-logo" width="25px"><b><p>PRODUCTION</p></b>
+          </div>
+
+          <a  href="#home"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-house-door-fill" viewBox="1 1 20 16">
+            <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z"/>
+          </svg>View Records</a>
+
+          <a  href="#home"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-house-door-fill" viewBox="1 1 20 16">
+            <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z"/>
+          </svg>Generate reports</a>
+
+
+
+
         </div>
         
         <div class="content">
             <section class="header-main">
-              <h2>Inventory and recording System for Poultry</h2>
+              <h2>Poultry Products Recording and Inventory System</h2>
             </section>
-        </div>
 
+
+            <section class="col">
+              <section class="log-in">
+                <div class="text2">
+                  <p><b>User Registration Form</b></p>
+                </div>
+                <div class="container px-4 text-center">
+                  <div class="row gx-5">
+                    <div class="col">
+                     <div class="p-3 bg-transparent">
+            
+                    <div class="input2">
+                      <select name="role" id="role" placeholder="Select Role">
+                        <option value="">Select position</option>
+                        <option value="Administrator">Administrator</option>
+                        <option value="agent">Agent</option>
+                      </select>
+                    </div>
+               
+                        <div class="input2">
+                      <select name="brgy" id="brgy" placeholder="Select Barangay">
+                        <option id="">Select Barangay</option>
+                        <option id="Aguilar">Aguilar</option>
+                        <option id="Cabano">Cabano</option>
+                        <option id="Cabungahan">Cabungahan</option>
+                        <option id="Constancia">Constancia</option>
+                        <option id="Gaban">Gaban</option>
+                        <option id="Igcawayan">Igcawayan</option>
+                        <option id="M.Chavez">M.Chavez</option>
+                        <option id="san Enrique">San Enrique</option>
+                        <option id="Sapal">Sapal</option>
+                        <option id="Sebario">Sebario</option>
+                        <option id="Suclaran">Suclaran</option>		
+                        <option id="Tamborong">Tamborong</option>	
+                      </select>
+                    </div>
+                  
+                     </div>
+                    </div>
+                    <div class="col">
+                    <div class="p-3 bg-trnsparet">
+            
+                      
+                        <div class="form-floating mb-3">
+                          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                          <label for="floatingInput">Full Name</label>
+                          </div>
+                  
+                  
+                    
+                        <div class="form-floating mb-3">
+                          <input type="username" class="form-control" id="floatingInput" placeholder="name@example.com">
+                          <label for="floatingInput">Username</label>
+                          </div>
+                    
+                  
+                    
+                        <div class="form-floating mb-3">
+                          <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                          <label for="floatingPassword">Password</label>
+                          </div>
+                    
+                  
+                      
+                        <div class="form-floating mb-3">
+                          <input type="contact" class="form-control" id="floatingInput" placeholder="name@example.com">
+                          <label for="floatingInput">Contact No.</label>
+                          </div>
+                      
+                  
+            
+                    </div>
+                    </div>
+                  </div>
+                  </div>
+                
+                    
+            
+                <div class="submit">
+                  <button type="button" class="btn btn-primary">Add User</button>
+                </div>
+              </section>
+            </section>
+
+        </div>
+        <style type="text/css">
+      
+        .log-in{
+          align-items: center;
+          box-shadow: 2px 2px 2px 2px grey;
+          border-radius: 30px;
+          font-family: tahoma;
+          background-color: #f9faff;
+          padding: 15px;
+          margin-top: 30px;
+          margin-right: 100px;
+          margin-left: 100px;
+          margin-bottom: 5px;
+        }
+        
+        .log-in p{
+          padding: 5px;
+        }
+        
+        .text2{
+          display: flex;
+          justify-content: center;
+          font-size: 25px;
+        }
+        
+        
+        .input{
+          margin-left: -15px;
+          display: flex;
+          justify-content: center;
+        }
+        
+        
+        
+        .submit{
+          margin-bottom: 10px !;
+          margin-top: 30px;
+          padding: 0px !important;
+          color: #0e2a83;
+          display: flex;
+          justify-content: center;
+        }
+        input[type=submit] {
+          border-radius: 20px;
+          background-color: #0e2a83;
+          border: none;
+          color: white;
+          padding: 16px 32px;
+          text-decoration: none;
+          margin: 4px 2px;
+          cursor: pointer;
+        }
+        input {
+          color: black;
+          border-radius: 10px;
+          padding: 10px 0px 0px 10px !important;
+          
+        }
+        
+        select {
+          padding: 10px;
+          margin: 30px;
+          margin-left: 10px;
+            outline: 0;
+            background-image: none;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+        
+        button{
+          padding: 15px 25px 15px 25px !important;
+        }
+        
+        </style>
         </body>
         </html>
         
