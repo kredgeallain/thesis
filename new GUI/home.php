@@ -51,7 +51,7 @@
         padding: 1px 16px;
         height: auto;
       }
-      
+      /*
       @media screen and (max-width: 700px) {
         .sidebar {
           width: 100%;
@@ -69,6 +69,7 @@
           float: none;
         }
       }
+      */
 
       .header{
         margin: 5px;
@@ -211,7 +212,7 @@ summary :hover{
   justify-content:center;
   display:grid;
   align-items:center;
-	border-radius: 20px;
+	border-radius: 25px;
 	box-shadow: 5px 10px 20px 25px grey;
 	background-color: #f9faff;
 	padding: 30px;
@@ -246,8 +247,7 @@ justify-content:flex-end;
 	padding-bottom:10px;
 	padding-left:15px;
 	background-color: #f9faff;
-	border: solid grey 2px;
-	border-radius: 40px;
+  border-radius:40px;
 	padding-right: 15px;
 }
 
@@ -262,7 +262,7 @@ button {
 	font-size: 15px;
 	font-weight: bolder;
 	background-color: #0e2a83;
-	border-radius: 15px;
+	border-radius: 20px;
 	cursor: pointer;
 }
 .button a{
@@ -281,7 +281,24 @@ button {
   margin-bottom:5px;
 }
 
- 
+details[open]:after {
+   content:;
+}
+details.test {
+    position: relative;
+    padding: 5px 0;
+}
+
+details.test[open]>summary::after {
+  font-size:20px;
+  top:70px;
+  left:920px;
+    justify-content:center;
+    position:absolute;
+    content: "X";
+    bottom: 0;
+}
+
       </style>
         </head>
         <body>
@@ -354,7 +371,7 @@ button {
               
               </section>
               <section class="summary">
-	<details>
+  <details class="test">
 
 			<summary class="summ"><p>Log out?</p></summary>
 
@@ -368,16 +385,38 @@ button {
 			
 
 			<button> <a href="adminpage.php" class="btn"> No </a></button>
+
 		</section>
 
 	</section>
-		
+
 	</details>
+
 </section>
-              
-        </div>
-      
-  
+
+     
+</div>
+
+
+<!--script-->
+<script>
+ 
+const details = document.querySelectorAll("details");
+
+details.forEach((targetDetail) => {
+  targetDetail.addEventListener("click", () => {
+
+    details.forEach((detail) => {
+      if (detail !== targetDetail) {
+        detail.removeAttribute("open");
+      }
+    });
+  });
+});
+
+  </script>
+
+
         </body>
         </html>
         
