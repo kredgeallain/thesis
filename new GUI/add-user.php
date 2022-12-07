@@ -1,11 +1,7 @@
 <?php
   include("header2.php");
 ?>
-        
-        <div class="content">
-            <section class="header-main">
-              <h2>Poultry Products Recording and Inventory System</h2>
-            </section>
+
 
 
             <section class="col">
@@ -52,7 +48,7 @@
                       
                         <div class="form-floating mb-3">
                           <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                          <label for="floatingInput">Full Name</label>
+                          <label for="floatingInput">Firstname/ M.I / Lastname </label>
                           </div>
                   
                   
@@ -68,11 +64,17 @@
                           <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
                           <label for="floatingPassword">Password</label>
                           </div>
+
+
+                          <div class="form-floating mb-3">
+                          <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                          <label for="floatingPassword">Re-enter Password</label>
+                          </div>
                     
                   
                       
                         <div class="form-floating mb-3">
-                          <input type="contact" class="form-control" id="floatingInput" placeholder="name@example.com">
+                          <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
                           <label for="floatingInput">Contact No.</label>
                           </div>
                       
@@ -90,7 +92,6 @@
                 </div>
               </section>
             </section>
-
         </div>
         <style type="text/css">
       
@@ -104,7 +105,6 @@
           margin-top: 30px;
           margin-right: 100px;
           margin-left: 100px;
-          margin-bottom: 5px;
         }
         
         .log-in p{
@@ -127,13 +127,22 @@
         
         
         .submit{
-          margin-bottom: 10px !;
-          margin-top: 30px;
+          margin-bottom: 15px ;
+          margin-top: 5px;
           padding: 0px !important;
           color: #0e2a83;
           display: flex;
           justify-content: center;
         }
+        .submit button{
+          background-color: darkblue;
+          border:none;
+        }
+
+        .submit button:hover{
+          background-color: blue;
+        }
+
         input[type=submit] {
           border-radius: 20px;
           background-color: #0e2a83;
@@ -146,8 +155,7 @@
         }
         input {
           color: black;
-          border-radius: 10px;
-          padding: 10px 0px 0px 10px !important;
+
           
         }
         

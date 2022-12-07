@@ -142,20 +142,48 @@ font-weight: bold;
           </section>
 
         <div class="home"> 
-          <a href="home-admin.php"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-house-door-fill" viewBox="1 1 20 16">
+          <a href="home.php"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-house-door-fill" viewBox="1 1 20 16">
             <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z"/>
           </svg>Home</a>
         </div>
+<!--production-->
           <div class="production">
             <img src="../image/1production-admin.png" alt="production-logo" width="25px"><b><p>PRODUCTION</p></b>
           </div>
 
-          <a  href="#home"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-house-door-fill" viewBox="1 1 20 16">
-            <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z"/>
-          </svg>View Records</a>
+          <a  href="#home"><img src="../image/view-data.png" alt="view record icon" width="30px"> View Records</a>
 
-          <a  href="#home"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-house-door-fill" viewBox="1 1 20 16">
-            <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z"/>
-          </svg>Generate reports</a>
+          <a  href="#home"><img src="../image/generate-report1.png" alt="generate report icon" width="25px"> Generate reports</a>
 
-        </div>
+          <a  href="#home"><img src="../image/record-icon.png" alt="generate report icon" width="30px"> Record Reports</a>
+
+   
+<!--farm-->
+        <div class="production">
+            <img src="../image/1farm-admin.png" alt="production-logo" width="25px"><b><p>FARM</p></b>
+          </div>
+
+          <a  href="#home"><img src="../image/add-farm1.png" alt="add farm icon" width="30px">Add Farm</a>
+
+          <a  href="#home"><img src="../image/view-farm1.png" alt="generate report icon" width="30px">View farm</a>
+
+          <a  href="#home"><img src="../image/mortality-rate.png" alt="generate report icon" width="30px">View farm Map</a>
+
+     
+
+<!--user-->
+        <div class="production">
+            <img src="../image/1user-admin.png" alt="production-logo" width="25px"><b><p>USER</p></b>
+          </div>
+
+          <a  href="#home"><img src="../image/add user1.png" alt="add user icon" width="30px">Add User</a>
+
+          <a  href="#home"><img src="../image/view-user1.png" alt="view user icon" width="30px">View Users</a>
+
+</div>
+
+        
+        <div class="content">
+            <section class="header-main">
+              <h2>Poultry Products Recording and Inventory System</h2>
+            </section>
