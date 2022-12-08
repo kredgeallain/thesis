@@ -9,7 +9,6 @@ $mysqli = new mysqli("localhost", $username, $password, $database);
 
 <?php include ("header.php");  ?>
 
-
 <div class="wrapper">
 
 <section class="view-user">
@@ -18,12 +17,10 @@ $mysqli = new mysqli("localhost", $username, $password, $database);
 </svg>Farm Details</h2>
     </section>
 
+    <section class="view">
 
 
-<section class="view">
-
-
-    <?php
+<?php
     
 $query = "SELECT * FROM farm";
 
@@ -67,18 +64,12 @@ if ($result = $mysqli->query($query)){
             	echo "<td id=' cntct '>" .$row['contactno']. "</td>";
                 echo '<td > 
                 <div class="addbatch-button">
+
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal" >
-
-                   <a href= "add-batch.php?farmID='.$row['farmID'].'"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 20 20">
-
-                   <a href= "update-farm.php?farmID='.$row['farmID'].'"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 20 20">
->
+                  <a href= "add-batch.php?farmID='.$row['farmID'].'"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 20 20">
                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                 </svg> Add Batch </a>
-
-                   <a href= "add-batch.php?farmID='.$row['farmID'].'"> Add Batch </a>
-
+                 </svg>Add Batch</a>
                 </button>
                 </div>
                  </td>';
@@ -133,8 +124,7 @@ if ($result = $mysqli->query($query)){
 
 ?>
 
-</section>
-
+    </section>
 
 
     <div class="add">
@@ -239,68 +229,6 @@ if ($result = $mysqli->query($query)){
         }
 
         </style>
-
-
-
-<!--style-->
-
-<style type="text/css">
-.view {
-    padding: 10px;
-    border: 1px solid #0e2a83;
-    margin: 20px;
-}
-
-.view-farm {
-    display: flex;
-    margin: 20px 10px 5px 20px;
-    justify-content: center;
-}
-
-.view-farm h2 {
-    font-size: 40px;
-    font-weight: bold;
-}
-
-.add {
-
-    display: flex;
-    justify-content: flex-end;
-}
-
-.add-user-page {
-    background-color: #0d6efd;
-    padding: 10px 40px 10px 40px;
-    margin-top: 30px;
-    margin-right: 100px;
-    border-radius: 5px;
-}
-
-.add-user-page a {
-    text-decoration: none;
-    color: white;
-}
-
-.add-user-page a:hover {
-    color: #00cc00;
-}
-
-tr td button a {
-    text-decoration: none;
-    color: white;
-}
-
-a:hover {
-    color: red;
-
-}
-
-tr:hover {
-    background-color: #b0b4b2;
-
-}
-</style>
-
 </body>
 
 </html>
