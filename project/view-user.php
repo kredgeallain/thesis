@@ -11,8 +11,13 @@ $mysqli = new mysqli("localhost", $username, $password, $database);
 
 <?php include ("header.php");  ?>
 
+<section class="wrapper">
+
     <section class="view-user">
-        <h2>Users</h2>
+        <h2><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-workspace" viewBox="0 0 16 20">
+  <path d="M4 16s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H4Zm4-5.95a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/>
+  <path d="M2 1a2 2 0 0 0-2 2v9.5A1.5 1.5 0 0 0 1.5 14h.653a5.373 5.373 0 0 1 1.066-2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h-2.219c.554.654.89 1.373 1.066 2h.653a1.5 1.5 0 0 0 1.5-1.5V3a2 2 0 0 0-2-2H2Z"/>
+</svg>Users</h2>
     </section>
 
     <section class="view">
@@ -56,18 +61,29 @@ if ($result = $mysqli->query($query)){
             	echo "<td id='pos'>" .$row['position']. "</td>";
 	        	echo "<td id='cntct'>" .$row['mobile_no']. "</td>";				
             	echo '<td > 
+
+            
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal" >
-                           <a href= "update.php?userID='.$row['userID'].'"> Edit </a>
+                           <a href= "update.php?userID='.$row['userID'].'"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 20 20">
+                           <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                           <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                         </svg> Edit </a>
                         </button>
+           
                         
                 </td>';      
                     
 				
 				echo '
 					<td>
+                    <div class="delete-button">
 						<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#deleteModal'.$row["userID"].'">
-							Delete
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash" viewBox="0 0 20 20">
+                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                        <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                      </svg>Delete
 						</button>
+                    </div>
 
 						<!-- Modal -->
 						<form action="view-user.php" method="GET">
@@ -102,28 +118,36 @@ if ($result = $mysqli->query($query)){
 
     <div class="add">
         <div class="add-user-page">
-            <a href="add-user.php">Add User</a>
+            <a href="add-user.php"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-plus" viewBox="0 0 20 20">
+  <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+  <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
+</svg>Add User</a>
         </div>
     </div>
 
+    </section>
     <!--style-->
 
         <style type="text/css">
 
+        .wrapper{
+            margin-top:10px;
+            border:1px solid grey;
+        }
+
         .view {
-            padding: 10px;
-            border: 1px solid #0e2a83;
-            margin: 20px;
+            padding-top:10px ;
+            margin: 10px;
         }
 
         .view-user {
             display: flex;
-            margin: 20px 10px 5px 20px;
+            margin-top:10px;
             justify-content: center;
         }
 
         .view-user h2 {
-            font-size: 40px;
+            font-size: 30px;
             font-weight: bold;
         }
 
@@ -134,10 +158,10 @@ if ($result = $mysqli->query($query)){
         }
 
         .add-user-page {
-            background-color: #0d6efd;
-            padding: 10px 40px 10px 40px;
-            margin-top: 30px;
-            margin-right: 100px;
+            background-color:darkblue;
+            padding: 10px 25px 10px 25px;
+            margin-bottom: 30px;
+            margin-right: 80px;
             border-radius: 5px;
         }
 
@@ -146,8 +170,14 @@ if ($result = $mysqli->query($query)){
             color: white;
         }
 
+        .add-user-page:hover {
+            margin-right: 80px;
+            background-color:blue;
+            color: white;
+        }
+
         .add-user-page a:hover {
-            color: #00cc00;
+            color: white;
         }
 
         tr td button a {
@@ -156,13 +186,26 @@ if ($result = $mysqli->query($query)){
         }
 
         a:hover {
-            color: red;
+            color: white;
 
         }
 
         tr:hover {
             background-color: #b0b4b2;
         }
+
+        .delete-button button{
+            border:none;
+            background-color:red;
+        }
+
+        .delete-button button:hover{
+            border:none;
+            background-color:darkred;
+            color:white;
+        }
+
+
         </style>
 </body>
 
