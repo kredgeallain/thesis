@@ -1,380 +1,288 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title> Recording and Inventory System for Poultry Products!</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../image/logo.png" type="image/icon type">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
     </script>
+    <title>Home</title>
+   
+    <style type="text/css">
+      body {
+        margin: 0;
+        font-family: helvetica;
+      }
+      
+      .sidebar {
+        margin: 0;
+        padding: 0;
+        width: 200px;
+        background-color: #f1f1f1;
+        position: fixed;
+        height: 100%;
+        overflow: auto;
+      }
+      
+      .sidebar a {
+        display: block;
+        color: black;
+        padding: 16px;
+        text-decoration: none;
 
-        <style type="text/css">
-        * {
-            font-family: tahoma;
-            padding: 0px;
-            margin: 0px;
+      }
+       
+      .sidebar a.active {
+        background-color: #0e2a83;
+        color: white;
+      }
+      
+      .sidebar a:hover:not(.active) {
+        background-color: #555;
+        color: white;
+      }
+      
+      div.content {
+        margin-left: 200px;
+        padding: 1px 16px;
+        height: auto;
+      }
+      
+      @media screen and (max-width: 700px) {
+        .sidebar {
+          width: 100%;
+          height: auto;
+          position: relative;
         }
-        .header {
-            background-color: #0e2a83;
-            padding: 15px;
+        .sidebar a {float: left;}
+        div.content {margin-left: 0;}
+        .production{
+          margin-top: 30px;
+  border-top: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+        
+      }
+      
+      @media screen and (max-width: 400px) {
+        .sidebar a {
+          text-align: center;
+          float: none;
         }
-        .header p {
-            margin-top: -10px;
-        }
-        .logo {
-            margin-left: -10px;
-            display: flex;
-            padding-bottom: 10px;
-        }
-        .logo p {
-            color: white;
-            padding-left: 20px;
-        }
-        .logo img {
-            padding: 5px;
-            margin-top: -10px;
-        }
-        .logo h1 {
-            color: white;
-            text-decoration: overline;
-            font-size: 25px;
-            padding-left: 15px;
-            padding-right: 10px;
-            padding-top: 15px;
-            padding-bottom: 10px;
-            margin-left: -200px;
-        }
-        .text p {
-            color: white;
-            margin-top: -45px;
-            padding-top: 5px;
-            padding-left: 90px;
-            margin-bottom: 5px;
-        }
-        .title {
-            font-size: 20px;
-            display: flex;
-            justify-content: center;
-            padding-bottom: 10px;
-        }
-        .nav {
-            background-color: #163289;
-            display: flex;
-            margin-top: -58px;
-            margin-bottom: -15px;
-            padding-top: 25px;
-            position: absolute;
-            border: 1px solid #0e2a83;
-            right: 0;
-        }
-        .user {
-            margin-top: -45px;
-            margin-right: 30px;
-        }
-        .home {
-            margin-top: 5px;
-        }
-        .home a {
-            font-size: 16px;
-            text-decoration: none;
-            color: white;
-            padding: 16px;
-            margin-right: 10px;
-            text-shadow: 1px 1px #9a9b9e;
-        }
-        .home a:hover {
-            padding: 16px;
-            background-color: blue;
-        }
-        .user a {
-            margin-right: 1px;
-        }
-        ul {
-            padding-top: 10px;
-            border-radius: 15px;
-            box-shadow: 2px, 2px, 2px, 2px black;
-            background-color: grey;
-            padding-bottom: 10px;
-            margin-top: -3px;
-            margin-left: -210px;
-            margin-bottom: -203px;
-        }
-        li:hover {
-            padding: 18px;
-            background-color: #ddd;
-        }
-        li {
-            border-radius: 15px;
-            padding-bottom: 10px;
-            padding-top: 20px;
-            padding-left: 10px;
-            padding-right: 20px;
-            list-style: none;
-        }
-        .side-menu {
+        .production{
+          margin-top: 30px;
+  border-top: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+      }
 
-            display: flex;
-            justify-content: flex-end;
-            margin-top: px;
-            margin-bottom: 20px;
-        }
-        .user img {
-            margin-top: 14px;
-        }
-        .summ {
-            margin-left: 25px;
-            cursor: pointer;
-            list-style: none;
-        }
-        .drop-menu a {
-            text-decoration: none;
-            color: white;
-        }
-        /* dropdown button */
-        .dropbtn0 {
-            color: white;
-            text-shadow: 1px 1px #9a9b9e;
-            padding: 16px;
-            padding-right: 10px;
-            padding-left: 10px;
-            font-size: 16px;
-            border: none;
-            justify-items: center;
-            background-color: transparent;
-        }
+      .header{
+        margin: 5px;
+        display: flex;
+        justify-content: space-evenly;
+      }
 
-        .dropdown0 {
-            margin-top: -10px;
-            display: inline-block;
-        }
+      /* The navigation bar */
+.header-main {
 
-        .dropdown0 label {
-            padding: 5px;
-            color: black;
-            margin-bottom: 100px;
-        }
+margin: 0;
+padding: 0;
+display: flex;
+justify-content: center;
+overflow: auto;
+position: static;
+background-color: #0e2a83;
+color:white;
+top: 0; 
+width: 100%; 
+}
 
-        .dropdown0 .dropbtn0 {
+.header-main h2{
+margin: 20px;
+font-weight: bold;
+}
+.production{
+  border-top: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.production p{
+  padding-left: 5px;
+  padding-top: 15px;
+}
 
-            margin-left: 5px;
-            cursor: pointer;
-        }
+.home{
+  background-color: #0e2a83;
+}
 
-        .dropdown-content0 {
-            display: none;
-            position: absolute;
-            background-color: #f1f1f1;
-            min-width: 100px;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-            margin-left: 5px;
+.home a{
+  color: white;
+}
 
-        }
+summary :hover{
+	box-shadow: 2px 2px 2px 2px #66ffcc ;
+	background-color: white;
+	border-radius: 5px;
+}
+.logout{
+  margin-top:250px;
+  margin-left:350px;
+  margin-right:350px;
+  justify-content:center;
+  display:grid;
+  align-items:center;
+	border-radius: 25px;
+	box-shadow: 5px 10px 20px 25px grey;
+	background-color: #f9faff;
+	padding: 30px;
+}
 
-        .dropdown-content0 a {
-            color: black;
-            padding: 20px;
-            text-decoration: none;
-            display: block;
+.logout h2{
+  font-weight:bold;
+	font-size: 30px;
+	display: flex;
+	justify-content: center;
+	color: black;
+	text-decoration: none;
+	margin-bottom: 20px;
+}
 
-        }
 
-        .dropdown-content0 a:hover {
-            background-color: #ddd;
-        }
+.summ{
+  margin-top:-260px;
+display:flex;
+justify-content:flex-end;
+	font-weight: bold;
+	font-size: 17px;
+	cursor: pointer;
+	list-style: none;
 
-        .dropdown0:hover .dropdown-content0 {
-            display: block;
-        }
+}
 
-        .dropdown0:hover .dropbtn0 {
-            background-color: blue;
-        }
+.summary p{
+	margin-right: 5px;
+	margin-left: 5px;
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-left:15px;
+	background-color: #f9faff;
+  border-radius:40px;
+	padding-right: 15px;
+}
 
-        /*dropdown2*/
+.button{
+	margin-left: 10px;
+}
 
-        .dropbtn2 {
-            color: white;
-            text-shadow: 1px 1px #9a9b9e;
-            padding-right: 10px;
-            padding-left: 10px;
-            padding: 16px;
-            font-size: 16px;
-            border: none;
-            justify-items: center;
-            background-color: transparent;
-        }
+button {
+  margin:10px;
+	border:none;
+	color: white;
+	font-size: 15px;
+	font-weight: bolder;
+	background-color: #0e2a83;
+	border-radius: 20px;
+	cursor: pointer;
+}
+.button a{
+  padding-right:60px;
+  padding-left:60px;
+	color: white;
+	text-decoration: none; 
+}
 
-        .dropdown2 {
-            margin-top: -10px;
-            display: inline-block;
-        }
+.button button:hover{
+	background-color:blue;
+	color:white;
+}
 
-        .dropdown2 label {
-            padding: 5px;
-            color: black;
-            margin-bottom: 100px;
-        }
 
-        .dropdown2 .dropbtn2 {
+details[open]:after {
+   content:;
+}
+details.test {
+    position: relative;
+    padding: 5px 0;
+}
 
-            /* margin-top: 100px; */
-            margin-left: 5px;
-            cursor: pointer;
-        }
+details.test[open]>summary::after {
+  font-size:20px;
+  top:70px;
+  left:920px;
+    justify-content:center;
+    position:absolute;
+    content: "X";
+    bottom: 0;
+}
 
-        .dropdown-content2 {
-            display: none;
-            position: absolute;
-            background-color: #f1f1f1;
-            min-width: 100px;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-            margin-left: 5px;
-        }
 
-        .dropdown-content2 a {
-            color: black;
-            padding: 20px;
-            text-decoration: none;
-            display: block;
-        }
-
-        .dropdown-content2 a:hover {
-            background-color: #ddd;
-        }
-
-        .dropdown2:hover .dropdown-content2 {
-            display: block;
-        }
-
-        .dropdown2:hover .dropbtn2 {
-            background-color: blue;
-        }
-        /*dropdown3*/
-
-        .dropbtn3 {
-            color: white;
-            text-shadow: 1px 1px #9a9b9e;
-            padding-right: 10px;
-            padding-left: 10px;
-            padding: 16px;
-            font-size: 16px;
-            border: none;
-            justify-items: center;
-            background-color: transparent;
-        }
-
-        .dropdown3 {
-            margin-top: -10px;
-            display: inline-block;
-        }
-
-        .dropdown3 label {
-            padding: 5px;
-            color: black;
-            margin-bottom: 100px;
-        }
-
-        .dropdown3 .dropbtn3 {
-
-            /* margin-top: 100px; */
-            margin-left: 5px;
-            cursor: pointer;
-        }
-
-        .dropdown-content3 {
-            display: none;
-            position: absolute;
-            background-color: #f1f1f1;
-            min-width: 100px;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-            margin-left: 5px;
-        }
-
-        .dropdown-content3 a {
-            color: black;
-            padding: 20px;
-            text-decoration: none;
-            display: block;
-        }
-
-        .dropdown-content3 a:hover {
-            background-color: #ddd;
-        }
-
-        .dropdown3:hover .dropdown-content3 {
-            display: block;
-        }
-
-        .dropdown3:hover .dropbtn3 {
-            background-color: blue;
-        }
-        </style>
+      </style>
         </head>
+        <body>
+ 
 
-<body>
-    <section class="header">
-        <div class="logo">
-            <img src="../image/logo.png" alt="Department of Agriculture Logo" width="80px" , height="80px">
-            <p>Republic of the Philippines</p>
-            <h1>DEPARTMENT OF AGRICULTURE</h1>
+        <div class="sidebar">
+          <section class="header">
+            <div class="logo">
+              <img src="../image/logo.png" alt="logo" width="80px">
+            </div>
+          </section>
+
+        <div class="home"> 
+          <a href="adminpage.php"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-house-door-fill" viewBox="1 1 20 16">
+            <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z"/>
+          </svg>Home</a>
         </div>
+<!--production-->
+          <div class="production">
+            <img src="../image/1production-admin.png" alt="production-logo" width="25px"><b><p>PRODUCTION</p></b>
+          </div>
 
-        <div class="text">
-            <p>San Lorenzo, Guimaras</p>
+          <a  href="#home"><img src="../image/view-data.png" alt="view record icon" width="30px"> View Records</a>
 
-        </div>
+          <a  href="#home"><img src="../image/generate-report1.png" alt="generate report icon" width="25px"> Generate reports</a>
 
-        <section class="nav">
-            <div class="home">
-                <a href="adminpage.php">Home</a>
-            </div>
-            <div class="dropdown0">
-                <button class="dropbtn0"> Production </button>
-                <div class="dropdown-content0">
-                    <a href=""> View Record</a>
-                    <a href="record.html"> Record Production</a>
-                    <a href="#"> Generate Report</a>
-                    <a href="#"> Find Records </a>
-                </div>
-            </div>
+          <a  href="#home"><img src="../image/record-icon.png" alt="generate report icon" width="30px"> Record Reports</a>
 
-            <div class="dropdown2">
-                <button class="dropbtn2"> Farm </button>
-                <div class="dropdown-content2">
-                    <a href="view-farm.php"> View Farm</a>
-                    <a href="add-farm.php">Add Farm</a>
-                    <a href="map.html"> View farm Map</a>
-                </div>
-            </div>
+   
+<!--farm-->
+        <div class="production">
+            <img src="../image/1farm-admin.png" alt="production-logo" width="25px"><b><p>FARM</p></b>
+          </div>
 
-            <div class="dropdown3">
-                <button class="dropbtn3"> User </button>
-                <div class="dropdown-content3">
-                    <a href="add-user.php"> Add User</a>
-                    <a href="view-user.php"> View Users </a>
-                </div>
-            </div>
+          <a  href="add-farm.php"><img src="../image/add-farm1.png" alt="add farm icon" width="30px">Add Farm</a>
 
+          <a  href="view-farm.php"><img src="../image/view-farm1.png" alt="generate report icon" width="30px">View farm</a>
 
-            <div class="user">
+          <a  href="#home"><img src="../image/mortality-rate.png" alt="generate report icon" width="30px">View farm Map</a>
 
-                <details>
-                    <summary class="summ"><img src="../image/user2.png" alt="User" width="70px" , height="70px">
-                    </summary>
-                    <div class="drop-menu">
-                        <ul>
-                            <li><a href="">Contact Us</a></li>
-                            <li><a href="">Help</a></li>
-                            <li><a href="logout.php">Log out</a></li>
-                        </ul>
-                    </div>
-                </details>
-            </div>
-        </section>
-    </section>
+     
+
+<!--user-->
+        <div class="production">
+            <img src="../image/1user-admin.png" alt="production-logo" width="25px"><b><p>USER</p></b>
+          </div>
+
+          <a  href="add-user.php"><img src="../image/add user1.png" alt="add user icon" width="30px">Add User</a>
+
+          <a  href="view-user.php"><img src="../image/view-user1.png" alt="view user icon" width="30px">View Users</a>
+
+</div>
+
+     
+
+        <div class="content">
+            <section class="header-main">
+              <h2>Poultry Products Recording and Inventory System</h2>
+            </section>
+
+            

@@ -92,26 +92,25 @@ if(isset($_POST['submit'])){
 				
 			 };
     	?>
-
+<form action="#" method="POST">
 		 <div class="form-body">
-		 <form action="" method="post">
 <!--Form-->
 			
 			<div class="form-floating mb-3">
-				<input type="text" class="form-control" id="farmname" name="farmname" placeholder="name@example.com">
-				<label for="floatingInput" require>Farm Name</label>
+				<input type="text" class="form-control" id="farmname" name="farmname" placeholder="name@example.com" required="true" >
+				<label for="floatingInput" required="true">Farm Name</label>
 			  </div>
 			  <div class="form-floating mb-3">
-				<input type="text" class="form-control" name="farmowner" id="farmowner" placeholder="name@example.com">
-				<label for="floatingInput" require>Farm Owner</label>
+				<input type="text" class="form-control" name="farmowner" id="farmowner" placeholder="name@example.com" required="true">
+				<label for="floatingInput" required="true">Farm Owner</label>
 			  </div>
-			  <select class="form-select" name="baranggayID" aria-label="Default select example">
+			  <select class="form-select" name="baranggayID" aria-label="Default select example" required="true">
 				<option disabled selected>Barangay</option>
 					<?php echo $bfetch; ?>
 			  </select>
 			  <div class="form-floating mb-3">
-				<input type="contact" class="form-control" name="contactno" id="contactno" placeholder="name@example.com">
-				<label for="floatingInput" require>Contact No.</label>
+				<input type="contact" class="form-control" name="contactno" id="contactno" placeholder="name@example.com" required="true">
+				<label for="floatingInput" required="true"d>Contact No.</label>
 			  </div>
 <!--Add batch-->
 			  <p>
@@ -134,10 +133,10 @@ if(isset($_POST['submit'])){
 					<div class="modal-body">
 		  <!--modal content-->
 		  <div class="card card-body">
-			<input type="date" class="form-control" id="date" name="date" aria-describedby="emailHelp" require>
+			<input type="date" class="form-control" id="date" name="date" aria-describedby="emailHelp" required="true">
 
 			 <div class="form-floating mb-3">
-			   <input type="text" class="form-control" id="batch" name="batch" placeholder="name@example.com" require>
+			   <input type="text" class="form-control" id="batch" name="batch" placeholder="name@example.com" required="true">
 			   <label for="floatingInput">Batch Name</label>
 			 </div>
 			 <select class="form-select form-select-sm" name="unit" aria-label=".form-select-sm example">
@@ -146,7 +145,7 @@ if(isset($_POST['submit'])){
 			   <option value="broiler">Broiler</option>
 			 </select>
 			 <div class="form-floating mb-3">
-				<input type="number" class="form-control" id="intial" name="initial" placeholder="name@example.com" require>
+				<input type="number" class="form-control" id="intial" name="initial" placeholder="name@example.com" required="true">
 				<label for="floatingInput">Initial Number</label>
 			  </div>
 	   </div>
