@@ -15,7 +15,7 @@
     <style type="text/css">
       body {
         margin: 0;
-        font-family: tahoma;
+        font-family: helvetica;
       }
       
       .sidebar {
