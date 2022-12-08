@@ -35,7 +35,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 
 	else
 	{
-		echo '<script> alert("Invalid username or Password") </script>';
+		header('location:login.php?login=error');
 	}
 
 }
@@ -48,6 +48,10 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 <html>
 <head>
 	<title>Log in!</title>
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        
+
 	<link rel="icon" href="../image/logo.png" type="image/icon type">
 </head>
 <body>
@@ -72,6 +76,15 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 
 	<section class="login">
 		<form action="#" method="POST">
+
+		<?php
+      	  if(isset($_GET['login'])){
+			$add = $_GET['login'];
+			if($add=='error'){
+				echo ' <div class ="d-flex justify-content-center"> <span class="alert alert-danger">Invalid Username or Password</span> </div>';
+			}
+	 };
+         ?>
 			<div class="username">
 				<input type="username" name="username" placeholder="Username" required>
 			</div>
