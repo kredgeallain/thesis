@@ -1,12 +1,25 @@
 <?php
 @include 'connect.php';
 
+
+$bfetch= '';
+
+ $sqlb = "SELECT * FROM baranggay ";
+ $statement = $data1->prepare($sqlb);
+ $statement->execute();
+ $result = $statement->fetchAll();
+ foreach($result as $row)
+ {
+  $bfetch .= '<option value="   '.$row["baranggay"].'  ">    '.$row["baranggay"].'      </option>';
+ }
+
 if(isset($_POST['submit'])){
 
    $name = mysqli_real_escape_string($data, $_POST['name']);
    $username = mysqli_real_escape_string($data, $_POST['username']);
    $password = ($_POST['password']);
    $repassword =($_POST['repassword']);
+   $baranggay = $_POST['baranggay'];
    $mobile_no = $_POST['mobile_no'];
    $position = $_POST['position'];
 
@@ -29,7 +42,7 @@ if(isset($_POST['submit'])){
    }
    
    else{
-         $insert = "INSERT INTO user(name, username, password,repassword, mobile_no, position) VALUES('$name','$username','$password','$repassword','$mobile_no','$position')";
+         $insert = "INSERT INTO user(name, username, password,repassword, baranggay, mobile_no, position) VALUES('$name','$username','$password','$repassword','$baranggay','$mobile_no','$position')";
          mysqli_query($data, $insert);
 		 sleep(1);
          header('location:add-user.php?add=success');
@@ -74,26 +87,15 @@ if(isset($_POST['submit'])){
                     <div class="input2">
                       <select name="position" id="position" placeholder="Select Position">
                         <option value="">Select position</option>
-                        <option value="Administrator">Administrator</option>
+                        <option value="admin">Administrator</option>
                         <option value="agent">Agent</option>
                       </select>
                     </div>
                
                         <div class="input2">
-                      <select name="brgy" id="brgy" placeholder="Select Barangay">
-                        <option id="">Select Barangay</option>
-                        <option id="Aguilar">Aguilar</option>
-                        <option id="Cabano">Cabano</option>
-                        <option id="Cabungahan">Cabungahan</option>
-                        <option id="Constancia">Constancia</option>
-                        <option id="Gaban">Gaban</option>
-                        <option id="Igcawayan">Igcawayan</option>
-                        <option id="M.Chavez">M.Chavez</option>
-                        <option id="san Enrique">San Enrique</option>
-                        <option id="Sapal">Sapal</option>
-                        <option id="Sebario">Sebario</option>
-                        <option id="Suclaran">Suclaran</option>		
-                        <option id="Tamborong">Tamborong</option>	
+                      <select name="baranggay" id="baranggay" placeholder="Select Barangay">
+                        <option id="" disabled>Select Barangay</option>
+                        <?php echo $bfetch; ?>
                       </select>
                     </div>
                   
@@ -111,27 +113,27 @@ if(isset($_POST['submit'])){
                   
                     
                         <div class="form-floating mb-3">
-                          <input type="username" class="form-control" id="username" placeholder="username">
+                          <input type="username" class="form-control" name="username" id="username" placeholder="username">
                           <label for="floatingInput">Username</label>
                           </div>
                     
                   
                     
                         <div class="form-floating mb-3">
-                          <input type="password" class="form-control" id="password" placeholder="Password">
+                          <input type="password" class="form-control" name="password" id="password" placeholder="Password">
                           <label for="floatingPassword">Password</label>
                           </div>
 
 
                           <div class="form-floating mb-3">
-                          <input type="password" class="form-control" id="repassword" placeholder="Password">
+                          <input type="password" class="form-control" name="repassword"  id="repassword" placeholder="Password">
                           <label for="floatingPassword">Re-enter Password</label>
                           </div>
                     
                   
                       
                         <div class="form-floating mb-3">
-                          <input type="number" class="form-control" id="mobile_no" placeholder="09890138761">
+                          <input type="number" class="form-control" id="mobile_no" name="mobile_no" placeholder="09890138761">
                           <label for="floatingInput">Contact No.</label>
                           </div>
                       

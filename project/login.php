@@ -15,8 +15,13 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 	$result=mysqli_query($data,$sql);
 
 	$row=mysqli_fetch_array($result);
+	if($row["status"]=="off")
+	{
 
-	if($row["position"]=="agent")
+		header('location:login.php?login=deactivated');
+	}
+
+	elseif($row["position"]=="agent")
 	{	
 
 		$_SESSION["username"]=$username;
@@ -25,7 +30,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 		header("location:agentpage.php");
 	}
 
-	else if($row["position"]=="admin")
+	elseif($row["position"]=="admin")
 	{
 
 		$_SESSION["username"]=$username;
@@ -82,6 +87,9 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 			$add = $_GET['login'];
 			if($add=='error'){
 				echo ' <div class ="d-flex justify-content-center"> <span class="alert alert-danger">Invalid Username or Password</span> </div>';
+			}
+			if($add=='deactivated'){
+				echo ' <div class ="d-flex justify-content-center"> <span class="alert alert-danger">Your account has been deactivated</span> </div>';
 			}
 	 };
          ?>
