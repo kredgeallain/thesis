@@ -130,11 +130,11 @@ if(isset($_POST['submit'])){
 
 
                           <div class="form-floating mb-3">
-                          <input type="password" class="form-control" name="password"  id="password" placeholder="Password">
-                          <label for="floatingPassword">Re-enter Password</label>
+                          <input type="password" class="form-control" name="password"  id="repassword" placeholder="Password">
+                          <label for="repassword">Re-enter Password</label>
                           </div>
                     
-                  
+                          <div id="passwordError" class="text-danger"></div>
                       
                         <div class="form-floating mb-3">
                           <input type="number" class="form-control" id="mobile_no" name="mobile_no" placeholder="09890138761">
@@ -145,7 +145,7 @@ if(isset($_POST['submit'])){
                   </div>
                   </div>
                 
-                    
+         
             
                   <div class="submit">
 
@@ -156,6 +156,7 @@ if(isset($_POST['submit'])){
             </section>
         </div>
 
+        
 <script>
 
   const passwordInput = document.querySelector('input[type="password"]');
@@ -164,8 +165,24 @@ if(isset($_POST['submit'])){
   showPasswordCheckbox.addEventListener('change', function() {
     passwordInput.type = this.checked ? 'text' : 'password';
   });
-  
+
+  function checkPasswordMatch() {
+  var password = $("#password").val();
+  var confirmPassword = $("#repassword").val();
+
+  if (password != confirmPassword) {
+    $("#passwordError").html("Passwords do not match!");
+  } else {
+    $("#passwordError").html("");
+  }
+}
+
+$(document).ready(function () {
+  $("#password, #repassword").keyup(checkPasswordMatch);
+});
+
 </script>
+
 
         <style type="text/css">
       
