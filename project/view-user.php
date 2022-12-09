@@ -21,7 +21,7 @@ $mysqli = new mysqli("localhost", $username, $password, $database);
     
 $query = "SELECT * FROM user";
 
-echo "<b> <center> User Details </center> </b> <br> <br>";
+
 
 
 if ($result = $mysqli->query($query)){

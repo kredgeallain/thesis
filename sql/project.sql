@@ -104,8 +104,8 @@ CREATE TABLE `farm` (
   `farmname` varchar(21) NOT NULL,
   `farmowner` varchar(21) NOT NULL,
   `contactno` int(21) NOT NULL,
-  `lat` decimal(65,0) NOT NULL,
-  `lng` decimal(65,0) NOT NULL
+  `lat` decimal(10,8) NOT NULL,
+  `lng` decimal(11,8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -177,7 +177,7 @@ CREATE TABLE `user` (
   `password` varchar(21) NOT NULL,
   `repassword` varchar(21) NOT NULL,
   `baranggay` varchar(21) NOT NULL,
-  `mobile_no` int(21) NOT NULL,
+  `mobile_no` bigint(21) NOT NULL,
   `status` varchar(21) NOT NULL DEFAULT 'on'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -332,3 +332,11 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+/*Altered Table Layer Added Lcurrent for current number of chickens upon gathering production data,
+  this is the bases on computing the mortality rate*/
+ALTER TABLE `layer` ADD `Lcurrent` INT(11) NOT NULL AFTER `reject_eggs`;
+
+/*Altered Table Broiler Added Bcurrent for current number of chickens upon gathering production data,
+  this is the bases on computing the mortality rate*/
+ALTER TABLE `broiler` ADD `Bcurrent` INT(11) NOT NULL AFTER `broiler_weight`;
