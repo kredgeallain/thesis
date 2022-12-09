@@ -133,8 +133,7 @@ if(isset($_POST['submit'])){
                           <input type="password" class="form-control" name="repassword"  id="repassword" placeholder="Password">
                           <label for="repassword">Re-enter Password</label>
                           </div>
-                    
-                          <div id="passwordError" class="text-danger"></div>
+                
                       
                         <div class="form-floating mb-3">
                           <input type="number" class="form-control" id="mobile_no" name="mobile_no" placeholder="09890138761">
