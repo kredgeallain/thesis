@@ -123,10 +123,14 @@ if(isset($_POST['submit'])){
                           <input type="password" class="form-control" name="password" id="password" placeholder="Password">
                           <label for="floatingPassword">Password</label>
                           </div>
+                          <div class="showpass">
+                          <input type="checkbox" id="show-password">
+                          <label for="show-password">Show password</label>
+                          </div>
 
 
                           <div class="form-floating mb-3">
-                          <input type="password" class="form-control" name="repassword"  id="repassword" placeholder="Password">
+                          <input type="password" class="form-control" name="password"  id="password" placeholder="Password">
                           <label for="floatingPassword">Re-enter Password</label>
                           </div>
                     
@@ -135,10 +139,7 @@ if(isset($_POST['submit'])){
                         <div class="form-floating mb-3">
                           <input type="number" class="form-control" id="mobile_no" name="mobile_no" placeholder="09890138761">
                           <label for="floatingInput">Contact No.</label>
-                          </div>
-                      
-                  
-            
+                        </div>
                     </div>
                     </div>
                   </div>
@@ -154,6 +155,18 @@ if(isset($_POST['submit'])){
               </section>
             </section>
         </div>
+
+<script>
+
+  const passwordInput = document.querySelector('input[type="password"]');
+  const showPasswordCheckbox = document.querySelector('input[type="checkbox"]');
+
+  showPasswordCheckbox.addEventListener('change', function() {
+    passwordInput.type = this.checked ? 'text' : 'password';
+  });
+  
+</script>
+
         <style type="text/css">
       
         .log-in{
@@ -188,19 +201,21 @@ if(isset($_POST['submit'])){
         
         
         .submit{
-          margin-bottom: 15px ;
-          margin-top: 5px;
+          margin-bottom: 0px ;
+          margin-top: 0px;
           padding: 0px !important;
           color: #0e2a83;
           display: flex;
           justify-content: center;
         }
         .submit button{
+          color:white;
           background-color: darkblue;
           border:none;
         }
 
         .submit button:hover{
+          color:white;
           background-color: blue;
         }
 
@@ -232,6 +247,13 @@ if(isset($_POST['submit'])){
         
         button{
           padding: 15px 25px 15px 25px !important;
+        }
+
+        .showpass{
+          padding-left:10px;
+          display:flex;
+          justify-content:flex-start;
+          margin-bottom:20px;
         }
         
         </style>

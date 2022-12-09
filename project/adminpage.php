@@ -84,7 +84,7 @@ if(!isset($_SESSION['username'])){
 
 
 		<section class="summary">
-	<details>
+	<details class="test">
 
 			<summary class="summ"><p>Log out?</p></summary>
 
@@ -106,7 +106,22 @@ if(!isset($_SESSION['username'])){
 </section>
 
 
+<script>
+ 
+const details = document.querySelectorAll("details");
 
+details.forEach((targetDetail) => {
+  targetDetail.addEventListener("click", () => {
+
+    details.forEach((detail) => {
+      if (detail !== targetDetail) {
+        detail.removeAttribute("open");
+      }
+    });
+  });
+});
+
+  </script>
 
 
 	<!--style-->
@@ -341,7 +356,6 @@ summary :hover{
 button {
 	border:none;
 	color: white;
-	width: 150px;
 	height: 30px;
 	font-size: 15px;
 	font-weight: bolder;
@@ -350,6 +364,8 @@ button {
 	cursor: pointer;
 }
 .button a{
+	padding-left:60px;
+	padding-right:60px;
 	color: white;
 	text-decoration: none; 
 }
@@ -357,6 +373,23 @@ button {
 .button button:hover{
 	background-color:blue;
 	color:white;
+}
+details[open]:after {
+   content:;
+}
+details.test {
+    position: relative;
+    padding: 5px 0;
+}
+
+details.test[open]>summary::after {
+  font-size:20px;
+  top:230px;
+  right:550px;
+    justify-content:center;
+    position:absolute;
+    content: "X";
+    bottom: 0;
 }
 </style>
 
