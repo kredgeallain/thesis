@@ -166,20 +166,6 @@ if(isset($_POST['submit'])){
     passwordInput.type = this.checked ? 'text' : 'password';
   });
 
-  function checkPasswordMatch() {
-  var password = $("#password").val();
-  var confirmPassword = $("#repassword").val();
-
-  if (password != confirmPassword) {
-    $("#passwordError").html("Passwords do not match!");
-  } else {
-    $("#passwordError").html("");
-  }
-}
-
-$(document).ready(function () {
-  $("#password, #repassword").keyup(checkPasswordMatch);
-});
 
 </script>
 
