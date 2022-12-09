@@ -130,7 +130,7 @@ if(isset($_POST['submit'])){
 
 
                           <div class="form-floating mb-3">
-                          <input type="password" class="form-control" name="password"  id="repassword" placeholder="Password">
+                          <input type="password" class="form-control" name="repassword"  id="repassword" placeholder="Password">
                           <label for="repassword">Re-enter Password</label>
                           </div>
                     
@@ -156,7 +156,7 @@ if(isset($_POST['submit'])){
             </section>
         </div>
 
-        
+
 <script>
 
   const passwordInput = document.querySelector('input[type="password"]');
