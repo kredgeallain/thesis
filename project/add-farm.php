@@ -18,6 +18,9 @@ if(isset($_POST['submit'])){
 	$fowner = mysqli_real_escape_string($data, $_POST['farmowner']);
 	$brgy = ($_POST['baranggayID']);
 	$contactno = $_POST['contactno'];
+	$lat = $_POST ['latclicked'];
+	$long = $_POST ['longclicked'];
+
 	$date = $_POST['date'];
 	$batch = $_POST ['batch'];
 	$unit = $_POST ['unit'];
@@ -38,8 +41,8 @@ if(isset($_POST['submit'])){
 		mysqli_query($data, $sql);
 
 		
-	$sqlInsert = "INSERT INTO farm (farmname, farmowner,contactno,baranggayID) 
-					VALUES ('$fname', '$fowner', '$contactno', '$brgy');";	
+	$sqlInsert = "INSERT INTO farm (farmname, farmowner,contactno,baranggayID, lat, lng) 
+					VALUES ('$fname', '$fowner', '$contactno', '$brgy', '$lat', '$long');";	
 		$sql2 = mysqli_query($data, $sqlInsert);
 		$farmID = mysqli_insert_id($data);
 		//echo '<script> alert("New Farm Added") </script>';
@@ -117,6 +120,10 @@ if(isset($_POST['submit'])){
 				<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
 					Add Batch
 				  </button>
+<!--farm location-->				  
+				  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
+					Farm Location
+				  </button>
 				  <div class="submit">
 			<input type="submit" class="btn btn-primary" name="submit" value="Add Farm" id="submit">
 		</div>
@@ -156,12 +163,86 @@ if(isset($_POST['submit'])){
 				</div>
 			  </div>
 		 </div>
+
+
+
+
+
+		   <!--plot map Modal -->
+		   <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+				  <div class="modal-content">
+					<div class="modal-header">
+					  <h1 class="modal-title fs-5" id="staticBackdropLabel">Farm Location</h1>
+					  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+		  <!--mapmodal content-->
+		  <div class="card card-body">
+				<div class="form-floating mb-3">
+						<input type="text" class="form-control" id="latclicked" name="latclicked" placeholder="name@example.com" required="true" >
+						<label for="floatingInput">Latitude</label>
+				</div>
+				<div class="form-floating mb-3">
+					<input type="text" class="form-control" id="longclicked" name="longclicked" placeholder="name@example.com" required="true" >
+					<label for="floatingInput">Longitude</label>
+				</div>
+				
+			<div id="map"></div>
+
+	<!-- map script-->			
+				<script type="text/javascript">
+					
+		var map;
+		
+		function initMap() {							
+			var latitude = 10.574276; 
+			var longitude = 122.682664; 
+			
+			var myLatLng = {lat: latitude, lng: longitude};
+			
+			map = new google.maps.Map(document.getElementById('map'), {
+			  center: myLatLng,
+			  zoom: 13,
+			  disableDoubleClickZoom: true, 
+			});
+			
+
+			google.maps.event.addListener(map,'click',function(event) {				
+                document.getElementById('latclicked').value = event.latLng.lat();
+                document.getElementById('longclicked').value=  event.latLng.lng();
+            });
+
+		}
+		
+		</script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBS3QyfqjMn4BsynGlJyfOuFgL0MlcbsrM&callback=initMap"
+		async defer></script>
+			
+
+	   </div>
+					<div class="modal-footer">
+					  <button type="button" class="btn btn-primary"  data-bs-dismiss="modal">Save</button>
+					</div>
+				  </div>
+				</div>
+			  </div>
+		 </div>
+
+
+
 	</section>
 
 
 	<!--style-->
 
 	<style type="text/css">
+	  
+		  #map { 
+			height: 300px;	
+			width: 420px;			
+		  }		  
+	
 	
 .form{
 	display: grid !important;
