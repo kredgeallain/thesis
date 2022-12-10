@@ -1,30 +1,118 @@
-<html>
-  <head>
-    <title>Event Click LatLng</title>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <!-- playground-hide -->
-    <script>
-      const process = { env: {} };
-      process.env.GOOGLE_MAPS_API_KEY =
-        "AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg";
-    </script>
-    <!-- playground-hide-end -->
 
-    <link rel="stylesheet" type="text/css" href="./style.css" />
-    <script type="module" src="./index.ts"></script>
-  </head>
-  <body>
-    <div id="map"></div>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Map</title>
+		<style>		  
+		  #map { 
+			height: 300px;	
+			width: 600px;			
+		  }		  
+		</style>		
+	</head>	
+	<body>
 
-    <!-- 
-     The `defer` attribute causes the callback to execute after the full HTML
-     document has been parsed. For non-blocking uses, avoiding race conditions,
-     and consistent behavior across browsers, consider loading using Promises
-     with https://www.npmjs.com/package/@googlemaps/js-api-loader.
-    -->
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
-      defer
-    ></script>
-  </body>
+
+		<div id="latclicked1" >
+
+
+
+		</div>
+
+		<div id="longclicked1">
+
+		</div >
+			
+		<input type="text" disabled id="latclicked" placeholder="name">
+	
+
+			<input type="text" disabled id="longclicked" placeholder="name">
+			
+			
+	
+		
+	
+			<div id="map"></div>
+		</div>
+		
+		<script type="text/javascript">
+		var map;
+		
+		function initMap() {							
+			var latitude = 10.574276; // YOUR LATITUDE VALUE
+			var longitude = 122.682664; // YOUR LONGITUDE VALUE
+			
+			var myLatLng = {lat: latitude, lng: longitude};
+			
+			map = new google.maps.Map(document.getElementById('map'), {
+			  center: myLatLng,
+			  zoom: 13,
+			  disableDoubleClickZoom: true, // disable the default map zoom on double click
+			});
+			
+			// Update lat/long value of div when anywhere in the map is clicked	
+			google.maps.event.addListener(map,'click',function(event) {				
+                document.getElementById('latclicked').value = event.latLng.lat();
+                document.getElementById('longclicked').value=  event.latLng.lng();
+            });
+
+			
+            
+            // Update lat/long value of div when you move the mouse over the map
+          /*  google.maps.event.addListener(map,'mousemove',function(event) {
+                document.getElementById('latmoved').innerHTML = event.latLng.lat();
+                document.getElementById('longmoved').innerHTML = event.latLng.lng();
+            }); */
+		
+		/*		var marker = new google.maps.Marker({
+			  position: myLatLng,
+			  map: map,
+			  //title: 'Hello World'
+			  
+			  // setting latitude & longitude as title of the marker
+			  // title is shown when you hover over the marker
+			  title: latitude + ', ' + longitude 
+			});	
+			
+			// Update lat/long value of div when the marker is clicked
+			marker.addListener('click', function(event) {			  
+			  document.getElementById('latclicked').innerHTML = event.latLng.lat();
+              document.getElementById('longclicked').innerHTML =  event.latLng.lng();
+			});
+			
+
+    
+			// Create new marker on double click event on the map
+			google.maps.event.addListener(map,'dblclick',function(event) {
+                var marker = new google.maps.Marker({
+				  position: event.latLng, 
+				  map: map, 
+				  title: event.latLng.lat()+', '+event.latLng.lng()
+				});
+			
+    
+				// Update lat/long value of div when the marker is clicked
+				marker.addListener('click', function() {
+				  document.getElementById('latclicked').innerHTML = event.latLng.lat();
+				  document.getElementById('longclicked').innerHTML =  event.latLng.lng();
+				});            
+            });
+          /*
+            
+            // Create new marker on single click event on the map
+			google.maps.event.addListener(map,'click',function(event) {
+                var marker = new google.maps.Marker({
+				  position: event.latLng, 
+				  map: map, 
+				  title: event.latLng.lat()+', '+event.latLng.lng()
+				});                
+            });  */
+		}
+		</script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBS3QyfqjMn4BsynGlJyfOuFgL0MlcbsrM&callback=initMap"
+		async defer></script>
+	</body>	
 </html>

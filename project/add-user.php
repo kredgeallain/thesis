@@ -85,16 +85,16 @@ if(isset($_POST['submit'])){
                      <div class="p-3 bg-transparent">
             
                     <div class="input2">
-                      <select name="position" id="position" placeholder="Select Position">
-                        <option value="">Select position</option>
+                      <select name="position" id="position" placeholder="Select Position" required="true">
+                        <option value=""disabled selected>Select position</option>
                         <option value="admin">Administrator</option>
                         <option value="agent">Agent</option>
                       </select>
                     </div>
                
                         <div class="input2">
-                      <select name="baranggay" id="baranggay" placeholder="Select Barangay">
-                        <option id="" disabled>Select Barangay</option>
+                      <select name="baranggay" id="baranggay" placeholder="Select Barangay"  required="true">
+                        <option disabled selected>Select Barangay</option>
                         <?php echo $bfetch; ?>
                       </select>
                     </div>
@@ -106,21 +106,21 @@ if(isset($_POST['submit'])){
             
                       
                         <div class="form-floating mb-3">
-                          <input type="text" class="form-control" name="name" id="name" placeholder="Name">
+                          <input type="text" class="form-control" name="name" id="name" placeholder="Name"  required="true">
                           <label for="floatingInput">Firstname/ M.I / Lastname </label>
                           </div>
                   
                   
                     
                         <div class="form-floating mb-3">
-                          <input type="username" class="form-control" name="username" id="username" placeholder="username">
+                          <input type="username" class="form-control" name="username" id="username" placeholder="username"  required="true">
                           <label for="floatingInput">Username</label>
                           </div>
                     
                   
                     
                         <div class="form-floating mb-3">
-                          <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+                          <input type="password" class="form-control" name="password" id="password" placeholder="Password"  required="true">
                           <label for="floatingPassword">Password</label>
                           </div>
                           <div class="showpass">
@@ -131,12 +131,12 @@ if(isset($_POST['submit'])){
 
                           <div class="form-floating mb-3">
                           <input type="password" class="form-control" name="repassword"  id="repassword" placeholder="Password">
-                          <label for="repassword">Re-enter Password</label>
+                          <label for="floatingPassword">Re-enter Password</label>
                           </div>
                 
                       
                         <div class="form-floating mb-3">
-                          <input type="number" class="form-control" id="mobile_no" name="mobile_no" placeholder="09890138761">
+                          <input type="number" class="form-control" id="mobile_no" name="mobile_no" placeholder="09890138761"  required="true">
                           <label for="floatingInput">Contact No.</label>
                         </div>
                     </div>
