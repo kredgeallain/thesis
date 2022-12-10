@@ -11,8 +11,7 @@
 <body>
     <Section class="wrapper">
       
-    <div class="container text-center" >
-
+    <div class="container text-center" action="#" method="POST">
 
         <div class="row">
             <div class="col-sm-8">
@@ -38,18 +37,18 @@
                 </div>
 
                 <div class="form-floating mb-3">
-                  <input type="username" class="form-control" id="floatingInput" placeholder="username">
+                  <input type="username" class="form-control" id="floatingInput" placeholder="username" name="username" required>
                   <label for="floatingInput">Username</label>
                 </div>
                 <div class="form-floating">
-                  <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                  <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" required>
                   <label for="floatingPassword">Password</label>
                 </div>
                 <a href="">Forgot password?</a>
                 <div class="login-button">
                 <div class="d-grid gap-2">
                  
-                    <button class="btn btn-primary" type="button">Login</button> 
+                    <button class="btn btn-primary" type="button" name="submit" value="Log in">Login</button> 
                   </div>
                   </div>
             </div>
@@ -124,7 +123,7 @@ input{
   align-items: center;
   justify-content: center;
   align-items: center;
-  background-image: url("../../image/windmill.jpg");;
+  background-image: url("../image/windmill.jpg");;
   opacity: 100%;
   border: 7px solid blue;
   background-repeat: auto;
