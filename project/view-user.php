@@ -161,7 +161,7 @@ if ($result = $mysqli->query($query)){
         }
 
         tr:hover {
-            background-color: #2596be;
+            background-color: #b0b4b2;
         }
         </style>
 </body>
