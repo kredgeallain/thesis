@@ -285,8 +285,9 @@ details.test[open]>summary::after {
 }
 .main1{
   position:absolute;
-  right:15px;
-  top:0;
+
+  right:35px;
+  top:20px;
 }
 
 .user{
@@ -363,11 +364,11 @@ details.test[open]>summary::after {
             <section class="header-main">
               <h2>Poultry Products Recording and Inventory System</h2>
               <div class="main1" id="main1">
-  <span style="font-size:30px;cursor:pointer" onclick="openNav()"><img src="../image/user.png" alt="user" width="80px"></span>
-</div>
+               <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;<!--<img src="../image/user.png" alt="user" width="80px">--></span>
+              </div>
+        </section>
 
 
-            </section>
             <div id="mySidenavb" class="sidenavb">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <div class="side-content">
@@ -389,9 +390,3 @@ details.test[open]>summary::after {
 </svg>Log out</a>
   </div>
 </div>
-
-
-
-   
-
-            
