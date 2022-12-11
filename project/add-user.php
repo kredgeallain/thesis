@@ -42,10 +42,10 @@ if(isset($_POST['submit'])){
    }
    
    else{
-         $insert = "INSERT INTO user(name, username, password,repassword, baranggay, mobile_no, position) VALUES('$name','$username','$password','$repassword','$baranggay','$mobile_no','$position')";
-         mysqli_query($data, $insert);
-		 sleep(1);
-         header('location:add-user.php?add=success');
+        $insert = "INSERT INTO user(name, username, password,repassword, baranggay, mobile_no, position) VALUES('$name','$username','$password','$repassword','$baranggay','$mobile_no','$position')";
+        mysqli_query($data, $insert);
+		    sleep(1);
+        header('location:add-user.php?add=success');
    }
 
 };
@@ -148,9 +148,9 @@ if(isset($_POST['submit'])){
             
                   <div class="submit">
 
-<button class="btn" type="submit" name="submit" id="submit"> Add User</button>
+                    <button class="btn" type="submit" name="submit" id="submit"> Add User</button>
 
-</div>
+                    </div>
               </section>
             </section>
         </div>

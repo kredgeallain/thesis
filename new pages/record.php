@@ -1,8 +1,19 @@
 <?php 
-		 include_once '..\project\connect.php'; 
-		 $query = "SELECT * FROM baranggay "; 
- 		$result = mysqli_query($conn,$query);	
- 		?>
+	include_once '..\project\connect.php'; 
+	$query = "SELECT * FROM baranggay "; 
+	$result = mysqli_query($conn,$query);	
+?>
+<?php 
+	include_once '..\project\connect.php'; 
+	$query = "SELECT * FROM farm "; 
+	$result1 = mysqli_query($conn,$query);	
+?>
+<?php 
+	include_once '..\project\connect.php'; 
+	$query = "SELECT * FROM batch "; 
+	$result2 = mysqli_query($conn,$query);	
+?>
+
 
 <!DOCTYPE html>
 <html>
@@ -13,9 +24,9 @@
 	<link rel="icon" href="../image/logo.png" type="image/icon type">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<section class="header">
@@ -29,13 +40,15 @@
 			<p>San Lorenzo, Guimaras</p>
 		</div>
 
-					<section class="nav">
-						<div class="home">
-							<a href="home-admin.html"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 20 16">
-								<path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z"/>
-								<path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z"/>
-							  </svg>Home</a>
-						</div>
+			<section class="nav">
+				<div class="home">
+					<a href="home-admin.html">
+					<svg xmlns="http://www.w3.org/2000/svg" width="25" height="" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 20 16">
+					<path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z"/>
+					<path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z"/>
+					</svg>Home
+					</a>
+				</div>
 				<div class ="dropdown0">
 					<button class="dropbtn0"> Production </button>
 					<div class="dropdown-content0">
@@ -50,7 +63,7 @@
 					<button class="dropbtn2"> Farm </button>
 					<div class="dropdown-content2">
 						<a href="farm-detail.html"> View Farm</a>
-						<a href="add-farm.html">Add Farm</a>
+						<a href="add-farm.php">Add Farm</a>
 						<a href="map.html"> View farm Map</a>
 					</div>
 				</div>
@@ -58,14 +71,12 @@
 				<div class="dropdown3">
 					<button class="dropbtn3"> User </button>
 					<div class="dropdown-content3">
-						<a href="add-user.html"> Add User</a>
-						<a href="view-user.html"> View Users </a>
+						<a href="add-user.php"> Add User</a>
+						<a href="view-user.php"> View Users </a>
 					</div>
 				</div>
 
-
 				<div class="user">
-
 					<details>
 					<summary class="summ"><img src="../image/user2.png" alt="User" width="70px", height="70px"></summary>
 					<div class="drop-menu">
@@ -78,11 +89,7 @@
 					</details>
 				</div>
 			</section>
-	</section>
-
-
-
-	
+	</section>	
 	
 <section class="wrapper">
 
@@ -94,38 +101,36 @@
 		<select id="baranggay"  name="baranggay"> 
 			<option selected disabled> Select Barangay </option>
 			<?php while ($row = mysqli_fetch_assoc($result)) : ?>
-                            <option value="<?php echo $row['baranggayID']; ?>"> <?php echo $row['baranggay']; ?> </option>
-                        <?php endwhile; ?>
+                <option value="<?php echo $row['baranggayID']; ?>"> <?php echo $row['baranggay']; ?> </option>
+                <?php endwhile; ?>
 		</select>
 	</div>
 
 	<div class="brgy-farm">
 		<label for="farm">Select farm</label>
 		<select id="farm" name="farm">
-		<option> Select Farm</option>
-			
+		<option> Select Farm</option>	
+		<?php while ($row = mysqli_fetch_assoc($result1)) : ?>
+                <option value="<?php echo $row['farmID']; ?>"> <?php echo $row['farmname']; ?> </option>
+                <?php endwhile; ?>
+
 		</select>
 	</div>
 	</section>
 
 	<section class="wrapper-batch">
-		<div class="batch">
-			<label for="batch">Select Batch</label>
-			<select id="batch" name="batch">
-			<option selected disabled> Select Batch</option>
-				
-			</select>
-		</div>
+		
 
-		<div class="p-type">
-			<label for="p-type">Select Product</label>
-			<select id="p-type">
+		<div class="form-selector">
+			<label for="form-selector">Select Product</label>
+			<select id="form-selector">
 				<option></option>
-				<option>Layer</option>
-				<option>Broiler</option>
+				<option value="Layer">Layer</option>
+				<option value="Broiler">Broiler</option>
 			</select>
 		</div>
 	</section>
+
 
 
 	<script>
@@ -164,30 +169,29 @@ $('#farm').on('change',function(){
 </script>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <section class="record">
-	<details>
+	
 
-			<summary><p>Record</p></summary>
-
-	<section class = "form">
+		
+		<section class = "form-selection">
+	<form action="#" method="post" id="Layer"> 
+	
 
 	<div class = "sec1">
+
+		<div class="batch">
+			<label for="batch">Select Batch</label>
+			<select id="batch" name="batch">
+			<option selected disabled> Select Batch</option>
+			<?php while ($row = mysqli_fetch_assoc($result2)) : ?>
+                <option value="<?php echo $row['batchID']; ?>"> <?php echo $row['batch']; ?>  </option>
+                <?php endwhile; ?>				
+			</select>
+		</div>
+
 		<div class="date">
-		<form>
+
+		
 				<span>
 					<label for="day">Day</label>
 					<select id="day" name="day">
@@ -256,52 +260,187 @@ $('#farm').on('change',function(){
 				      	<option>2027</option>
 				      </select>
 				    </span>
-
-		</form>
+	
 		</div>
 
-<div class="week">
-	<label for="week">Week: </label>
-	<select id="week" name="week">
-		<option>1</option>
-		<option>2</option>
-		<option>3</option>
-		<option>4</option>
-	</select>
-</div>
+
 <section class="layer">
 <div class="no-eggs">
-	<label for="no-eggs">Number of Eggs: </label>
+	<label for="no-eggs"> Number of Eggs: </label>
 	<input type="number" name="no-eggs" id="no-eggs">
 </div>
 
 
 <div class="rej-eggs">
-	<label for="rej-eggs">Reject Eggs: </label>
+	<label for="rej-eggs"> Reject Eggs: </label>
 	<input type="number" name="rej-eggs" id="rej-eggs">
 </div>
 </section>
 
 <section class="broiler">
-<div class="kilogram">
-	<label for="kilo">Meat in kg: </label>
-	<input type="weight" name="kilo" id="kilo">
+<div class="Bcurrent">
+	<label for=""> Current: </label>
+	<input type="number" name="Lcurrent" id="Lcurrent">
 </div>
 
-<div class="dead">
-	<label for="dead">Dead: </label>
-	<input type="number" name="dead" id="dead" >
+<div class="mortality">
+	<label for="dead"> Mortality: </label>
+	<input type="number" name="mortality" id="mortality" >
 </div>
 </section>
-<div class="button">
-	<input type="submit" name="save-data" id="save-data" value="Save">
+<div class="submit">
+	<input type="submit" name="submit" id="submit" value="Save">
 </div>
+
 	
 </div>
 		
 </section>
+</form>	
+
+<form action="#" method="post" id="Broiler"> 
+	
+
+	<div class = "sec1">
+		<div class="batch">
+			<label for="batch">Select Batch</label>
+			<select id="batch" name="batch">
+			<option selected disabled> Select Batch</option>
+			<?php while ($row = mysqli_fetch_assoc($result2)) : ?>
+                <option value="<?php echo $row['batchID']; ?>"> <?php echo $row['batch']; ?> </option>
+                <?php endwhile; ?>				
+			</select>
+		</div>
+
+		<div class="date">		
+			<span>
+				<label for="day">Day</label>
+				<select id="day" name="day">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+					<option>6</option>
+					<option>7</option>
+					<option>8</option>
+					<option>9</option>
+					<option>10</option>
+					<option>11</option>
+					<option>12</option>
+					<option>13</option>
+					<option>14</option>
+					<option>15</option>
+					<option selected>16</option>
+					<option>17</option>
+					<option>18</option>
+					<option>19</option>
+					<option>20</option>
+					<option>21</option>
+					<option>22</option>
+					<option>23</option>
+					<option>24</option>
+					<option>25</option>
+					<option>26</option>
+					<option>27</option>
+					<option>28</option>
+					<option>29</option>
+					<option>30</option>
+					<option>31</option>
+				</select>
+			</span>
+
+			<span>
+				<label for="month">Month:</label>
+				<select id="month" name="month">
+				<option>January</option>
+				<option>February</option>
+				<option>March</option>
+				<option>April</option>
+				<option>May</option>
+				<option>June</option>
+				<option>July</option>
+				<option>August</option>
+				<option selected>September</option>
+				<option>October</option>
+				<option>November</option>
+				<option>December</option>
+				</select>
+			</span>
+
+			<span>
+				<label for="year">Year:</label>
+				<select id="year" name="year">
+				<option>2020</option>
+				<option>2021</option>
+				<option selected>2022</option>
+				<option>2023</option>
+				<option>2024</option>
+				<option>2025</option>
+				<option>2026</option>
+				<option>2027</option>
+				</select>
+			</span>
 		
-	</details>
+		</div>
+
+		<section class="layer">
+			<div class="meat">
+				<label for=""> Meat in Kg: </label>
+				<input type="kilo" name="meat" id="meat">
+			</div>
+		</section>
+
+		<section class="broiler">
+			<div class="Bcurrent">
+				<label for=""> Current: </label>
+				<input type="number" name="Lcurrent" id="Lcurrent">
+			</div>
+			<div class="mortality">
+				<label for="dead"> Mortality: </label>
+				<input type="number" name="mortality" id="mortality" >
+			</div>
+		</section>
+
+		<div class="submit">
+			<input type="submit" name="submit" id="submit" value="Save">
+		</div>
+			
+	</div>		
+	
+</form>	
+</section>
+
+<script>
+  // Get a reference to the form selector and forms
+  const formSelector = document.getElementById('form-selector');
+  const Layer = document.getElementById('Layer');
+  const Broiler = document.getElementById('Broiler');
+  
+
+  // Hide all forms by default
+  Layer.style.display = 'none';
+  Broiler.style.display = 'none';
+
+
+  // When the user selects a form, show that form
+  formSelector.addEventListener('change', function() {
+    const selectedForm = this.value;
+    if (selectedForm === 'Layer') {
+      Layer.style.display = 'block';
+      Broiler.style.display = 'none';
+      
+    } else if (selectedForm === 'Broiler') {
+      Layer.style.display = 'none';
+      Broiler.style.display = 'block';
+      
+    }
+  });
+</script>
+
+
+
+
 </section>
 </section>
 		
