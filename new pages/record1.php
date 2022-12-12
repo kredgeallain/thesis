@@ -127,28 +127,42 @@
 
 
         </section>
-        <?php	if(isset($_POST['submit'])){ 
 
-$name = mysqli_real_escape_string($data, $_POST['name']);
-$username = mysqli_real_escape_string($data, $_POST['username']);
+        	<?php
 
+   
+        if(isset($_POST['submit'])){
 
-$insert = "INSERT INTO user(name, username) VALUES('$name','$username')";
-mysqli_query($data, $insert);
+            $batchID = $_POST['batchID'];
+            $date = $_POST['date'];
+            $no_eggs = $_POST['no-eggs'];
+            $rej_eggs = $_POST['rej-eggs'];
+            $Lcurrent = $_POST['Lcurrent'];
+            $mortality = $_POST['mortality'];
 
+            $insert = " INSERT INTO `layer`(`layerID`, `batchID`, `no_eggs`, `reject_eggs`, `Lcurrent`, `mortality`, `date`) 
+                VALUES ('','$batchID','$no_eggs','$rej_eggs','$Lcurrent','$mortality','$date') ";
+                mysqli_query($data, $insert);
+                sleep(1);
+    }elseif(isset($_POST['submit1'])){
 
-if(isset($_POST['submit1'])){ 
+        $batchID = $_POST['batchID'];
+        $date = $_POST['date'];
+        $broiler_weight = $_POST['weight'];
+        $Bcurrent = $_POST['current'];
+        $mortality = $_POST['mortality'];
 
-	$name = mysqli_real_escape_string($data, $_POST['name']);
-	$username = mysqli_real_escape_string($data, $_POST['username']);
-	
-	
-	$insert = "INSERT INTO user(name, username) VALUES('$name','$username')";
-	mysqli_query($data, $insert);
-	
-	}
+        $insert = " INSERT INTO `broiler`(`broilerID`, `batchID`, `broiler_weight`, `Bcurrent`, `mortality`, `date`) 
+        VALUES ('','$batchID','$broiler_weight','$Bcurrent','$mortality','$date')";
+            mysqli_query($data, $insert);
+            sleep(1);
+            
 }
+
+        
+
 ?>
+
         <div id="record">
 
             <?php	//$batchID= $_POST['batch_data']; 
@@ -219,15 +233,6 @@ if(isset($_POST['submit1'])){
 
         });
         </script>
-
-
-
-
-
-
-
-
-
 
 
         <!--

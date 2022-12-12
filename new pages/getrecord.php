@@ -17,25 +17,43 @@ $row=mysqli_fetch_array($q);
 
 if($row["unit"]=="layer")
 { echo '
-<form method="post" action="record1.php">
+<form method="post" action="record1.php" id="form1">
 
-    <div class="form-floating mb-3">
-        <input type="text" class="form-control" name="name" id="name" placeholder="Name" required="true">
-        <label for="floatingInput">Firstname/ M.I / Lastname </label>
-    </div>
+<div class="date">
 
+<label for=""> Date: </label>
+<input type="date" name="date" id="date">
 
+</div>
 
-    <div class="form-floating mb-3">
-        <input type="username" class="form-control" name="username" id="username" placeholder="username"
-            required="true">
-        <label for="floatingInput">Username</label>
-    </div>
-    <input type="" name="batchID" value='. $batchID .'/> 
+<section class="layer">
+<div class="no-eggs">
+    <label for="no-eggs"> Number of Eggs: </label>
+    <input type="number" name="no-eggs" id="no-eggs">
+</div>
+
+<div class="rej-eggs">
+    <label for="rej-eggs"> Reject Eggs: </label>
+    <input type="number" name="rej-eggs" id="rej-eggs">
+</div>
+</section>
+
+<section class="broiler">
+<div class="Bcurrent">
+    <label for=""> Current: </label>
+    <input type="number" name="Lcurrent" id="Lcurrent">
+</div>
+
+<div class="mortality">
+    <label for="dead"> Mortality: </label>
+    <input type="number" name="mortality" id="mortality">
+</div>
+</section>
+    <input type="" name="batchID" value='. $batchID .'> 
 
     <div class="submit">
-
-        <button class="btn" type="submit" name="submit" id="submit"> Add User</button>
+        
+        <button class="btn" type="submit" name="submit" id="submit" value=""> Add User</button>
 
     </div>
 
@@ -48,20 +66,31 @@ if($row["unit"]=="layer")
 else {
  
    echo '
-    <form method="post" action="record1.php">
+    <form method="post" action="record1.php" id="form2">
     
-        <div class="form-floating mb-3">
-            <input type="text" class="form-control" name="name" id="name" placeholder="Na23345e" required="true">
-            <label for="floatingInput">wadwdawd </label>
-        </div>
-    
-    
-    
-        <div class="form-floating mb-3">
-            <input type="username" class="form-control" name="username" id="username" placeholder="username"
-                required="true">
-            <label for="floatingInput">Username</label>
-        </div>
+    <div class="date">
+    <label for=""> Date: </label>
+    <input type="date" name="date" id="date">
+</div>
+
+<section class="weight">
+    <div class="weight">
+        <label for=""> Meat in Kg: </label>
+        <input type="kilo" name="weight" id="weight">
+    </div>
+</section>
+
+<section class="current">
+    <div class="current">
+        <label for=""> Current: </label>
+        <input type="number" name="current" id="current">
+    </div>
+
+    <div class="mortality">
+        <label for="dead"> Mortality: </label>
+        <input type="number" name="mortality" id="mortality">
+    </div>
+</section>
         <input type="" name="batchID" value='. $batchID .'/> 
    
     
