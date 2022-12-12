@@ -63,16 +63,21 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
         <div class="text2">
             <p><b>Add Batch</b></p>
         </div>
-
+        <div class="input-wrapper">
         <div class="inputUser">
-            <p>farmID</p>
+            <p>farm ID</p>
             <input type="text" name="farmID" placeholder="Farmowner" id="farmowner" value="<?php echo $farmID; ?>"
                 required>
         </div>
 
         <div class="inputUser">
             <p>Unit</p>
-            <input type="text" name="unit" placeholder="Unit" id="farmname" value="" required>
+            <select type="text" name="unit" placeholder="Unit" id="farmname" value="" required>
+                <option>Select Unit</option>
+                <option>Layer</option>
+                <option>Broiler</option>
+
+            </select>
         </div>
 
         <div class="input">
@@ -86,7 +91,9 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
         </div>
         <div class="inputUser">
             <p> Initial </p>
-            <input type="text" name="initial" placeholder="Initial" id="contactno" value="" required>
+            <input type="number" name="initial" placeholder="Initial" id="contactno" value="" required>
+        </div>
+
         </div>
 
         <div class="submit">
@@ -122,9 +129,8 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 }
 
 .input {
-    margin-left: 10px;
     display: flex;
-    justify-content: center;
+ 
 }
 
 .input p {
@@ -132,9 +138,9 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 }
 
 .inputUser {
-    margin-left: -20px;
+
     display: flex;
-    justify-content: center;
+    
 }
 
 .inputUser p {
@@ -142,9 +148,9 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 }
 
 .input2 {
-    margin-right: 47px;
+   
     display: flex;
-    justify-content: center;
+   
 }
 
 .input2 p {
@@ -152,9 +158,9 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 }
 
 .input3 {
-    margin-right: 15px;
+   
     display: flex;
-    justify-content: center;
+  
 }
 
 .input3 p {
@@ -162,9 +168,9 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 }
 
 .input4 {
-    margin-right: 20px;
+   
     display: flex;
-    justify-content: center;
+
 }
 
 .input4 p {
@@ -184,11 +190,11 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
     color: white;
     font-size: 16px;
     margin: auto;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 input[type=submit] {
-    border-radius: 20px;
+    border-radius: 10px;
     background-color: #0e2a83;
     border: none;
     color: white;
@@ -200,7 +206,7 @@ input[type=submit] {
 
 input {
     color: black;
-    border-radius: 20px;
+    border-radius: 10px;
     padding: 10px;
     margin: 30px;
     margin-left: 10px;
@@ -255,6 +261,11 @@ li {
 
 .side-menu img {
     margin-left: -165px;
+}
+
+.input-wrapper{
+    display:grid;
+    justify-content:center;
 }
 </style>
 </body>
