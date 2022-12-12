@@ -14,18 +14,7 @@
     <div class="container text-center" action="#" method="POST">
 
         <div class="row">
-            <div class="col-sm-8">
 
-              <div class="title">
-                <h2>Inventory and Recording System for Poultry Production</h2>
-              </div>
-            
-              <div class="background">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Department_of_Agriculture_of_the_Philippines.svg/640px-Department_of_Agriculture_of_the_Philippines.svg.png" class="img-fluid" alt="..." width="200">
-              </div>
-         
-
-            </div>
 
 
           <div class="col-sm-4">
@@ -59,6 +48,25 @@
                   </div>
             </div>
           </div>
+
+            <div class="col-sm-8">
+              <div class="animated-text">
+              <h2 class="typing-text">Monitoring ○ Recording ○ Mapping</h2>
+            </div>
+                <div class="system-title">
+              <div class="title">
+                <h2>Inventory and Recording System for Poultry Production</h2>
+              </div>
+            
+              <div class="background">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Department_of_Agriculture_of_the_Philippines.svg/640px-Department_of_Agriculture_of_the_Philippines.svg.png" class="img-fluid" alt="..." width="200">
+              </div>
+            </div>
+         
+
+            </div>
+
+
         </div> 
         </div>
 </Section>
@@ -146,7 +154,7 @@ input{
 
 
 .col-sm-8{
-  display: flex;
+  display: grid;
   align-items: center;
   justify-content: flex-start;
   background-image: url("../image/windmill.jpg");;
@@ -188,6 +196,23 @@ h1{
   margin:20px;
 }
 
+.system-title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.animated-text{
+  margin-bottom: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.animated-text h2{
+  color:darkblue;
+  font-weight: bold;
+}
+
 @media screen and (min-width: 1024px){
 
   body{
@@ -201,17 +226,36 @@ h1{
   
     .col-sm-8{
       margin-top: 100px;
-      margin-right: 100px;
-      margin-left: -100px;
+      margin-left: 100px;
+      margin-right: -100px;
       margin-bottom: -100px;
     }
 
     .col-sm-4{
       margin-top: 100px;
-
-
       margin-bottom: -100px;
     }
+
+    .animated-text{
+      margin-bottom: -50;
+}
+
+.system-title{
+  margin-top: -200px;
+}
+
+}
+
+@media screen and (min-width: 479px){
+
+  .col-sm-8{
+      padding: 100px;
+    }
+
+    .col-sm-4{
+     
+    }
+
 }
 
 .showpass{
@@ -224,6 +268,22 @@ h1{
 .checkbox{
   margin-right: 10px;
 }
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.typing-text {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 3s infinite;
+}
+
 </style>
 </body>
 </html>
