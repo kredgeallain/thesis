@@ -218,6 +218,7 @@ if ($result = $mysqli->query($query)){
         .addbatch-button button{
             border:none;
             background-color:darkgreen;
+            
         }
 
         .addbatch-button button:hover{
