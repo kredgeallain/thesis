@@ -44,6 +44,12 @@
                   <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" required>
                   <label for="floatingPassword">Password</label>
                 </div>
+                <div class="showpass">
+                  <div class="checkbox">
+                  <input type="checkbox" id="show-password">
+                </div>
+                  <label for="show-password">Show password</label>
+                  </div>
                 <a href="">Forgot password?</a>
                 <div class="login-button">
                 <div class="d-grid gap-2">
@@ -58,9 +64,20 @@
 </Section>
 
 
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
  
+<script>
+
+const passwordInput = document.querySelector('input[type="password"]');
+const showPasswordCheckbox = document.querySelector('input[type="checkbox"]');
+
+showPasswordCheckbox.addEventListener('change', function() {
+  passwordInput.type = this.checked ? 'text' : 'password';
+});
+
+
+</script>
+</script>
 
 <!--style-->
 <style type="text/css">
@@ -76,7 +93,7 @@
 
 .wrapper{
   margin-top: 20px;
-  justify-content: space-evenly !important;
+justify-content: space-around;
   display:flex !important;
   align-items: center !important;
   align-content: center !important;
@@ -85,7 +102,7 @@
 }
 .row{
   display: flex;
-  align-items: space-evenly;
+  align-items: space-around;
 align-content: center;
 }
 
@@ -102,6 +119,7 @@ align-content: center;
 }
 
 .login-form{
+  background-color: #f4f4ec;
   box-shadow:2px 2px 12px 1px grey;
   border-radius:10px;
   border:1px solid grey;
@@ -170,7 +188,42 @@ h1{
   margin:20px;
 }
 
+@media screen and (min-width: 1024px){
 
+  body{
+    background-image: url(../image/windmill2.jpg);
+    background-repeat: auto;
+  background-position: auto;
+  background-size: cover;
+
+
+  }
+  
+    .col-sm-8{
+      margin-top: 100px;
+      margin-right: 100px;
+      margin-left: -100px;
+      margin-bottom: -100px;
+    }
+
+    .col-sm-4{
+      margin-top: 100px;
+
+
+      margin-bottom: -100px;
+    }
+}
+
+.showpass{
+  display: flex;
+  margin-top: 20px;
+  margin-left: 5px;
+  justify-content: flex-start;
+}
+
+.checkbox{
+  margin-right: 10px;
+}
 </style>
 </body>
 </html>
