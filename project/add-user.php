@@ -210,7 +210,16 @@ if(isset($_POST['submit'])){
           display: flex;
           justify-content: center;
         }
+        .submit button{
+          color:white;
+          background-color: darkblue;
+          border:none;
+        }
 
+        .submit button:hover{
+          color:white;
+          background-color: blue;
+        }
 
         input[type=submit] {
           border-radius: 20px;
