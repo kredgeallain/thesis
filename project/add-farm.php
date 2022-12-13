@@ -77,7 +77,13 @@ if(isset($_POST['submit'])){
 
 <section class="form">
     <form action="#" method="post">
+
+    <div class="form-title">
         <h2>Poultry Farm Registration Form</h2>
+    </div>
+
+
+
         <?php
 
 			  if(isset($_GET['add'])){
@@ -96,41 +102,90 @@ if(isset($_POST['submit'])){
 			 };
     	?>
         <form action="#" method="POST">
+
+        
             <div class="form-body">
                 <!--Form-->
-
+             <div class="inputs">
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="farmname" name="farmname" placeholder="name@example.com"
+                    <input type="text" class="form-control" id="farmname" name="farmname" placeholder="farm Name"
                         required="true">
                     <label for="floatingInput" required="true">Farm Name</label>
                 </div>
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" name="farmowner" id="farmowner"
-                        placeholder="name@example.com" required="true">
+                        placeholder="Farm Owner" required="true">
                     <label for="floatingInput" required="true">Farm Owner</label>
                 </div>
                 <select class="form-select" name="baranggayID" aria-label="Default select example" required="true">
                     <option disabled selected>Barangay</option>
                     <?php echo $bfetch; ?>
+                    <option disabled >Add Barangay if your Barangay don't exist!</option>
                 </select>
+               
+   <div class="add-brgy-button">
+   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 20 20">
+  <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"/>
+</svg>Add Barangay</button>
+    </div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered ">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Add Barangay</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+      <div class="input-group flex-nowrap">
+  <span class="input-group-text" id="addon-wrapping">Barangay</span>
+  <input type="text" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="addon-wrapping">
+</div>
+
+   
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary">Add</button>
+      </div>
+    </div>
+  </div>
+</div>  
+
+   </div>
+
+
                 <div class="form-floating mb-3">
                     <input type="contact" class="form-control" name="contactno" id="contactno"
-                        placeholder="name@example.com" required="true">
+                        placeholder="Contact No." required="true">
                     <label for="floatingInput" required="true" d>Contact No.</label>
                 </div>
+            </div>
                 <!--Add batch-->
                 <p>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#staticBackdrop">
+                 
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" id="addbatch-button"
+                        data-bs-target="#staticBackdrop"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 20 20">
+  <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+  <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+</svg>
                         Add Batch
                     </button>
+                    
                     <!--farm location-->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#staticBackdrop1">
+                    
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" id="farmlocation-button"
+                        data-bs-target="#staticBackdrop1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pin-map" viewBox="0 0 20 20">
+  <path fill-rule="evenodd" d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8l3-4z"/>
+  <path fill-rule="evenodd" d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"/>
+</svg>
                         Farm Location
                     </button>
+                   
                 <div class="submit">
-                    <input type="submit" class="btn btn-primary" name="submit" value="Add Farm" id="submit">
+                    <input type="submit" class="btn btn-primary" name="submit" value="Register" id="submit">
                 </div>
                 </p>
 
@@ -152,7 +207,7 @@ if(isset($_POST['submit'])){
 
                                     <div class="form-floating mb-3">
                                         <input type="text" class="form-control" id="batch" name="batch"
-                                            placeholder="name@example.com" required="true">
+                                            placeholder="Batch Name" required="true">
                                         <label for="floatingInput">Batch Name</label>
                                     </div>
                                     <select class="form-select form-select-sm" name="unit"
@@ -163,7 +218,7 @@ if(isset($_POST['submit'])){
                                     </select>
                                     <div class="form-floating mb-3">
                                         <input type="number" class="form-control" id="intial" name="initial"
-                                            placeholder="name@example.com" required="true">
+                                            placeholder="Initial Number" required="true">
                                         <label for="floatingInput">Initial Number</label>
                                     </div>
                                 </div>
@@ -194,12 +249,12 @@ if(isset($_POST['submit'])){
                                 <div class="card card-body">
                                     <div class="form-floating mb-3">
                                         <input type="text" disabled class="form-control" id="latclicked" name="latclicked"
-                                            placeholder="name@example.com" required="true">
+                                            placeholder="" required="true">
                                         <label for="floatingInput">Latitude</label>
                                     </div>
                                     <div class="form-floating mb-3">
                                         <input type="text" disabled class="form-control" id="longclicked" name="longclicked"
-                                            placeholder="name@example.com" required="true">
+                                            placeholder="" required="true">
                                         <label for="floatingInput">Longitude</label>
                                     </div>
 
@@ -266,8 +321,9 @@ if(isset($_POST['submit'])){
                         </div>
                     </div>
                 </div>
+                                </div>
 
-
+              
 
 </section>
 
@@ -285,13 +341,16 @@ if(isset($_POST['submit'])){
     display: grid !important;
     justify-content: center !important;
     align-items: center !important;
-    margin-top: 80px !important;
-    margin-bottom: 80px;
+    margin-top: 20px !important;
+    margin-bottom: 20px;
+    background-color: #f9faff;
+    box-shadow: 2px 2px 2px 2px grey;
+    border-radius: 10px;
+    padding: 20px 0 20px 0 !important;
 
 }
 
-.form h2 {
-    padding-left: 80px;
+.form-title h2 {
     margin-bottom: 40px;
     font-weight: bold;
 }
@@ -325,22 +384,77 @@ input {
     padding-right: 10px !important;
 }
 
-.form-body {
-    background-color: #f9faff;
-    box-shadow: 2px 2px 2px 2px grey;
-    border-radius: 10px;
-    padding: 30px 50px 50px 50px !important;
-}
 
 .form-body h2 {
     margin-bottom: 35px;
 }
 
-select,
-input {
-    margin-bottom: 20px !important;
+
+.add-brgy-button{
+display:flex;
+justify-content:flex-start;
+}
+
+.add-brgy-button button{
+    border:none;
+    background-color:#00b7EB;
+}
+
+.add-brgy-button button:hover{
+    border:none;
+    background-color:#007FFF;
+}
+form{
+    display:grid;
+}
+
+.form-body{
+    display:grid;
+    align-content:center;
+    align-items:center;
+}
+
+.form-body p{
+    display:grid;
+}
+
+.submit{
+    display:grid;
+    justify-content:center;
+}
+
+.submit input{
+    border:none;
+    background-color:darkblue;
+    color:white;
+}
+.submit input:hover{
+    border:none;
+    background-color:blue;
+    color:white;
+}
+
+#addbatch-button{
+    background-color:green;
+}
+
+#addbatch-button:hover{
+    background-color:darkgreen;
+}
+
+#farmlocation-button{
+    border:none;
+    background-color:#0047AB;
+}
+
+#farmlocation-button:hover{
+    border:none;
+    background-color:#0067A5;
 }
 </style>
+
+
+
 
 </body>
 

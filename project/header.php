@@ -326,7 +326,11 @@
         padding-left: 10px;
         padding-top: 20px;
     }
+
+
     </style>
+
+
 </head>
 
 <body>
@@ -451,3 +455,5 @@
                     </svg>Log out</a>
             </div>
         </div>
+
+        
