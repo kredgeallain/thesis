@@ -74,11 +74,11 @@ if(isset($_POST['submit'])){
 
 <?php include ("header.php");  ?>
 
-	
-	<section class = "form">
-	<form action="#" method="post">
-		<h2>Poultry Farm Registration Form</h2>
-		<?php
+
+<section class="form">
+    <form action="#" method="post">
+        <h2>Poultry Farm Registration Form</h2>
+        <?php
 
 			  if(isset($_GET['add'])){
 					$add = $_GET['add'];
@@ -95,213 +95,253 @@ if(isset($_POST['submit'])){
 				
 			 };
     	?>
-<form action="#" method="POST">
-		 <div class="form-body">
-<!--Form-->
-			
-			<div class="form-floating mb-3">
-				<input type="text" class="form-control" id="farmname" name="farmname" placeholder="name@example.com" required="true" >
-				<label for="floatingInput" required="true">Farm Name</label>
-			  </div>
-			  <div class="form-floating mb-3">
-				<input type="text" class="form-control" name="farmowner" id="farmowner" placeholder="name@example.com" required="true">
-				<label for="floatingInput" required="true">Farm Owner</label>
-			  </div>
-			  <select class="form-select" name="baranggayID" aria-label="Default select example" required="true">
-				<option disabled selected>Barangay</option>
-					<?php echo $bfetch; ?>
-			  </select>
-			  <div class="form-floating mb-3">
-				<input type="contact" class="form-control" name="contactno" id="contactno" placeholder="name@example.com" required="true">
-				<label for="floatingInput" required="true"d>Contact No.</label>
-			  </div>
-<!--Add batch-->
-			  <p>
-				<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-					Add Batch
-				  </button>
-<!--farm location-->				  
-				  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
-					Farm Location
-				  </button>
-				  <div class="submit">
-			<input type="submit" class="btn btn-primary" name="submit" value="Add Farm" id="submit">
-		</div>
-			  </p>
-			  
-			  <!--AddBatch Modal -->
-			  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-				<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-				  <div class="modal-content">
-					<div class="modal-header">
-					  <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Batch</h1>
-					  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-					</div>
-					<div class="modal-body">
-		  <!--modal content-->
-		  <div class="card card-body">
-			<input type="date" class="form-control" id="date" name="date" aria-describedby="emailHelp" required="true">
+        <form action="#" method="POST">
+            <div class="form-body">
+                <!--Form-->
 
-			 <div class="form-floating mb-3">
-			   <input type="text" class="form-control" id="batch" name="batch" placeholder="name@example.com" required="true">
-			   <label for="floatingInput">Batch Name</label>
-			 </div>
-			 <select class="form-select form-select-sm" name="unit" aria-label=".form-select-sm example">
-			   <option disable selected>Select Farm Unit</option>
-			   <option value="layer">Layer</option>
-			   <option value="broiler">Broiler</option>
-			 </select>
-			 <div class="form-floating mb-3">
-				<input type="number" class="form-control" id="intial" name="initial" placeholder="name@example.com" required="true">
-				<label for="floatingInput">Initial Number</label>
-			  </div>
-	   </div>
-					<div class="modal-footer">
-					  <button type="button" class="btn btn-primary"  data-bs-dismiss="modal">Save</button>
-					</div>
-				  </div>
-				</div>
-			  </div>
-		 </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="farmname" name="farmname" placeholder="name@example.com"
+                        required="true">
+                    <label for="floatingInput" required="true">Farm Name</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" name="farmowner" id="farmowner"
+                        placeholder="name@example.com" required="true">
+                    <label for="floatingInput" required="true">Farm Owner</label>
+                </div>
+                <select class="form-select" name="baranggayID" aria-label="Default select example" required="true">
+                    <option disabled selected>Barangay</option>
+                    <?php echo $bfetch; ?>
+                </select>
+                <div class="form-floating mb-3">
+                    <input type="contact" class="form-control" name="contactno" id="contactno"
+                        placeholder="name@example.com" required="true">
+                    <label for="floatingInput" required="true" d>Contact No.</label>
+                </div>
+                <!--Add batch-->
+                <p>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
+                        Add Batch
+                    </button>
+                    <!--farm location-->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop1">
+                        Farm Location
+                    </button>
+                <div class="submit">
+                    <input type="submit" class="btn btn-primary" name="submit" value="Add Farm" id="submit">
+                </div>
+                </p>
 
+                <!--AddBatch Modal -->
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Batch</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <!--modal content-->
+                                <div class="card card-body">
+                                    <input type="date" class="form-control" id="date" name="date"
+                                        aria-describedby="emailHelp" required="true">
 
-
-
-
-		   <!--plot map Modal -->
-		   <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-				<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-				  <div class="modal-content">
-					<div class="modal-header">
-					  <h1 class="modal-title fs-5" id="staticBackdropLabel">Farm Location</h1>
-					  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-					</div>
-					<div class="modal-body">
-		  <!--mapmodal content-->
-		  <div class="card card-body">
-				<div class="form-floating mb-3">
-						<input type="text" class="form-control" id="latclicked" name="latclicked" placeholder="name@example.com" required="true" >
-						<label for="floatingInput">Latitude</label>
-				</div>
-				<div class="form-floating mb-3">
-					<input type="text" class="form-control" id="longclicked" name="longclicked" placeholder="name@example.com" required="true" >
-					<label for="floatingInput">Longitude</label>
-				</div>
-				
-			<div id="map"></div>
-
-	<!-- map script-->			
-				<script type="text/javascript">
-					
-		var map;
-		
-		function initMap() {							
-			var latitude = 10.574276; 
-			var longitude = 122.682664; 
-			
-			var myLatLng = {lat: latitude, lng: longitude};
-			
-			map = new google.maps.Map(document.getElementById('map'), {
-			  center: myLatLng,
-			  zoom: 13,
-			  disableDoubleClickZoom: true, 
-			});
-			
-
-			google.maps.event.addListener(map,'click',function(event) {				
-                document.getElementById('latclicked').value = event.latLng.lat();
-                document.getElementById('longclicked').value=  event.latLng.lng();
-            });
-
-		}
-		
-		</script>
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBS3QyfqjMn4BsynGlJyfOuFgL0MlcbsrM&callback=initMap"
-		async defer></script>
-			
-
-	   </div>
-					<div class="modal-footer">
-					  <button type="button" class="btn btn-primary"  data-bs-dismiss="modal">Save</button>
-					</div>
-				  </div>
-				</div>
-			  </div>
-		 </div>
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="batch" name="batch"
+                                            placeholder="name@example.com" required="true">
+                                        <label for="floatingInput">Batch Name</label>
+                                    </div>
+                                    <select class="form-select form-select-sm" name="unit"
+                                        aria-label=".form-select-sm example">
+                                        <option disable selected>Select Farm Unit</option>
+                                        <option value="layer">Layer</option>
+                                        <option value="broiler">Broiler</option>
+                                    </select>
+                                    <div class="form-floating mb-3">
+                                        <input type="number" class="form-control" id="intial" name="initial"
+                                            placeholder="name@example.com" required="true">
+                                        <label for="floatingInput">Initial Number</label>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
 
-	</section>
 
 
-	<!--style-->
+                <!--plot map Modal -->
+                <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Farm Location</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <!--mapmodal content-->
+                                <div class="card card-body">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" disabled class="form-control" id="latclicked" name="latclicked"
+                                            placeholder="name@example.com" required="true">
+                                        <label for="floatingInput">Latitude</label>
+                                    </div>
+                                    <div class="form-floating mb-3">
+                                        <input type="text" disabled class="form-control" id="longclicked" name="longclicked"
+                                            placeholder="name@example.com" required="true">
+                                        <label for="floatingInput">Longitude</label>
+                                    </div>
 
-	<style type="text/css">
-	  
-		  #map { 
-			height: 300px;	
-			width: 420px;			
-		  }		  
-	
-	
-.form{
-	display: grid !important;
-	justify-content: center !important;
-	align-items: center !important;
-	margin-top: 80px !important;
-	margin-bottom: 80px;
+                                    <div id="map"></div>
+
+                                    <!-- map script-->
+                                    <script type="text/javascript">
+                                    var map;
+
+                                    function initMap() {
+                                        var latitude = 10.574276;
+                                        var longitude = 122.682664;
+
+                                        var myLatLng = {
+                                            lat: latitude,
+                                            lng: longitude
+                                        };
+
+                                        map = new google.maps.Map(document.getElementById('map'), {
+                                            center: myLatLng,
+                                            zoom: 13,
+                                            disableDoubleClickZoom: true,
+                                        });
+
+
+                                        google.maps.event.addListener(map, 'click', function(event) {
+                                            document.getElementById('latclicked').value = event.latLng.lat();
+                                            document.getElementById('longclicked').value = event.latLng.lng();
+                                        });
+
+                                        var marker = new google.maps.Marker({
+                                            position: myLatLng,
+                                            map: map,
+                                        });
+
+                                        google.maps.event.addListener(map, 'click', function(event) {
+
+                                            marker.setMap(null);
+
+
+                                            var newMarker = new google.maps.Marker({
+                                                position: event.latLng,
+                                                map: map
+
+                                            });
+
+
+                                            marker = newMarker;
+
+                                        });
+
+                                    }
+                                    </script>
+                                    <script
+                                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBS3QyfqjMn4BsynGlJyfOuFgL0MlcbsrM&callback=initMap"
+                                        async defer></script>
+
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+</section>
+
+
+<!--style-->
+
+<style type="text/css">
+#map {
+    height: 300px;
+    width: 420px;
+}
+
+
+.form {
+    display: grid !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin-top: 80px !important;
+    margin-bottom: 80px;
 
 }
 
-.form h2{
-	padding-left: 80px;
-	margin-bottom: 40px;
-	font-weight: bold;
+.form h2 {
+    padding-left: 80px;
+    margin-bottom: 40px;
+    font-weight: bold;
 }
 
-.sec1{
-	padding-top: 20px;
-	height: 100%;
-	width: 30%;
-	background-color: #f9faff;
-	box-shadow: 2px 2px 2px 2px grey;
-}
-.btn1 button{
-	font-weight: bolder;
-	margin-top: 30px;
-	margin-left: 10%;
-	margin-bottom: 40px;
-	background-color: #04AA6D;
-	border: 2px solid black;
-	color: black;
-	padding: 10px 24 px ;
-	cursor: pointer;
-	width: 80%;
-	padding-top: 10px;
-	padding-bottom: 10px;border-radius: 10px;
+.sec1 {
+    padding-top: 20px;
+    height: 100%;
+    width: 30%;
+    background-color: #f9faff;
+    box-shadow: 2px 2px 2px 2px grey;
 }
 
-input{
-	padding-left: 10px !important;
-	padding-right: 10px !important;
+.btn1 button {
+    font-weight: bolder;
+    margin-top: 30px;
+    margin-left: 10%;
+    margin-bottom: 40px;
+    background-color: #04AA6D;
+    border: 2px solid black;
+    color: black;
+    padding: 10px 24 px;
+    cursor: pointer;
+    width: 80%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
 }
 
-.form-body{
-	background-color: #f9faff;
-	box-shadow: 2px 2px 2px 2px grey;
-	border-radius: 10px;
-	padding: 30px 50px 50px 50px !important;
+input {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
 }
 
-.form-body h2{
-	margin-bottom: 35px;
+.form-body {
+    background-color: #f9faff;
+    box-shadow: 2px 2px 2px 2px grey;
+    border-radius: 10px;
+    padding: 30px 50px 50px 50px !important;
 }
 
-select, input{
-	margin-bottom: 20px !important;
+.form-body h2 {
+    margin-bottom: 35px;
 }
 
+select,
+input {
+    margin-bottom: 20px !important;
+}
 </style>
 
 </body>
+
 </html>
