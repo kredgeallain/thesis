@@ -9,6 +9,7 @@ $mysqli = new mysqli("localhost", $username, $password, $database);
 
 <?php include ("header.php");  ?>
 
+<<<<<<< Updated upstream
 <div class="wrapper">
 
 <section class="view-user">
@@ -16,11 +17,16 @@ $mysqli = new mysqli("localhost", $username, $password, $database);
   <path d="M5.793 1a1 1 0 0 1 1.414 0l.647.646a.5.5 0 1 1-.708.708L6.5 1.707 2 6.207V12.5a.5.5 0 0 0 .5.5.5.5 0 0 1 0 1A1.5 1.5 0 0 1 1 12.5V7.207l-.146.147a.5.5 0 0 1-.708-.708L5.793 1Zm3 1a1 1 0 0 1 1.414 0L12 3.793V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v3.293l1.854 1.853a.5.5 0 0 1-.708.708L15 8.207V13.5a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 4 13.5V8.207l-.146.147a.5.5 0 1 1-.708-.708L8.793 2Zm.707.707L5 7.207V13.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5V7.207l-4.5-4.5Z"/>
 </svg>Farm Details</h2>
     </section>
+=======
+<section class="view-farm">
+    <h2> Farm Details</h2>
+</section>
+>>>>>>> Stashed changes
 
-    <section class="view">
+<section class="view">
 
 
-<?php
+    <?php
     
 $query = "SELECT * FROM farm";
 
@@ -65,10 +71,18 @@ if ($result = $mysqli->query($query)){
                 echo '<td > 
                 <div class="addbatch-button">
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal" >
+<<<<<<< Updated upstream
                    <a href= "add-batch.php?farmID='.$row['farmID'].'"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 20 20">
+=======
+<<<<<<< Updated upstream
+                   <a href= "update-farm.php?farmID='.$row['farmID'].'"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 20 20">
+>>>>>>> Stashed changes
                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
                  </svg> Add Batch </a>
+=======
+                   <a href= "add-batch.php?farmID='.$row['farmID'].'"> Add Batch </a>
+>>>>>>> Stashed changes
                 </button>
                 </div>
                  </td>';
@@ -123,9 +137,10 @@ if ($result = $mysqli->query($query)){
 
 ?>
 
-    </section>
+</section>
 
 
+<<<<<<< Updated upstream
     <div class="add">
         <div class="add-user-page">
             <a href="add-user.php"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 20 20">
@@ -228,6 +243,72 @@ if ($result = $mysqli->query($query)){
         }
 
         </style>
+=======
+<div class="add">
+    <div class="add-user-page">
+        <a href="add-user.php">Add User</a>
+    </div>
+</div>
+
+<!--style-->
+
+<style type="text/css">
+.view {
+    padding: 10px;
+    border: 1px solid #0e2a83;
+    margin: 20px;
+}
+
+.view-farm {
+    display: flex;
+    margin: 20px 10px 5px 20px;
+    justify-content: center;
+}
+
+.view-farm h2 {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.add {
+
+    display: flex;
+    justify-content: flex-end;
+}
+
+.add-user-page {
+    background-color: #0d6efd;
+    padding: 10px 40px 10px 40px;
+    margin-top: 30px;
+    margin-right: 100px;
+    border-radius: 5px;
+}
+
+.add-user-page a {
+    text-decoration: none;
+    color: white;
+}
+
+.add-user-page a:hover {
+    color: #00cc00;
+}
+
+tr td button a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    color: red;
+
+}
+
+tr:hover {
+    background-color: #b0b4b2;
+
+}
+</style>
+>>>>>>> Stashed changes
 </body>
 
 </html>
