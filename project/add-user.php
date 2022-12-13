@@ -124,7 +124,9 @@ if(isset($_POST['submit'])){
                           <label for="floatingPassword">Password</label>
                           </div>
                           <div class="showpass">
+                            <div class="showpass-checkbox">
                           <input type="checkbox" id="show-password">
+                            </div>
                           <label for="show-password">Show password</label>
                           </div>
 
@@ -245,6 +247,10 @@ if(isset($_POST['submit'])){
           display:flex;
           justify-content:flex-start;
           margin-bottom:20px;
+        }
+
+        .showpass-checkbox input{
+          margin-right:10px;
         }
 
         </style>

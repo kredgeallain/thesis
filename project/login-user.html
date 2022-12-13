@@ -17,53 +17,60 @@
 
 
 
-          <div class="col-sm-4">
-            <div class="login-form">
-
-                <div class="login-text">
-                    <h1><b>USER</b></h1>
-                    <h2>Login</h2> 
-                </div>
-
-                <div class="form-floating mb-3">
-                  <input type="username" class="form-control" id="floatingInput" placeholder="username" name="username" required>
-                  <label for="floatingInput">Username</label>
-                </div>
-                <div class="form-floating">
-                  <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" required>
-                  <label for="floatingPassword">Password</label>
-                </div>
-                <div class="showpass">
-                  <div class="checkbox">
-                  <input type="checkbox" id="show-password">
-                </div>
-                  <label for="show-password">Show password</label>
-                  </div>
-                <a href="">Forgot password?</a>
-                <div class="login-button">
-                <div class="d-grid gap-2">
-                 
-                    <button class="btn btn-primary" type="button" name="submit" value="Log in">Login</button> 
-                  </div>
-                  </div>
-            </div>
-          </div>
+          
 
             <div class="col-sm-8">
+
               <div class="animated-text">
               <h2 class="typing-text">Monitoring ○ Recording ○ Mapping</h2>
             </div>
+            <div class="wrapper-photo">
                 <div class="system-title">
               <div class="title">
                 <h2>Inventory and Recording System for Poultry Production</h2>
               </div>
+            </div>
             
               <div class="background">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Department_of_Agriculture_of_the_Philippines.svg/640px-Department_of_Agriculture_of_the_Philippines.svg.png" class="img-fluid" alt="..." width="200">
               </div>
             </div>
+          
          
 
+            </div>
+
+
+            <div class="col-sm-4">
+              <div class="login-form">
+  
+                  <div class="login-text">
+                      <h1><b>USER</b></h1>
+                      <h2>Login</h2> 
+                  </div>
+  
+                  <div class="form-floating mb-3">
+                    <input type="username" class="form-control" id="floatingInput" placeholder="username" name="username" required>
+                    <label for="floatingInput">Username</label>
+                  </div>
+                  <div class="form-floating">
+                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" required>
+                    <label for="floatingPassword">Password</label>
+                  </div>
+                  <div class="showpass">
+                    <div class="checkbox">
+                    <input type="checkbox" id="show-password">
+                  </div>
+                    <label for="show-password">Show password</label>
+                    </div>
+                  <a href="">Forgot password?</a>
+                  <div class="login-button">
+                  <div class="d-grid gap-2">
+                   
+                      <button class="btn btn-primary" type="button" name="submit" value="Log in">Login</button> 
+                    </div>
+                    </div>
+              </div>
             </div>
 
 
@@ -223,11 +230,13 @@ h1{
 
 
   }
+
+
   
     .col-sm-8{
       margin-top: 100px;
-      margin-left: 100px;
-      margin-right: -100px;
+      margin-left: -100px;
+      margin-right: 100px;
       margin-bottom: -100px;
     }
 
@@ -237,24 +246,12 @@ h1{
     }
 
     .animated-text{
-      margin-bottom: -50;
+      margin-bottom: -400px;
 }
 
 .system-title{
-  margin-top: -200px;
+  margin-top: -300px;
 }
-
-}
-
-@media screen and (min-width: 479px){
-
-  .col-sm-8{
-      padding: 100px;
-    }
-
-    .col-sm-4{
-     
-    }
 
 }
 
@@ -281,9 +278,13 @@ h1{
 .typing-text {
   overflow: hidden;
   white-space: nowrap;
-  animation: typing 3s infinite;
+  animation: typing 10s infinite;
 }
 
+.wrapper-photo{
+  display:flex;
+  justify-content: center;
+}
 </style>
 </body>
 </html>
