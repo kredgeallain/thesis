@@ -46,9 +46,9 @@ if(!isset($_SESSION['username'])){
                     <ul>
                         <li><a href="view-records.html"><img src="../image/view-data2.png" height="15%" width="15%">VIEW
                                 RECORDS</a></li>
-                        <li><a href="record.php"><img src="../image/edit-data2.png" height="15%" width="15%">ENCODE
+                        <li><a href="record1.php"><img src="../image/edit-data2.png" height="15%" width="15%">ENCODE
                                 DATA</a></li>
-                        <li><a href=""><img src="../image/generate-report.png" height="15%" width="15%">GENERATE
+                        <li><a href="mortality.php"><img src="../image/generate-report.png" height="15%" width="15%">GENERATE
                                 DATA</a></li>
                         <li><a href="search.html"><img src="../image/find-report.png" height="15%" width="15%">FIND
                                 RECORDS</a></li>

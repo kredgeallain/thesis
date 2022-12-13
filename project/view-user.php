@@ -27,8 +27,6 @@ $mysqli = new mysqli("localhost", $username, $password, $database);
 $query = "SELECT * FROM user";
 
 
-
-
 if ($result = $mysqli->query($query)){
 		echo "<table class='table table-striped'>
 			<thead>	  

@@ -34,7 +34,7 @@
 
         <section class="nav">
             <div class="home">
-                <a href="home-admin.html"><svg xmlns="http://www.w3.org/2000/svg" width="25" height=""
+                <a href="adminpage.php"><svg xmlns="http://www.w3.org/2000/svg" width="25" height=""
                         fill="currentColor" class="bi bi-house-fill" viewBox="0 0 20 16">
                         <path
                             d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z" />
@@ -45,7 +45,7 @@
                 <button class="dropbtn0"> Production </button>
                 <div class="dropdown-content0">
                     <a href=""> View Record</a>
-                    <a href="record.html"> Record Production</a>
+                    <a href="record1.php"> Record Production</a>
                     <a href="#"> Generate Report</a>
                     <a href="#"> Find Records </a>
                 </div>
@@ -54,8 +54,8 @@
             <div class="dropdown2">
                 <button class="dropbtn2"> Farm </button>
                 <div class="dropdown-content2">
-                    <a href="farm-detail.html"> View Farm</a>
-                    <a href="add-farm.html">Add Farm</a>
+                    <a href="farm-detail.php"> View Farm</a>
+                    <a href="add-farm.php">Add Farm</a>
                     <a href="map.html"> View farm Map</a>
                 </div>
             </div>
@@ -63,8 +63,8 @@
             <div class="dropdown3">
                 <button class="dropbtn3"> User </button>
                 <div class="dropdown-content3">
-                    <a href="add-user.html"> Add User</a>
-                    <a href="view-user.html"> View Users </a>
+                    <a href="add-user.php"> Add User</a>
+                    <a href="view-user.php"> View Users </a>
                 </div>
             </div>
 
@@ -78,7 +78,7 @@
                         <ul>
                             <li><a href="">Contact Us</a></li>
                             <li><a href="">Help</a></li>
-                            <li><a href="">Log out</a></li>
+                            <li><a href="logout.php">Log out</a></li>
                         </ul>
                     </div>
                 </details>
@@ -142,6 +142,9 @@
 
             $insert = " INSERT INTO `layer`(`layerID`, `batchID`, `no_eggs`, `reject_eggs`, `Lcurrent`, `mortality`, `date`) 
                 VALUES ('','$batchID','$no_eggs','$rej_eggs','$Lcurrent','$mortality','$date') ";
+
+                
+
                 mysqli_query($data, $insert);
                 sleep(1);
     }elseif(isset($_POST['submit1'])){

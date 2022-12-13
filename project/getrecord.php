@@ -53,7 +53,7 @@ if($row["unit"]=="layer")
 
     <div class="submit">
         
-        <button class="btn" type="submit" name="submit" id="submit" value=""> Add User</button>
+        <button class="btn" type="submit" name="submit" id="submit" value=""> Add Data </button>
 
     </div>
 
@@ -91,10 +91,10 @@ else {
         <input type="number" name="mortality" id="mortality">
     </div>
 </section>
-        <input type="" name="batchID" value='. $batchID .'/> 
+        <input type="" name="batchID" value='. $batchID .'> 
    
     
-            <button class="btn" type="submit" name="submit1" id="submit1"> Add User</button>
+            <button class="btn" type="submit" name="submit1" id="submit1"> Add Data</button>
     
 
     
