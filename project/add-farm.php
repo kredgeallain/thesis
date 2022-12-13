@@ -254,7 +254,7 @@ if(isset($_POST['submit'])){
                                     }
                                     </script>
                                     <script
-                                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBS3QyfqjMn4BsynGlJyfOuFgL0MlcbsrM&callback=initMap"
+                                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2_vL53nszxM8EsMd8rVkZRr4Fw9Va7sE&callback=initMap"
                                         async defer></script>
 
 
