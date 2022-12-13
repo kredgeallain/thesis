@@ -14,13 +14,15 @@ $mysqli = new mysqli("localhost", $username, $password, $database);
 
 
 <?php
-$L = "SELECT * FROM layer";
+
+$L = "SELECT * FROM layer  ORDER BY date" ;
 
 if ($result = $mysqli->query($L)){
+    echo '<label>Layer</label>';
     echo "<table class='table table-striped'>
         <thead>	  
         <tr>
-            
+            <th scope='col' id='count'>batchID</th>
             <th scope='col' id='count'>Lcurrent</th>
             <th scope='col' id='name'>Mortality</th>
             <th scope='col' id='u-name'>Mortality rate</th>
@@ -39,10 +41,8 @@ if ($result = $mysqli->query($L)){
 
         $mortality_rate = ($mortality / $Lcurrent) * 100;
        
-
-
         echo"<tr>";
-            
+            echo "<td >" .$row['batchID']. "</td>";
             echo "<td >" .$row['Lcurrent']. "</td>";
             echo "<td id='name'>" .$row['mortality']. "</td>";
             echo "<td>" . $mortality_rate .'%'. "</td>";
@@ -58,13 +58,11 @@ if ($result = $mysqli->query($L)){
 "</table>";
 
 ?>
-
-
-
 <?php
 $B = "SELECT * FROM broiler";
 
 if ($result = $mysqli->query($B)){
+    
     echo "<table class='table table-striped'>
         <thead>	  
         <tr>
@@ -99,6 +97,7 @@ if ($result = $mysqli->query($B)){
 
     }
 "</table>";
-
+echo '<label>Broiler</label>';
 ?>
+
 <br></br>

@@ -3,88 +3,15 @@
 		 $query = "SELECT * FROM baranggay "; 
  		$result = mysqli_query($conn,$query);	
  		?>
+<?php
+include('header.php');
+?>
 
-<!DOCTYPE html>
-<html>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title> Recording and Inventory System for Poultry Products!</title>
-    <link rel="icon" href="../image/logo.png" type="image/icon type">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</head>
+
 
 <body>
-    <section class="header">
-        <div class="logo">
-            <img src="../image/logo.png" alt="Department of Agriculture Logo" width="80px" , height="80px">
-            <p>Republic of the Philippines</p>
-            <h1>DEPARTMENT OF AGRICULTURE</h1>
-        </div>
-
-        <div class="text">
-            <p>San Lorenzo, Guimaras</p>
-        </div>
-
-        <section class="nav">
-            <div class="home">
-                <a href="adminpage.php"><svg xmlns="http://www.w3.org/2000/svg" width="25" height=""
-                        fill="currentColor" class="bi bi-house-fill" viewBox="0 0 20 16">
-                        <path
-                            d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z" />
-                        <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z" />
-                    </svg>Home</a>
-            </div>
-            <div class="dropdown0">
-                <button class="dropbtn0"> Production </button>
-                <div class="dropdown-content0">
-                    <a href=""> View Record</a>
-                    <a href="record1.php"> Record Production</a>
-                    <a href="#"> Generate Report</a>
-                    <a href="#"> Find Records </a>
-                </div>
-            </div>
-
-            <div class="dropdown2">
-                <button class="dropbtn2"> Farm </button>
-                <div class="dropdown-content2">
-                    <a href="farm-detail.php"> View Farm</a>
-                    <a href="add-farm.php">Add Farm</a>
-                    <a href="map.html"> View farm Map</a>
-                </div>
-            </div>
-
-            <div class="dropdown3">
-                <button class="dropbtn3"> User </button>
-                <div class="dropdown-content3">
-                    <a href="add-user.php"> Add User</a>
-                    <a href="view-user.php"> View Users </a>
-                </div>
-            </div>
-
-
-            <div class="user">
-
-                <details>
-                    <summary class="summ"><img src="../image/user2.png" alt="User" width="70px" , height="70px">
-                    </summary>
-                    <div class="drop-menu">
-                        <ul>
-                            <li><a href="">Contact Us</a></li>
-                            <li><a href="">Help</a></li>
-                            <li><a href="logout.php">Log out</a></li>
-                        </ul>
-                    </div>
-                </details>
-            </div>
-        </section>
-    </section>
+    
 
 
 

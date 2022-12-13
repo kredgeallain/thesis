@@ -41,7 +41,7 @@ if(isset($_POST['submit'])){
 		mysqli_query($data, $sql);
 
 		
-	$sqlInsert = "INSERT INTO farm (farmname, farmowner,contactno,baranggayID, lat, lng) 
+		$sqlInsert = "INSERT INTO farm (farmname, farmowner,contactno,baranggayID, lat, lng) 
 					VALUES ('$fname', '$fowner', '$contactno', '$brgy', '$lat', '$long');";	
 		$sql2 = mysqli_query($data, $sqlInsert);
 		$farmID = mysqli_insert_id($data);
