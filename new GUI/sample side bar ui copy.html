@@ -159,13 +159,15 @@ font-weight: bold;
           </svg>Generate reports</a>
 
 
-
+          
 
         </div>
         
         <div class="content">
             <section class="header-main">
               <h2>Poultry Products Recording and Inventory System</h2>
+
+              <button id="toggle-button">Toggle</button>
             </section>
 
 
@@ -253,6 +255,24 @@ font-weight: bold;
             </section>
 
         </div>
+
+        <script>
+const toggleButton = document.getElementById('toggle-button');
+
+// Add a click event listener to the toggle button
+toggleButton.addEventListener('click', (content) => {
+  // Check if the body element has the 'dark-mode' class
+  if (document.body.classList.contains('dark-mode')) {
+    // If it does, remove the 'dark-mode' class and add the 'light-mode' class
+    document.body.classList.remove('dark-mode');
+    document.body.classList.add('light-mode');
+  } else {
+    // If it doesn't, remove the 'light-mode' class and add the 'dark-mode' class
+    document.body.classList.remove('light-mode');
+    document.body.classList.add('dark-mode');
+  }
+});
+        </script>
         <style type="text/css">
       
         .log-in{

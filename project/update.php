@@ -67,7 +67,8 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 			<p><b>Update User</b></p>
 		</div>
 	
-        
+        <div class="input-wrapper">
+
         <div class="input">
 				
 			<input type="hidden" name="userID" placeholder="UserID" id="userID" value= "<?php echo $userID; ?>"  >
@@ -101,6 +102,8 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 			<input type="number" name="mobile_no" placeholder="09** *** ****" id="mobile" value= "<?php echo $mobile_no; ?>" required>
 		</div>
 
+		</div>
+
 		<div class="submit">
 
 			<input type="submit" name = "update" id="submit" value="Update User">
@@ -110,6 +113,11 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
     <!--style-->
 <style type="text/css">
+
+.input-wrapper{
+	display:grid;
+	justify-content:center;
+}
 
 .log-in{
 	box-shadow: 2px 2px 2px 2px grey;
@@ -126,55 +134,57 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 	padding: 5px;
 }
 .text2{
-	display: flex;
+	display: grid;
 	justify-content: center;
 	font-size: 25px;
 }
 .input{
-	margin-left: 10px;
-	display: flex;
-	justify-content: center;
+
+	display: grid;
+
 }
 .input p{
-	margin-top: 35px;
+	margin-top:5px ;
 }
 .inputUser{
-	margin-left: -20px;
-	display: flex;
-	justify-content: center;
+	
+	display: grid;
+
 }
 .inputUser p{
-	margin-top: 35px;
+	margin-top:35px ;
 }
 .input2{
-	margin-right: 47px;
-	display: flex;
-	justify-content: center;
+
+	display: grid;
+	
 }
 .input2 p{
-	margin-top: 35px;
+	margin-top:35px ;
 }
 .input3{
-	margin-right: 15px;
-	display: flex;
-	justify-content: center;
+
+	display: grid;
+	
 }
 .input3 p{
-	margin-top: 35px;
+	margin-top:35px ;
 }
 .input4{
-	margin-right: 20px;
-	display: flex;
-	justify-content: center;
+
+	display: grid;
+
 }
 .input4 p{
-	margin-top: 35px;
+	margin-top:20px ;
 }
 .submit{
-	display:flex;
+	margin-top:35px;
+	display:grid;
 	justify-content:center;
 	text-align: center;
 }
+
 .btn{
 	height: 80%;
 	width: 100%;
@@ -182,10 +192,10 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 	color: white;
 	font-size: 16px;
 	margin: auto;
-	border-radius: 20px;
+	border-radius: 10px;
 }
 input[type=submit] {
-	border-radius: 20px;
+	border-radius: 10px;
   background-color: #0e2a83;
   border: none;
   color: white;
@@ -195,20 +205,20 @@ input[type=submit] {
   cursor: pointer;
 }
 input {
+	margin-top:-15px;
 	color: black;
-	border-radius: 20px;
+	border-radius: 10px;
 	padding: 10px;
-	margin: 30px;
 	margin-left: 10px;
 }
 select {
+	margin-top:-15px;
 	padding: 10px;
-	margin: 30px;
 	margin-left: 10px;
     outline: 0;
     background-image: none;
     border: 1px solid black;
-    border-radius: 5px;
+    border-radius:10px ;
 }
 summary {
 	cursor: pointer;

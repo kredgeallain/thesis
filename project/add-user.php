@@ -198,9 +198,7 @@ if(isset($_POST['submit'])){
           margin-left: -15px;
           display: flex;
           justify-content: center;
-        }
-        
-        
+        }    
         
         .submit{
           margin-bottom: 0px ;
@@ -210,16 +208,7 @@ if(isset($_POST['submit'])){
           display: flex;
           justify-content: center;
         }
-        .submit button{
-          color:white;
-          background-color: darkblue;
-          border:none;
-        }
 
-        .submit button:hover{
-          color:white;
-          background-color: blue;
-        }
 
         input[type=submit] {
           border-radius: 20px;
@@ -257,7 +246,7 @@ if(isset($_POST['submit'])){
           justify-content:flex-start;
           margin-bottom:20px;
         }
-        
+
         </style>
         </body>
         </html>
