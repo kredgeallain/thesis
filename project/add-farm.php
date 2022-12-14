@@ -265,8 +265,8 @@ if(isset($_POST['submit'])){
                                     var map;
 
                                     function initMap() {
-                                        var latitude = 10.574276;
-                                        var longitude = 122.682664;
+                                        var latitude = 10.592248;
+                                        var longitude = 122.690637;
 
                                         var myLatLng = {
                                             lat: latitude,
@@ -275,8 +275,9 @@ if(isset($_POST['submit'])){
 
                                         map = new google.maps.Map(document.getElementById('map'), {
                                             center: myLatLng,
-                                            zoom: 13,
-                                            disableDoubleClickZoom: true,
+                                            zoom: 14.5,
+                                           // disableDoubleClickZoom: true,
+                                            mapTypeId: google.maps.MapTypeId.HYBRID
                                         });
 
 

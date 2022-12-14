@@ -378,7 +378,7 @@
 
         <a href="view-farm.php"><img src="../image/view-farm1.png" alt="generate report icon" width="30px">View farm</a>
 
-        <a href="#home"><img src="../image/mortality-rate.png" alt="generate report icon" width="30px">View farm Map</a>
+        <a href="map.php"><img src="../image/mortality-rate.png" alt="generate report icon" width="30px">View farm Map</a>
 
 
 
