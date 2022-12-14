@@ -81,13 +81,13 @@ function setMarkers(map, locations) {
             position: latlngset,
             icon: {
                 url: 'c.png',
-                scaledSize: new google.maps.Size(50, 50)
+                scaledSize: new google.maps.Size(40, 50)
             }
         });
         map.setCenter(marker.getPosition())
 
 
-        var content = " <h3> Farm Name: " + farmname + '</h3>' + " <h3> Farm Owner: " + owner + '</h3>'
+        var content = " <h5> Farm Name: " + farmname + '</h5>' + " <h6> Farm Owner: " + owner + '</h6>'
 
         var infowindow = new google.maps.InfoWindow()
 
