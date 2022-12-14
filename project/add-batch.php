@@ -74,8 +74,8 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
             <p>Unit</p>
             <select type="text" name="unit" placeholder="Unit" id="farmname" value="" required>
                 <option>Select Unit</option>
-                <option>Layer</option>
-                <option>Broiler</option>
+                <option value="layer">Layer</option>
+                <option value="broiler">Broiler</option>
 
             </select>
         </div>
