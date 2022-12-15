@@ -48,7 +48,7 @@ if(!isset($_SESSION['username'])){
                                 RECORDS</a></li>
                         <li><a href="record1.php"><img src="../image/edit-data2.png" height="15%" width="15%">ENCODE
                                 DATA</a></li>
-                        <li><a href="mortality.php"><img src="../image/generate-report.png" height="15%" width="15%">GENERATE
+                        <li><a href="try1.php"><img src="../image/generate-report.png" height="15%" width="15%">GENERATE
                                 DATA</a></li>
                         <li><a href="search.html"><img src="../image/find-report.png" height="15%" width="15%">FIND
                                 RECORDS</a></li>
