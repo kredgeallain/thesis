@@ -118,12 +118,12 @@
 
     /* The navigation bar */
     .header-main {
-
+        z-index: 1;
         margin: 0;
         padding: 0;
         display: flex;
         justify-content: center;
-        overflow: auto;
+        overflow: hidden;
         position: static;
         background-color: #0e2a83;
         color: white;

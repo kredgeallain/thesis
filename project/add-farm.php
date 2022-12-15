@@ -339,6 +339,7 @@ if(isset($_POST['submit'])){
 
 
 .form {
+    position:relative;
     display: grid !important;
     justify-content: center !important;
     align-items: center !important;
