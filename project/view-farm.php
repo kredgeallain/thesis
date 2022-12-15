@@ -32,7 +32,7 @@ if ($result = $mysqli->query($query)){
 			<thead>	  
 			<tr>
 				
-				<th scope='col' id='count'>Farm ID</th>
+				<th scope='col' hidden id='count'>Farm ID</th>
 				
 				
 				<th scope='col' id='farm-name'>Name</th>
@@ -57,7 +57,7 @@ if ($result = $mysqli->query($query)){
 	
    
         	echo"<tr>";
-            	echo "<td id=' farmid' >" .$row['farmID']. "</td>";
+            	echo "<td hidden id=' farmid' >" .$row['farmID']. "</td>";
 				
             	echo "<td id=' farmname '>" .$row['farmname']. "</td>";
             	echo "<td id=' owner '>" .$row['farmowner']. "</td>";

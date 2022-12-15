@@ -118,17 +118,19 @@
 
     /* The navigation bar */
     .header-main {
-
+        z-index: 1;
         margin: 0;
         padding: 0;
         display: flex;
         justify-content: center;
-        overflow: auto;
+        overflow: hidden;
         position: static;
         background-color: #0e2a83;
         color: white;
         top: 0;
         width: 100%;
+        position:sticky;
+        top:0%;
     }
 
     .header-main h2 {
@@ -326,7 +328,11 @@
         padding-left: 10px;
         padding-top: 20px;
     }
+
+
     </style>
+
+
 </head>
 
 <body>
@@ -372,7 +378,7 @@
 
         <a href="view-farm.php"><img src="../image/view-farm1.png" alt="generate report icon" width="30px">View farm</a>
 
-        <a href="#home"><img src="../image/mortality-rate.png" alt="generate report icon" width="30px">View farm Map</a>
+        <a href="map.php"><img src="../image/mortality-rate.png" alt="generate report icon" width="30px">View farm Map</a>
 
 
 
@@ -451,3 +457,5 @@
                     </svg>Log out</a>
             </div>
         </div>
+
+        

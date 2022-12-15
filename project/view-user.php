@@ -32,7 +32,7 @@ if ($result = $mysqli->query($query)){
 			<thead>	  
 			<tr>
 				
-				<th scope='col' id='count'>UserID</th>
+				<th scope='col' hidden id='count'>UserID</th>
 				<th scope='col' id='name'>Name</th>
 				<th scope='col' id='u-name'>Username</th>
 				<th scope='col' id='pos'>Position</th>
@@ -53,7 +53,7 @@ if ($result = $mysqli->query($query)){
 	
    
         	echo"<tr>";
-            	echo "<td >" .$row['userID']. "</td>";
+            	echo "<td hidden >" .$row['userID']. "</td>";
             	echo "<td id='name'>" .$row['name']. "</td>";
             	echo "<td id='u-name'>" .$row['username']. "</td>";
             	echo "<td id='pos'>" .$row['position']. "</td>";
