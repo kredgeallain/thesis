@@ -17,59 +17,7 @@
         margin: 0;
         font-family: tahoma;
       }
-      
-      .sidebar {
-        margin: 0;
-        padding: 0;
-        width: 200px;
-        background-color: #f1f1f1;
-        position: fixed;
-        height: 100%;
-        overflow: auto;
-      }
-      
-      .sidebar a {
-        display: block;
-        color: black;
-        padding: 16px;
-        text-decoration: none;
 
-      }
-       
-      .sidebar a.active {
-        background-color: #0e2a83;
-        color: white;
-      }
-      
-      .sidebar a:hover:not(.active) {
-        background-color: #555;
-        color: white;
-      }
-      
-      div.content {
-        margin-left: 200px;
-        padding: 1px 16px;
-        height: auto;
-      }
-      /*
-      @media screen and (max-width: 700px) {
-        .sidebar {
-          width: 100%;
-          height: auto;
-          position: relative;
-        }
-        .sidebar a {float: left;}
-        div.content {margin-left: 0;}
-        
-      }
-      
-      @media screen and (max-width: 400px) {
-        .sidebar a {
-          text-align: center;
-          float: none;
-        }
-      }
-      */
 
       .header{
         margin: 5px;
@@ -302,23 +250,7 @@ details.test[open]>summary::after {
       </style>
         </head>
         <body>
- 
 
-        <div class="sidebar">
-          <section class="header">
-            <div class="logo">
-              <img src="../image/logo.png" alt="logo" width="80px">
-            </div>
-          </section>
-          <div class="home">
-          <a class="active" href="#home"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-house-door-fill" viewBox="1 1 20 16">
-            <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z"/>
-          </svg>Home</a>
-
-          </div>
-          
-        </div>
-        
         <div class="content">
             <section class="header-main">
               <h2>Poultry Products Recording and Inventory System</h2>

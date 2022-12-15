@@ -14,38 +14,63 @@
 
     <style type="text/css">
 
-        @media screen (min-width: 1024px){}
-            body{
-            display: flex;
-            margin: 0;
-            padding: 0;
-        }
-        .login-form{
-            border: 1px solid black;
-            margin: 20px;
-            padding: 100px;
-        }
+.wrapper {
+    margin: 20px;
+    align-content: center;
+    align-items: center;
+    border: 1px solid black;
+ flex-grow: 1;
+ display: flex;
+ justify-content: space-evenly;
+}
 
-        .info{
-            padding: 100px;
-            border: 1px solid black;
-        }  
-        }
+.culomn1{
+    margin: 20px;
+    border:1px solid black;
+    display: grid;
 
+}
+.culomn2{
+    margin: 20px;
+    display: grid;
+}
 
     </style>
 </head>
 <body>
 
-   
-    <section class="login-form">
-          
-    </section>
+<section class="wrapper">
+  
+<section class="culomn1">
+    <h1>Inventory and Recording System for Poultry Products</h1>
+</section>
+        
+  
 
-    <section class="info">
 
+<section class="column2">
 
-    </section>
+    <h2>Login</h2>
+
+        <div class="input-group flex-nowrap">
+            <span class="input-group-text" id="addon-wrapping"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+              </svg></span>
+            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+          </div>
+    
+          <div class="input-group flex-nowrap">
+            <span class="input-group-text" id="addon-wrapping"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
+                <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
+              </svg></span>
+            <input type="text" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="addon-wrapping">
+          </div>
+    
+          <button type="button" class="btn btn-primary">Log in</button>
+</section>
+
+</section>
 
 </body>
 </html>

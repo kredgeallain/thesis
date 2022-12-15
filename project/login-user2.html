@@ -48,21 +48,36 @@
                       <h1><b>USER</b></h1>
                       <h2>Login</h2> 
                   </div>
-  
-                  <div class="form-floating mb-3">
-                    <input type="username" class="form-control" id="floatingInput" placeholder="username" name="username" required>
-                    <label for="floatingInput" required="true">Username</label>
+                  <div class="login-button">
+
+                    <div class="input-group">
+                  <div class="input-group flex-nowrap">
+                    <span class="input-group-text" id="addon-wrapping"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                      <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                      <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                    </svg></span>
+                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
                   </div>
-                  <div class="form-floating">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" required>
-                    <label for="floatingPassword" required="true">Password</label>
+
+   
+                  <div class="input-group flex-nowrap">
+                    <span class="input-group-text" id="addon-wrapping"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
+                      <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
+                    </svg></span>
+                    <input type="password" class="form-control" placeholder="password" aria-label="password" aria-describedby="addon-wrapping">
                   </div>
+             
+
+              </div>
+
                   <div class="showpass">
                     <div class="checkbox">
                     <input type="checkbox" id="show-password">
                   </div>
                     <label for="show-password">Show password</label>
                     </div>
+                  </div>
+                  
                   <a href="">Forgot password?</a>
                   <div class="login-button">
                   <div class="d-grid gap-2">
@@ -102,23 +117,23 @@ showPasswordCheckbox.addEventListener('change', function() {
     margin:0;
     padding: 0;
     display: flex;
-    justify-content: space-evenly;
     align-items: center;
   }
 
 .wrapper{
+
+  flex-grow: 1;
+  justify-content: center;
   margin-top: 20px;
-justify-content: space-around;
   display:flex !important;
   align-items: center !important;
   align-content: center !important;
-    align-items: center;
-    padding: 5px;
+  padding: 5px;
 }
 .row{
+  align-content: center;
   display: flex;
-  align-items: space-around;
-align-content: center;
+  justify-content: center;
 }
 
 .login-text{
@@ -135,9 +150,9 @@ align-content: center;
 
 .login-form{
   background-color: #f4f4ec;
-  box-shadow:2px 2px 12px 1px grey;
-  border-radius:10px;
-  border:1px solid grey;
+ 
+
+
   padding:30px;
     display: grid ;
     justify-content: center;
@@ -156,7 +171,8 @@ a{
 }
 
 input{
-     padding: 10px 150px 0px 10px !important;
+
+     flex-grow: 1;
 }
 
 
@@ -166,12 +182,9 @@ input{
   justify-content: flex-start;
   background-image: url("../image/windmill.jpg");;
   opacity: 100%;
-  border: 7px solid blue;
   background-repeat: auto;
   background-position: auto;
   background-size: cover;
-  box-shadow: 1px 1px 16px 2px darkblue;
-  border-radius: 10px;
 }
 h1{
   color: #0e2a83;
@@ -191,7 +204,6 @@ h1{
 }
 .title{
   box-shadow: 1px 1px 14px 10px skyblue;
-  border: 2px solid blue;
   background-color: darkblue;
   border-radius: 10px;
   margin:50px;
@@ -218,11 +230,20 @@ h1{
 .animated-text h2{
   color:darkblue;
 }
-
+/*pc view*/
 @media screen and (min-width: 1024px){
 
+
+  .row{
+    flex-grow: 1;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+  }
+
   body{
-    background-image: url(../image/windmill2.jpg);
+   
     background-repeat: auto;
   background-position: auto;
   background-size: cover;
@@ -230,18 +251,22 @@ h1{
 
   }
 
+  .wrapper{
+    display: flex;
+    justify-content: center;
+  }
+
 
   
     .col-sm-8{
-      margin-top: 100px;
-      margin-left: -100px;
-      margin-right: 100px;
-      margin-bottom: -100px;
+      height:600px;
+
     }
 
     .col-sm-4{
+     height: 500px;
       margin-top: 100px;
-      margin-bottom: -100px;
+ 
     }
 
     .animated-text{
@@ -297,8 +322,10 @@ h1{
   justify-content: center;
 }
 
-@media screen and (max-width: 469px){
 
+/*phone view*/
+
+@media screen and (max-width: 469px){
   .wrapper{
     background-image: url(../image/windmill2.jpg);
     flex-grow: 2;
@@ -325,12 +352,26 @@ h1{
  width: 200px;
 }
 
-.col-sm-8{
-  box-shadow: none;
-  border: none;
+.showpass{
+
 }
 
 
+}
+
+.login-button input, span{
+  margin: 10px 0 0 10px;
+}
+
+.title h2{
+  font-size: 20px;
+}
+
+.input-group input{
+  z-index: 1;
+ flex-grow: 1;
+ width: 200px;
+ height: 50px;
 }
 
 </style>
