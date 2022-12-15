@@ -65,8 +65,8 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
         </div>
         <div class="input-wrapper">
         <div class="inputUser1">
-            <p>farm ID</p>
-            <input type="text" name="farmID" placeholder="Farmowner" id="farmowner" value="<?php echo $farmID; ?>"
+            <p hidden>farm ID</p>
+            <input type="text" hidden name="farmID" placeholder="Farmowner" id="farmowner" value="<?php echo $farmID; ?>"
                 required>
         </div>
 
@@ -82,7 +82,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
         <div class="input">
             <p>Batch</p>
-            <input type="number" name="batch" placeholder="Batch" id="farmID" value="">
+            <input type="text" name="batch" placeholder="Batch" id="farmID" value="">
         </div>
 
         <div class="inputUser">
