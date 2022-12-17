@@ -44,11 +44,11 @@ if(!isset($_SESSION['username'])){
                 <summary><img src="../image/1production-admin.png" height="150px" width="150px"></summary>
                 <section class="production-dropdown">
                     <ul>
-                        <li><a href="view-records.html"><img src="../image/view-data2.png" height="15%" width="15%">VIEW
+                        <li><a href="view-broiler.php"><img src="../image/view-data2.png" height="15%" width="15%">VIEW
                                 RECORDS</a></li>
                         <li><a href="record1.php"><img src="../image/edit-data2.png" height="15%" width="15%">ENCODE
                                 DATA</a></li>
-                        <li><a href="try1.php"><img src="../image/generate-report.png" height="15%" width="15%">GENERATE
+                        <li><a href="view-layer.php"><img src="../image/generate-report.png" height="15%" width="15%">GENERATE
                                 DATA</a></li>
                         <li><a href="search.html"><img src="../image/find-report.png" height="15%" width="15%">FIND
                                 RECORDS</a></li>
