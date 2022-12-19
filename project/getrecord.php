@@ -22,33 +22,32 @@ if($row["unit"]=="layer")
 <div class="record-wrapper">
 <h1>Layer</h1>
 
-<div class="input-group input-group-lg">
+
 <div class="date">
 <label for="">Date</label>
 <input  class="form-control" type="date" name="date" id="date" required="true">
 </div>
-</div>
 
-<div class="input-group input-group-lg">
-<section class="layer">
+
+
 <div class="no-eggs">
     <label for="no-eggs">Number of Eggs</label>
     <input  class="form-control" type="number" name="no-eggs" id="no-eggs"  required="true">
 </div>
-</div>
 
-<div class="input-group input-group-lg">
+
+
 <div class="rej-eggs">
     <label for="rej-eggs">Reject Eggs</label>
     <input  class="form-control" type="number" name="rej-eggs" id="rej-eggs"  required="true">
 </div>
-</div>
-</section>
+
+
 
 <section class="broiler">
 
 <div class="Bcurrent">
-    <label for=""> Current: </label>
+    <label for=""> Current</label>
     <input  class="form-control" type="number" name="Lcurrent" id="Lcurrent"  required="true">
 </div>
 
@@ -129,11 +128,20 @@ else {
     justify-content:center;
 }
 
+.record-wrapper h1{
+    font-weight:bold;
+    font-size:25px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
 input{
     flex-grow:1;
 }
 
 #submit{
+    margin-top:40px;
     background-color:darkblue;
     border:none;
 }
