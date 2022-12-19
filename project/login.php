@@ -35,7 +35,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 
 		$_SESSION["username"]=$username;
 		sleep(1);
-		header("location:adminpage.php");
+		header("location:home.php");
 	}
 
 	else
