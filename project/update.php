@@ -209,12 +209,12 @@ input {
 	color: black;
 	border-radius: 10px;
 	padding: 10px;
-	margin-left: 10px;
+
 }
 select {
 	margin-top:-15px;
 	padding: 10px;
-	margin-left: 10px;
+
     outline: 0;
     background-image: none;
     border: 1px solid black;
