@@ -17,7 +17,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-
     <script>
     function openNav() {
         document.getElementById("mySidenavb").style.width = "250px";
@@ -29,6 +28,8 @@
         document.body.style.backgroundColor = "white";
     }
     </script>
+
+
 
     <style type="text/css">
     body {
@@ -329,8 +330,31 @@
         padding-top: 20px;
     }
 
+    #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: transparent;
+      z-index: 9999;
+    }
 
+    #preloader img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
     </style>
+
+
+<script>
+    window.onload = function() {
+      var preloader = document.getElementById('preloader');
+      preloader.style.display = 'none';
+    }
+  </script>
 
 
 </head>
@@ -395,7 +419,9 @@
 
     </div>
 
-
+    <div id="preloader">
+    <img src="../image/preloader2.gif" alt="Preloading">
+  </div>
 
     <div class="content">
         <section class="header-main">
