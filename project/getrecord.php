@@ -19,41 +19,49 @@ if($row["unit"]=="layer")
 { echo '
 <form method="post" action="record1.php" id="form1">
 
+<div class="record-wrapper">
+<h1>Layer</h1>
+
+<div class="input-group input-group-lg">
 <div class="date">
-
-<label for=""> Date: </label>
-<input type="date" name="date" id="date">
-
+<label for="">Date</label>
+<input  class="form-control" type="date" name="date" id="date">
+</div>
 </div>
 
+<div class="input-group input-group-lg">
 <section class="layer">
 <div class="no-eggs">
-    <label for="no-eggs"> Number of Eggs: </label>
-    <input type="number" name="no-eggs" id="no-eggs">
+    <label for="no-eggs">Number of Eggs</label>
+    <input  class="form-control" type="number" name="no-eggs" id="no-eggs" >
+</div>
 </div>
 
+<div class="input-group input-group-lg">
 <div class="rej-eggs">
-    <label for="rej-eggs"> Reject Eggs: </label>
-    <input type="number" name="rej-eggs" id="rej-eggs">
+    <label for="rej-eggs">Reject Eggs</label>
+    <input  class="form-control" type="number" name="rej-eggs" id="rej-eggs" >
+</div>
 </div>
 </section>
 
 <section class="broiler">
+
 <div class="Bcurrent">
     <label for=""> Current: </label>
-    <input type="number" name="Lcurrent" id="Lcurrent">
+    <input  class="form-control" type="number" name="Lcurrent" id="Lcurrent" >
 </div>
 
 <div class="mortality">
-    <label for="dead"> Mortality: </label>
-    <input type="number" name="mortality" id="mortality">
+    <label for="dead">Mortality</label>
+    <input  class="form-control" type="number" name="mortality" id="mortality">
 </div>
 </section>
     <input type="" name="batchID" value='. $batchID .'> 
 
     <div class="submit">
-        
-        <button class="btn" type="submit" name="submit" id="submit" value=""> Add Data </button>
+</div>
+        <button class="btn btn-primary" type="submit" name="submit" id="submit" value="">Add Data</button>
 
     </div>
 
@@ -67,40 +75,74 @@ else {
  
    echo '
     <form method="post" action="record1.php" id="form2">
-    
+
+<div class="record-wrapper">  
+
+<h1>Broiler</h1>
+
     <div class="date">
-    <label for=""> Date: </label>
-    <input type="date" name="date" id="date">
-</div>
+    <label for="">Date</label>
+    <input  class="form-control" type="date" name="date" id="date">
+    </div>
 
 <section class="weight">
     <div class="weight">
-        <label for=""> Meat in Kg: </label>
-        <input type="kilo" name="weight" id="weight">
+        <label for="">Meat in Kg</label>
+        <input  class="form-control" type="kilo" name="weight" id="weight" >
     </div>
 </section>
 
 <section class="current">
     <div class="current">
-        <label for=""> Current: </label>
-        <input type="number" name="current" id="current">
+        <label for="">Current</label>
+        <input  class="form-control" type="number" name="current" id="current" >
     </div>
 
     <div class="mortality">
-        <label for="dead"> Mortality: </label>
-        <input type="number" name="mortality" id="mortality">
+        <label for="dead">Mortality</label>
+        <input  class="form-control" type="number" name="mortality" id="mortality" >
     </div>
 </section>
         <input type="" name="batchID" value='. $batchID .'> 
    
-    
-            <button class="btn" type="submit" name="submit1" id="submit1"> Add Data</button>
-    
 
+            <button class="btn btn-primary" type="submit" name="submit1" id="submit"> Add Data</button>
+    
+</div>
     
     </form>';
 
 
 }
+
 ?> 
 
+<style type="text/css">
+.record-wrapper{
+    padding-top:10px;
+    padding-bottom:10px;
+    background-color: #f9faff;
+    border-top: 1px solid grey;
+    display:grid;
+    justify-content:center;
+}
+
+input{
+    flex-grow:1;
+}
+
+#submit{
+    background-color:darkblue;
+    border:none;
+}
+
+#submit:hover{
+    background-color:blue;
+    border:none;
+}
+label{
+    dispaly:block;
+    margin-top:20px;
+}
+
+</style>

@@ -45,8 +45,8 @@
               <div class="login-form">
   
                   <div class="login-text">
-                      <h1><b>USER</b></h1>
-                      <h2>Login</h2> 
+
+                      <h1>Login</h1> 
                   </div>
   
                   <div class="form-floating mb-3">
@@ -98,6 +98,7 @@ showPasswordCheckbox.addEventListener('change', function() {
 <style type="text/css">
 
   body{
+    background-color:#f9faff;
     font-family: Helvetica;
     margin:0;
     padding: 0;
@@ -164,14 +165,14 @@ input{
   display: grid;
   align-items: center;
   justify-content: flex-start;
-  background-image: url("../image/windmill.jpg");;
+ background-image: url("../image/windmill.jpg");
   opacity: 100%;
-  border: 7px solid blue;
   background-repeat: auto;
   background-position: auto;
   background-size: cover;
-  box-shadow: 1px 1px 16px 2px darkblue;
+  box-shadow: 1px 1px 16px 2px grey;
   border-radius: 10px;
+  filter: blur();
 }
 h1{
   color: #0e2a83;
@@ -191,9 +192,8 @@ h1{
 }
 .title{
   box-shadow: 1px 1px 14px 10px skyblue;
-  border: 2px solid blue;
   background-color: darkblue;
-  border-radius: 10px;
+  border-radius: 90px;
   margin:50px;
 }
 
@@ -222,7 +222,8 @@ h1{
 @media screen and (min-width: 1024px){
 
   body{
-    background-image: url(../image/windmill2.jpg);
+    color: grey;
+    /*background-image: url(../image/windmill2.jpg);*/
     background-repeat: auto;
   background-position: auto;
   background-size: cover;
@@ -233,14 +234,15 @@ h1{
 
   
     .col-sm-8{
-      margin-top: 100px;
-      margin-left: -100px;
-      margin-right: 100px;
+      margin-top: 70px;
+      margin-left: -30px;
+      margin-right: 50px;
       margin-bottom: -100px;
     }
 
     .col-sm-4{
-      margin-top: 100px;
+      margin-right: -100px;
+      margin-top: 70px;
       margin-bottom: -100px;
     }
 
@@ -300,10 +302,22 @@ h1{
 @media screen and (max-width: 469px){
 
   .wrapper{
-    background-image: url(../image/windmill2.jpg);
+    /*background-image: url(../image/windmill2.jpg);*/
     flex-grow: 2;
     margin-top: 0;
   }
+
+  .title{
+  box-shadow: 1px 1px 14px 10px skyblue;
+  background-color: darkblue;
+  border-radius: 10px;
+  margin:50px;
+}
+
+.title h2{
+  font-size:15px;
+}
+
 .background img{
   display: none;
   

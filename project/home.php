@@ -277,9 +277,8 @@ details.test[open]>summary::after {
                   <section class="production-dropdown">
                     <ul>
                     <li><a href="view-records.html"><img src="../image/view-data2.png" height="15%" width="15%">VIEW RECORDS</a></li>
-                    <li><a href="record-data.html"><img src="../image/edit-data2.png" height="15%" width="15%">ENCODE DATA</a></li>
+                    <li><a href="record-data.html"><img src="../image/edit-data2.png" height="15%" width="15%">RECORD DATA</a></li>
                     <li><a href=""><img src="../image/generate-report.png" height="15%" width="15%">GENERATE DATA</a></li>
-                    <li><a href="search.html"><img src="../image/find-report.png" height="15%" width="15%">FIND RECORDS</a></li>
                     </ul>
                   </section>
                 </details>
