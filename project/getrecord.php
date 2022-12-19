@@ -6,7 +6,7 @@ include '..\project\connect.php';
 
 $batchID= $_POST['batch_data'];
 
-echo $batchID;
+//echo $batchID;
 
 $b= "SELECT * FROM batch where batchID=$batchID";
 $q= mysqli_query ($conn, $b);
@@ -25,7 +25,7 @@ if($row["unit"]=="layer")
 <div class="input-group input-group-lg">
 <div class="date">
 <label for="">Date</label>
-<input  class="form-control" type="date" name="date" id="date">
+<input  class="form-control" type="date" name="date" id="date" required="true">
 </div>
 </div>
 
@@ -33,14 +33,14 @@ if($row["unit"]=="layer")
 <section class="layer">
 <div class="no-eggs">
     <label for="no-eggs">Number of Eggs</label>
-    <input  class="form-control" type="number" name="no-eggs" id="no-eggs" >
+    <input  class="form-control" type="number" name="no-eggs" id="no-eggs"  required="true">
 </div>
 </div>
 
 <div class="input-group input-group-lg">
 <div class="rej-eggs">
     <label for="rej-eggs">Reject Eggs</label>
-    <input  class="form-control" type="number" name="rej-eggs" id="rej-eggs" >
+    <input  class="form-control" type="number" name="rej-eggs" id="rej-eggs"  required="true">
 </div>
 </div>
 </section>
@@ -49,15 +49,15 @@ if($row["unit"]=="layer")
 
 <div class="Bcurrent">
     <label for=""> Current: </label>
-    <input  class="form-control" type="number" name="Lcurrent" id="Lcurrent" >
+    <input  class="form-control" type="number" name="Lcurrent" id="Lcurrent"  required="true">
 </div>
 
 <div class="mortality">
     <label for="dead">Mortality</label>
-    <input  class="form-control" type="number" name="mortality" id="mortality">
+    <input  class="form-control" type="number" name="mortality" id="mortality" required="true">
 </div>
 </section>
-    <input type="" name="batchID" value='. $batchID .'> 
+    <input type="" hidden name="batchID" value='. $batchID .'> 
 
     <div class="submit">
 </div>
@@ -82,28 +82,28 @@ else {
 
     <div class="date">
     <label for="">Date</label>
-    <input  class="form-control" type="date" name="date" id="date">
+    <input  class="form-control" type="date" name="date" id="date" required="true">
     </div>
 
 <section class="weight">
     <div class="weight">
         <label for="">Meat in Kg</label>
-        <input  class="form-control" type="kilo" name="weight" id="weight" >
+        <input  class="form-control" type="kilo" name="weight" id="weight"  required="true">
     </div>
 </section>
 
 <section class="current">
     <div class="current">
         <label for="">Current</label>
-        <input  class="form-control" type="number" name="current" id="current" >
+        <input  class="form-control" type="number" name="current" id="current" required="true" >
     </div>
 
     <div class="mortality">
         <label for="dead">Mortality</label>
-        <input  class="form-control" type="number" name="mortality" id="mortality" >
+        <input  class="form-control" type="number" name="mortality" id="mortality"  required="true">
     </div>
 </section>
-        <input type="" name="batchID" value='. $batchID .'> 
+        <input type="" hidden name="batchID" value='. $batchID .'> 
    
 
             <button class="btn btn-primary" type="submit" name="submit1" id="submit"> Add Data</button>
