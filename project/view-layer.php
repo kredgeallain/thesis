@@ -17,7 +17,7 @@ baranggay.baranggay, farm.farmname, batch.batch,
 SUM(layer.no_eggs) as eggs,
 SUM(layer.reject_eggs) as rej_eggs,
 SUM(layer.mortality) as mortality,
-SUM(layer.Lcurrent) as current,
+MIN(layer.Lcurrent) as current,
 MONTH(layer.date) as month,
 YEAR(layer.date) as year
 FROM baranggay INNER JOIN farm ON baranggay.baranggayID = farm.baranggayID 
