@@ -81,8 +81,8 @@ function setMarkers(map, locations) {
             // title: farmname,
             position: latlngset,
             icon: {
-                url: 'c.png',
-                scaledSize: new google.maps.Size(40, 50)
+                url: '../image/farmlocation2.png',
+                scaledSize: new google.maps.Size(80, 80)
             }
         });
         map.setCenter(marker.getPosition())
@@ -100,7 +100,7 @@ function setMarkers(map, locations) {
 
                 setTimeout(function() {
                     infowindow.close();
-                }, 1000);
+                }, 5000);
 
             };
         })(marker, content, infowindow));

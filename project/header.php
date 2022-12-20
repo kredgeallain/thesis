@@ -423,7 +423,7 @@
         <a href="view-user.php"><img src="../image/view-user1.png" alt="view user icon" width="30px">View Users</a>
 
     </div>
-
+<!--screen loading-->
     <div id="preloader">
     <img src="../image/preloader2.gif" alt="Preloading" width="100px">
   </div>
