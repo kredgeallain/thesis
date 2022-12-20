@@ -81,11 +81,11 @@ if(isset($_POST['submit'])){
 
                 <div class="container px-4 text-center">
                   <div class="row gx-5">
-                    <div class="col">
+                    <div class="col" id="col1">
                      <div class="p-3 bg-transparent">
             
                     <div class="input2">
-                      <select name="position" id="position" placeholder="Select Position" required="true">
+                      <select class="form-select" aria-label="Default select example" name="position" id="position" placeholder="Select Position" required="true">
                         <option value=""disabled selected>Select position</option>
                         <option value="admin">Administrator</option>
                         <option value="agent">Agent</option>
@@ -93,12 +93,50 @@ if(isset($_POST['submit'])){
                     </div>
                
                         <div class="input2">
-                      <select name="baranggay" id="baranggay" placeholder="Select Barangay"  required="true">
+                      <select class="form-select" aria-label="Default select example" name="baranggay" id="baranggay" placeholder="Select Barangay"  required="true">
                         <option disabled selected>Select Barangay</option>
                         <?php echo $bfetch; ?>
+                        <option disabled >Add Barangay if your Barangay don't exist!</option>
                       </select>
                     </div>
-                  
+                    <!---->
+
+                    <div class="add-brgy-button">
+   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 20 20">
+  <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"/>
+</svg>Add Barangay</button>
+    </div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered ">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 20 20">
+  <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"/>
+</svg>Add Barangay</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+      <div class="input-group flex-nowrap">
+  <span class="input-group-text" id="addon-wrapping">Barangay</span>
+  <input type="text" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="addon-wrapping">
+</div>
+
+   
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary">Add</button>
+      </div>
+    </div>
+  </div>
+</div>  
+
+   </div>
+
+                  <!---->
                      </div>
                     </div>
                     <div class="col">
@@ -247,7 +285,7 @@ if(isset($_POST['submit'])){
             border-radius: 5px;
         }
         
-        button{
+       .submit button{
           padding: 15px 25px 15px 25px !important;
         }
 
@@ -262,6 +300,20 @@ if(isset($_POST['submit'])){
           margin-right:10px;
         }
 
+        .add-brgy-button{
+display:flex;
+justify-content:flex-start;
+}
+
+.add-brgy-button button{
+    border:none;
+    background-color:#00b7EB;
+}
+
+.add-brgy-button button:hover{
+    border:none;
+    background-color:#007FFF;
+}
         </style>
         </body>
         </html>
