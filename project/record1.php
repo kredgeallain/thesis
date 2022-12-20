@@ -66,6 +66,8 @@ include('header.php');
             $rej_eggs = $_POST['rej-eggs'];
             $Lcurrent = $_POST['Lcurrent'];
             $mortality = $_POST['mortality'];
+            
+
 
             $insert = " INSERT INTO `layer`(`layerID`, `batchID`, `no_eggs`, `reject_eggs`, `Lcurrent`, `mortality`, `date`) 
                 VALUES ('','$batchID','$no_eggs','$rej_eggs','$Lcurrent','$mortality','$date') ";
@@ -73,7 +75,7 @@ include('header.php');
                 
 
                 mysqli_query($data, $insert);
-                sleep(1);
+                sleep(1);// }
     }elseif(isset($_POST['submit1'])){
 
         $batchID = $_POST['batchID'];
