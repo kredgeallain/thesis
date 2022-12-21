@@ -55,7 +55,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 <head>
     <title>Log in!</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"> 
 
 
     <link rel="icon" href="../image/logo.png" type="image/icon type">
@@ -67,7 +67,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
     <section class="header">
         <div class="logo">
             <img src="../image/logo.png" alt="Department of Agriculture Logo" width="100px" , height="100px">
-            <p>Republic of the Philippines</p>
+            <p>Republic of the Philippines</p> 
             <h1>DEPARTMENT OF AGRICULTURE</h1>
         </div>
 
@@ -106,7 +106,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
                     <div class="submit">
                         <input type="submit" name="submit" value="Log in">
                     </div>
-                    <a href="">Forgot your password <br> or Username?</a>
+                   
                 </form>
             </section>
 
@@ -153,7 +153,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
         font-size: 35px;
         padding-left: 15px;
         padding-right: 10px;
-        padding-top: 15px;
+        padding-top: 30px;
         margin-left: -200px;
     }
 
