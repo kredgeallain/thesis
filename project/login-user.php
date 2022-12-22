@@ -1,3 +1,55 @@
+<?php
+
+@include 'connect.php';
+
+session_start();
+
+if($_SERVER["REQUEST_METHOD"]=="POST")
+{
+	$username=$_POST["username"];
+	$password=$_POST["password"];
+
+
+	$sql="select * from user where username='".$username."' AND password='".$password."' ";
+
+	$result=mysqli_query($data,$sql);
+
+	$row=mysqli_fetch_array($result);
+	if($row["status"]=="off")
+	{
+
+		header('location:login-user.php?login=deactivated');
+	}
+
+	elseif($row["position"]=="agent")
+	{	
+
+		$_SESSION["username"]=$username;
+		sleep(1);
+
+		header("location:agentpage.php");
+	}
+
+	elseif($row["position"]=="admin")
+	{
+
+		$_SESSION["username"]=$username;
+		sleep(1);
+		header("location:home.php");
+	}
+
+	else
+	{
+		header('location:login-user.php?login=error');
+	}
+
+}
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,11 +95,24 @@
 
             <div class="col-sm-4">
               <div class="login-form">
-  
+
                   <div class="login-text">
 
                       <h1>Login</h1> 
                   </div>
+                  <form action="#" method="POST">
+
+                  <?php
+      	  if(isset($_GET['login'])){
+			$add = $_GET['login'];
+			if($add=='error'){
+				echo ' <div class ="d-flex justify-content-center"> <span class="alert alert-danger">Invalid Username or Password</span> </div>';
+			}
+			if($add=='deactivated'){
+				echo ' <div class ="d-flex justify-content-center"> <span class="alert alert-danger">Your account has been deactivated</span> </div>';
+			}
+	 };
+         ?>
   
                   <div class="form-floating mb-3">
                     <input type="username" class="form-control" id="floatingInput" placeholder="username" name="username" required>
@@ -67,9 +132,10 @@
                   <div class="login-button">
                   <div class="d-grid gap-2">
                    
-                      <button class="btn btn-primary" type="button" name="submit" value="Log in">Login</button> 
+                      <button class="btn btn-primary" type="submit" name="submit" value="Log in">Login</button> 
                     </div>
                     </div>
+                    </form>
               </div>
             </div>
 
