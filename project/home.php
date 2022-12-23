@@ -277,6 +277,7 @@ details.test[open]>summary::after {
     bottom: 0;
 }
 
+
       </style>
         </head>
         <body>
@@ -307,6 +308,7 @@ details.test[open]>summary::after {
                   <summary><img src="../image/1farm-admin.png" height="150px" width="150px"></summary>
                   <section class="farm-dropdown">
                     <ul>
+                    <li><a href="add-brgy.php"><img id="add-brgy" src="../image/add-barangay1.png" height="60px" width="60px">ADD BARANGAY</a></li>
                     <li><a href="view-farm.php"><img src="../image/view-farm1.png" height="20%" width="20%">VIEW FARM</a></li>
                     <li><a href="add-farm.php"><img src="../image/add-farm1.png" height="20%" width="20%">ADD FARM</a></li>
                     <li><a href="map.php"><img src="../image/mortality-rate.png" height="20%" width="20%">VIEW FARM MAP</a></li>
