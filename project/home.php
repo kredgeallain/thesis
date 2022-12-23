@@ -107,11 +107,15 @@ font-weight: bold;
 color: black;
 margin-left: 20px;
 text-decoration: none;
+transition: all 0.2s ease-in-out;
 }
 
 .production-dropdown a:hover{
-background-color: #66ffcc;
-padding: 5px;
+color:white;
+background-color:darkblue;
+padding: 10px;
+border-radius:5px;
+transform: scale(1.1);
 }
 
 .farm ul{
@@ -127,15 +131,19 @@ position: absolute;
 }
 
 .farm-dropdown a{
-font-weight: bold;
+  font-weight: bold;
 color: black;
 margin-left: 20px;
 text-decoration: none;
+transition: all 0.2s ease-in-out;
 }
 
 .farm-dropdown a:hover{
-background-color: #66ffcc;
-padding: 5px;
+color:white;
+background-color:darkblue;
+padding: 10px;
+border-radius:5px;
+transform: scale(1.1);
 }
 
 .user ul{
@@ -155,13 +163,22 @@ font-weight: bold;
 color: black;
 margin-left: 20px;
 text-decoration: none;
+transition: all 0.2s ease-in-out;
 }
 
 .user-dropdown a:hover{
-background-color: #66ffcc;
-padding: 5px;
+color:white;
+background-color:darkblue;
+padding: 10px;
+border-radius:5px;
+transform: scale(1.1);
+}
+
+summary{
+  transition: all 0.5s ease-in-out;
 }
 summary :hover{
+  transform: scale(1.01);
 	box-shadow: 2px 2px 2px 2px #66ffcc ;
 	background-color: white;
 	border-radius: 5px;
@@ -276,9 +293,9 @@ details.test[open]>summary::after {
                   <summary><img src="../image/1production-admin.png" height="150px" width="150px"></summary>
                   <section class="production-dropdown">
                     <ul>
-                    <li><a href="view-layer.php"><img src="../image/view-data2.png" height="15%" width="15%">VIEW RECORDS</a></li>
-                    <li><a href="record1.php"><img src="../image/edit-data2.png" height="15%" width="15%">RECORD DATA</a></li>
-                    <li><a href=""><img src="../image/generate-report.png" height="15%" width="15%">GENERATE DATA</a></li>
+                    <li><a href="view-layer.php"><img src="../image/view-data.png" height="15%" width="15%">VIEW RECORDS</a></li>
+                    <li><a href="record1.php"><img src="../image/edit-data.png" height="15%" width="15%">RECORD DATA</a></li>
+                    <li><a href=""><img src="../image/generate-report1.png" height="15%" width="15%">GENERATE DATA</a></li>
                     </ul>
                   </section>
                 </details>
@@ -290,9 +307,9 @@ details.test[open]>summary::after {
                   <summary><img src="../image/1farm-admin.png" height="150px" width="150px"></summary>
                   <section class="farm-dropdown">
                     <ul>
-                    <li><a href="view-farm.php"><img src="../image/view-farm.png" height="20%" width="20%">VIEW FARM</a></li>
-                    <li><a href="add-farm.php"><img src="../image/add-farm.png" height="20%" width="20%">ADD FARM</a></li>
-                    <li><a href="map.php"><img src="../image/mortality-rate2.png" height="20%" width="20%">VIEW FARM MAP</a></li>
+                    <li><a href="view-farm.php"><img src="../image/view-farm1.png" height="20%" width="20%">VIEW FARM</a></li>
+                    <li><a href="add-farm.php"><img src="../image/add-farm1.png" height="20%" width="20%">ADD FARM</a></li>
+                    <li><a href="map.php"><img src="../image/mortality-rate.png" height="20%" width="20%">VIEW FARM MAP</a></li>
                     </ul>
                   </section>
                 </details>
@@ -305,8 +322,8 @@ details.test[open]>summary::after {
                   <summary><img src="../image/1user-admin.png" height="150px" width="150px"></summary>
                   <section class="user-dropdown">
                     <ul>
-                    <li><a href="add-user.php"><img src="../image/add-user2.png" height="40%" width="25%">ADD USERS</a></li>
-                    <li><a href="view-user.php"><img src="../image/view-user.png" height="30%" width="20%">VIEW USERS</a></li>
+                    <li><a href="add-user.php"><img src="../image/add user1.png" height="40%" width="25%">ADD USERS</a></li>
+                    <li><a href="view-user.php"><img src="../image/view-user1.png" height="30%" width="20%">VIEW USERS</a></li>
                     </ul>
                   </section>
                 </details>
@@ -328,7 +345,7 @@ details.test[open]>summary::after {
 			<button ><a href="logout.php" class="btn">Yes</a></button>
 			
 
-			<button> <a href="adminpage.php" class="btn"> No </a></button>
+			<button> <a href="home.php" class="btn"> No </a></button>
 
 		</section>
 

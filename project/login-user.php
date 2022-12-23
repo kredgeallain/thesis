@@ -101,18 +101,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
                       <h1>Login</h1> 
                   </div>
                   <form action="#" method="POST">
-
-                  <?php
-      	  if(isset($_GET['login'])){
-			$add = $_GET['login'];
-			if($add=='error'){
-				echo ' <div class ="d-flex justify-content-center"> <span class="alert alert-danger">Invalid Username or Password</span> </div>';
-			}
-			if($add=='deactivated'){
-				echo ' <div class ="d-flex justify-content-center"> <span class="alert alert-danger">Your account has been deactivated</span> </div>';
-			}
-	 };
-         ?>
   
                   <div class="form-floating mb-3">
                     <input type="username" class="form-control" id="floatingInput" placeholder="username" name="username" required>
@@ -128,6 +116,19 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
                   </div>
                     <label for="show-password">Show password</label>
                     </div>
+
+                    <?php
+      	  if(isset($_GET['login'])){
+			$add = $_GET['login'];
+			if($add=='error'){
+				echo ' <div id="error" class ="d-flex justify-content-center"> <span class="alert alert-danger">Invalid Username or Password</span> </div>';
+			}
+			if($add=='deactivated'){
+				echo ' <div class ="d-flex justify-content-center"> <span class="alert alert-danger">Your account has been deactivated</span> </div>';
+			}
+	 };
+         ?>
+
                   <a href="">Forgot password?</a>
                   <div class="login-button">
                   <div class="d-grid gap-2">
@@ -415,6 +416,11 @@ h1{
 }
 
 
+}
+
+#error{
+  margin-top:20px;
+  margin-bottom:-20px;
 }
 
 </style>
