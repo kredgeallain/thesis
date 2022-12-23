@@ -8,6 +8,6 @@ session_destroy();
 
 sleep(1);
 
-header('location:login.php');
+header('location:login-user.php');
 
 ?>

@@ -278,6 +278,22 @@ details.test[open]>summary::after {
 }
 
 
+#preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: white;
+      z-index: 9999;
+    }
+
+    #preloader img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
       </style>
         </head>
         <body>
@@ -360,8 +376,19 @@ details.test[open]>summary::after {
      
 </div>
 
-
+<!--screen loading-->
+<div id="preloader">
+    <img src="../image/preloader.gif" alt="Preloading" width="100px">
+  </div>
 <!--script-->
+
+<script>
+    window.onload = function() {
+      var preloader = document.getElementById('preloader');
+      preloader.style.display = 'none';
+    }
+  </script>
+
 <script>
  
 const details = document.querySelectorAll("details");

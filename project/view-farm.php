@@ -110,7 +110,7 @@ if ($result = $mysqli->query($query)){
                                         <center> <p> '.$row["farmID"].' </p> </center>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Cancel </button>
-										<button type="submit" class="btn btn-primary"> <a href="delete-farm.php?id='.$row["farmID"].'"> Yes </a> </button>
+										<button id="delete-btn" type="submit" class="btn btn-primary"> <a id="delete-yes" href="delete-farm.php?id='.$row["farmID"].'"> Yes </a> </button>
 									</div>
 									</div>
 								</div>
@@ -226,6 +226,17 @@ if ($result = $mysqli->query($query)){
             border:none;
             background-color:green;
             color:white;
+        }
+
+        #delete-yes{
+            padding-left:20px;
+            padding-right:20px;
+            text-decoration:none;
+        }
+
+        #delete-btn{
+            padding-left:0;
+            padding-right:0;
         }
 
         </style>

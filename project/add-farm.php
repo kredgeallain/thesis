@@ -491,9 +491,6 @@ form{
     margin-top:30px;
 }
 
-#label{
-    color:grey;
-}
 </style>
 
 

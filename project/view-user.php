@@ -37,7 +37,7 @@ if ($result = $mysqli->query($query)){
 				<th scope='col' hidden id='count'>UserID</th>
 				<th scope='col' id='name'>Name</th>
 				<th scope='col' id='u-name'>Username</th>
-                <th scope='col' id='brgy'>Address</th>
+                <th scope='col' id='brgy'>Barangay</th>
 				<th scope='col' id='pos'>Position</th>
 				<th scope='col' id='cntct'>Contact No</th>
 				<th scope='col' id='edit'> Edit </th>
@@ -103,7 +103,7 @@ if ($result = $mysqli->query($query)){
                                         <center> <p> '.$row["userID"].' </p> </center>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Cancel </button>
-										<button type="submit" class="btn btn-primary"> <a href="delete.php?id='.$row["userID"].'"> Yes </a> </button>
+										<button id="delete-btn" type="submit" class="btn btn-primary"> <a id="delete-yes" href="delete.php?id='.$row["userID"].'"> Yes </a> </button>
 									</div>
 									</div>
 								</div>
@@ -208,6 +208,16 @@ tr:hover {
     border: none;
     background-color: darkred;
     color: white;
+}
+#delete-yes{
+    padding-left:20px;
+    padding-right:20px;
+    text-decoration:none;
+}
+
+#delete-btn{
+    padding-left:0;
+    padding-right:0;
 }
 </style>
 </body>
