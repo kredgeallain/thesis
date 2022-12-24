@@ -378,7 +378,7 @@ details.test[open]>summary::after {
 
 <!--screen loading-->
 <div id="preloader">
-    <img src="../image/preloader.gif" alt="Preloading" width="100px">
+    <img src="../image/preloader2.gif" alt="Preloading" width="100px">
   </div>
 <!--script-->
 
