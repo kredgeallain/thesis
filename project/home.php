@@ -276,9 +276,9 @@ details.test[open]>summary::after {
                   <summary><img src="../image/1production-admin.png" height="150px" width="150px"></summary>
                   <section class="production-dropdown">
                     <ul>
-                    <li><a href="view-records.html"><img src="../image/view-data2.png" height="15%" width="15%">VIEW RECORDS</a></li>
-                    <li><a href="record-data.html"><img src="../image/edit-data2.png" height="15%" width="15%">RECORD DATA</a></li>
-                    <li><a href=""><img src="../image/generate-report.png" height="15%" width="15%">GENERATE DATA</a></li>
+                    <li><a href="view-broiler.php"><img src="../image/view-data2.png" height="15%" width="15%">VIEW RECORDS</a></li>
+                    <li><a href="record1.php"><img src="../image/edit-data2.png" height="15%" width="15%">RECORD DATA</a></li>
+                    <li><a href="view-layer.php"><img src="../image/generate-report.png" height="15%" width="15%">GENERATE DATA</a></li>
                     </ul>
                   </section>
                 </details>
@@ -292,7 +292,7 @@ details.test[open]>summary::after {
                     <ul>
                     <li><a href="view-farm.php"><img src="../image/view-farm.png" height="20%" width="20%">VIEW FARM</a></li>
                     <li><a href="add-farm.php"><img src="../image/add-farm.png" height="20%" width="20%">ADD FARM</a></li>
-                    <li><a href="map.html"><img src="../image/mortality-rate2.png" height="20%" width="20%">VIEW FARM MAP</a></li>
+                    <li><a href="map.php"><img src="../image/mortality-rate2.png" height="20%" width="20%">VIEW FARM MAP</a></li>
                     </ul>
                   </section>
                 </details>
