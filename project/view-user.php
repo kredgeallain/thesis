@@ -14,8 +14,8 @@ $mysqli = new mysqli("localhost", $username, $password, $database);
 <section class="wrapper">
 
     <section class="view-user">
-        <h2><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
-                class="bi bi-person-workspace" viewBox="0 0 16 20">
+        <h2><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+                class="bi bi-person-workspace" viewBox="0 2 20 16">
                 <path d="M4 16s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H4Zm4-5.95a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
                 <path
                     d="M2 1a2 2 0 0 0-2 2v9.5A1.5 1.5 0 0 0 1.5 14h.653a5.373 5.373 0 0 1 1.066-2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h-2.219c.554.654.89 1.373 1.066 2h.653a1.5 1.5 0 0 0 1.5-1.5V3a2 2 0 0 0-2-2H2Z" />
@@ -37,7 +37,7 @@ if ($result = $mysqli->query($query)){
 				<th scope='col' hidden id='count'>UserID</th>
 				<th scope='col' id='name'>Name</th>
 				<th scope='col' id='u-name'>Username</th>
-                <th scope='col' id='brgy'>Address</th>
+                <th scope='col' id='brgy'>Barangay</th>
 				<th scope='col' id='pos'>Position</th>
 				<th scope='col' id='cntct'>Contact No</th>
 				<th scope='col' id='edit'> Edit </th>
@@ -103,7 +103,7 @@ if ($result = $mysqli->query($query)){
                                         <center> <p> '.$row["userID"].' </p> </center>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Cancel </button>
-										<button type="submit" class="btn btn-primary"> <a href="delete.php?id='.$row["userID"].'"> Yes </a> </button>
+										<button id="delete-btn" type="submit" class="btn btn-primary"> <a id="delete-yes" href="delete.php?id='.$row["userID"].'"> Yes </a> </button>
 									</div>
 									</div>
 								</div>
@@ -208,6 +208,16 @@ tr:hover {
     border: none;
     background-color: darkred;
     color: white;
+}
+#delete-yes{
+    padding-left:20px;
+    padding-right:20px;
+    text-decoration:none;
+}
+
+#delete-btn{
+    padding-left:0;
+    padding-right:0;
 }
 </style>
 </body>

@@ -1,8 +1,61 @@
+<?php
+
+@include 'connect.php';
+
+session_start();
+
+if($_SERVER["REQUEST_METHOD"]=="POST")
+{
+	$username=$_POST["username"];
+	$password=$_POST["password"];
+
+
+	$sql="select * from user where username='".$username."' AND password='".$password."' ";
+
+	$result=mysqli_query($data,$sql);
+
+	$row=mysqli_fetch_array($result);
+	if($row["status"]=="off")
+	{
+
+		header('location:login-user.php?login=deactivated');
+	}
+
+	elseif($row["position"]=="agent")
+	{	
+
+		$_SESSION["username"]=$username;
+		sleep(1);
+
+		header("location:user ui/homepage.php");
+	}
+
+	elseif($row["position"]=="admin")
+	{
+
+		$_SESSION["username"]=$username;
+		sleep(1);
+		header("location:home.php");
+	}
+
+	else
+	{
+		header('location:login-user.php?login=error');
+	}
+
+}
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="../image/logo.png" type="image/icon type">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <title>Login</title>
@@ -43,11 +96,12 @@
 
             <div class="col-sm-4">
               <div class="login-form">
-  
+
                   <div class="login-text">
 
                       <h1>Login</h1> 
                   </div>
+                  <form action="#" method="POST">
   
                   <div class="form-floating mb-3">
                     <input type="username" class="form-control" id="floatingInput" placeholder="username" name="username" required>
@@ -63,13 +117,27 @@
                   </div>
                     <label for="show-password">Show password</label>
                     </div>
+
+                    <?php
+      	  if(isset($_GET['login'])){
+			$add = $_GET['login'];
+			if($add=='error'){
+				echo ' <div id="error" class ="d-flex justify-content-center"> <span class="alert alert-danger">Invalid Username or Password</span> </div>';
+			}
+			if($add=='deactivated'){
+				echo ' <div class ="d-flex justify-content-center"> <span class="alert alert-danger">Your account has been deactivated</span> </div>';
+			}
+	 };
+         ?>
+
                   <a href="">Forgot password?</a>
                   <div class="login-button">
                   <div class="d-grid gap-2">
                    
-                      <button class="btn btn-primary" type="button" name="submit" value="Log in">Login</button> 
+                      <button class="btn btn-primary" type="submit" name="submit" value="Log in">Login</button> 
                     </div>
                     </div>
+                    </form>
               </div>
             </div>
 
@@ -77,6 +145,13 @@
         </div> 
         </div>
 </Section>
+
+<!--screen loading-->
+<div id="preloader">
+    <img src="../image/preloader2.gif" alt="Preloading" width="100px">
+  </div>
+
+
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
@@ -91,13 +166,23 @@ showPasswordCheckbox.addEventListener('change', function() {
 });
 
 
+    window.onload = function() {
+      var preloader = document.getElementById('preloader');
+      preloader.style.display = 'none';
+    }
+
+
 </script>
-</script>
+
 
 <!--style-->
 <style type="text/css">
 
   body{
+    background-image: url(../image/background4.jpg);
+    background-repeat: auto;
+    background-position: auto;
+    background-size: cover;
     background-color:#f9faff;
     font-family: Helvetica;
     margin:0;
@@ -135,7 +220,7 @@ align-content: center;
 }
 
 .login-form{
-  background-color: #f4f4ec;
+  background-color: white;
   box-shadow:2px 2px 12px 1px grey;
   border-radius:10px;
   border:1px solid grey;
@@ -347,6 +432,30 @@ h1{
 
 }
 
+#error{
+  margin-top:20px;
+  margin-bottom:-20px;
+}
+
+#preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: white;
+      z-index: 9999;
+    }
+
+    #preloader img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
 </style>
+
+
 </body>
 </html>

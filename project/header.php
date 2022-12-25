@@ -378,19 +378,6 @@
                         d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z" />
                 </svg>Home</a>
         </div>
-        <!--production-->
-        <div class="production">
-            <img src="../image/1production-admin.png" alt="production-logo" width="25px"><b>
-                <p>PRODUCTION</p>
-            </b>
-        </div>
-
-        <a href="#home"><img src="../image/view-data.png" alt="view record icon" width="30px"> View Records</a>
-
-        <a href="try1.php"><img src="../image/generate-report1.png" alt="generate report icon" width="25px"> Generate
-            reports</a>
-
-        <a href="record1.php"><img src="../image/record-icon.png" alt="generate report icon" width="30px"> Record Reports</a>
 
 
         <!--farm-->
@@ -400,15 +387,32 @@
             </b>
         </div>
 
+        <a href="add-brgy.php"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 20 20">
+        <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"/>
+        </svg>Add Barangay</a>
+
         <a href="add-farm.php"><img src="../image/add-farm1.png" alt="add farm icon" width="30px">Add Farm</a>
 
         <a href="view-farm.php"><img src="../image/view-farm1.png" alt="generate report icon" width="30px">View farm</a>
 
         <a href="map.php"><img src="../image/mortality-rate.png" alt="generate report icon" width="30px">View farm Map</a>
 
-   <a href="add-brgy.php"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 20 20">
-  <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"/>
-</svg>Add Barangay</a>
+
+        <!--production-->
+        <div class="production">
+            <img src="../image/1production-admin.png" alt="production-logo" width="25px"><b>
+                <p>PRODUCTION</p>
+            </b>
+        </div>
+
+        <a href="try1.php"><img src="../image/view-data.png" alt="view record icon" width="30px"> View Records</a>
+
+        <a href="view-layer.php"><img src="../image/generate-report1.png" alt="generate report icon" width="25px"> Generate
+            reports</a>
+
+        <a href="record1.php"><img src="../image/record-icon.png" alt="generate report icon" width="30px"> Record Reports</a>
+
+
 
 
         <!--user-->

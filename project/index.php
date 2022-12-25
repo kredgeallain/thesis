@@ -2,6 +2,6 @@
 <head>
 </head>
     <body>
-        <script> window.location.href = "login.php"; </script>            
+        <script> window.location.href = "login-user.php"; </script>            
     </body>
 </html>
