@@ -19,7 +19,7 @@ require_once '.\connect.php';
 <?php include 'header.php'; ?>
 
 <script type="text/javascript"
-    src="https://maps.googleapis.com/maps/api/js?v=3.35&key=AIzaSyA2_vL53nszxM8EsMd8rVkZRr4Fw9Va7sE&callback=initMap" async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2_vL53nszxM8EsMd8rVkZRr4Fw9Va7sE&callback=initMap" async
     defer></script>
 <script type="text/javascript">
 var locations = [
@@ -48,7 +48,7 @@ function initMap() {
 
     var myOptions = {
         center: myLatLng,
-        zoom: 12.5,
+        zoom: 15.8,
         mapTypeId: google.maps.MapTypeId.HYBRID
 
     };

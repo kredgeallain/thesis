@@ -101,7 +101,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
                 </select>
             </div>
             <div class="input2">
-                <p>Position</p>
+                <p>Status</p>
                 <select name="status" id="status">
                     <option value="on">On</option>
                     <option value="off">Off</option>
