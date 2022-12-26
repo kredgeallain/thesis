@@ -8,6 +8,8 @@ if(isset($_POST['submit'])){
 
 
     $brgy = mysqli_real_escape_string($data, $_POST['brgy']);
+
+
     $sql="SELECT * from baranggay where baranggay='".$brgy."' ";
 
     $result = mysqli_query($data, $sql);
@@ -82,7 +84,7 @@ $query = "SELECT * FROM baranggay";
 
 if ($result = $data->query($query)){
 		echo "<table class='table table-striped'>
-			<thead>	  
+			<thead class='thead-dark'>	  
 			<tr>
 				
 				<th scope='col' hidden id='count'>BaranggayID</th>

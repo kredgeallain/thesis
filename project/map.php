@@ -1,6 +1,6 @@
 <?php
 
-require_once '.\connect.php';
+include '.\connect.php';
 
 ?>
 
@@ -10,7 +10,21 @@ require_once '.\connect.php';
 <style type="text/css">
 #map {
     height: 90%;
-    
+
+}
+
+h6 {
+
+    font-family: roboto;
+    font-size: 14px;
+    padding-bottom: 5px;
+}
+
+p {
+
+    font-family: roboto;
+    font-size: 14px;
+
 }
 </style>
 
@@ -88,7 +102,7 @@ function setMarkers(map, locations) {
         map.setCenter(marker.getPosition())
 
 
-        var content = " <h5> Farm Name: " + farmname + '</h5>' + " <h6> Farm Owner: " + owner + '</h6>'
+        var content = " <h6> " + farmname + '</h6>' + " <p> " + owner + '</p>'
 
         var infowindow = new google.maps.InfoWindow()
 
@@ -100,7 +114,7 @@ function setMarkers(map, locations) {
 
                 setTimeout(function() {
                     infowindow.close();
-                }, 5000);
+                }, 1500);
 
             };
         })(marker, content, infowindow));

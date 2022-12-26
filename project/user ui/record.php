@@ -1,22 +1,23 @@
-<?php include ("header.php");  ?>
-<!--body-->
-  <main>
-  <Section class="wrapper">
-
-    <div class="container text-center">
-      <div class="row">
-        <div class="col">
-          <h1>Record Production</h1>
-        </div>
-
-        <div class="row">
-          <div class="col">
-          <?php 
-		 include_once '../connect.php'; 
+<?php 
+		 include_once '..\connect.php'; 
 		 $query = "SELECT * FROM baranggay "; 
  		$result = mysqli_query($conn,$query);	
  		?>
+<?php
+include('header.php');
+?>
 
+
+
+
+<body>
+    
+
+
+
+
+
+    <section class="wrapper">
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
@@ -50,6 +51,9 @@
                 
             </div>
 
+            <?php include ("footer.php");  ?>
+
+        </section>
 
         	<?php
 
@@ -112,7 +116,7 @@
 
             $.ajax({
                 type: "POST",
-                url: '../getfarm.php',
+                url: 'getfarm.php',
                 data: {
                     baranggay_data: baranggayID
                 },
@@ -128,7 +132,7 @@
 
             $.ajax({
                 type: "POST",
-                url: "../getbatch1.php",
+                url: "getbatch1.php",
                 data: {
                     farm_data: farmID
                 },
@@ -146,7 +150,7 @@
 
             $.ajax({
                 type: "POST",
-                url: "../getrecord.php",
+                url: "getrecord.php",
                 data: {
                     batch_data: batchs
                 },
@@ -162,74 +166,10 @@
         });
         </script>
 
-          </div>
-        </div>
-      </div>  
-    </div>        
-  </Section>
-</main>
-<!--footer-->
-<?php include ("footer.php");  ?>
 
 
 
-<!--style-->
-<style type="text/css">
-
-  .col{
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
-
-  .col1{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .col1 select{
-    margin-left: 5px;
-    margin-right: 5px;
-  }
-
-  .col2{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .col2 select{
-    margin-left: 5px;
-    margin-right: 5px;
-  }
-
-
-  .col3{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .col4{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 5px;
-    margin-right: 20px;
-  }
-
-  select{
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-
-
-
-</style>
-
-<!--style-->
-
-<style type="text/css">
+            <style type="text/css">
             * {
                 font-family: tahoma;
                 padding: 0px;
@@ -277,5 +217,7 @@
             }
           
             </style>
+
 </body>
+
 </html>
