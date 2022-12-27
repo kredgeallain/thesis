@@ -117,9 +117,9 @@ else {
 }
 
 ?> 
-
 <style type="text/css">
 .record-wrapper{
+    z-index: 999;
     padding-top:10px;
     padding-bottom:10px;
     background-color: #f9faff;
@@ -154,5 +154,4 @@ label{
     dispaly:block;
     margin-top:20px;
 }
-
 </style>

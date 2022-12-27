@@ -44,7 +44,6 @@
     bottom: 0;
     display: flex;
     justify-content: center;
-    border-top: 2px solid black;
     padding-top: 10px !important;
     margin-top: 250px !important;
     
