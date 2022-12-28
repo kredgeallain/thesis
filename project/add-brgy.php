@@ -116,13 +116,16 @@ if ($result = $data->query($query)){
 }
 
 .wrapper-add {
-    border-radius: 50px;
+    box-shadow:1px 1px 20px 5px grey;
+    border-radius: 5px;
     margin-top: 30px;
     margin-left: 30px;
     margin-right: 30px;
     border: 1px solid grey;
-    padding-bottom: 30px;
+    padding-top:20px;
+    padding-bottom: 20px;
     padding-top: 20px;
+    margin-bottom:50px;
 }
 
 .add-brgy-button {

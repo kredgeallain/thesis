@@ -148,7 +148,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 
 <!--screen loading-->
 <div id="preloader">
-    <img src="../image/preloader2.gif" alt="Preloading" width="100px">
+    <img src="../image/logo.png" alt="Preloading" width="400px">
+    <h1>LOADING...</h1>
   </div>
 
 
@@ -169,6 +170,7 @@ showPasswordCheckbox.addEventListener('change', function() {
     window.onload = function() {
       var preloader = document.getElementById('preloader');
       preloader.style.display = 'none';
+      
     }
 
 
@@ -449,10 +451,30 @@ h1{
 
     #preloader img {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      top: 15%;
+      left: 37%;
+      animation: reveal 2s linear infinite;
     }
+
+    @keyframes reveal {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#preloader h1{
+  font-weight:bold;
+  position: absolute;
+  top:75%;
+  left:44%;
+  animation: reveal 2s linear infinite;
+
+}
+
+
 
 </style>
 
