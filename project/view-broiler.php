@@ -22,7 +22,7 @@ MONTH(broiler.date) as month,
 YEAR(broiler.date) as year
 FROM baranggay INNER JOIN farm ON baranggay.baranggayID = farm.baranggayID 
 INNER JOIN batch ON farm.farmID = batch.farmID 
-INNER JOIN broiler ON batch.batchID = broiler.batchID AND batch.batchID = broiler.batchID
+INNER JOIN broiler ON batch.batchID = broiler.batchID
 
 GROUP BY baranggay.baranggay, farm.farmname, batch.batchID,
 MONTH(broiler.date),
