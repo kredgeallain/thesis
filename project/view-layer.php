@@ -22,7 +22,7 @@ MONTH(layer.date) as month,
 YEAR(layer.date) as year
 FROM baranggay INNER JOIN farm ON baranggay.baranggayID = farm.baranggayID 
 INNER JOIN batch ON farm.farmID = batch.farmID 
-INNER JOIN layer ON batch.batchID = layer.batchID AND batch.batchID = layer.batchID
+INNER JOIN layer ON batch.batchID = layer.batchID 
 
 GROUP BY baranggay.baranggay, farm.farmname, batch.batchID,
 MONTH(layer.date),

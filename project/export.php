@@ -3,11 +3,14 @@
 include('connect.php');
 
 // Prompt the user to enter the start and end dates for the data
+
 echo "<form method='post'>";
 echo 'Enter the start date (YYYY-MM-DD): <input type="date" name="start_date"><br>';
 echo 'Enter the end date (YYYY-MM-DD): <input type="date" name="end_date"><br>';
 echo "<input type='submit' value='Export'>";
 echo "</form>";
+
+
 
 
 // Check if the form has been submitted
@@ -20,15 +23,15 @@ if (isset($_POST['start_date']) && isset($_POST['end_date'])) {
     $query = "SELECT 
     baranggay.baranggay, farm.farmname, batch.batch,
     
-    SUM(layer.no_eggs) as eggs,
-    SUM(layer.reject_eggs) as rej_eggs,
-    SUM(layer.mortality) as mortality,
-    MIN(layer.Lcurrent) as current,
-    MONTH(layer.date) as month,
-    YEAR(layer.date) as year
+    SUM(layer.no_eggs) as Eggs,
+    SUM(layer.reject_eggs) as Reject,
+    SUM(layer.mortality) as Mortality,
+    MIN(layer.Lcurrent) as Current,
+    MONTH(layer.date) as Month,
+    YEAR(layer.date) as Year
     FROM baranggay INNER JOIN farm ON baranggay.baranggayID = farm.baranggayID 
     INNER JOIN batch ON farm.farmID = batch.farmID 
-    INNER JOIN layer ON batch.batchID = layer.batchID AND batch.batchID = layer.batchID
+    INNER JOIN layer ON batch.batchID = layer.batchID 
     WHERE layer.date BETWEEN '$start_date' AND '$end_date'
     GROUP BY baranggay.baranggay, farm.farmname, batch.batchID,
     MONTH(layer.date),
