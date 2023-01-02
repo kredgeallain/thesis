@@ -11,7 +11,7 @@ $batch_qry = mysqli_query($conn, $batch);
 $output = '<option value="" selected disabled >Select Batch</option>';
 
 while ($batch_row = mysqli_fetch_assoc($batch_qry)) {
-    $output .= '<option value="' . $batch_row['batchID'] . '">' . $batch_row['batch'] . '</option>';
+    $output .= '<option value="' . $batch_row['batchID'] . '">' . $batch_row['batch'] . ' / ' . $batch_row['unit'] . '</option>';
 }
 echo $output;
 

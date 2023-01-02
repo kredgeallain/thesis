@@ -1,178 +1,187 @@
+<?php 
+		 include_once '..\project\connect.php'; 
+		 $query = "SELECT * FROM baranggay "; 
+ 		$result = mysqli_query($conn,$query);	
+ 		?>
+<?php
+include('header.php');
+?>
 
 
-<?php include ("header.php");  ?>
-
-<div class="wrapper">
-
-<section class="view-user">
-        <h2><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-houses" viewBox="0 2 20 16">
-  <path d="M5.793 1a1 1 0 0 1 1.414 0l.647.646a.5.5 0 1 1-.708.708L6.5 1.707 2 6.207V12.5a.5.5 0 0 0 .5.5.5.5 0 0 1 0 1A1.5 1.5 0 0 1 1 12.5V7.207l-.146.147a.5.5 0 0 1-.708-.708L5.793 1Zm3 1a1 1 0 0 1 1.414 0L12 3.793V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v3.293l1.854 1.853a.5.5 0 0 1-.708.708L15 8.207V13.5a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 4 13.5V8.207l-.146.147a.5.5 0 1 1-.708-.708L8.793 2Zm.707.707L5 7.207V13.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5V7.207l-4.5-4.5Z"/>
-</svg>Farm Name</h2>
-    </section>
-
-    <section class="view">
 
 
-		<table class='table table-striped'>
-			<thead>	  
-			<tr>
-				
-				<th scope='col' hidden id='count'>Farm ID</th>
-				
-				
-				<th scope='col' id='batch-no'>Batch No.</th>
-				<th scope='col' id='name'>Name</th>
-				<th scope='col' id='product'>Product</th>
-                <th scope='col' id='initial'>Initial No.</th>
-                <th scope='col' id='mortality'>Mortality</th>
-				
-				
-			</tr>	  
-			</thead>
-		 
-           
-	
+<body>
+
+
+
+
+
+
+    <section class="wrapper">
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
+        </script>
+
+        <section class="wrapper-brgy">
+            <div class="brgy">
+                <select class="form-select" aria-label="Default select example" id="baranggay" name="baranggay">
+                    <option disabled selected> Select Barangay</option>
+                    <?php while ($row = mysqli_fetch_assoc($result)) : ?>
+                    <option value="<?php echo $row['baranggayID']; ?>"> <?php echo $row['baranggay']; ?> </option>
+                    <?php endwhile; ?>
+                </select>
+            </div>
+
+            <div class="brgy-farm">
+                <select class="form-select" aria-label="Default select example" id="farm" name="farm">
+
+                    <option disabled selected> Select Farm</option>
+
+                </select>
+            </div>
+
+
+
+
+        </section>
+        <section class="frm-btch" id="batch1" class="fetch">
+            <?php
+
    
-        	<tr>
-            	<td>1</td>
-            	<td>Batch 1/Layer</td>
-            	<td>Layer</td>
-            	<td>100</td>
-               <td>10</td>
-			</tr>
+if(isset($_POST['submit'])){
 
-            <tr>
-            	<td>2</td>
-            	<td>Batch 2/Broiler</td>
-            	<td>Broiler</td>
-            	<td>40</td>
-               <td>5</td>
-			</tr>
-              
-		
-	</table>
+    $batch = $_POST['batch'];
+    $farmID = $_POST['farmID'];
+    $date = $_POST['date'];
+    $unit = $_POST['unit'];
+    $initial = $_POST['initial'];
+
+  //  $batch_filter= "SELECT * from `batch` where batch = $batch";
+
+   // $result_batch = mysqli_query($data, $batch_filter);
+
+   // if(mysqli_num_rows($result_batch) > 0){
+
+
+     //   echo '<script type="text/javascript">window.alert("Batch Already Existed");</script>';
 
 
 
-    </section>
+  //  }
 
-    </div>
-    <!--style-->
+  //  else{
 
-           <style type="text/css">
+    $insert = " INSERT INTO `batch`(`farmID`, `batch`, `unit`, `initial`, `date`) 
+        VALUES ('$farmID','$batch','$unit','$initial','$date') ";
+mysqli_query($data, $insert);
 
-        .wrapper{
-            margin-top:10px;
-            border:1px solid grey;
+        echo '<script type="text/javascript">window.alert("Batch Added");</script>';
+   // };
+
+
+}
+            ?>
+
+
+        </section>
+
+
+
+        <script>
+        $('#baranggay').on('change', function() {
+            var baranggayID = this.value;
+            console.log(baranggayID);
+
+
+
+            $.ajax({
+                type: "POST",
+                url: 'getfarm.php',
+                data: {
+                    baranggay_data: baranggayID
+                },
+                success: function(result) {
+                    $('#farm').html(result);
+                }
+            })
+        });
+
+        $('#farm').on('change', function() {
+            var farmID = this.value;
+            console.log(farmID);
+
+            $.ajax({
+                type: "POST",
+                url: "batcheslist.php",
+                data: {
+                    farm_data: farmID
+                },
+                success: function(result) {
+                    $('#batch1').html(result);
+                }
+            })
+
+        });
+        </script>
+
+
+
+
+        <style type="text/css">
+        * {
+            font-family: tahoma;
+            padding: 0px;
+            margin: 0px;
+
         }
 
-        .view {
-            padding: 10px;
-            margin: 20px;
-        }
-
-
-        .view-user {
-            display: flex;
-            margin-top:10px;
-            justify-content: center;
-        }
-
-        .view-user h2 {
-            font-size: 30px;
-            font-weight: bold;
-        }
-
-        .add {
-
-            display: flex;
-            justify-content: flex-end;
-        }
-
-        .add-user-page {
-            background-color:darkblue;
-            padding: 10px 25px 10px 25px;
-            margin-bottom: 30px;
-            margin-right: 80px;
+        select {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-right: 100px;
+            margin: 30px;
+            margin-left: 10px;
+            outline: 0;
+            background-image: none;
             border-radius: 5px;
         }
 
-        .add-user-page a {
-            text-decoration: none;
+
+
+
+        .wrapper-brgy input[type=submit] {
+            margin-top: 35px;
+            margin-right: 90px;
+            margin-left: 250px;
+            width: 200px;
+            border-radius: 20px;
+            background-color: #0e2a83;
+            border: none;
             color: white;
+            padding: 16px 32px;
+            text-decoration: none;
+            cursor: pointer;
         }
 
-        .add-user-page:hover {
+
+        .wrapper {
             margin-right: 80px;
-            background-color:blue;
-            color: white;
+            margin-left: 80px;
         }
 
-        .add-user-page a:hover {
-            color: white;
-        }
-
-        tr td button a {
-            text-decoration: none;
-            color: white;
-        }
-
-        a:hover {
-            color: white;
+        .wrapper-brgy {
+            display: flex;
+            justify-content: space-evenly;
 
         }
 
-        tr:hover {
-            background-color: #b0b4b2;
-        }
-
-        .delete-button button{
-            border:none;
-            background-color:red;
-        }
-
-        .delete-button button:hover{
-            border:none;
-            background-color:darkred;
-            color:white;
-        }
-
-        .addbatch-button button{
-            border:none;
-            background-color:darkgreen;
-            
-        }
-
-        .addbatch-button button:hover{
-            border:none;
-            background-color:green;
-            color:white;
-        }
-
-        #delete-yes{
-            padding-left:20px;
-            padding-right:20px;
-            text-decoration:none;
-        }
-
-        #delete-btn{
-            padding-left:0;
-            padding-right:0;
-        }
-
-        .viewbatch-button button{
-            background-color: limegreen;
-            border:none;
-        }
-
-        .viewbatch-button button:hover{
-            background-color: yellowgreen;
-            border:none;
-        }
-        a{
-            text-decoration:none !important;
+        .fetch {
+            border: 1px;
+            margin: 50px;
         }
         </style>
+
 </body>
 
 </html>
