@@ -20,6 +20,8 @@
     <script>
     function openNav() {
         document.getElementById("mySidenavb").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+        document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
     }
 
     function closeNav() {
@@ -38,6 +40,7 @@
     }
 
     .sidebar {
+        z-index:10000;
         margin: 0;
         padding: 0;
         width: 200px;
@@ -436,7 +439,7 @@
         <section class="header-main">
             <h2>Poultry Products Recording and Inventory System</h2>
             <div class="main1" id="main1">
-                <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;
+                <span style="font-size:30px;cursor:pointer;" onclick="openNav()">&#9776;
                     <!--<img src="../image/user.png" alt="user" width="80px">-->
                 </span>
             </div>
