@@ -198,7 +198,7 @@ include('header.php');
 
 
   
-
+<!--
   <script>
   var div = document.getElementById('footer');
 
@@ -209,6 +209,8 @@ include('header.php');
   window.addEventListener('scroll', updatePosition);
   window.addEventListener('resize', updatePosition);
 </script>
+-->
+
 
 
             <style type="text/css">
@@ -250,7 +252,8 @@ include('header.php');
             .wrapper {
                 margin-right: 80px;
                 margin-left: 80px;
-                margin-bottom:50px;
+                margin-bottom:480px;
+
             }
 
             .wrapper-brgy {
@@ -260,13 +263,14 @@ include('header.php');
 
             .footer {
     background-color:white;
- position: absolute;
+ position: sticky;
+ width: 100%;
+
     bottom: 0;
     left:0;
     right:0;
     display: flex;
     justify-content: center;
-    border-top: 2px solid black;
     padding-top: 10px !important;
     
   }
