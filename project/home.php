@@ -541,19 +541,17 @@ details.test[open]>summary::after {
                   
             <section class="nav">
 
-              <section class="production">
+              <section class="brgy">
                 <details>
-                  <summary><img src="../image/1production-admin.png" height="150px" width="150px"></summary>
-                  <section class="production-dropdown">
+                  <summary><img src="../image/barangay-admin.png" height="150px" width="150px"></summary>
+                  <section class="brgy-dropdown">
                     <ul>
-                    <li><a href="view-layer.php"><img src="../image/view-data.png" height="15%" width="15%">VIEW RECORDS</a></li>
-                    <li><a href="record1.php"><img src="../image/edit-data.png" height="15%" width="15%">RECORD DATA</a></li>
-                    <li><a href=""><img src="../image/generate-report1.png" height="15%" width="15%">GENERATE DATA</a></li>
+                    <li><a href="add-brgy.php"><img id="add-brgy" src="../image/add-barangay1.png" height="60px" width="60px">ADD BARANGAY</a></li>
                     </ul>
                   </section>
                 </details>
               </section>
-              
+
               <section class="farm">
                 <details>
                   <summary><img src="../image/1farm-admin.png" height="150px" width="150px"></summary>
@@ -566,14 +564,15 @@ details.test[open]>summary::after {
                   </section>
                 </details>
               </section>
-              
-              <section class="user">
+
+              <section class="production">
                 <details>
-                  <summary><img src="../image/1user-admin.png" height="150px" width="150px"></summary>
-                  <section class="user-dropdown">
+                  <summary><img src="../image/1production-admin.png" height="150px" width="150px"></summary>
+                  <section class="production-dropdown">
                     <ul>
-                    <li><a href="add-user.php"><img src="../image/add user1.png" height="40%" width="25%">ADD USERS</a></li>
-                    <li><a href="view-user.php"><img src="../image/view-user1.png" height="30%" width="20%">VIEW USERS</a></li>
+                    <li><a href="record1.php"><img src="../image/edit-data.png" height="15%" width="15%">RECORD DATA</a></li>
+                    <li><a href="view-layer.php"><img src="../image/view-data.png" height="15%" width="15%">VIEW RECORDS</a></li>
+                    <li><a href=""><img src="../image/generate-report1.png" height="15%" width="15%">GENERATE DATA</a></li>
                     </ul>
                   </section>
                 </details>
@@ -583,17 +582,6 @@ details.test[open]>summary::after {
 
             <section class="nav2">
 
-            <section class="brgy">
-                <details>
-                  <summary><img src="../image/barangay-admin.png" height="150px" width="150px"></summary>
-                  <section class="brgy-dropdown">
-                    <ul>
-                    <li><a href="add-brgy.php"><img id="add-brgy" src="../image/add-barangay1.png" height="60px" width="60px">ADD BARANGAY</a></li>
-                    </ul>
-                  </section>
-                </details>
-              </section>
-
               <section class="batch">
                 <details>
                   <summary><img src="../image/batches-admin.png" height="150px" width="150px"></summary>
@@ -601,6 +589,18 @@ details.test[open]>summary::after {
                     <ul>
                     <li><a href="add-user.php"><img src="../image/add user1.png" height="40%" width="25%">ADD ADD BATCH</a></li>
                     <li><a href="view-user.php"><img src="../image/view-user1.png" height="30%" width="20%">VIEW BATCHES</a></li>
+                    </ul>
+                  </section>
+                </details>
+              </section>
+
+              <section class="user">
+                <details>
+                  <summary><img src="../image/1user-admin.png" height="150px" width="150px"></summary>
+                  <section class="user-dropdown">
+                    <ul>
+                    <li><a href="add-user.php"><img src="../image/add user1.png" height="40%" width="25%">ADD USERS</a></li>
+                    <li><a href="view-user.php"><img src="../image/view-user1.png" height="30%" width="20%">VIEW USERS</a></li>
                     </ul>
                   </section>
                 </details>

@@ -416,13 +416,14 @@
             </b>
         </div>
 
+        <a href="record1.php"><img src="../image/record-icon.png" alt="generate report icon" width="30px"> Record Reports</a>
+
         <a href="try1.php"><img src="../image/view-data.png" alt="view record icon" width="30px"> View Records</a>
 
         <a href="view-layer.php"><img src="../image/generate-report1.png" alt="generate report icon" width="25px"> Generate
             reports</a>
 
-        <a href="record1.php"><img src="../image/record-icon.png" alt="generate report icon" width="30px"> Record Reports</a>
-
+        
 
         <!--batch-->
         <div class="production">
