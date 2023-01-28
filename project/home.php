@@ -589,7 +589,6 @@ details.test[open]>summary::after {
                   <section class="brgy-dropdown">
                     <ul>
                     <li><a href="add-brgy.php"><img id="add-brgy" src="../image/add-barangay1.png" height="60px" width="60px">ADD BARANGAY</a></li>
-                    <li><a href="view-user.php"><img src="../image/view-user1.png" height="30%" width="20%">VIEW</a></li>
                     </ul>
                   </section>
                 </details>

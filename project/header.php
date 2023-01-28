@@ -382,6 +382,18 @@
                 </svg>Home</a>
         </div>
 
+        
+        <!--brgy-->
+        <div class="production">
+            <img src="../image/barangay-admin.png" alt="production-logo" width="25px"><b>
+                <p>BARANGAY</p>
+            </b>
+        </div>
+
+        <a href="add-brgy.php"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 20 20">
+        <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"/>
+        </svg>Add Barangay</a>
+
 
         <!--farm-->
         <div class="production">
@@ -389,10 +401,6 @@
                 <p>FARM</p>
             </b>
         </div>
-
-        <a href="add-brgy.php"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 20 20">
-        <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"/>
-        </svg>Add Barangay</a>
 
         <a href="add-farm.php"><img src="../image/add-farm1.png" alt="add farm icon" width="30px">Add Farm</a>
 
@@ -416,8 +424,18 @@
         <a href="record1.php"><img src="../image/record-icon.png" alt="generate report icon" width="30px"> Record Reports</a>
 
 
+        <!--batch-->
+        <div class="production">
+            <img src="../image/batches-admin.png" alt="production-logo" width="25px"><b>
+                <p>BATCH</p>
+            </b>
+        </div>
 
+        <a href="try1.php"><img src="../image/view-data.png" alt="view record icon" width="30px">Add Batch</a>
 
+        <a href="view-layer.php"><img src="../image/generate-report1.png" alt="generate report icon" width="25px">View Batches</a>
+
+  
         <!--user-->
         <div class="production">
             <img src="../image/1user-admin.png" alt="production-logo" width="25px"><b>
