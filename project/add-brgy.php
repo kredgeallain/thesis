@@ -72,7 +72,7 @@ if(isset($_POST['submit'])){
 </div>
 
 </form>
-<div class="wrapper-list">
+<div class="wrapper-list" id='brgy-list'>
     <h4>List of Barangay</h4>
 
 
@@ -83,7 +83,7 @@ $query = "SELECT * FROM baranggay";
 
 
 if ($result = $data->query($query)){
-		echo "<table class='table table-striped'>
+		echo "<table id='tbl-list' class='table table-striped'>
 			<thead class='thead-dark'>	  
 			<tr>
 				
@@ -103,16 +103,14 @@ if ($result = $data->query($query)){
         	echo"<tr>";
             	echo "<td hidden >" .$row['baranggayID']. "</td>";
             	echo "<td id='name'>" .$row['baranggay']. "</td>";
-                echo '<td > 
+                echo '<td> 
 
-            
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal" >
-                   <a href= "update-barangay.php?baranggayID='.$row['baranggayID'].'"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 20 20">
+                   <a type="button" class="btn btn-primary" href= "update-barangay.php?baranggayID='.$row['baranggayID'].'"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 20 20">
                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
                  </svg> Edit </a>
-                </button>
-   
+               
+          
                 
         </td>';      
             
@@ -138,7 +136,6 @@ if ($result = $data->query($query)){
     border: 1px solid grey;
     padding-top:20px;
     padding-bottom: 20px;
-    padding-top: 20px;
     margin-bottom:50px;
 }
 
@@ -173,5 +170,21 @@ if ($result = $data->query($query)){
 
 input {
     width: 300px !important;
+}
+
+#brgy-list{
+display: flex;
+justify-content:center;
+flex-direction:column;
+align-items:center;
+align-content:center;
+}
+#tbl-list{
+    width:100%;
+    max-width:500px;
+}
+
+#edit-list{
+    color:white !important;
 }
 </style>
