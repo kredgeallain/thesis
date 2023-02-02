@@ -99,7 +99,7 @@
 
     }
 
-    @media screen and (max-width: 400px) {
+    @media screen and (max-width: 500px) {
         .sidebar a {
             text-align: center;
             float: none;

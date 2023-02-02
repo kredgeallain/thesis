@@ -587,7 +587,7 @@ details.test[open]>summary::after {
                   <summary><img src="../image/batches-admin.png" height="150px" width="150px"></summary>
                   <section class="batch-dropdown" style="z-index:2">
                     <ul>
-                    <li><a href="add-user.php"><img src="../image/add user1.png" height="40%" width="25%">ADD ADD BATCH</a></li>
+                    <li><a href="add-user.php"><img src="../image/add user1.png" height="40%" width="25%">ADD BATCH</a></li>
                     <li><a href="view-user.php"><img src="../image/view-user1.png" height="30%" width="20%">VIEW BATCHES</a></li>
                     </ul>
                   </section>

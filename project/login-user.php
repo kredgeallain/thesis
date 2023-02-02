@@ -130,7 +130,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 	 };
          ?>
 
-                  <a href="">Forgot password?</a>
+                  <a href="forgot-pass.php">Forgot password?</a>
                   <div class="login-button">
                   <div class="d-grid gap-2">
                    
