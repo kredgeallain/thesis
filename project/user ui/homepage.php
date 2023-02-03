@@ -15,19 +15,39 @@
               <img src="../../image/user2.png" class="img-fluid" alt="logo" width="60px">
             </div>
             <div class="col">
-             <h2>user1</h2>
-             <p><i>Welcome!</i></p>
+             <h2 id="user-info">user1</h2>
+             <p id="p"><i>Welcome!</i></p>
             </div>
 
 
             <div class="col">
               <div class="logout-icon">
-              <a href="../logout.php"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="40" fill="white" class="bi bi-box-arrow-right" viewBox="0 3 16 6">
+              <a id="a" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button" ><svg xmlns="http://www.w3.org/2000/svg" width="30" height="40" fill="white" class="bi bi-box-arrow-right" viewBox="0 3 16 6">
                 <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
                 <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
               </svg></a>
             </div>
              </div>
+
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Confirm!</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+                               <h2>Are you sure to log out?</h2>
+                              </div>
+                              <div class="modal-footer">
+                                <a type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</a>
+                                <a id="yes" href="../logout.php" type="button" class="btn btn-primary">Yes</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
 
 
         </div>
@@ -96,19 +116,19 @@
     border-radius: 10px;
 
   }
-  .user-info h2{
+  #user-info{
     padding-bottom: 5px;
     margin-bottom: -3px;
     color: white;
   }
 
-  .user-info p{
+   #p{
     font-size: 10px !important;
     color: white;
     margin-bottom: -5px;
   }
 
-  .user-info a{
+  #a{
     font-size: 15px;
     display: flex !important;
     justify-content: flex-end !important;
@@ -180,6 +200,44 @@
     margin-top: 10px;
     background-color: transparent !important;
     border: none;
+  }
+
+  .modal-header{
+   
+  }
+
+  .modal-content{
+    border:none;
+    border-radius:30px;
+    padding-bottom:0;
+  }
+  .modal-content a{
+    color:darkblue;
+    margin:0;
+  }
+
+
+  .modal-footer{
+    border:none;
+    display:flex;
+    justify-content:center;
+    padding-top:0;
+    margin-bottom:10px;
+    gap:25px;
+  }
+
+  .modal-footer a{
+    color:white;
+    padding-right:30px;
+    padding-left:30px;
+  }
+
+  #yes{
+    border:none;
+    background-color:darkblue;
+  }
+  #yes:hover{
+    background-color:blue;
   }
 /**/
 
