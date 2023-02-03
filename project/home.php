@@ -105,10 +105,10 @@ margin-right: 50px;
 li {
 list-style: none;
 text-decoration: none;
-padding-bottom: 10px;
-padding-top: 20px;
-padding-left:10px;
-padding-right:30px;
+margin-bottom: 10px;
+margin-top: 20px;
+margin-left:10px;
+margin-right:30px;
 }
 
 .production ul{
@@ -118,13 +118,18 @@ position: absolute;
 margin-left: -65px;
 }
 
-.production-dropdown img{
+#img{
 margin-left: -60px;
 margin-top: -5px;
 position: absolute;
 }
+#dropdown-img{
+  position: absolute;
+  margin-left: -60px;
+margin-top: -5px;
+}
 
-.production-dropdown a{
+#a{
 font-weight: bold;
 color: black;
 margin-left: 20px;
@@ -132,13 +137,29 @@ text-decoration: none;
 transition: all 0.2s ease-in-out;
 }
 
-.production-dropdown a:hover{
+#a:hover{
 color:white;
 background-color:darkblue;
 padding: 10px;
 border-radius:5px;
 transform: scale(1.1);
 }
+
+#a-dropdown{
+font-weight: bold;
+color: black;
+text-decoration: none;
+transition: all 0.2s ease-in-out;
+}
+
+#a-dropdown:hover{
+color:white;
+background-color:darkblue;
+padding: 10px;
+border-radius:5px;
+transform: scale(1.1);
+}
+
 
 .farm ul{
   z-index: 100;
@@ -486,6 +507,47 @@ details.test[open]>summary::after {
   font-weight:bold
 }
 
+.dropdown-content-view {
+  position:absolute;
+  margin-left:95px;
+  display: none;
+  background-color: lightgray;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content-view a {
+  color: black;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-view:hover .dropdown-content-view {
+  display:grid;
+}
+
+.dropdown-content-generate {
+  position:absolute;
+  margin-left:95px;
+  display: none;
+  background-color: lightgray;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content-generate a {
+  color: black;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-generate:hover .dropdown-content-generate {
+  display:grid;
+}
       </style>
         </head>
         <body>
@@ -570,9 +632,27 @@ details.test[open]>summary::after {
                   <summary><img src="../image/1production-admin.png" height="150px" width="150px"></summary>
                   <section class="production-dropdown">
                     <ul>
-                    <li><a href="record1.php"><img src="../image/edit-data.png" height="15%" width="15%">RECORD DATA</a></li>
-                    <li><a href="view-layer.php"><img src="../image/view-data.png" height="15%" width="15%">VIEW RECORDS</a></li>
-                    <li><a href=""><img src="../image/generate-report1.png" height="15%" width="15%">GENERATE DATA</a></li>
+                    <li><a id="a" href="record1.php"><img id="img" src="../image/edit-data.png"  width="15%">RECORD DATA</a></li>
+                    <li class="dropdown-view"><a id="a" href="#"><img id="dropdown-img" src="../image/view-data.png" width="20%">VIEW RECORDS</a>
+                        
+                      <div class="dropdown-content-view">
+                        <ul>
+                          <li><a id="a-dropdown" href="">Broiler</a></li>
+                          <li><a id="a-dropdown" href="">Layer</a></li>
+                        </ul>
+                      </div>
+
+                  </li>
+                    <li class="dropdown-generate"><a id="a" href="#"><img id="img" src="../image/generate-report1.png"  width="15%">GENERATE DATA</a>
+
+                    <div class="dropdown-content-generate">
+                        <ul>
+                          <li><a id="a-dropdown" href="">Broiler</a></li>
+                          <li><a id="a-dropdown" href="">Layer</a></li>
+                        </ul>
+                      </div>
+
+                  </li>
                     </ul>
                   </section>
                 </details>
