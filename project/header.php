@@ -85,6 +85,7 @@
             float: left;
         }
 
+
         div.content {
             margin-left: 0;
         }
@@ -351,6 +352,73 @@
     }
 
 
+    
+.dropdown-content-view {
+    margin-left:13px;
+  display: none ;
+  position: absolute ;
+  background-color: lightgray ;
+  min-width: 160px ;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2) ;
+  z-index:1;
+}
+
+.dropdown-content-view a{
+  color: black ;
+  text-decoration: none ;
+  display: block ;
+  text-align: left ;
+}
+
+.dropdown-contentview a:hover{
+  color: white ;
+  text-decoration: none ;
+  display: block ;
+  text-align: left ;
+}
+
+.dropdown-view:hover .dropdown-content-view {
+  display: block ;
+}
+
+ul{
+    margin:0;
+    padding:0;
+}
+li{
+    list-style: none;
+    text-decoration:none;
+}
+
+.dropdown-content-generate {
+    margin-left:13px;
+  display: none ;
+  position: absolute ;
+  background-color: lightgray ;
+  min-width: 160px ;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2) ;
+  z-index:1;
+}
+
+.dropdown-content-generate a{
+  color: black ;
+  text-decoration: none ;
+  display: block ;
+  text-align: left ;
+}
+
+.dropdown-contentgenerate a:hover{
+  color: white ;
+  text-decoration: none ;
+  display: block ;
+  text-align: left ;
+}
+
+.dropdown-generate:hover .dropdown-content-generate {
+  display: block ;
+}
+
+
     </style>
 
 
@@ -417,12 +485,25 @@
         </div>
 
         <a href="record1.php"><img src="../image/record-icon.png" alt="generate report icon" width="30px"> Record Reports</a>
+        <ul>
+            <li class="dropdown-view">
+        <a type="button" href="try1.php"><img src="../image/view-data.png" alt="view record icon" width="30px"> View Records</a>
+        <ul class="dropdown-content-view">
+            <li><a  href="">Layer Records</a></li>
+            <li><a  href="">Broiler Records</a></li>
+        </ul>   
+        </li> 
+        </ul>
 
-        <a href="try1.php"><img src="../image/view-data.png" alt="view record icon" width="30px"> View Records</a>
-
-        <a href="view-layer.php"><img src="../image/generate-report1.png" alt="generate report icon" width="25px"> Generate
+        <ul>
+        <li class="dropdown-generate"><a href="view-layer.php"><img src="../image/generate-report1.png" alt="generate report icon" width="25px"> Generate
             reports</a>
-
+            <ul class="dropdown-content-generate">
+                <li><a href="">Layer Reports</a></li>
+                <li><a href="">Broiler Reports</a></li>
+            </ul>
+        </li>
+            </ul>
         
 
         <!--batch-->
