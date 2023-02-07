@@ -637,8 +637,8 @@ details.test[open]>summary::after {
                         
                       <div class="dropdown-content-view">
                         <ul>
-                          <li><a id="a-dropdown" href="">Broiler</a></li>
-                          <li><a id="a-dropdown" href="">Layer</a></li>
+                          <li><a id="a-dropdown" href="view-broiler.php">Broiler</a></li>
+                          <li><a id="a-dropdown" href="view-layer.php">Layer</a></li>
                         </ul>
                       </div>
 
@@ -647,8 +647,8 @@ details.test[open]>summary::after {
 
                     <div class="dropdown-content-generate">
                         <ul>
-                          <li><a id="a-dropdown" href="">Broiler</a></li>
-                          <li><a id="a-dropdown" href="">Layer</a></li>
+                          <li><a id="a-dropdown" href="View-B-Export.php">Broiler</a></li>
+                          <li><a id="a-dropdown" href="View-L-Export.php">Layer</a></li>
                         </ul>
                       </div>
 
