@@ -489,8 +489,8 @@ li{
             <li class="dropdown-view">
         <a type="button" href="try1.php"><img src="../image/view-data.png" alt="view record icon" width="30px"> View Records</a>
         <ul class="dropdown-content-view">
-            <li><a  href="">Layer Records</a></li>
-            <li><a  href="">Broiler Records</a></li>
+            <li><a  href="view-broiler.php">Broiler Records</a></li>
+            <li><a  href="view-layer.php">Layer Records</a></li>
         </ul>   
         </li> 
         </ul>
@@ -499,8 +499,8 @@ li{
         <li class="dropdown-generate"><a href="view-layer.php"><img src="../image/generate-report1.png" alt="generate report icon" width="25px"> Generate
             reports</a>
             <ul class="dropdown-content-generate">
-                <li><a href="">Layer Reports</a></li>
-                <li><a href="">Broiler Reports</a></li>
+                <li><a href="View-B-Export.php">Broiler Reports</a></li>
+                <li><a href="View-L-Export.php">Layer Reports</a></li>
             </ul>
         </li>
             </ul>
