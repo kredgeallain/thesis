@@ -1,21 +1,14 @@
 <?php 
-		 include_once '..\project\connect.php'; 
-		 $query = "SELECT * FROM baranggay "; 
- 		$result = mysqli_query($conn,$query);	
- 		?>
-<?php
-include('header.php');
+    include_once '..\project\connect.php'; 
+    $query = "SELECT * FROM baranggay "; 
+    $result = mysqli_query($conn,$query);	
 ?>
 
-
-
+<?php
+    include('header.php');
+?>
 
 <body>
-    
-
-
-
-
 
     <section class="wrapper">
 
@@ -25,7 +18,7 @@ include('header.php');
 
         <section class="wrapper-brgy">
             <div class="brgy">
-            <select class="form-select" aria-label="Default select example"  id="baranggay" name="baranggay">
+                <select class="form-select" aria-label="Default select example"  id="baranggay" name="baranggay">
                     <option disabled selected> Select Barangay</option>
                     <?php while ($row = mysqli_fetch_assoc($result)) : ?>
                     <option value="<?php echo $row['baranggayID']; ?>"> <?php echo $row['baranggay']; ?> </option>
@@ -34,7 +27,7 @@ include('header.php');
             </div>
 
             <div class="brgy-farm">
-            <select class="form-select" aria-label="Default select example"  id="farm" name="farm">
+                <select class="form-select" aria-label="Default select example"  id="farm" name="farm">
               
                     <option  disabled selected> Select Farm</option>
 
