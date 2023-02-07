@@ -241,52 +241,10 @@ input {
 select {
     margin-top: -15px;
     padding: 10px;
-
     outline: 0;
     background-image: none;
     border: 1px solid black;
     border-radius: 10px;
-}
-
-summary {
-    cursor: pointer;
-    list-style: none;
-}
-
-.drop-menu a {
-    text-decoration: none;
-    color: white;
-}
-
-ul {
-    border-radius: 15px;
-    box-shadow: 2px, 2px, 2px, 2px black;
-    background-color: grey;
-    padding-bottom: 10px;
-    margin-top: -3px;
-    margin-left: -210px;
-    margin-right: 50px;
-    margin-bottom: -203px;
-}
-
-li {
-    padding-bottom: 10px;
-    padding-top: 20px;
-    padding-left: 10px;
-    padding-right: 20px;
-    list-style: none;
-}
-
-.side-menu {
-    padding-right: 30px;
-    display: flex;
-    justify-content: flex-end;
-    margin-top: -90px;
-    margin-bottom: 20px;
-}
-
-.side-menu img {
-    margin-left: -165px;
 }
 </style>
 </body>
