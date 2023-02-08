@@ -1,9 +1,29 @@
 <?php
+include('header.php');
+?>
+
+<section class="body">
+    <div class="gererate-txt">
+        <h3><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-file-earmark-arrow-down-fill" viewBox="0 0 16 16">
+        <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zm-1 4v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 11.293V7.5a.5.5 0 0 1 1 0z"/>
+        </svg> Generate Layer Records</h3>
+    </div>
+<div class="wrapper">
+<?php
+
 include('connect.php');
+
+
 echo "<form  method='post'>";
-echo 'Enter the start date (YYYY-MM-DD): <input type="date" name="start_date"><br>';
-echo 'Enter the end date (YYYY-MM-DD): <input type="date" name="end_date"><br>';
-echo "<input type='submit' value='View Data '>";
+
+
+echo '<div class="content-body"><div class="content-input"> <div class="input-start"><p>Enter the start date (YYYY-MM-DD)</p> <input id="input" class="form-control" type="date" name="start_date"></div>';
+
+echo '<div class="input-end"><p>Enter the end date (YYYY-MM-DD)</p> <input id="input" class="form-control" type="date" name="end_date"></div></div>';
+
+echo "<div id='submit' class='view-data-btn'><input class='btn btn-info' type='submit' value='View Data '></div></div>";
+
+
 echo "</form>";
 
 if (isset($_POST['start_date']) && isset($_POST['end_date'])) {
@@ -84,6 +104,8 @@ if (isset($_POST['start_date']) && isset($_POST['end_date'])) {
 }
 
 ?>
+</div>
+</section>
 <script src="table2excel.js"></script>
 
 <div class="container">		
@@ -101,3 +123,74 @@ if (isset($_POST['start_date']) && isset($_POST['end_date'])) {
          
     });
 </script>
+
+<style >
+.body{
+    margin:20px 10px 10px 10px;
+
+}
+.wrapper{
+    padding-top:10px;
+    border-top:2px solid grey;
+    display:grid;
+    place-items:center;
+}
+
+.content-body{
+    margin:5px;
+    display:grid;
+}
+#input{
+    height:50px;
+    width: 300px;
+}
+
+.content-input{
+    display:flex;
+    gap:150px;
+}
+
+.input-start{
+    display:grid;
+    place-items:center;
+}
+
+.input-end{
+    display:grid;
+    place-items:center;
+}
+.view-data-btn{
+    margin-top:30px;
+    margin-bottom:10px;
+    display:flex;
+    justify-content:center;
+}
+
+.view-data-btn input{
+    border:none;
+    border-radius:7px;
+    padding:10px;
+    background-color:darkblue;
+}
+.view-data-btn input:hover{
+    background-color:blue;
+}
+
+#dataExport{
+    border-radius:7px;
+    padding:10px 20px 10px 20px;
+    border:none;
+ 
+}
+#dataExport:hover{
+    border:none;
+}
+.gererate-txt{
+    display:flex;
+    justify-content:center;
+    margin-bottom:5px;
+}
+h3{
+    font-weight:bold;
+}
+</style>

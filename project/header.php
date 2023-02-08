@@ -487,7 +487,7 @@ li{
         <a href="record1.php"><img src="../image/record-icon.png" alt="generate report icon" width="30px"> Record Reports</a>
         <ul>
             <li class="dropdown-view">
-        <a type="button" href="try1.php"><img src="../image/view-data.png" alt="view record icon" width="30px"> View Records</a>
+        <a ><img src="../image/view-data.png" alt="view record icon" width="30px"> View Records</a>
         <ul class="dropdown-content-view">
             <li><a  href="view-broiler.php">Broiler Records</a></li>
             <li><a  href="view-layer.php">Layer Records</a></li>
@@ -496,7 +496,7 @@ li{
         </ul>
 
         <ul>
-        <li class="dropdown-generate"><a href="view-layer.php"><img src="../image/generate-report1.png" alt="generate report icon" width="25px"> Generate
+        <li class="dropdown-generate"><a><img src="../image/generate-report1.png" alt="generate report icon" width="25px"> Generate
             reports</a>
             <ul class="dropdown-content-generate">
                 <li><a href="View-B-Export.php">Broiler Reports</a></li>
