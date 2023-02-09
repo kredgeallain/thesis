@@ -20,7 +20,7 @@ if ($result = $data->query($batch)){
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Add Batch</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -51,7 +51,7 @@ if ($result = $data->query($batch)){
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button class="btn btn-primary" type="submit" name="submit" id="submit" value="">Add Data</button>
+          <button class="btn btn-primary" type="submit" name="submit" id="submit" value="">Add Batch</button>
         </div>
       </div>
     </div>

@@ -25,7 +25,7 @@ include('header.php');
 
         <section class="wrapper-brgy">
             <div class="brgy">
-                <select class="form-select" aria-label="Default select example" id="baranggay" name="baranggay">
+                <select class="form-select form-select-sm"  id="baranggay" name="baranggay">
                     <option disabled selected> Select Barangay</option>
                     <?php while ($row = mysqli_fetch_assoc($result)) : ?>
                     <option value="<?php echo $row['baranggayID']; ?>"> <?php echo $row['baranggay']; ?> </option>
@@ -34,7 +34,7 @@ include('header.php');
             </div>
 
             <div class="brgy-farm">
-                <select class="form-select" aria-label="Default select example" id="farm" name="farm">
+                <select class="form-select form-select-sm"  id="farm" name="farm">
 
                     <option disabled selected> Select Farm</option>
 
@@ -136,14 +136,12 @@ mysqli_query($data, $insert);
 
         }
 
-        select {
+        .wrapper-brgy select {
             padding-top: 10px;
             padding-bottom: 10px;
             padding-right: 100px;
             margin: 30px;
             margin-left: 10px;
-            outline: 0;
-            background-image: none;
             border-radius: 5px;
         }
 
