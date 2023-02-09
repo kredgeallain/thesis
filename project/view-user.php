@@ -137,7 +137,6 @@ if ($result = $mysqli->query($query)){
 <style type="text/css">
 .wrapper {
     margin-top: 10px;
-    border: 1px solid grey;
 }
 
 .view {

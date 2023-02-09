@@ -513,9 +513,9 @@ li{
             </b>
         </div>
 
-        <a href="try1.php"><img src="../image/view-data.png" alt="view record icon" width="30px">Add Batch</a>
+        <a href="add-batch.php"><img src="../image/view-data.png" alt="view record icon" width="30px">Add Batch</a>
 
-        <a href="view-layer.php"><img src="../image/generate-report1.png" alt="generate report icon" width="25px">View Batches</a>
+        <a href="view-batches.php"><img src="../image/generate-report1.png" alt="generate report icon" width="25px">View Batches</a>
 
   
         <!--user-->

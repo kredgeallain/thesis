@@ -121,12 +121,11 @@ if ($result = $mysqli->query($query)){
 
         .wrapper{
             margin-top:10px;
-            border:1px solid grey;
         }
 
         .view {
             padding: 10px;
-            margin: 20px;
+            margin: 10px;
         }
 
 
