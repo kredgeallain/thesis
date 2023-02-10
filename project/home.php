@@ -605,10 +605,10 @@ details.test[open]>summary::after {
 
               <section class="brgy">
                 <details>
-                  <summary><img src="../image/barangay-admin.png" height="150px" width="150px"></summary>
+                  <summary><img src="../image/barangay-admin.png" width="150px"></summary>
                   <section class="brgy-dropdown">
                     <ul>
-                    <li><a href="add-brgy.php"><img id="add-brgy" src="../image/add-barangay1.png" height="60px" width="60px">ADD BARANGAY</a></li>
+                    <li><a href="add-brgy.php"><img id="add-brgy" src="../image/add-barangay1.png"  width="60px">ADD BARANGAY</a></li>
                     </ul>
                   </section>
                 </details>
@@ -616,12 +616,12 @@ details.test[open]>summary::after {
 
               <section class="farm">
                 <details>
-                  <summary><img src="../image/1farm-admin.png" height="150px" width="150px"></summary>
+                  <summary><img src="../image/1farm-admin.png" width="150px"></summary>
                   <section class="farm-dropdown">
                     <ul>
-                    <li><a href="view-farm.php"><img src="../image/view-farm1.png" height="20%" width="20%">VIEW FARM</a></li>
-                    <li><a href="add-farm.php"><img src="../image/add-farm1.png" height="20%" width="20%">ADD FARM</a></li>
-                    <li><a href="map.php"><img src="../image/mortality-rate.png" height="20%" width="20%">VIEW FARM MAP</a></li>
+                    <li><a href="view-farm.php"><img src="../image/view-farm1.png" width="18%">VIEW FARM</a></li>
+                    <li><a href="add-farm.php"><img src="../image/add-farm1.png" width="18%">ADD FARM</a></li>
+                    <li><a href="map.php"><img src="../image/mortality-rate.png" width="18%">VIEW FARM MAP</a></li>
                     </ul>
                   </section>
                 </details>
@@ -664,11 +664,11 @@ details.test[open]>summary::after {
 
               <section class="batch">
                 <details>
-                  <summary><img src="../image/batches-admin.png" height="150px" width="150px"></summary>
+                  <summary><img src="../image/batches-admin.png" width="150px"></summary>
                   <section class="batch-dropdown" style="z-index:2">
                     <ul>
-                    <li><a href="add-farm-batch.php"><img src="../image/add user1.png" height="40%" width="25%">ADD BATCH</a></li>
-                    <li><a href="view-batches.php"><img src="../image/view-user1.png" height="30%" width="20%">VIEW BATCHES</a></li>
+                    <li><a href="add-farm-batch.php"><img id="add-brgy" src="../image/add-barangay1.png" width="60px">ADD BATCH</a></li>
+                    <li><a href="view-batches.php"><img src="../image/view.png" width="20%">VIEW BATCHES</a></li>
                     </ul>
                   </section>
                 </details>
@@ -676,11 +676,11 @@ details.test[open]>summary::after {
 
               <section class="user">
                 <details>
-                  <summary><img src="../image/1user-admin.png" height="150px" width="150px"></summary>
+                  <summary><img src="../image/1user-admin.png"  width="150px"></summary>
                   <section class="user-dropdown">
                     <ul>
-                    <li><a href="add-user.php"><img src="../image/add user1.png" height="40%" width="25%">ADD USERS</a></li>
-                    <li><a href="view-user.php"><img src="../image/view-user1.png" height="30%" width="20%">VIEW USERS</a></li>
+                    <li><a href="add-user.php"><img src="../image/add user1.png"  width="25%">ADD USERS</a></li>
+                    <li><a href="view-user.php"><img src="../image/view-user1.png"  width="20%">VIEW USERS</a></li>
                     </ul>
                   </section>
                 </details>
