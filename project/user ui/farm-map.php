@@ -9,7 +9,7 @@ include '..\connect.php';
 
 <style type="text/css">
 #map {
-    height: 81%;
+    height: 78%;
 
 }
 

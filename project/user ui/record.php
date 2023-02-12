@@ -283,7 +283,7 @@ include('header.php');
             }
 
   .footer {
-    background-color:transparent;
+    background-color:darkgrey;
     position: sticky;
     width: 100%;
     border-top:1px solid grey;
