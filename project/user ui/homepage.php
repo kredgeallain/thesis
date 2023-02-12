@@ -28,8 +28,6 @@
               </svg></a>
             </div>
              </div>
-
-
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                           <div class="modal-dialog modal-dialog-centered">
@@ -48,19 +46,17 @@
                             </div>
                           </div>
                         </div>
-
-
         </div>
       </section>
 
       <section class="body" id="main1">
         <div class="row">
-          <div class="col">
-           <h1><div class="row">
+          <div  class="col">
+           <div class="row">
             <div class="col">
               <div class="card">
                 <div class="card-body">
-                 <a href="record.php"> <img src="../../image/edit-data2.png" class="img-fluid" alt="logo" width="100px" height="100px"></a>
+                 <a href="record.php"> <img src="../../image/edit-data2.png" class="img-fluid" alt="logo" width="100px"></a>
                   <a href="record.php" class="btn btn-primary">Record</a>
                 </div>
               </div>
@@ -68,24 +64,66 @@
             <div class="col">
               <div class="card">
                 <div class="card-body">
-                  <a id="name" href="farm-map.php"><img src="../../image/mortality-rate2.png" class="img-fluid" alt="logo" width="100px" height="100px"></a>
-                  <a href="farm-map.php" class="btn btn-primary"> Farm Map</a>
+                  <a id="name" href="farm-map.php"><img src="../../image/mortality-rate2.png" class="img-fluid" alt="logo" width="100px"></a>
+                  <a href="farm-map.php" class="btn btn-primary">Farm Map</a>
                 </div>
               </div>
+            </div> 
+          </div>
+          </div>
+      </div>
+
+      <section class="body" id="main2">
+        <div class="row">
+          <div class="col">
+           <div class="row">
+            <div class="col">
+              <div class="card">
+                <div class="card-body">
+                <div class="dropdown-center">
+                 <a type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false"> <img src="../../image/batches.png" class="img-fluid" alt="logo" width="100px"></a>
+                  <a type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false">Batches</a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Add</a></li>
+                    <li><a class="dropdown-item" href="#">View</a></li>
+                  </ul>
+                </div>
+              </div>
+              </div>
             </div>
-          </div></h1>
+            <div class="col">
+              <div class="card">
+                <div class="card-body">
+                <div class="dropdown-center">
+                  <a type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false"><img src="../../image/generate-report3.png" class="img-fluid" alt="logo"  width="100px"></a>
+                  <a type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false">View Reports</a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Layer</a></li>
+                    <li><a class="dropdown-item" href="#">Broiler</a></li>
+                  </ul>
+                </div>
+              </div>
+              </div>
+            </div> 
+          </div>
           </div>
       </div>
     </div>
-  </section>
+  </section>  
+
+
+  </div>
+  </section>  
+
+
+
+
   </Section>
 </main>
 <!--footer-->
 <footer>
   <section class="footer">
-  <div class="container text-center">
-    
-      
+  <div class="container text-center">  
       <div class="col">
         <div class="home">
         <div class="d-grid gap-2">
@@ -110,7 +148,7 @@
 
 .user-info{
     padding: 5px;
-    margin-top: 40px;
+    margin-top: 30px;
     background-color: #0e2a83;
     box-shadow: 2px 2px 7px 5px skyblue;
     border-radius: 10px;
@@ -155,7 +193,7 @@
     left:0;
     right: 0;
     bottom: 0;
-    border-top: 2px solid black; 
+    border-top: 1px solid grey; 
     overflow: hidden;
     
   }
@@ -191,9 +229,9 @@
   .body a{
     border: none;
     background-color: transparent;
-    color: black;
+    color: darkblue;
     font-weight: bold;
-    color:#0e2a83;
+ 
   }
 
   .card{
@@ -213,6 +251,7 @@
   }
   .modal-content a{
     color:darkblue;
+
     margin:0;
   }
 
@@ -241,7 +280,41 @@
   }
 /**/
 
-  
+  .card-body{
+    display:grid;
+    padding:0;
+  }
+
+  .card-body a:hover{
+    background-color:white;
+    color:black;
+  }
+
+  .card-body a{
+    padding:0;
+  }
+
+  .body{
+    padding:20px 0 0 0;
+  }
+
+  .dropdown-center{
+    display:grid;
+  }
+
+  .dropdown-menu li{
+    padding:10px;
+  }
+
+  .dropdown-menu li:hover{
+    background-color:grey;
+  }
+
+  .dropdown-menu a:hover{
+    background-color:grey;
+  }
+
+
 
 </style>
 

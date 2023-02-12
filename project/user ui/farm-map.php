@@ -9,7 +9,7 @@ include '..\connect.php';
 
 <style type="text/css">
 #map {
-    height: 75.4%;
+    height: 81%;
 
 }
 
@@ -28,7 +28,6 @@ p {
 }
 .wrapper{
     align-items: center;
-    margin-top: 20px;
   }
 
   .home a{

@@ -32,17 +32,21 @@
   }
 
   .text2 h2{
- 
     text-align: center;
-    font-size: 15px;
-
-   
+    font-size: 25px;
   }
+
+  @media screen and (max-width: 500px){
+    .text2 h2{
+ text-align: center;
+ font-size: 15px;
+}
+  }
+
   .text2{
     margin-top: 10px;
     margin-bottom: -20px;
     align-items: center;
- 
 
   }
 
@@ -64,9 +68,6 @@
   transition: 0.5s;
   padding-top: 60px;
   text-align:flex-start;
-  
-
-
 }
 
 .sidenav a {
@@ -76,7 +77,6 @@
   color: white;
   display: block;
   transition: 0.3s;
-
 }
 
 .sidenav a:hover{
@@ -91,17 +91,14 @@
   margin-left: 50px;
 }
 
-
 </style>
-
 </head>
-
 <body>
 <!--header-->
   <header>
     <section class="header">
     <div class="logo">
-      <img src="../../image/logo.png" class="img-fluid" alt="logo" height="20px" width="50px">
+      <img src="../../image/logo.png" class="img-fluid" alt="logo" width="50px">
     </div>
   
     <div class="text2">

@@ -551,7 +551,7 @@ li{
         </section>
 
 
-        <div id="mySidenavb" class="sidenavb">
+        <div id="mySidenavb" class="sidenavb" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <div class="side-content">
 
