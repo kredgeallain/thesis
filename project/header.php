@@ -1,3 +1,15 @@
+<?php
+  @include('connect.php');
+session_start();
+
+
+if (isset($_SESSION['username'])) {
+    $username = $_SESSION['username'];
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -443,7 +455,7 @@ li{
         </section>
 
         <div class="home">
-            <a href="home.php"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white"
+            <a href="homepage.php"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white"
                     class="bi bi-house-door-fill" viewBox="1 1 20 16">
                     <path
                         d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z" />
@@ -557,27 +569,13 @@ li{
 
                 <div class="user">
                     <img src="../image/user.png" alt="user" width="70px">
-                    <h2><?php
-  @include('connect.php');
-      // Check if the user is logged in
-    
-      if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == true) {
-          // Get the user's ID from the session
-          $userID = $_SESSION['userID'];
-          
+                    <h2>
+                        
+                        <?php
+ 
 
-          // Get the user's name from the database
-          $query = "SELECT * FROM user WHERE userID = $userID";
-          $result = mysqli_query($conn, $query);
-          $name = mysqli_fetch_assoc($result);
-          $username = $name['name'];
-
-          // Echo the username
           echo "Hello, $username!";
-      } else {
-          // The user is not logged in
-          echo "Hello, guest!";
-      } ?></h2>
+       ?></h2>
                 </div>
 
                 <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="30" fill="currentColor"
