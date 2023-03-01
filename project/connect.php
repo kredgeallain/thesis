@@ -15,4 +15,12 @@ if (!$data) {
 	echo "Connection Failed!";
 	exit();
 }
+if (!$conn) {
+	echo "Connection Failed!";
+	exit();
+}
+if (!$data1) {
+	echo "Connection Failed!";
+	exit();
+}
 ?>

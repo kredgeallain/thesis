@@ -43,7 +43,7 @@ var locations = [
 			
 			if($result->num_rows > 0){
             while($row = $result->fetch_assoc()){
-                echo '["'.$row['farmname'].'", '.$row['lat'].', '.$row['lng'].',  "'.$row['farmowner'].'", ],';
+                echo '["'.$row['farmname'].'", '.$row['lat'].', '.$row['lng'].',  "'.$row['farmowner'].'", "'.$row['contactno'].'", ],';
             }
         }
         ?>
@@ -87,6 +87,7 @@ function setMarkers(map, locations) {
         var lat = locations[i][1]
         var long = locations[i][2]
         var owner = locations[i][3]
+        var contact = locations[i][4]
 
         latlngset = new google.maps.LatLng(lat, long);
 
@@ -102,7 +103,7 @@ function setMarkers(map, locations) {
         map.setCenter(marker.getPosition())
 
 
-        var content = " <h6> " + farmname + '</h6>' + " <p> " + owner + '</p>'
+        var content = " <h6> " + farmname + '</h6>' + " <p> " + owner + '</p>'  + " <p> " + contact + '</p>' 
 
         var infowindow = new google.maps.InfoWindow()
 

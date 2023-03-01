@@ -90,7 +90,7 @@ if ($result = $data->query($query)){
 				<th scope='col' hidden id='count'>BaranggayID</th>
 				<th scope='col' id='name'>Barangay</th>
                 <th scope='col' id='edit'> Edit </th>
-				
+                <th scope='col' id='edit'> Farm </th>
 			</tr>	  
 			</thead>";
 		}
@@ -113,6 +113,17 @@ if ($result = $data->query($query)){
           
                 
         </td>';      
+        echo '<td > 
+        <div class="addbatch-button">
+
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal" >
+          <a href= "view-farmx.php?baranggayID='.$row['baranggayID'].'"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 20 20">
+           <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+           <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+         </svg>View Farm</a>
+        </button>
+        </div>
+         </td>';
             
 			
 
@@ -122,69 +133,70 @@ if ($result = $data->query($query)){
 
 ?>
 
-<style>
-.wrapper-list {
-    margin: 10px;
-}
+    <style>
+    .wrapper-list {
+        margin: 10px;
+    }
 
-.wrapper-add {
-    box-shadow:1px 1px 20px 5px grey;
-    border-radius: 5px;
-    margin-top: 30px;
-    margin-left: 30px;
-    margin-right: 30px;
-    border: 1px solid grey;
-    padding-top:20px;
-    padding-bottom: 20px;
-    margin-bottom:50px;
-}
+    .wrapper-add {
+        box-shadow: 1px 1px 20px 5px grey;
+        border-radius: 5px;
+        margin-top: 30px;
+        margin-left: 30px;
+        margin-right: 30px;
+        border: 1px solid grey;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        margin-bottom: 50px;
+    }
 
-.add-brgy-button {
-    margin-top: 20px;
-    align-items: center;
-    display: grid;
-    justify-content: center;
-}
+    .add-brgy-button {
+        margin-top: 20px;
+        align-items: center;
+        display: grid;
+        justify-content: center;
+    }
 
-#brgy-btn {
-    margin-right: 100px;
-    margin-left: 100px;
-    margin-top: 40px;
-    border: none;
-    background-color: darkblue;
-}
+    #brgy-btn {
+        margin-right: 100px;
+        margin-left: 100px;
+        margin-top: 40px;
+        border: none;
+        background-color: darkblue;
+    }
 
-#brgy-btn:hover {
-    border: none;
-    background-color: blue;
-}
+    #brgy-btn:hover {
+        border: none;
+        background-color: blue;
+    }
 
-.text {
-    display: flex;
-    justify-content: center;
-}
+    .text {
+        display: flex;
+        justify-content: center;
+    }
 
-.text h2 {
-    font-weight: bold;
-}
+    .text h2 {
+        font-weight: bold;
+    }
 
-input {
-    width: 300px !important;
-}
+    input {
+        width: 300px !important;
+    }
 
-#brgy-list{
-display: flex;
-justify-content:center;
-flex-direction:column;
-align-items:center;
-align-content:center;
-}
-#tbl-list{
-    width:100%;
-    max-width:500px;
-}
+    #brgy-list {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        align-content: center;
+    }
 
-#edit-list{
-    color:white !important;
-}
-</style>
+    #tbl-list {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    #edit-list {
+        color: white !important;
+    }
+    </style>
