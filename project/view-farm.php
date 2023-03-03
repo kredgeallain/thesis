@@ -46,13 +46,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
         <form method="post">
+            <div class="search-area">
             <label for="search">Search:</label>
             <input type="text" id="search" name="search" value="<?php echo $searchTerm ?? ''; ?>">
             <button type="submit">Submit</button>
+            </div>
         </form>
 
 
-        <table>
+        <table class="table table-striped">
             <thead>
                 <tr>
                     <th>Farm Name</th>
@@ -248,6 +250,19 @@ tr:hover {
 
 a {
     text-decoration: none !important;
+}
+
+tr{
+    padding:20px !important;
+}
+td{
+
+    align-items:center;
+    padding:0 !important;
+    margin:0 !important;
+}
+.search-area{
+    margin:20px;
 }
 </style>
 </body>
