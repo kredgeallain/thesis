@@ -10,6 +10,7 @@ $batchID= $_POST['batch_data'];
 
 $b= "SELECT * FROM batch where batchID=$batchID";
 $q= mysqli_query ($conn, $b);
+$date = date('Y-m-d'); 
 
 $row=mysqli_fetch_array($q);
 
@@ -25,7 +26,7 @@ if($row["unit"]=="layer")
 
 <div class="date">
 <label for="">Date</label>
-<input  class="form-control" type="date" name="date" id="date" required="true">
+<input  class="form-control" type="date" name="date" id="date"  value="'. $date .'" readonly required="true">
 </div>
 
 
@@ -81,7 +82,7 @@ else {
 
     <div class="date">
     <label for="">Date</label>
-    <input  class="form-control" type="date" name="date" id="date" required="true">
+    <input  class="form-control" type="date" name="date" id="date" value="'. $date .'" readonly required="true">
     </div>
 
 <section class="weight">
@@ -116,43 +117,43 @@ else {
 
 }
 
-?> 
+?>
 
 <style type="text/css">
-.record-wrapper{
-    padding-top:10px;
-    padding-bottom:10px;
+.record-wrapper {
+    padding-top: 10px;
+    padding-bottom: 10px;
     background-color: #f9faff;
     border-top: 1px solid grey;
-    display:grid;
-    justify-content:center;
+    display: grid;
+    justify-content: center;
 }
 
-.record-wrapper h1{
-    font-weight:bold;
-    font-size:25px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+.record-wrapper h1 {
+    font-weight: bold;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-input{
-    flex-grow:1;
+input {
+    flex-grow: 1;
 }
 
-#submit{
-    margin-top:40px;
-    background-color:darkblue;
-    border:none;
+#submit {
+    margin-top: 40px;
+    background-color: darkblue;
+    border: none;
 }
 
-#submit:hover{
-    background-color:blue;
-    border:none;
-}
-label{
-    dispaly:block;
-    margin-top:20px;
+#submit:hover {
+    background-color: blue;
+    border: none;
 }
 
+label {
+    dispaly: block;
+    margin-top: 20px;
+}
 </style>

@@ -45,7 +45,7 @@ if(isset($_POST['submit'])){
 		$sql2 = mysqli_query($data, $sqlInsert);
 		$farmID = mysqli_insert_id($data);
 
-	 	if ($sql2) {
+/*	if ($sql2) {
 		
 
 			$sqlInsert2 = "INSERT INTO batch (date,batch,unit, initial,farmID) 
@@ -55,7 +55,7 @@ if(isset($_POST['submit'])){
 		}else {
 
 			header('location:add-farm.php?add=error2');
-		}
+		} */
 
 		header('location:add-farm.php?add=success');
     
@@ -97,9 +97,9 @@ if(isset($_POST['submit'])){
 					else if($add=='error1'){
 						echo ' <div class ="d-flex justify-content-center"> <span class="alert alert-danger">Farm Already Exist</span> </div>';
 					}
-					else if($add=='error2'){
+				/*	else if($add=='error2'){
 						echo ' <div class ="d-flex justify-content-center"> <span class="alert alert-danger">Batch Error</span> </div>';
-					}
+					} */
 				
 				
 			 };
@@ -192,7 +192,7 @@ if(isset($_POST['submit'])){
                     </div>
                 </div>
             </div>
-            <!--Add batch-->
+            <!--Add batch
             <p>
 
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" id="addbatch-button"
@@ -205,6 +205,7 @@ if(isset($_POST['submit'])){
                     </svg>
                     Add Batch
                 </button>
+                -->
 
                 <!--farm location-->
 
@@ -308,7 +309,7 @@ if(isset($_POST['submit'])){
                 </div>
             </div>
 
-            <!--AddBatch Modal -->
+            <!--AddBatch Modal 
             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -323,7 +324,7 @@ if(isset($_POST['submit'])){
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <!--modal content-->
+                           
                             <div class="card card-body">
                                 <input type="date" class="form-control" id="date" name="date"
                                     aria-describedby="emailHelp" required="true">
@@ -354,7 +355,7 @@ if(isset($_POST['submit'])){
             </div>
 
 
-
+            -->
             <div class="submit">
                 <input type="submit" class="btn btn-primary" name="submit" value="Register" id="submit">
             </div>
