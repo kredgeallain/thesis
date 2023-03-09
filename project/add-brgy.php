@@ -83,8 +83,8 @@ $query = "SELECT * FROM baranggay";
 
 
 if ($result = $data->query($query)){
-		echo "<table id='tbl-list' class='table table-striped'>
-			<thead class='thead-dark'>	  
+		echo "<table id='tbl-list' class='table'>
+			<thead>	  
 			<tr>
 				
 				<th scope='col' hidden id='count'>BaranggayID</th>
@@ -136,13 +136,11 @@ if ($result = $data->query($query)){
         margin: 10px;
     }
 
-    .wrapper-add {
-        box-shadow: 1px 1px 20px 5px grey;
+    .wrapper-add {   
         border-radius: 5px;
         margin-top: 30px;
         margin-left: 30px;
         margin-right: 30px;
-        border: 1px solid grey;
         padding-top: 20px;
         padding-bottom: 20px;
         margin-bottom: 50px;
@@ -197,4 +195,5 @@ if ($result = $data->query($query)){
     #edit-list {
         color: white !important;
     }
+
     </style>

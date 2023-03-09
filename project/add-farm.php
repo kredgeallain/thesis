@@ -386,7 +386,6 @@ if(isset($_POST['submit'])){
     margin-top: 20px !important;
     margin-bottom: 20px;
     background-color: #f9faff;
-    box-shadow: 2px 2px 2px 2px grey;
     border-radius: 10px;
     padding: 20px 0 20px 0 !important;
 

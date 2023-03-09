@@ -234,7 +234,6 @@ showPasswordCheckbox.addEventListener('change', function() {
 <style type="text/css">
 .log-in {
     align-items: center;
-    box-shadow: 2px 2px 2px 2px grey;
     border-radius: 30px;
     font-family: tahoma;
     background-color: #f9faff;
