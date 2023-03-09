@@ -133,14 +133,13 @@ if ($result = $data->query($query)){
 
     <style>
     .wrapper-list {
+
         margin: 10px;
     }
 
-    .wrapper-add {   
-        border-radius: 5px;
+    .wrapper-add { 
+        border-bottom:1px solid grey;  
         margin-top: 30px;
-        margin-left: 30px;
-        margin-right: 30px;
         padding-top: 20px;
         padding-bottom: 20px;
         margin-bottom: 50px;
