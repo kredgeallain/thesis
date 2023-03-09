@@ -45,7 +45,7 @@ $query = "SELECT * FROM batch where farmID=$farmID";
 
 if ($result = $mysqli->query($query)){
     echo "<table class='table table-striped'>
-    <thead class='thead-dark'>	  
+    <thead>	  
     <tr>
         
         <th scope='col' hidden id='count'>BaranggayID</th>
@@ -91,10 +91,8 @@ if ($result = $mysqli->query($query)){
    
 
                         <div class="addbatch-button">
-
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target="#editModal">
-                                <a href="add-batch.php?farmID=<?php echo $farmID ?>"><svg
+   
+                                <a type="button" class="btn btn-primary" href="add-batch.php?farmID=<?php echo $farmID ?>"><svg
                                         xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                         class="bi bi-plus-square" viewBox="0 0 20 20">
                                         <path
@@ -102,7 +100,6 @@ if ($result = $mysqli->query($query)){
                                         <path
                                             d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
                                     </svg>Add Batch</a>
-                            </button>
                         </div>
                     
 <!--style-->
@@ -181,6 +178,12 @@ tr:hover {
     border: none;
     background-color: darkred;
     color: white;
+}
+
+.addbatch-button{
+    margin-right:200px;
+    display:flex;
+    justify-content:flex-end;
 }
 
 .addbatch-button button {

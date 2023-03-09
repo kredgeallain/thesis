@@ -5,8 +5,7 @@
 session_start();
 
 if(!isset($_SESSION['username'])){
-  header('location:login-user.php');
-
+   header('location:login-user.php');
 }
 
 ?>
@@ -51,6 +50,27 @@ $mysqli = new mysqli("localhost", $username, $password, $database);
         </script>
 
     <title>Home</title>
+
+    <style>
+.farm-summary {
+    margin:20px;
+    display: grid;
+    place-items:center;
+}
+
+.farm-summary h2 {
+  font-size:50px;
+}
+
+.number{
+  border-bottom:10px solid green;
+}
+
+.nav2{
+  margin-bottom:30px;
+}
+
+    </style>
    
         </head>
         <body>
@@ -187,8 +207,22 @@ $mysqli = new mysqli("localhost", $username, $password, $database);
               </section>
 
             </section>
+
+
+
+
 <!--table-->
             <section class="nav2">
+
+          <section class="farm-summary">
+              <div class="number">
+                  <h2>922</h2>
+              </div>
+              <div class="rgtr">
+                  <p>Farm Registered</p>
+              </div>
+          </section>
+
 <section class="top">
             <div class="production-report">
               <h2>Production Reports</h2>
@@ -291,5 +325,4 @@ $mysqli = new mysqli("localhost", $username, $password, $database);
 </script>
 
 </body>
-</html>
-        
+</html>        

@@ -47,9 +47,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <form method="post">
             <div class="search-area">
-            <label for="search">Search:</label>
-            <input type="text" id="search" name="search" value="<?php echo $searchTerm ?? ''; ?>">
-            <button type="submit">Submit</button>
+            <label for="search"></label>
+            <input class="" type="text" placeholder="search..." id="search" name="search" value="<?php echo $searchTerm ?? ''; ?>">
+            <a><button type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="black" class="bi bi-search" viewBox="0 0 16 16">
+  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+</svg></button></a>
             </div>
         </form>
 
@@ -65,9 +67,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <tbody>
                 <?php foreach ($filteredData as $item): ?>
                 <tr>
-                    <td><?php echo $item['farmname']; ?></td>
-                    <td><?php echo $item['farmowner']; ?></td>
-                    <td><?php echo $item['contactno']; ?></td>
+                    <td><p id="p"><?php echo $item['farmname']; ?></p></td>
+                    <td><p id="p"><?php echo $item['farmowner']; ?></p></td>
+                    <td><p id="p"><?php echo $item['contactno']; ?></p></td>
                     <td>
                         <div class="addbatch-button">
 
@@ -263,6 +265,28 @@ td{
 }
 .search-area{
     margin:20px;
+}
+#p{
+    padding-top:20px;
+    padding-left:20px;
+}
+.search-area button{
+    margin-left:0;
+    padding-top:7px;
+    padding-left:10px;
+    padding-bottom:7px;
+    padding-right:15px;
+    border-radius: 0 15px 15px 0;
+    border:1px solid grey;
+    background-color:transparent;
+}
+
+.search-area input{
+    border-radius: 15px 0 0 15px;
+    margin-right:0;
+    padding-top:5px;
+    padding-bottom:5px;
+    padding-left:20px;
 }
 </style>
 </body>
