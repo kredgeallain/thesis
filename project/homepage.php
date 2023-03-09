@@ -52,6 +52,13 @@ $mysqli = new mysqli("localhost", $username, $password, $database);
     <title>Home</title>
 
     <style>
+.farm-brgy-summary{
+  display:flex;
+  gap:50px;
+  justify-content:center;
+  align-items:center;
+}
+  
 .farm-summary {
     margin:20px;
     display: grid;
@@ -62,8 +69,22 @@ $mysqli = new mysqli("localhost", $username, $password, $database);
   font-size:50px;
 }
 
-.number{
+.brgy-summary {
+    margin:20px;
+    display: grid;
+    place-items:center;
+}
+
+.brgy-summary h2 {
+  font-size:50px;
+}
+
+.farm-number{
   border-bottom:10px solid green;
+}
+
+.brgy-number{
+  border-bottom:10px solid darkblue;
 }
 
 .nav2{
@@ -214,14 +235,25 @@ $mysqli = new mysqli("localhost", $username, $password, $database);
 <!--table-->
             <section class="nav2">
 
+        <section class="farm-brgy-summary">
           <section class="farm-summary">
-              <div class="number">
+              <div class="farm-number">
                   <h2>922</h2>
               </div>
               <div class="rgtr">
                   <p>Farm Registered</p>
               </div>
           </section>
+
+          <section class="brgy-summary">
+              <div class="brgy-number">
+                  <h2>92</h2>
+              </div>
+              <div class="rgtr">
+                  <p>Numbers of Barangay</p>
+              </div>
+          </section>
+        </section>
 
 <section class="top">
             <div class="production-report">
