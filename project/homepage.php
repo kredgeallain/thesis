@@ -233,24 +233,39 @@ $mysqli = new mysqli("localhost", $username, $password, $database);
 
 
 <!--table-->
-            <section class="nav2">
+<?php
+include('connect.php');
+
+$sql1 = "SELECT COUNT(farmname) as totalfarm FROM farm";
+$result1 = $conn->query($sql1);
+
+$sql = "SELECT COUNT(baranggay) as totalbaranggay FROM baranggay";
+$result = $conn->query($sql);
+
+// Get the result as an array
+$row1 = $result1->fetch_assoc();
+
+$row = $result->fetch_assoc();
+?>
+
+        <section class="nav2">
 
         <section class="farm-brgy-summary">
           <section class="farm-summary">
               <div class="farm-number">
-                  <h2>922</h2>
+                  <h2> <?php echo "<p>".$row1['totalfarm']."<p>" ?></h2>
               </div>
               <div class="rgtr">
-                  <p>Farm Registered</p>
+                  <p> Registered Farms</p>
               </div>
           </section>
 
           <section class="brgy-summary">
               <div class="brgy-number">
-                  <h2>92</h2>
+              <h2> <?php echo "<p>".$row['totalbaranggay']."<p>" ?></h2>
               </div>
               <div class="rgtr">
-                  <p>Numbers of Barangay</p>
+                  <p>Number of Barangays</p>
               </div>
           </section>
         </section>
