@@ -574,7 +574,7 @@ li{
                         <?php
  
 
-          echo "Hello, $username!";
+          echo "$username";
        ?></h2>
                 </div>
 
