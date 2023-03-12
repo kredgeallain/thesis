@@ -151,7 +151,8 @@ if (isset($_SESSION['username'])) {
     }
 
     .header-main h2 {
-        margin: 20px;
+        font-size:20px;
+        margin: 10px;
         font-weight: bold;
     }
 
@@ -326,9 +327,7 @@ if (isset($_SESSION['username'])) {
 
     .main1 {
         position: absolute;
-
-        right: 35px;
-        top: 20px;
+        right: 10px;
     }
 
     .user {
