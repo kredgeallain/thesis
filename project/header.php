@@ -159,7 +159,8 @@ if (isset($_SESSION['username'])) {
     .production {
         border-top: 1px solid black;
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
+        padding-left:10px;
         align-items: center;
     }
 
@@ -176,11 +177,7 @@ if (isset($_SESSION['username'])) {
         color: white;
     }
 
-    summary :hover {
-        box-shadow: 2px 2px 2px 2px #66ffcc;
-        background-color: white;
-        border-radius: 5px;
-    }
+
 
     .logout {
         margin-top: 250px;
@@ -256,24 +253,7 @@ if (isset($_SESSION['username'])) {
     }
 
 
-    details[open]:after {
-        content: ;
-    }
 
-    details.test {
-        position: relative;
-        padding: 5px 0;
-    }
-
-    details.test[open]>summary::after {
-        font-size: 20px;
-        top: 70px;
-        left: 920px;
-        justify-content: center;
-        position: absolute;
-        content: "X";
-        bottom: 0;
-    }
 
     .sidenavb {
         height: 100%;
@@ -429,6 +409,10 @@ li{
   display: block ;
 }
 
+summary{
+    list-style:none;
+}
+
 
     </style>
 
@@ -461,41 +445,49 @@ li{
                 </svg>Home</a>
         </div>
 
-        
+    <details>   
         <!--brgy-->
+        <summary>
         <div class="production">
             <img src="../image/barangay-admin.png" alt="production-logo" width="25px"><b>
                 <p>BARANGAY</p>
             </b>
         </div>
+        </summary>
 
         <a href="add-brgy.php"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 20 20">
         <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"/>
         </svg>Add Barangay</a>
 
-
+        </details> 
         <!--farm-->
+        <details>
+            <summary>
         <div class="production">
             <img src="../image/1farm-admin.png" alt="production-logo" width="25px"><b>
                 <p>FARM</p>
             </b>
         </div>
+        </summary>
 
         <a href="add-farm.php"><img src="../image/add-farm1.png" alt="add farm icon" width="30px">Add Farm</a>
 
         <a href="view-farm.php"><img src="../image/view-farm1.png" alt="generate report icon" width="30px">View farm</a>
 
         <a href="map.php"><img src="../image/mortality-rate.png" alt="generate report icon" width="30px">View farm Map</a>
-
+        </details>
 
         <!--production-->
+        <details>
+            <summary>
         <div class="production">
             <img src="../image/1production-admin.png" alt="production-logo" width="25px"><b>
                 <p>PRODUCTION</p>
             </b>
         </div>
+        </summary>
 
-        <a href="record1.php"><img src="../image/record-icon.png" alt="generate report icon" width="30px"> Record Reports</a>
+        <a href="record1.php"><img src="../image/record-icon.png" alt="generate report icon" width="30px"> Enter Reports</a>
         <ul>
             <li class="dropdown-view">
         <a ><img src="../image/view-data.png" alt="view record icon" width="30px"> View Records</a>
@@ -507,8 +499,8 @@ li{
         </ul>
 
         <ul>
-        <li class="dropdown-generate"><a><img src="../image/generate-report1.png" alt="generate report icon" width="25px"> Generate
-            reports</a>
+        <li class="dropdown-generate"><a><img src="../image/generate-report1.png" alt="generate report icon" width="25px"> Get
+            Reports</a>
             <ul class="dropdown-content-generate">
                 <li><a href="View-B-Export.php">Broiler Reports</a></li>
                 <li><a href="View-L-Export.php">Layer Reports</a></li>
@@ -516,13 +508,16 @@ li{
         </li>
             </ul>
         
-
+            </details>
         <!--batch-->
+        <details>
+            <summary>
         <div class="production">
             <img src="../image/batches-admin.png" alt="production-logo" width="25px"><b>
                 <p>BATCH</p>
             </b>
         </div>
+        </summary>
 
         <a href="add-farm-batch.php"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 20 20">
   <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
@@ -532,20 +527,26 @@ li{
   <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
   <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
 </svg>View Batches</a>
+</details>
 
   
         <!--user-->
+        <details>
+        <summary>
         <div class="production">
+           
             <img src="../image/1user-admin.png" alt="production-logo" width="25px"><b>
                 <p>USER</p>
             </b>
         </div>
+        </summary>
 
         <a href="add-user.php"><img src="../image/add user1.png" alt="add user icon" width="30px">Add User</a>
 
         <a href="view-user.php"><img src="../image/view-user1.png" alt="view user icon" width="30px">View Users</a>
 
     </div>
+    </details>
 <!--screen loading-->
     <div id="preloader">
     <img src="../image/preloader2.gif" alt="Preloading" width="100px">
