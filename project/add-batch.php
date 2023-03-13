@@ -18,6 +18,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 		exit; 
 	}
 	$farmID = $_GET["farmID"];
+	$date = date('Y-m-d'); 
 	$sql = "SELECT * FROM farm WHERE farmID = $farmID";
 	$result = $data->query($sql);
 	$row = $result->fetch_assoc();
@@ -87,7 +88,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
         <div class="inputUser">
             <p> Date</p>
-            <input type="date" name="date" placeholder="Date" id="contactno" value="" required>
+            <input type="date" name="date" readonly placeholder="Date"  value= <?php echo $date ?> id="contactno" required>
         </div>
         <div class="inputUser">
             <p> Initial </p>
