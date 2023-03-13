@@ -38,7 +38,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 	}
 	$baranggayID = $_GET["baranggayID"];
 
-$query = "SELECT * FROM farm where baranggayID=$baranggayID";
+$query = "SELECT * FROM farm where baranggayID=$baranggayID ";
 
 
 

@@ -2,6 +2,7 @@
 session_start();
 include '..\project\connect.php'; 
 
+
 if (isset($_SESSION['username'])) {
     $username = $_SESSION['username'];
 }
@@ -13,11 +14,50 @@ $row=mysqli_fetch_array($data);
 
 $user = $row['userID'];
 
+$user1 = $row['username'];
+echo $user;
+echo $user1; 
+
+@include('header.php');
 
 
-$batchID= $_POST['batch_data'];
+if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
-//echo $batchID;
+
+	if(isset($_POST['submit'])){
+
+		$batchID = $_POST['batchID'];
+		$date = $_POST['date'];
+		$no_eggs = $_POST['no-eggs'];
+		$rej_eggs = $_POST['rej-eggs'];
+		$Lcurrent = $_POST['Lcurrent'];
+		$mortality = $_POST['mortality'];
+		
+	
+	
+		$insert = " INSERT INTO `layer`(`batchID`, `userID`,`no_eggs`, `reject_eggs`, `Lcurrent`, `mortality`, `date`) 
+			VALUES ('', '$batchID','$user', '$no_eggs','$rej_eggs','$Lcurrent','$mortality','$date') ";
+	
+			
+	
+			mysqli_query($conn, $insert);
+			sleep(1);// }
+	}elseif(isset($_POST['submit1'])){
+	
+	$batchID = $_POST['batchID'];
+	$date = $_POST['date'];
+	$broiler_weight = $_POST['weight'];
+	$Bcurrent = $_POST['current'];
+	$mortality = $_POST['mortality'];
+	
+	$insert = " INSERT INTO `broiler`(`broilerID`, `batchID`, `userID`, `broiler_weight`, `Bcurrent`, `mortality`, `date`) 
+	VALUES ('','$batchID','$user','$broiler_weight','$Bcurrent','$mortality','$date')";
+		mysqli_query($data, $insert);
+		sleep(1);
+		
+	}
+
+$batchID = $_GET["batchID"];
 
 $b= "SELECT * FROM batch where batchID=$batchID";
 $q= mysqli_query ($conn, $b);
@@ -25,13 +65,15 @@ $date = date('Y-m-d');
 
 $row=mysqli_fetch_array($q);
 
+
 $init= $row['initial'];
+
 
 
 
 if($row["unit"]=="layer")
 { echo '
-<form method="post" action="record1.php" id="form1">
+<form method="post" action="record1.php" id="form1>
 
 <div class="record-wrapper">
 <h1>Layer</h1>
@@ -56,12 +98,13 @@ if($row["unit"]=="layer")
     <input  class="form-control" type="number" name="rej-eggs" id="rej-eggs"  required="true">
 </div>
 
+
+
+<section class="broiler">
 <div class="mortality">
     <label for="dead">Initial No. of Chicken</label>
     <input  class="form-control" type="number" readonly name="" id="mortality" value='. $init .' required="true">
 </div>
-
-<section class="broiler">
 
 <div class="Bcurrent">
     <label for=""> Current</label>
@@ -72,17 +115,16 @@ if($row["unit"]=="layer")
     <label for="dead">Mortality</label>
     <input  class="form-control" type="number" name="mortality" id="mortality" required="true">
 </div>
-
 <div class="mortality">
-<div class="mortality">
-    <label for="dead" hidden >User ID</label>
-    <input  class="form-control" type="number" hidden readonly name="userID" id="mortality" value='. $user .' required="true">
+    <label for="dead">User ID</label>
+    <input  class="form-control" type="number" readonly name="userID" id="mortality" value='. $user .' required="true">
 </div>
 <div class="mortality">
-    <label for="dead" hidden Batch ID</label>
-    <input  class="form-control" type="number" hidden readonly name="batchID" id="mortality"  value='. $batchID .' required="true">
+    <label for="dead">Batch ID</label>
+    <input  class="form-control" type="number" readonly name="batchID" id="mortality"  value='. $batchID .' required="true">
 </div>
 </section>
+
 
     <div class="submit">
 </div>
@@ -99,7 +141,7 @@ if($row["unit"]=="layer")
 else {
  
    echo '
-    <form method="post" action="record1.php" id="form2">
+    <form method="post" >
 
 <div class="record-wrapper">  
 
@@ -132,15 +174,15 @@ else {
         <input  class="form-control" type="number" name="mortality" id="mortality"  required="true">
     </div>
     <div class="mortality">
-    <label for="dead" hidden >User ID</label>
-    <input  class="form-control" type="number" hidden readonly name="userID" id="mortality" value='. $user .' required="true">
+    <label for="dead">Mortality</label>
+    <input  class="form-control" type="number" readonly name="userID" id="mortality" value='. $user .' required="true">
 </div>
 <div class="mortality">
-    <label for="dead" hidden >Batch ID</label>
-    <input  class="form-control" type="number" hidden readonly name="batchID" id="mortality"  value='. $batchID .' required="true">
+    <label for="dead">Mortality</label>
+    <input  class="form-control" type="number" readonly name="batchID" id="mortality"  value='. $batchID .' required="true">
 </div>
 </section>
-    
+   
    
 
             <button class="btn btn-primary" type="submit" name="submit1" id="submit"> Add Data</button>
@@ -153,6 +195,9 @@ else {
 
 
 }
+
+
+}    
 
 ?>
 

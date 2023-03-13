@@ -15,8 +15,7 @@ $mysqli = new mysqli("localhost", $username, $password, $database);
 @include('connect.php');
 
 $sql = "SELECT 
-baranggay.baranggay, farm.farmname, batch.batch,
-
+baranggay.baranggay, farm.farmname, batch.batch, user.name,
 SUM(layer.no_eggs) as eggs,
 SUM(layer.reject_eggs) as rej_eggs,
 SUM(layer.mortality) as mortality,
@@ -26,6 +25,7 @@ YEAR(layer.date) as year
 FROM baranggay INNER JOIN farm ON baranggay.baranggayID = farm.baranggayID 
 INNER JOIN batch ON farm.farmID = batch.farmID 
 INNER JOIN layer ON batch.batchID = layer.batchID 
+INNER JOIN user ON layer.userID = user.userID
 
 GROUP BY baranggay.baranggay, farm.farmname, batch.batchID,
 MONTH(layer.date),
@@ -52,6 +52,7 @@ if ($result->num_rows > 0) {
 <th scope='col' id='u-name'> Mortality </th>
 <th scope='col' id='u-name'> Current </th>
 <th scope='col' id='u-name'> Mortality Rate </th>
+<th scope='col' id='u-name'> Recorded by </th>
 
 
 </tr>	  
@@ -80,7 +81,7 @@ if ($result->num_rows > 0) {
             }else{
             echo "<td style='color:green'> $new_mortality_rate % </td>";
             }
-
+        echo "<td>".$row['name']."</td>";
     }
 }
 ?>

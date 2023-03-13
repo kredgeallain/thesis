@@ -1,12 +1,32 @@
+<?php
+ include('header.php');
+
+include '..\project\connect.php'; 
+
+
+if (isset($_SESSION['username'])) {
+    $username = $_SESSION['username'];
+}
+
+
+/*$sql = "SELECT * FROM user where username='".$username."'";
+$data = mysqli_query($data, $sql);
+$row=mysqli_fetch_array($data);
+
+$user = $row['userID'];
+
+echo $user; */
+
+
+?>
+
+
 <?php 
-    include_once '..\project\connect.php'; 
+
     $query = "SELECT * FROM baranggay "; 
     $result = mysqli_query($conn,$query);	
 ?>
 
-<?php
-    include('header.php');
-?>
 
 <body>
 
@@ -54,6 +74,7 @@
         if(isset($_POST['submit'])){
 
             $batchID = $_POST['batchID'];
+            $user = $_POST['userID'];
             $date = $_POST['date'];
             $no_eggs = $_POST['no-eggs'];
             $rej_eggs = $_POST['rej-eggs'];
@@ -62,8 +83,8 @@
             
 
 
-            $insert = " INSERT INTO `layer`(`layerID`, `batchID`, `no_eggs`, `reject_eggs`, `Lcurrent`, `mortality`, `date`) 
-                VALUES ('','$batchID','$no_eggs','$rej_eggs','$Lcurrent','$mortality','$date') ";
+            $insert = " INSERT INTO `layer`(`layerID`, `batchID`, `userID`, `no_eggs`, `reject_eggs`, `Lcurrent`, `mortality`, `date`) 
+                VALUES ('','$batchID','$user','$no_eggs','$rej_eggs','$Lcurrent','$mortality','$date') ";
 
                 
 
@@ -72,13 +93,14 @@
     }elseif(isset($_POST['submit1'])){
 
         $batchID = $_POST['batchID'];
+        $user = $_POST['userID'];
         $date = $_POST['date'];
         $broiler_weight = $_POST['weight'];
         $Bcurrent = $_POST['current'];
         $mortality = $_POST['mortality'];
 
-        $insert = " INSERT INTO `broiler`(`broilerID`, `batchID`, `broiler_weight`, `Bcurrent`, `mortality`, `date`) 
-        VALUES ('','$batchID','$broiler_weight','$Bcurrent','$mortality','$date')";
+        $insert = " INSERT INTO `broiler`(`broilerID`, `batchID`, `userID`, `broiler_weight`, `Bcurrent`, `mortality`, `date`) 
+        VALUES ('','$batchID','$userID','$broiler_weight','$Bcurrent','$mortality','$date')";
             mysqli_query($data, $insert);
             sleep(1);
             
