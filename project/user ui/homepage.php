@@ -146,6 +146,10 @@
 <!--style-->
 <style type="text/css">
 
+  body{
+    zoom:75%;
+  }
+
 .user-info{
     padding: 5px;
     margin-top: 30px;

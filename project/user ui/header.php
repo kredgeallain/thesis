@@ -22,6 +22,9 @@
 
 
 <style>
+  body{
+    zoom:75%;
+  }
      .header{
     display: flex;
     justify-content: space-evenly;

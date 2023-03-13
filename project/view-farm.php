@@ -85,6 +85,52 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     </svg>Add Batch</a>
                             </button>
                         </div>
+<!--
+
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addbatch-modal">
+  Add Batch
+</button>
+
+
+<div class="modal fade" id="addbatch-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Batch</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+                <select id="select-unit" class="form-select" aria-label="Default select example" required="true">
+                    <option disabled selected>Product Unit</option>
+                    <option>Broiler</option>
+                    <option>Layer</option>
+                </select>
+
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="name">
+                    <label for="floatingInput">Batch Name</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="date" class="form-control" id="floatingInput" placeholder="name">
+                    <label for="floatingInput">Date</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" id="floatingInput" placeholder="name">
+                    <label for="floatingInput">Initial Number</label>
+                </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary">save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+-->
+
                     </td>
 
 
@@ -115,6 +161,45 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                         d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
                                 </svg> Edit </a>
                         </button>
+<!--
+
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editbatch-modal">
+ Edit
+</button>
+
+
+<div class="modal fade" id="editbatch-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Batch</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="name">
+                    <label for="floatingInput">Farm Name</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="name">
+                    <label for="floatingInput">Farm Owner</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" id="floatingInput" placeholder="name">
+                    <label for="floatingInput">Contact Number</label>
+                </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary">save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+-->                        
 
                     </td>
                 </tr>
@@ -287,6 +372,9 @@ td{
     padding-top:5px;
     padding-bottom:5px;
     padding-left:20px;
+}
+#select-unit{
+    margin-bottom:18px;
 }
 </style>
 </body>
