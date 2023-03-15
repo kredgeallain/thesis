@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 08, 2022 at 08:10 AM
+-- Generation Time: Mar 15, 2023 at 01:39 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.1
 
@@ -37,10 +37,16 @@ CREATE TABLE `baranggay` (
 --
 
 INSERT INTO `baranggay` (`baranggayID`, `baranggay`) VALUES
-(1, 'brgy. juan'),
-(2, 'baranggay2'),
-(3, 'baranggay3'),
-(4, 'baranggay4');
+(1, 'Barangay On3'),
+(2, 'Barangay Two'),
+(3, 'Barangay Three'),
+(4, 'Barangay Four'),
+(9, 'Barangay Five'),
+(15, 'Barangay Six'),
+(16, 'Barangay Seven'),
+(17, 'Barangay Eight'),
+(18, 'Barangay Nine'),
+(19, 'Barangay Ten');
 
 -- --------------------------------------------------------
 
@@ -50,9 +56,9 @@ INSERT INTO `baranggay` (`baranggayID`, `baranggay`) VALUES
 
 CREATE TABLE `batch` (
   `batchID` int(21) NOT NULL,
+  `farmID` int(11) NOT NULL,
   `batch` varchar(21) NOT NULL,
   `unit` varchar(21) NOT NULL DEFAULT 'layer',
-  `farmID` int(21) NOT NULL,
   `date` date NOT NULL,
   `initial` int(21) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -61,22 +67,12 @@ CREATE TABLE `batch` (
 -- Dumping data for table `batch`
 --
 
-INSERT INTO `batch` (`batchID`, `batch`, `unit`, `farmID`, `date`, `initial`) VALUES
-(4, '123', 'layer', 6, '0123-12-23', 0),
-(5, '123', 'layer', 7, '0123-12-23', 0),
-(6, 'palawan batch 1', 'broiler', 8, '0000-00-00', 0),
-(10, 'asd qec2 2', 'broiler', 11, '2022-11-01', 1231),
-(11, 'palawan batch broiler', 'broiler', 12, '2022-11-19', 21),
-(12, 'batch 90', 'broiler', 13, '2022-11-04', 21),
-(15, 'batch 45', 'layer', 17, '2022-12-04', 23),
-(16, 'bacth23', 'layer', 18, '2022-12-04', 123),
-(17, 'batch 3', 'Select Farm Unit', 19, '2022-12-02', 45),
-(18, '2nd batch', 'layer', 20, '2022-12-05', 12313),
-(19, 'batch 1', 'broiler', 21, '2022-12-05', 1234),
-(20, '', 'Select Farm Unit', 22, '0000-00-00', 0),
-(21, 'batch 1', 'broiler', 23, '2022-12-07', 20),
-(22, '', 'Select Farm Unit', 26, '0000-00-00', 0),
-(23, '', 'Select Farm Unit', 29, '0000-00-00', 0);
+INSERT INTO `batch` (`batchID`, `farmID`, `batch`, `unit`, `date`, `initial`) VALUES
+(92, 93, 'Batch 1', 'layer', '2023-03-03', 100),
+(93, 93, 'Batch 1', 'broiler', '2023-03-03', 40),
+(94, 93, ' Batch 1', 'layer', '2023-03-13', 250),
+(95, 93, 'batch 3', 'layer', '2023-03-13', 300),
+(96, 93, 'Batch 2', 'layer', '2023-03-14', 21);
 
 -- --------------------------------------------------------
 
@@ -87,7 +83,9 @@ INSERT INTO `batch` (`batchID`, `batch`, `unit`, `farmID`, `date`, `initial`) VA
 CREATE TABLE `broiler` (
   `broilerID` int(21) NOT NULL,
   `batchID` int(21) NOT NULL,
+  `userID` int(21) NOT NULL,
   `broiler_weight` int(21) NOT NULL,
+  `Bcurrent` int(11) NOT NULL,
   `mortality` int(21) NOT NULL,
   `date` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -113,27 +111,7 @@ CREATE TABLE `farm` (
 --
 
 INSERT INTO `farm` (`farmID`, `baranggayID`, `farmname`, `farmowner`, `contactno`, `lat`, `lng`) VALUES
-(2, 1, 'farm 11', 'farmer 11', 1231313, '0', '0'),
-(3, 1, 'farm 11', 'farmer 11', 1231313, '0', '0'),
-(4, 1, 'farm 11', 'farmer 11', 1231313, '0', '0'),
-(5, 1, 'farm 11', 'farmer 11', 1231313, '0', '0'),
-(6, 1, 'farm 11', 'farmer 11', 1231313, '0', '0'),
-(7, 1, 'farm 11', 'farmer 11', 1231313, '0', '0'),
-(8, 2, 'palawan farm', 'palawan', 12345, '0', '0'),
-(9, 1, 'asdsadas', 'asdasdsasd', 123132123, '0', '0'),
-(10, 2, 'farmville 2', 'farmer 21', 12124124, '0', '0'),
-(11, 2, 'Farmville', 'Farmer 22', 444444, '0', '0'),
-(12, 1, 'farm palawan', 'palawan good boy ', 123123, '0', '0'),
-(13, 2, 'FARM2', 'FARM222', 8888888, '0', '0'),
-(17, 4, 'farm00', 'famer00', 1234, '0', '0'),
-(18, 1, 'ad', 'qweqe', 0, '0', '0'),
-(19, 2, 'farm 1', 'famer 1', 1234, '0', '0'),
-(20, 4, 'grecia farm', 'grecia farmer', 12313124, '0', '0'),
-(21, 3, 'jom farm', 'jom farmer', 213, '0', '0'),
-(22, 1, 'farm 101', 'farmer 101', 12314, '0', '0'),
-(23, 1, 'juan farm', 'juan', 908761234, '0', '0'),
-(26, 3, 'wewqwr', 'wrwre', 0, '0', '0'),
-(29, 2, '', '', 0, '0', '0');
+(93, 1, 'Grecia\'s Farm', 'Joemarie Grecia', 2345667, '10.59197842', '122.69170620');
 
 -- --------------------------------------------------------
 
@@ -144,24 +122,20 @@ INSERT INTO `farm` (`farmID`, `baranggayID`, `farmname`, `farmowner`, `contactno
 CREATE TABLE `layer` (
   `layerID` int(11) NOT NULL,
   `batchID` int(11) NOT NULL,
+  `userID` int(20) NOT NULL,
   `no_eggs` int(11) NOT NULL,
   `reject_eggs` int(11) NOT NULL,
+  `Lcurrent` int(11) NOT NULL,
   `mortality` int(11) NOT NULL,
   `date` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `product`
+-- Dumping data for table `layer`
 --
 
-CREATE TABLE `product` (
-  `productID` int(21) NOT NULL,
-  `layerID` int(21) NOT NULL,
-  `broilerID` int(21) NOT NULL,
-  `date` date NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `layer` (`layerID`, `batchID`, `userID`, `no_eggs`, `reject_eggs`, `Lcurrent`, `mortality`, `date`) VALUES
+(51, 92, 136, 21, 2, 23, 1, '2023-03-13');
 
 -- --------------------------------------------------------
 
@@ -174,7 +148,7 @@ CREATE TABLE `user` (
   `name` varchar(21) NOT NULL,
   `username` varchar(21) NOT NULL,
   `position` varchar(21) NOT NULL DEFAULT 'admin',
-  `password` varchar(21) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `repassword` varchar(21) NOT NULL,
   `baranggay` varchar(21) NOT NULL,
   `mobile_no` bigint(21) NOT NULL,
@@ -186,14 +160,10 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`userID`, `name`, `username`, `position`, `password`, `repassword`, `baranggay`, `mobile_no`, `status`) VALUES
-(85, 'admin', 'admin', 'admin', 'admin', 'admin', '', 913456789, 'on'),
-(86, 'agent', 'agent', 'agent', 'agent', 'agent', '', 98765432, 'on'),
-(87, 'user 1', 'user1', 'admin', '1234', '', '', 923123124, 'on'),
-(88, 'jomjom', 'jom', 'admin', 'jomjom', '', '', 90912312, 'on'),
-(89, 'alucard', 'alucard', 'agent', 'alucard', '', '', 131414, 'on'),
-(90, 'miya', 'miya', 'admin', 'miya', 'miya', '', 2131421, 'on'),
-(91, 'ashe', 'ashe', 'admin', 'aseh', 'aseh', '', 11231515, 'on'),
-(94, 'King D Delacruz', 'king', 'admin', '', '', '   brgy. juan  ', 213456789, 'on');
+(136, 'admin', 'admin', 'admin', 'admin', 'admin', '   baranggay2  ', 1234, 'on'),
+(137, 'agent', 'agent', 'agent', 'agent', 'agent', '   baranggay2  ', 9087654345, 'on'),
+(138, 'Jane', 'jane', 'agent', 'jane', 'jane', '    Brgy. Jane  ', 9087654345, 'on'),
+(139, 'Joemarie D. Grecia', 'Joms', 'admin', 'joms', 'joms', '   Barangay One  ', 2345678, 'on');
 
 --
 -- Indexes for dumped tables
@@ -210,14 +180,15 @@ ALTER TABLE `baranggay`
 --
 ALTER TABLE `batch`
   ADD PRIMARY KEY (`batchID`),
-  ADD UNIQUE KEY `farmID` (`farmID`);
+  ADD KEY `farmID` (`farmID`);
 
 --
 -- Indexes for table `broiler`
 --
 ALTER TABLE `broiler`
   ADD PRIMARY KEY (`broilerID`),
-  ADD KEY `batchID` (`batchID`);
+  ADD KEY `batchID` (`batchID`),
+  ADD KEY `userID` (`userID`);
 
 --
 -- Indexes for table `farm`
@@ -231,15 +202,8 @@ ALTER TABLE `farm`
 --
 ALTER TABLE `layer`
   ADD PRIMARY KEY (`layerID`),
-  ADD KEY `batchID` (`batchID`);
-
---
--- Indexes for table `product`
---
-ALTER TABLE `product`
-  ADD PRIMARY KEY (`productID`),
-  ADD KEY `layerID` (`layerID`,`broilerID`),
-  ADD KEY `broilerID` (`broilerID`);
+  ADD KEY `batchID` (`batchID`),
+  ADD KEY `userID` (`userID`);
 
 --
 -- Indexes for table `user`
@@ -255,43 +219,37 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `baranggay`
 --
 ALTER TABLE `baranggay`
-  MODIFY `baranggayID` int(21) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `baranggayID` int(21) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `batch`
 --
 ALTER TABLE `batch`
-  MODIFY `batchID` int(21) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `batchID` int(21) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 
 --
 -- AUTO_INCREMENT for table `broiler`
 --
 ALTER TABLE `broiler`
-  MODIFY `broilerID` int(21) NOT NULL AUTO_INCREMENT;
+  MODIFY `broilerID` int(21) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `farm`
 --
 ALTER TABLE `farm`
-  MODIFY `farmID` int(21) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `farmID` int(21) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
 
 --
 -- AUTO_INCREMENT for table `layer`
 --
 ALTER TABLE `layer`
-  MODIFY `layerID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `product`
---
-ALTER TABLE `product`
-  MODIFY `productID` int(21) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `layerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=140;
 
 --
 -- Constraints for dumped tables
@@ -301,13 +259,14 @@ ALTER TABLE `user`
 -- Constraints for table `batch`
 --
 ALTER TABLE `batch`
-  ADD CONSTRAINT `batch_ibfk_1` FOREIGN KEY (`farmID`) REFERENCES `farm` (`farmID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `batch_ibfk_1` FOREIGN KEY (`farmID`) REFERENCES `farm` (`farmID`);
 
 --
 -- Constraints for table `broiler`
 --
 ALTER TABLE `broiler`
-  ADD CONSTRAINT `broiler_ibfk_1` FOREIGN KEY (`batchID`) REFERENCES `batch` (`batchID`);
+  ADD CONSTRAINT `broiler_ibfk_1` FOREIGN KEY (`batchID`) REFERENCES `batch` (`batchID`),
+  ADD CONSTRAINT `broiler_ibfk_2` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`);
 
 --
 -- Constraints for table `farm`
@@ -319,24 +278,10 @@ ALTER TABLE `farm`
 -- Constraints for table `layer`
 --
 ALTER TABLE `layer`
-  ADD CONSTRAINT `layer_ibfk_1` FOREIGN KEY (`batchID`) REFERENCES `batch` (`batchID`);
-
---
--- Constraints for table `product`
---
-ALTER TABLE `product`
-  ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`broilerID`) REFERENCES `broiler` (`broilerID`),
-  ADD CONSTRAINT `product_ibfk_2` FOREIGN KEY (`layerID`) REFERENCES `layer` (`layerID`);
+  ADD CONSTRAINT `layer_ibfk_1` FOREIGN KEY (`batchID`) REFERENCES `batch` (`batchID`),
+  ADD CONSTRAINT `layer_ibfk_2` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
-/*Altered Table Layer Added Lcurrent for current number of chickens upon gathering production data,
-  this is the bases on computing the mortality rate*/
-ALTER TABLE `layer` ADD `Lcurrent` INT(11) NOT NULL AFTER `reject_eggs`;
-
-/*Altered Table Broiler Added Bcurrent for current number of chickens upon gathering production data,
-  this is the bases on computing the mortality rate*/
-ALTER TABLE `broiler` ADD `Bcurrent` INT(11) NOT NULL AFTER `broiler_weight`;
