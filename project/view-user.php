@@ -73,6 +73,60 @@ if ($result = $mysqli->query($query)){
                          </svg> Edit </a>
                         </button>
            
+
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editbatch-modal">
+                                        Edit
+                                    </button>
+
+
+                                    <div class="modal fade" id="editbatch-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit User</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+
+                                                    <div class="form-floating mb-3">
+                                                        <input type="text" class="form-control" id="floatingInput" placeholder="name">
+                                                        <label for="floatingInput">Name</label>
+                                                    </div>
+                                                    <div class="form-floating mb-3">
+                                                        <input type="text" class="form-control" id="floatingInput" placeholder="name">
+                                                        <label for="floatingInput">Username</label>
+                                                    </div>
+                                                    <div class="form-floating mb-3">
+                                                        <input type="password" class="form-control" id="floatingInput" placeholder="name">
+                                                        <label for="floatingInput">Password</label>
+                                                    </div>
+
+                                                    <select id="select" class="form-select" aria-label="Default select example" required="true">
+                                                    <option disabled selected>Select Position</option>
+                                                    <option>Administrator</option>
+                                                    <option>Agent</option>
+                                                    </select>
+
+                                                    <select id="select" class="form-select" aria-label="Default select example" required="true">
+                                                    <option disabled selected>Status</option>
+                                                    <option>Enable</option>
+                                                    <option>Disable</option>
+                                                    </select>
+
+                                                    <div class="form-floating mb-3">
+                                                        <input type="number" class="form-control" id="floatingInput" placeholder="name">
+                                                        <label for="floatingInput">Contact Number</label>
+                                                    </div>
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                            <button type="button" class="btn btn-primary">save</button>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    </div>
+
                         
                 </td>';      
                     
@@ -220,6 +274,9 @@ tr:hover {
 }
 a{
     text-decoration:none !important;
+}
+#select{
+    margin-bottom:18px;
 }
 </style>
 </body>

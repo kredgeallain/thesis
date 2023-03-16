@@ -87,6 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </div>
 <!--
 
+
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addbatch-modal">
   Add Batch
 </button>
