@@ -141,10 +141,10 @@ echo $user; */
             })
         });
 
-        $('#farm').on('change', function() {
+        $('#farm').on('change', function(e) {
             var farmID = this.value;
             console.log(farmID);
-
+            e.preventDefault();
             $.ajax({
                 type: "POST",
                 url: "getbatch1.php",

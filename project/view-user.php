@@ -1,13 +1,6 @@
 <?php include('connect.php');?>
 
-<?php
 
-$username = "root";
-$password = "";
-$database = "project";
-$mysqli = new mysqli("localhost", $username, $password, $database);
-
-?>
 
 <?php include ("header.php");  ?>
 
@@ -26,10 +19,10 @@ $mysqli = new mysqli("localhost", $username, $password, $database);
 
         <?php
     
-$query = "SELECT * FROM user";
+$query = "SELECT * FROM user order by position ASC";
 
 
-if ($result = $mysqli->query($query)){
+if ($result = $conn->query($query)){
 		echo "<table class='table table-striped'>
 			<thead>	  
 			<tr>
@@ -39,21 +32,17 @@ if ($result = $mysqli->query($query)){
 				<th scope='col' id='u-name'>Username</th>
                 <th scope='col' id='brgy'>Barangay</th>
 				<th scope='col' id='pos'>Position</th>
+                <th scope='col' id='delete'> Status </th>
 				<th scope='col' id='cntct'>Contact No</th>
 				<th scope='col' id='edit'> Edit </th>
 				<th scope='col' id='delete'> Delete </th>
+               
 				
 			</tr>	  
 			</thead>";
 		}
 
-        while ($row = $result->fetch_assoc()) {
-            $userID = $row["userID"];
-            $name = $row["name"];
-            $brgy = $row["baranggay"];
-            $username = $row["username"];
-            $position = $row["position"];       
-            $mobile_no = $row["mobile_no"];
+        while ($row = $result->fetch_array()) {
 	
    
         	echo"<tr>";
@@ -62,68 +51,68 @@ if ($result = $mysqli->query($query)){
             	echo "<td id='u-name'>" .$row['username']. "</td>";
                 echo "<td id='brgy'>" .$row['baranggay']. "</td>";
             	echo "<td id='pos'>" .$row['position']. "</td>";
+                echo "<td id='pos'>" .$row['status']. "</td>";
 	        	echo "<td id='cntct'>" .$row['mobile_no']. "</td>";				
             	echo '<td > 
-
-            
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal" >
-                           <a href="update.php?userID='.$row['userID'].'"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 20 20">
-                           <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                           <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                         </svg> Edit </a>
-                        </button>
            
 
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editbatch-modal">
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edituser'.$row['userID'].'">
                                         Edit
                                     </button>
+ 
 
-
-                                    <div class="modal fade" id="editbatch-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                    <div class="modal fade" id="edituser'.$row['userID'].'" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
+                                        <form action="updateqry.php" method="POST">
                                         <div class="modal-header">
                                             <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit User</h1>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
+                                         <div class="form-floating mb-3">
+                                                        <input type="text" class="form-control" id="floatingInput" readonly hidden value= "'.$row['userID']. '" placeholder="name" name="userID" required="true">
+                                                        <label for="floatingInput" hidden>User ID</label>
+                                                    </div>
 
                                                     <div class="form-floating mb-3">
-                                                        <input type="text" class="form-control" id="floatingInput" placeholder="name">
+                                                        <input type="text" class="form-control" id="floatingInput" value= "'.$row['name']. '" placeholder="name" name="name" required="true">
                                                         <label for="floatingInput">Name</label>
                                                     </div>
                                                     <div class="form-floating mb-3">
-                                                        <input type="text" class="form-control" id="floatingInput" placeholder="name">
+                                                        <input type="text" class="form-control" id="floatingInput" value= "'.$row['username']. '"placeholder="name" name="username" required="true">
                                                         <label for="floatingInput">Username</label>
                                                     </div>
                                                     <div class="form-floating mb-3">
-                                                        <input type="password" class="form-control" id="floatingInput" placeholder="name">
+                                                        <input type="password" class="form-control" id="floatingInput" value="'.$row['password']. '" placeholder="name" name="password" required="true">
                                                         <label for="floatingInput">Password</label>
                                                     </div>
 
-                                                    <select id="select" class="form-select" aria-label="Default select example" required="true">
+                                                    <select id="select" class="form-select" aria-label="Default select example" name="position" required="true">
                                                     <option disabled selected>Select Position</option>
-                                                    <option>Administrator</option>
-                                                    <option>Agent</option>
+                                                    <option value="admin" selected>Administrator</option>
+                                                    <option value="agent">Agent</option>
                                                     </select>
 
-                                                    <select id="select" class="form-select" aria-label="Default select example" required="true">
-                                                    <option disabled selected>Status</option>
-                                                    <option>Enable</option>
-                                                    <option>Disable</option>
+                                                    <select id="select" class="form-select" aria-label="Default select example"  required="true" name="status">
+                                                    <option disabled selected >Status</option>
+                                                    <option value="on" selected>Enable</option>
+                                                    <option value="off">Disable</option>
                                                     </select>
 
-                                                    <div class="form-floating mb-3">
-                                                        <input type="number" class="form-control" id="floatingInput" placeholder="name">
+                                                    <div class="form-floating mb-3">    
+                                                        <input type="number" name="no" class="form-control" id="floatingInput" placeholder="name" required="true" value= '.$row['mobile_no'].' ">
                                                         <label for="floatingInput">Contact Number</label>
                                                     </div>
 
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                            <button type="button" class="btn btn-primary">save</button>
+                                            <button name="edit-user" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> Save</button>
                                         </div>
+                                     
                                         </div>
+                                        </form>
                                     </div>
                                     </div>
 
@@ -262,21 +251,24 @@ tr:hover {
     background-color: darkred;
     color: white;
 }
-#delete-yes{
-    padding-left:20px;
-    padding-right:20px;
-    text-decoration:none;
+
+#delete-yes {
+    padding-left: 20px;
+    padding-right: 20px;
+    text-decoration: none;
 }
 
-#delete-btn{
-    padding-left:0;
-    padding-right:0;
+#delete-btn {
+    padding-left: 0;
+    padding-right: 0;
 }
-a{
-    text-decoration:none !important;
+
+a {
+    text-decoration: none !important;
 }
-#select{
-    margin-bottom:18px;
+
+#select {
+    margin-bottom: 18px;
 }
 </style>
 </body>

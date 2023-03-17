@@ -17,8 +17,10 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 		sleep(1);
 		exit; 
 	}
+
 	$farmID = $_GET["farmID"];
 	$date = date('Y-m-d'); 
+	
 	$sql = "SELECT * FROM farm WHERE farmID = $farmID";
 	$result = $data->query($sql);
 	$row = $result->fetch_assoc();
@@ -34,18 +36,34 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 	if(isset($_POST['update'])){
 
 		$farmID = $_GET["farmID"];
-	
 		$unit = mysqli_real_escape_string($data, $_POST['unit']);
 		$batch = ($_POST['batch']);
 		$date = $_POST["date"];
         $initial = $_POST["initial"];
+
+
+		$check_batch= "SELECT * from batch WHERE batch = '".$batch."' AND unit ='".$unit."' ";
+		$result = mysqli_query($conn, $check_batch);
 		
-	
+		if(mysqli_num_rows($result) > 0){
+ 
+			echo '<script language="javascript" type="text/javascript">
+					alert("Batch Already Existed");
+					window.location = "view-farm.php";
+					</script>';
+	  
+		 }
+	else{
 		$sql = "INSERT INTO `batch`(`batchID`, `batch`, `unit`, `farmID`, `date`, `initial`) 
         VALUES ('','$batch','$unit','$farmID','$date','$initial')";
 		mysqli_query($data, $sql);
 		header("location:view-farm.php");
 		sleep(3);
+
+
+	}
+
+
 		exit;
 	}else{
 		echo 'Error Update';
@@ -60,40 +78,41 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 <?php include ("header.php");  ?>
 
 <section class="log-in">
-    <form action="#" method="post">
+    <form action="" method="post">
         <div class="text2">
             <p><b>Add Batch</b></p>
         </div>
         <div class="input-wrapper">
-        <div class="inputUser1">
-            <p hidden>farm ID</p>
-            <input type="text" hidden name="farmID" placeholder="Farmowner" id="farmowner" value="<?php echo $farmID; ?>"
-                required>
-        </div>
+            <div class="inputUser1">
+                <p hidden>farm ID</p>
+                <input type="text" hidden name="farmID" placeholder="Farmowner" id="farmowner"
+                    value="<?php echo $farmID; ?>" required>
+            </div>
 
-        <div class="inputUser">
-            <p>Unit</p>
-            <select type="text" name="unit" placeholder="Unit" id="farmname" value="" required>
-                <option>Select Unit</option>
-                <option value="layer">Layer</option>
-                <option value="broiler">Broiler</option>
+            <div class="inputUser">
+                <p>Unit</p>
+                <select type="text" name="unit" placeholder="Unit" id="farmname" value="" required>
+                    <option disabled>Select Unit</option>
+                    <option value="layer">Layer</option>
+                    <option value="broiler">Broiler</option>
 
-            </select>
-        </div>
+                </select>
+            </div>
 
-        <div class="input">
-            <p>Batch</p>
-            <input type="text" name="batch" placeholder="Batch" id="farmID" value="">
-        </div>
+            <div class="input">
+                <p>Batch</p>
+                <input type="text" name="batch" placeholder="Batch" id="farmID" value="">
+            </div>
 
-        <div class="inputUser">
-            <p> Date</p>
-            <input type="date" name="date" readonly placeholder="Date"  value= <?php echo $date ?> id="contactno" required>
-        </div>
-        <div class="inputUser">
-            <p> Initial </p>
-            <input type="number" name="initial" placeholder="Initial" id="contactno" value="" required>
-        </div>
+            <div class="inputUser">
+                <p> Date</p>
+                <input type="date" name="date" readonly placeholder="Date" value=<?php echo $date ?> id="contactno"
+                    required>
+            </div>
+            <div class="inputUser">
+                <p> Initial </p>
+                <input type="number" name="initial" placeholder="Initial" id="contactno" value="" required>
+            </div>
 
         </div>
 
@@ -107,120 +126,136 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
 <!--style-->
 <style type="text/css">
-.input-wrapper{
-	display:grid;
-	justify-content:center;
+.input-wrapper {
+    display: grid;
+    justify-content: center;
 }
 
-.log-in{
-	box-shadow: 2px 2px 2px 2px grey;
-	border-radius: 30px;
-	font-family: tahoma;
-	background-color: #f9faff;
-	padding: 15px;
-	margin-top: 30px;
-	margin-right: 300px;
-	margin-left: 300px;
-	margin-bottom: 5px;
-}
-.log-in p{
-	padding: 5px;
-}
-.text2{
-	display: grid;
-	justify-content: center;
-	font-size: 25px;
-}
-.input{
-    
-	display: grid;
-
-}
-.input p{
-	margin-top:35px ;
-}
-.inputUser1{
-	
-	display: grid;
-
-}
-.inputUser1 p{
-	margin-top:5px ;
+.log-in {
+    box-shadow: 2px 2px 2px 2px grey;
+    border-radius: 30px;
+    font-family: tahoma;
+    background-color: #f9faff;
+    padding: 15px;
+    margin-top: 30px;
+    margin-right: 300px;
+    margin-left: 300px;
+    margin-bottom: 5px;
 }
 
-.inputUser{
-	
-	display: grid;
-
-}
-.inputUser p{
-	margin-top:35px ;
-}
-.input2{
-
-	display: grid;
-	
-}
-.input2 p{
-	margin-top:35px ;
-}
-.input3{
-
-	display: grid;
-	
-}
-.input3 p{
-	margin-top:35px ;
-}
-.input4{
-
-	display: grid;
-
-}
-.input4 p{
-	margin-top:20px ;
-}
-.submit{
-	margin-top:35px;
-	display:grid;
-	justify-content:center;
-	text-align: center;
+.log-in p {
+    padding: 5px;
 }
 
-.btn{
-	height: 80%;
-	width: 100%;
-	background-color: #0e2a83;
-	color: white;
-	font-size: 16px;
-	margin: auto;
-	border-radius: 10px;
+.text2 {
+    display: grid;
+    justify-content: center;
+    font-size: 25px;
 }
+
+.input {
+
+    display: grid;
+
+}
+
+.input p {
+    margin-top: 35px;
+}
+
+.inputUser1 {
+
+    display: grid;
+
+}
+
+.inputUser1 p {
+    margin-top: 5px;
+}
+
+.inputUser {
+
+    display: grid;
+
+}
+
+.inputUser p {
+    margin-top: 35px;
+}
+
+.input2 {
+
+    display: grid;
+
+}
+
+.input2 p {
+    margin-top: 35px;
+}
+
+.input3 {
+
+    display: grid;
+
+}
+
+.input3 p {
+    margin-top: 35px;
+}
+
+.input4 {
+
+    display: grid;
+
+}
+
+.input4 p {
+    margin-top: 20px;
+}
+
+.submit {
+    margin-top: 35px;
+    display: grid;
+    justify-content: center;
+    text-align: center;
+}
+
+.btn {
+    height: 80%;
+    width: 100%;
+    background-color: #0e2a83;
+    color: white;
+    font-size: 16px;
+    margin: auto;
+    border-radius: 10px;
+}
+
 input[type=submit] {
-	border-radius: 10px;
-  background-color: #0e2a83;
-  border: none;
-  color: white;
-  padding: 16px 32px;
-  text-decoration: none;
-  margin: 4px 2px;
-  cursor: pointer;
+    border-radius: 10px;
+    background-color: #0e2a83;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
 }
+
 input {
-	margin-top:-15px;
-	color: black;
-	border-radius: 10px;
-	padding: 10px;
+    margin-top: -15px;
+    color: black;
+    border-radius: 10px;
+    padding: 10px;
 }
+
 select {
-	margin-top:-15px;
-	padding: 10px;
+    margin-top: -15px;
+    padding: 10px;
     outline: 0;
     background-image: none;
     border: 1px solid black;
-    border-radius:10px ;
+    border-radius: 10px;
 }
-
 </style>
 </body>
 

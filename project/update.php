@@ -47,7 +47,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 		$status = $_POST["status"];
 		$mobile_no = $_POST["mobile_no"];
 	
-		$sql = "UPDATE `user` SET `name`='$name',`username`='$username',`position`='$position',`password`='$password',`status`='$status',`mobile_no`='$mobile_no' WHERE userID = '$userID' ";
+		$sql = "UPDATE `user` SET `name`='$name',`username`='$username',`position`='$position',`status`='$status',`mobile_no`='$mobile_no' WHERE userID = '$userID' ";
 		mysqli_query($data, $sql);
 		header("location:view-user.php");
 		sleep(2);
@@ -85,12 +85,6 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
                 <p>Username</p>
                 <input type="text" name="username" placeholder="Username" id="username" value="<?php echo $username; ?>"
                     required>
-            </div>
-
-            <div class="input3">
-                <p>Password</p>
-                <input type="Password" name="password" placeholder="Password" id="password"
-                    value="<?php echo $password; ?>" required>
             </div>
 
             <div class="input2">

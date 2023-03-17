@@ -47,11 +47,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <form method="post">
             <div class="search-area">
-            <label for="search"></label>
-            <input class="" type="text" placeholder="search..." id="search" name="search" value="<?php echo $searchTerm ?? ''; ?>">
-            <a><button type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="black" class="bi bi-search" viewBox="0 0 16 16">
-  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-</svg></button></a>
+                <label for="search"></label>
+                <input class="" type="text" placeholder="search..." id="search" name="search"
+                    value="<?php echo $searchTerm ?? ''; ?>">
+                <a><button type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="black"
+                            class="bi bi-search" viewBox="0 0 16 16">
+                            <path
+                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                        </svg></button></a>
             </div>
         </form>
 
@@ -67,80 +70,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <tbody>
                 <?php foreach ($filteredData as $item): ?>
                 <tr>
-                    <td><p id="p"><?php echo $item['farmname']; ?></p></td>
-                    <td><p id="p"><?php echo $item['farmowner']; ?></p></td>
-                    <td><p id="p"><?php echo $item['contactno']; ?></p></td>
                     <td>
-                        <div class="addbatch-button">
-
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target="#editModal">
-                                <a href="add-batch.php?farmID=<?php echo $item['farmID']; ?>"><svg
-                                        xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                        class="bi bi-plus-square" viewBox="0 0 20 20">
-                                        <path
-                                            d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
-                                        <path
-                                            d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-                                    </svg>Add Batch</a>
-                            </button>
-                        </div>
-<!--
-
-
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addbatch-modal">
-  Add Batch
-</button>
-
-
-<div class="modal fade" id="addbatch-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Batch</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-
-                <select id="select-unit" class="form-select" aria-label="Default select example" required="true">
-                    <option disabled selected>Product Unit</option>
-                    <option>Broiler</option>
-                    <option>Layer</option>
-                </select>
-
-                <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="name">
-                    <label for="floatingInput">Batch Name</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="date" class="form-control" id="floatingInput" placeholder="name">
-                    <label for="floatingInput">Date</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="number" class="form-control" id="floatingInput" placeholder="name">
-                    <label for="floatingInput">Initial Number</label>
-                </div>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary">save</button>
-      </div>
-    </div>
-  </div>
-</div>
-
--->
-
+                        <p id="p"><?php echo $item["farmname"]; ?></p>
                     </td>
+                    <td>
+                        <p id="p"><?php echo $item['farmowner']; ?></p>
+                    </td>
+                    <td>
+                        <p id="p"><?php echo $item['contactno']; ?></p>
+                    </td>
+
 
 
                     <td>
                         <div class="viewbatch-button">
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                 data-bs-target="#editModal">
-                                <a href="view-batchesx.php?farmID=<?php echo $item['farmID']; ?>"> <svg xmlns="http://www.w3.org/2000/svg" width="20"
-                                        height="20" fill="currentColor" class="bi bi-eye" viewBox="0 0 20 20">
+                                <a href="view-batchesx.php?farmID=<?php echo $item['farmID']; ?>"> <svg
+                                        xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                        class="bi bi-eye" viewBox="0 0 20 20">
                                         <path
                                             d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
                                         <path
@@ -151,56 +99,65 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </td>
 
                     <td>
+
+
+
+
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target="#editModal">
-                            <a href="update-farm.php?farmID=<?php echo $item['farmID']; ?>"><svg xmlns="http://www.w3.org/2000/svg"
-                                    width="20" height="20" fill="currentColor" class="bi bi-pencil-square"
-                                    viewBox="0 0 20 20">
-                                    <path
-                                        d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-                                    <path fill-rule="evenodd"
-                                        d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
-                                </svg> Edit </a>
+                            data-bs-target="#editfarm<?php echo $item['farmID']; ?>">
+                            Edit
                         </button>
-<!--
-
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editbatch-modal">
- Edit
-</button>
 
 
-<div class="modal fade" id="editbatch-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Batch</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
+                        <div class="modal fade"  id="editfarm<?php echo $item['farmID']; ?>" data-bs-backdrop="static"
+                            data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <form action="updateqry.php" method="POST">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Batch</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
 
-                <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="name">
-                    <label for="floatingInput">Farm Name</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="name">
-                    <label for="floatingInput">Farm Owner</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="number" class="form-control" id="floatingInput" placeholder="name">
-                    <label for="floatingInput">Contact Number</label>
-                </div>
+                                            <div class="form-floating mb-3">
+                                                <input type="text" name="farmname" class="form-control"
+                                                    id="floatingInput" placeholder="name"
+                                                    value="<?php echo $item["farmname"]; ?>">
+                                                <label for="floatingInput">Farm Name</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input type="text" name="farmowner" class="form-control"
+                                                    id="floatingInput" placeholder="name"
+                                                    value="<?php echo $item['farmowner']; ?>">
+                                                <label for="floatingInput">Farm Owner</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input type="number" name="contactno" class="form-control"
+                                                    id="floatingInput" placeholder="name"
+                                                    value="<?php echo $item['contactno']; ?>">
+                                                <label for="floatingInput">Contact Number</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input type="text" name="farmID" class="form-control" id="floatingInput"
+                                                    readonly hidden value="<?php echo $item['farmID']; ?>" placeholder="name">
+                                                <label for="floatingInput" hidden>Farm ID</label>
+                                            </div>
 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary">save</button>
-      </div>
-    </div>
-  </div>
-</div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Cancel</button>
+                                            <button name="edit-farm" class="btn btn-primary"><span
+                                                    class="glyphicon glyphicon-save"></span> Save</button>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
 
--->                        
+
 
                     </td>
                 </tr>
@@ -340,42 +297,47 @@ a {
     text-decoration: none !important;
 }
 
-tr{
-    padding:20px !important;
+tr {
+    padding: 20px !important;
 }
-td{
 
-    align-items:center;
-    padding:0 !important;
-    margin:0 !important;
+td {
+
+    align-items: center;
+    padding: 0 !important;
+    margin: 0 !important;
 }
-.search-area{
-    margin:20px;
+
+.search-area {
+    margin: 20px;
 }
-#p{
-    padding-top:20px;
-    padding-left:20px;
+
+#p {
+    padding-top: 20px;
+    padding-left: 20px;
 }
-.search-area button{
-    margin-left:0;
-    padding-top:7px;
-    padding-left:10px;
-    padding-bottom:7px;
-    padding-right:15px;
+
+.search-area button {
+    margin-left: 0;
+    padding-top: 7px;
+    padding-left: 10px;
+    padding-bottom: 7px;
+    padding-right: 15px;
     border-radius: 0 15px 15px 0;
-    border:1px solid grey;
-    background-color:transparent;
+    border: 1px solid grey;
+    background-color: transparent;
 }
 
-.search-area input{
+.search-area input {
     border-radius: 15px 0 0 15px;
-    margin-right:0;
-    padding-top:5px;
-    padding-bottom:5px;
-    padding-left:20px;
+    margin-right: 0;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
 }
-#select-unit{
-    margin-bottom:18px;
+
+#select-unit {
+    margin-bottom: 18px;
 }
 </style>
 </body>

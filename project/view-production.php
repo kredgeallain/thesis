@@ -44,19 +44,20 @@ if($verify["unit"]=="broiler") {
 
 
 
-$sql = "SELECT * FROM broiler where batchID=$batchID";
-
+$sql = "SELECT  * FROM broiler 
+INNER JOIN user ON layer.userID = user.userID where batchID=$batchID";
 if ($result = $mysqli->query($sql)){
     echo "<table class='table table-striped'>
     <thead class='thead-dark'>	  
     <tr>
         
-        <th scope='col'  id='name'>Broiler ID</th>
-        <th scope='col' id='name'>Batch ID</th>
+        <th scope='col' hidden id='name'>Broiler ID</th>
+        <th scope='col' hidden id='name'>Batch ID</th>
         <th scope='col' id='name'>Broiler Weight</th>
         <th scope='col' id='name'>Current Number per Head</th>
         <th scope='col' id='name'>Mortality</th>
         <th scope='col' id='name'>Date Recorded</th>
+        <th scope='col' id='name'>Recorded by</th>
         
     </tr>	  
     </thead>";
@@ -65,12 +66,13 @@ if ($result = $mysqli->query($sql)){
         while ($row = $result->fetch_assoc()) { 
            
             echo"<tr>";
-            echo "<td id='name' >" .$row['broilerID']. "</td>";
-            echo "<td id='name'>" .$row['batchID']. "</td>";
+            echo "<td id='name' hidden >" .$row['broilerID']. "</td>";
+            echo "<td id='name' hidden >" .$row['batchID']. "</td>";
             echo "<td id='name'>" .$row['broiler_weight']. "</td>";
             echo "<td id='name'>" .$row['Bcurrent']. "</td>";
             echo "<td id='name'>" .$row['mortality']. "</td>";
             echo "<td id='name'>" .$row['date']. "</td>";
+            echo "<td id='name'>" .$row['user']. "</td>";
 
 
 			echo"</tr>";
@@ -99,6 +101,7 @@ if ($result = $mysqli->query($sql)){
                 <th scope='col' id='name'>Current number per Heads</th>
                 <th scope='col' id='name'>Mortality</th>
                 <th scope='col' id='name'>Date Recorded</th>
+                <th scope='col' id='name'>Recorded by</th>
             </tr>	  
             </thead>";
                 }
@@ -113,6 +116,7 @@ if ($result = $mysqli->query($sql)){
                     echo "<td id='name'>" .$row['Lcurrent']. "</td>";
                     echo "<td id='name'>" .$row['mortality']. "</td>";
                     echo "<td id='name'>" .$row['date']. "</td>";
+                    echo "<td id='name'>" .$row['user']. "</td>";
         
         
                     echo"</tr>";

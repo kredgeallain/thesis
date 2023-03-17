@@ -17,7 +17,7 @@ $user = $row['userID'];
 
 $batchID= $_POST['batch_data'];
 
-//echo $batchID;
+echo "HTML here";
 
 $b= "SELECT * FROM batch where batchID=$batchID";
 $q= mysqli_query ($conn, $b);
@@ -27,10 +27,14 @@ $row=mysqli_fetch_array($q);
 
 $init= $row['initial'];
 
+?>
 
+<?php
 
 if($row["unit"]=="layer")
-{ echo '
+{ 
+    
+?> 
 <form method="post" action="record1.php" id="form1">
 
 <div class="record-wrapper">
@@ -39,7 +43,7 @@ if($row["unit"]=="layer")
 
 <div class="date">
 <label for="">Date</label>
-<input  class="form-control" type="date" name="date" id="date"  value="'. $date .'" readonly required="true">
+<input  class="form-control" type="date" name="date" id="date"  value=<?php echo $date ?> readonly required="true">
 </div>
 
 
@@ -58,7 +62,7 @@ if($row["unit"]=="layer")
 
 <div class="mortality">
     <label for="dead">Initial No. of Chicken</label>
-    <input  class="form-control" type="number" readonly name="" id="mortality" value='. $init .' required="true">
+    <input  class="form-control" type="number" readonly name="" id="mortality" value=<?php echo $init ?> required="true">
 </div>
 
 <section class="broiler">
@@ -91,14 +95,14 @@ if($row["unit"]=="layer")
     </div>
 
 </form>';
-}
 
 
+<?php
 
+} else {
 
-else {
+?>
  
-   echo '
     <form method="post" action="record1.php" id="form2">
 
 <div class="record-wrapper">  
@@ -107,7 +111,7 @@ else {
 
     <div class="date">
     <label for="">Date</label>
-    <input  class="form-control" type="date" name="date" id="date" value="'. $date .'" readonly required="true">
+    <input  class="form-control" type="date" name="date" id="date" value=<?php echo $date ?> readonly required="true">
     </div>
 
 <section class="weight">
@@ -118,7 +122,7 @@ else {
 </section>
 <div class="mortality">
     <label for="dead">Initial No. of Chicken</label>
-    <input  class="form-control" type="number" readonly name="" id="mortality" value='. $init .' required="true">
+    <input  class="form-control" type="number" readonly name="" id="mortality" value=<?php echo $init ?>required="true">
 </div>
 
 <section class="current">
@@ -150,7 +154,7 @@ else {
 
 
     </form>';
-
+<?php
 
 }
 

@@ -31,7 +31,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 		$no_eggs = $_POST['no-eggs'];
 		$rej_eggs = $_POST['rej-eggs'];
 		$Lcurrent = $_POST['Lcurrent'];
-		$mortality = $_POST['mortality'];
+		$mortality = $_POST['mortality']; 
 		
 	
 	
@@ -73,7 +73,7 @@ $init= $row['initial'];
 
 if($row["unit"]=="layer")
 { echo '
-<form method="post" action="record1.php" id="form1>
+<form method="post" action="add-production.php" id="form1>
 
 <div class="record-wrapper">
 <h1>Layer</h1>
@@ -141,7 +141,7 @@ if($row["unit"]=="layer")
 else {
  
    echo '
-    <form method="post" >
+    <form method="post" action="add-production.php">
 
 <div class="record-wrapper">  
 
