@@ -433,6 +433,10 @@ summary{
     color:black
 }
 
+html{
+  scroll-behavior:smooth !important;
+}
+
 
     </style>
 

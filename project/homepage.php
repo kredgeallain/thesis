@@ -649,6 +649,9 @@ details.test[open]>summary::after {
   background-color:transparent;
   border:none;
 }
+html{
+  scroll-behavior:smooth !important;
+}
 
     </style>
    
@@ -790,6 +793,7 @@ details.test[open]>summary::after {
 
 
 
+
 <!--table-->
 <?php
 include('connect.php');
@@ -897,6 +901,7 @@ $row = $result->fetch_assoc();
 
      
 </div>
+
 <!--
 <div class="back-to-top">
   <a href="#content">Back to top</a>
