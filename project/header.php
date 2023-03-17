@@ -417,6 +417,22 @@ summary{
     list-style:none;
 }
 
+#nav-brgy{
+    display:flex;
+    justify-content:flex-start;
+    padding:0;
+    margin:0;
+
+}
+#barangay img{
+    margin-top:15px;
+}
+
+#nav-brgy:hover{
+    background-color:transparent;
+    color:black
+}
+
 
     </style>
 
@@ -452,10 +468,10 @@ summary{
     <details>   
         <!--brgy-->
         <summary>
-        <div class="production">
-            <img src="../image/barangay-admin.png" alt="production-logo" width="25px"><b>
+        <div id="barangay" class="production">
+            <a id="nav-brgy" href="add-brgy.php"><img src="../image/barangay-admin.png" alt="production-logo" height="25px" width="25px"><b>
                 <p>BARANGAY</p>
-            </b>
+            </b></a>
         </div>
         </summary>
 
@@ -474,11 +490,11 @@ summary{
         </div>
         </summary>
 
-        <a href="add-farm.php"><img src="../image/add-farm1.png" alt="add farm icon" width="30px">Add Farm</a>
+        <a id="nav-a" href="add-farm.php"><img src="../image/add-farm1.png" alt="add farm icon" width="30px">Add Farm</a>
 
-        <a href="view-farm.php"><img src="../image/view-farm1.png" alt="generate report icon" width="30px">View farm</a>
+        <a id="nav-a" href="view-farm.php"><img src="../image/view-farm1.png" alt="generate report icon" width="30px">View farm</a>
 
-        <a href="map.php"><img src="../image/mortality-rate.png" alt="generate report icon" width="30px">View farm Map</a>
+        <a id="nav-a" href="map.php"><img src="../image/mortality-rate.png" alt="generate report icon" width="30px">View farm Map</a>
         </details>
 
         <!--production-->
@@ -491,13 +507,13 @@ summary{
         </div>
         </summary>
 
-        <a href="record1.php"><img src="../image/record-icon.png" alt="generate report icon" width="30px"> Enter Reports</a>
+        <a id="nav-a" href="record1.php"><img src="../image/record-icon.png" alt="generate report icon" width="30px"> Enter Reports</a>
         <ul>
             <li class="dropdown-view">
         <a ><img src="../image/view-data.png" alt="view record icon" width="30px"> View Records</a>
         <ul class="dropdown-content-view">
-            <li><a  href="view-broiler.php">Broiler Records</a></li>
-            <li><a  href="view-layer.php">Layer Records</a></li>
+            <li><a id="nav-a"  href="view-broiler.php">Broiler Records</a></li>
+            <li><a id="nav-a" href="view-layer.php">Layer Records</a></li>
         </ul>   
         </li> 
         </ul>
@@ -506,8 +522,8 @@ summary{
         <li class="dropdown-generate"><a><img src="../image/generate-report1.png" alt="generate report icon" width="25px"> Get
             Reports</a>
             <ul class="dropdown-content-generate">
-                <li><a href="View-B-Export.php">Broiler Reports</a></li>
-                <li><a href="View-L-Export.php">Layer Reports</a></li>
+                <li><a id="nav-a" href="View-B-Export.php">Broiler Reports</a></li>
+                <li><a id="nav-a" href="View-L-Export.php">Layer Reports</a></li>
             </ul>
         </li>
             </ul>
@@ -523,11 +539,11 @@ summary{
         </div>
         </summary>
 
-        <a href="add-farm-batch.php"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 20 20">
+        <a id="nav-a" href="add-farm-batch.php"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 20 20">
   <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
 </svg>Add Batch</a>
 
-        <a href="view-batches.php"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 20 20">
+        <a id="nav-a" href="view-batches.php"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 20 20">
   <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
   <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
 </svg>View Batches</a>
@@ -545,9 +561,9 @@ summary{
         </div>
         </summary>
 
-        <a href="add-user.php"><img src="../image/add user1.png" alt="add user icon" width="30px">Add User</a>
+        <a id="nav-a" href="add-user.php"><img src="../image/add user1.png" alt="add user icon" width="30px">Add User</a>
 
-        <a href="view-user.php"><img src="../image/view-user1.png" alt="view user icon" width="30px">View Users</a>
+        <a id="nav-a" href="view-user.php"><img src="../image/view-user1.png" alt="view user icon" width="30px">View Users</a>
 
     </div>
     </details>

@@ -54,7 +54,557 @@ $mysqli = new mysqli("localhost", $username, $password, $database);
 
     <style>
 
+body {
+    margin: 0;
+    font-family: tahoma;
+}
 
+.header {
+    margin: 5px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+/* The navigation bar */
+
+.header-main {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    overflow: auto;
+    position: static;
+    background-color: #0e2a83;
+    color: white;
+    top: 0;
+    width: 100%;
+}
+
+.header-main h2 {
+    margin: 20px;
+    font-weight: bold;
+}
+
+.nav {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    border-bottom: 1px solid grey;
+    padding-bottom: 30px;
+}
+
+summary {
+    cursor: pointer;
+    list-style: none;
+}
+
+.nav ul {
+    display: inline-block;
+    position: absolute;
+    border-radius: 15px;
+    background-color: #f9faff;
+    padding-bottom: 10px;
+    margin-left: -210px;
+    margin-right: 50px;
+}
+
+.nav li {
+    list-style: none;
+    text-decoration: none;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 30px;
+}
+
+.production ul {
+    z-index: 100;
+    box-shadow: 2px 2px 2px 2px grey;
+    position: absolute;
+    margin-left: -65px;
+}
+
+#img {
+    margin-left: -60px;
+    margin-top: -5px;
+    position: absolute;
+}
+
+#dropdown-img {
+    position: absolute;
+    margin-left: -60px;
+    margin-top: -5px;
+}
+
+#a {
+    font-weight: bold;
+    color: black;
+    margin-left: 20px;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+}
+
+#a:hover {
+    color: white;
+    background-color: darkblue;
+    padding: 10px;
+    border-radius: 5px;
+    transform: scale(1.1);
+}
+
+#a-dropdown {
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+}
+
+#a-dropdown:hover {
+    color: white;
+    background-color: darkblue;
+    padding: 10px;
+    border-radius: 5px;
+    transform: scale(1.1);
+}
+
+.farm ul {
+    z-index: 100;
+    box-shadow: 2px 2px 2px 2px grey;
+    position: absolute;
+    margin-left: -50px;
+}
+
+.farm-dropdown img {
+    margin-left: -60px;
+    margin-top: -5px;
+    position: absolute;
+}
+
+.farm-dropdown a {
+    font-weight: bold;
+    color: black;
+    margin-left: 20px;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.farm-dropdown a:hover {
+    color: white;
+    background-color: darkblue;
+    padding: 10px;
+    border-radius: 5px;
+    transform: scale(1.1);
+}
+
+.user ul {
+    z-index: 100;
+    box-shadow: 2px 2px 2px 2px grey;
+    position: absolute;
+    margin-left: -30px;
+}
+
+.user-dropdown img {
+    margin-left: -60px;
+    margin-top: -10px;
+    position: absolute;
+}
+
+.user-dropdown a {
+    font-weight: bold;
+    color: black;
+    margin-left: 20px;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.user-dropdown a:hover {
+    color: white;
+    background-color: darkblue;
+    padding: 10px;
+    border-radius: 5px;
+    transform: scale(1.1);
+}
+
+
+/* barangay*/
+
+.brgy ul {
+    z-index: 100;
+    box-shadow: 2px 2px 2px 2px grey;
+    position: absolute;
+    margin-left: -30px;
+}
+
+.brgy-dropdown img {
+    margin-left: -60px;
+    margin-top: -10px;
+    position: absolute;
+}
+
+.brgy-dropdown a {
+    font-weight: bold;
+    color: black;
+    margin-left: 20px;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.brgy-dropdown a:hover {
+    color: white;
+    background-color: darkblue;
+    padding: 10px;
+    border-radius: 5px;
+    transform: scale(1.1);
+}
+
+
+/* batch */
+
+.batch ul {
+    z-index: 100;
+    box-shadow: 2px 2px 2px 2px grey;
+    position: absolute;
+    margin-left: -30px;
+}
+
+.batch-dropdown img {
+    margin-left: -60px;
+    margin-top: -10px;
+    position: absolute;
+}
+
+.batch-dropdown a {
+    font-weight: bold;
+    color: black;
+    margin-left: 20px;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.batch-dropdown a:hover {
+    color: white;
+    background-color: darkblue;
+    padding: 10px;
+    border-radius: 5px;
+    transform: scale(1.1);
+}
+
+summary {
+    transition: all 0.5s ease-in-out;
+}
+
+summary :hover {
+    transform: scale(1.02);
+    filter: drop-shadow(2px 2px 2px 2px #66ffcc);
+    background-color: white;
+    border-radius: 5px;
+}
+
+.logout button {
+    z-index: 999;
+    position: absolute;
+    right: 50%;
+    left: 30%;
+    justify-content: center;
+    display: grid;
+    align-items: center;
+    border-radius: 25px;
+    padding-right: 200px;
+    padding-left: 200px;
+}
+
+.logout h2 {
+    font-weight: bold;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    color: black;
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+
+.summ {
+    margin-top: -60px;
+    display: flex;
+    justify-content: flex-end;
+    font-weight: bold;
+    font-size: 17px;
+    list-style: none;
+}
+
+.summary p {
+    margin-right: 5px;
+    margin-left: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    border-radius: 40px;
+    padding-right: 15px;
+}
+
+.button {
+    margin-left: 10px;
+}
+
+.button a {
+    padding-right: 60px;
+    padding-left: 60px;
+    color: white;
+    text-decoration: none;
+}
+
+.button button:hover {
+    background-color: blue;
+    color: white;
+}
+
+.home {
+    margin-bottom: 5px;
+}
+
+details.test {
+    position: relative;
+    padding: 5px 0;
+}
+
+details.test[open]>summary::after {
+    font-size: 20px;
+    top: 70px;
+    left: 910px;
+    justify-content: center;
+    position: absolute;
+    content: "X";
+    bottom: 0;
+}
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 9999;
+}
+
+#preloader img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#modalbody {
+    display: flex !important;
+    justify-content: center !important;
+}
+
+#modalbody h2 {
+    font-weight: bold;
+}
+
+#button {
+    border: none;
+    border-radius: 15px;
+    padding-right: 50px;
+    padding-left: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#button_yes {
+    border: none;
+    border-radius: 15px;
+    background-color: darkblue;
+    padding-right: 50px;
+    padding-left: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#button_yes:hover {
+    background-color: blue;
+}
+
+.modal-content {
+    border: none;
+    border-radius: 30px;
+    padding-bottom: 0;
+}
+
+.modal-footer {
+    border: none;
+    display: flex;
+    justify-content: center;
+    padding-top: 0;
+    margin-bottom: 10px;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #f1f1f1;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+#nav:hover {
+    background-color: grey;
+}
+
+#open-nav {
+    position: fixed;
+    left: 2%;
+    top: 3%;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold
+}
+
+.dropdown-content-view {
+    position: absolute;
+    margin-left: 95px;
+    display: none;
+    background-color: lightgray;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content-view a {
+    color: black;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-view:hover .dropdown-content-view {
+    display: grid;
+}
+
+.dropdown-content-generate {
+    position: absolute;
+    margin-left: 95px;
+    display: none;
+    background-color: lightgray;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content-generate a {
+    color: black;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-generate:hover .dropdown-content-generate {
+    display: grid;
+}
+
+
+/*
+.navigation {
+    background-color: darkblue;
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.navigation a {
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    transition: all 0.2s ease-in-out;
+}
+
+.navigation a:hover {
+    color: white;
+    border-bottom: 1px solid white;
+    transform: scale(.9);
+}
+
+#layer {
+    padding: 20px;
+    border: 1px solid grey;
+    margin: 20px;
+}
+
+#broiler {
+    border: 0.3px solid grey;
+    margin: 20px;
+    padding: 20px;
+}
+*/
+
+.production-report {
+    display: grid;
+    place-items: center;
+    margin: 5px 15px 5px 15px;
+}
+
+.production-report h2 {
+    font-weight: bold;
+}
+
+#nav-tab {
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 0;
+}
+
+#nav-tab button {
+    font-weight: bold;
+}
+
+.tab-content {
+    margin: 5px 40px 5px 40px;
+}
+
+.more-options {
+    margin-top: 30px;
+}
+
+.more-options a {
+    border-right: 1px solid grey;
+    margin: 10px;
+    padding-right: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.tab-content h3 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 
 .farm-brgy-summary{
   display:flex;
@@ -95,6 +645,10 @@ $mysqli = new mysqli("localhost", $username, $password, $database);
   margin-bottom:30px;
 }
 
+#logout{
+  background-color:transparent;
+  border:none;
+}
 
     </style>
    
@@ -109,7 +663,10 @@ $mysqli = new mysqli("localhost", $username, $password, $database);
             <section class="summary">
               <div class="summ">             
                   <button id="logout" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Log out?
+                  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 20 16">
+  <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+  <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+</svg>
                   </button>
 
                   <!-- Modal -->
@@ -155,12 +712,7 @@ $mysqli = new mysqli("localhost", $username, $password, $database);
 
               <section class="brgy">
                 <details>
-                  <summary><img src="../image/barangay-admin.png" width="100px"></summary>
-                  <section class="brgy-dropdown">
-                    <ul>
-                    <li id="li"><a href="add-brgy.php"><img id="add-brgy" src="../image/add-barangay1.png"  width="60px">ADD BARANGAY</a></li id="li"i>
-                    </ul>
-                  </section>
+                  <summary><a href="add-brgy.php"><img src="../image/barangay-admin.png" width="100px"></a></summary>
                 </details>
               </section>
 
@@ -172,6 +724,18 @@ $mysqli = new mysqli("localhost", $username, $password, $database);
                     <li id="li"><a href="view-farm.php"><img src="../image/view-farm1.png" width="18%">VIEW FARM</a></li>
                     <li id="li"><a href="add-farm.php"><img src="../image/add-farm1.png" width="18%">ADD FARM</a></li>
                     <li id="li"><a href="map.php"><img src="../image/mortality-rate.png" width="18%">VIEW FARM MAP</a></li>
+                    </ul>
+                  </section>
+                </details>
+              </section>
+
+              <section class="batch">
+                <details>
+                  <summary><img src="../image/batches-admin.png" width="100px"></summary>
+                  <section class="batch-dropdown" style="z-index:2">
+                    <ul id="ul">
+                    <li id="li"><a href="add-farm-batch.php"><img id="add-brgy" src="../image/add-barangay1.png" width="60px">ADD BATCH</a></li>
+                    <li id="li"><a href="view-batches.php"><img src="../image/view.png" width="20%">VIEW BATCHES</a></li>
                     </ul>
                   </section>
                 </details>
@@ -208,17 +772,6 @@ $mysqli = new mysqli("localhost", $username, $password, $database);
                 </details>
               </section>
 
-              <section class="batch">
-                <details>
-                  <summary><img src="../image/batches-admin.png" width="100px"></summary>
-                  <section class="batch-dropdown" style="z-index:2">
-                    <ul id="ul">
-                    <li id="li"><a href="add-farm-batch.php"><img id="add-brgy" src="../image/add-barangay1.png" width="60px">ADD BATCH</a></li>
-                    <li id="li"><a href="view-batches.php"><img src="../image/view.png" width="20%">VIEW BATCHES</a></li>
-                    </ul>
-                  </section>
-                </details>
-              </section>
 
               <section class="user">
                 <details>
@@ -256,6 +809,16 @@ $row = $result->fetch_assoc();
         <section class="nav2">
 
         <section class="farm-brgy-summary">
+
+        <section class="brgy-summary">
+              <div class="brgy-number">
+              <h2> <?php echo "<p>".$row['totalbaranggay']."<p>" ?></h2>
+              </div>
+              <div class="rgtr">
+                  <p>Number of Barangays</p>
+              </div>
+          </section>
+
           <section class="farm-summary">
               <div class="farm-number">
                   <h2> <?php echo "<p>".$row1['totalfarm']."<p>" ?></h2>
@@ -265,14 +828,7 @@ $row = $result->fetch_assoc();
               </div>
           </section>
 
-          <section class="brgy-summary">
-              <div class="brgy-number">
-              <h2> <?php echo "<p>".$row['totalbaranggay']."<p>" ?></h2>
-              </div>
-              <div class="rgtr">
-                  <p>Number of Barangays</p>
-              </div>
-          </section>
+
         </section>
 
 <section class="top">
