@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 15, 2023 at 01:39 AM
+-- Generation Time: Mar 18, 2023 at 03:02 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.1
 
@@ -37,7 +37,7 @@ CREATE TABLE `baranggay` (
 --
 
 INSERT INTO `baranggay` (`baranggayID`, `baranggay`) VALUES
-(1, 'Barangay On3'),
+(1, 'Barangay One'),
 (2, 'Barangay Two'),
 (3, 'Barangay Three'),
 (4, 'Barangay Four'),
@@ -46,7 +46,8 @@ INSERT INTO `baranggay` (`baranggayID`, `baranggay`) VALUES
 (16, 'Barangay Seven'),
 (17, 'Barangay Eight'),
 (18, 'Barangay Nine'),
-(19, 'Barangay Ten');
+(19, 'Barangay Ten'),
+(20, 'Barangay Eleven');
 
 -- --------------------------------------------------------
 
@@ -69,10 +70,12 @@ CREATE TABLE `batch` (
 
 INSERT INTO `batch` (`batchID`, `farmID`, `batch`, `unit`, `date`, `initial`) VALUES
 (92, 93, 'Batch 1', 'layer', '2023-03-03', 100),
-(93, 93, 'Batch 1', 'broiler', '2023-03-03', 40),
-(94, 93, ' Batch 1', 'layer', '2023-03-13', 250),
 (95, 93, 'batch 3', 'layer', '2023-03-13', 300),
-(96, 93, 'Batch 2', 'layer', '2023-03-14', 21);
+(96, 93, 'Batch 2', 'layer', '2023-03-14', 21),
+(102, 93, 'Batch 1', 'broiler', '2023-03-18', 21),
+(103, 93, 'Batch 1', 'broiler', '2023-03-18', 21),
+(104, 93, 'Batch 4', 'broiler', '2023-03-18', 100),
+(105, 93, 'Batch 3', 'broiler', '2023-03-18', 300);
 
 -- --------------------------------------------------------
 
@@ -111,7 +114,8 @@ CREATE TABLE `farm` (
 --
 
 INSERT INTO `farm` (`farmID`, `baranggayID`, `farmname`, `farmowner`, `contactno`, `lat`, `lng`) VALUES
-(93, 1, 'Grecia\'s Farm', 'Joemarie Grecia', 2345667, '10.59197842', '122.69170620');
+(93, 1, 'Jom Farm', 'Joemarie Grecia', 2345667, '10.59197842', '122.69170620'),
+(95, 2, 'Who Farm', 'Hello how r u', 897654, '10.59129886', '122.69148815');
 
 -- --------------------------------------------------------
 
@@ -160,10 +164,11 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`userID`, `name`, `username`, `position`, `password`, `repassword`, `baranggay`, `mobile_no`, `status`) VALUES
-(136, 'admin', 'admin', 'admin', 'admin', 'admin', '   baranggay2  ', 1234, 'on'),
+(136, 'admin', 'admin', 'admin', 'admin', 'admin', '   baranggay2  ', 98765, 'on'),
 (137, 'agent', 'agent', 'agent', 'agent', 'agent', '   baranggay2  ', 9087654345, 'on'),
 (138, 'Jane', 'jane', 'agent', 'jane', 'jane', '    Brgy. Jane  ', 9087654345, 'on'),
-(139, 'Joemarie D. Grecia', 'Joms', 'admin', 'joms', 'joms', '   Barangay One  ', 2345678, 'on');
+(139, 'Joemarie D. Grecia', 'Joms', 'admin', 'joms', 'joms', '   Barangay One  ', 2345678, 'on'),
+(140, 'Juan D Delacruz', 'JUAN', 'agent', 'juan', 'juan', '   Barangay One  ', 867543, 'off');
 
 --
 -- Indexes for dumped tables
@@ -219,13 +224,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `baranggay`
 --
 ALTER TABLE `baranggay`
-  MODIFY `baranggayID` int(21) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `baranggayID` int(21) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `batch`
 --
 ALTER TABLE `batch`
-  MODIFY `batchID` int(21) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
+  MODIFY `batchID` int(21) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
 
 --
 -- AUTO_INCREMENT for table `broiler`
@@ -237,7 +242,7 @@ ALTER TABLE `broiler`
 -- AUTO_INCREMENT for table `farm`
 --
 ALTER TABLE `farm`
-  MODIFY `farmID` int(21) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
+  MODIFY `farmID` int(21) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
 
 --
 -- AUTO_INCREMENT for table `layer`
@@ -249,7 +254,7 @@ ALTER TABLE `layer`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=140;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=141;
 
 --
 -- Constraints for dumped tables

@@ -26,9 +26,16 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 		sleep(2);
 		exit; 
 	}
-	$baranggayID = $_GET["baranggayID"];
 
-$query = "SELECT * FROM farm where baranggayID=$baranggayID ";
+}
+
+
+
+$baranggayID = $_GET["baranggayID"];
+
+$query = "SELECT baranggay.baranggay, farm.farmname, farm.farmowner,
+ farm.contactno, farm.farmID, baranggay.baranggayID
+ FROM baranggay INNER JOIN farm ON baranggay.baranggayID = farm.baranggayID where baranggay.baranggayID = $baranggayID order by baranggay.baranggay ASC";
 
 
 
@@ -40,14 +47,10 @@ if ($result = $conn->query($query)){
 				
 				<th scope='col' hidden id='count'>Farm ID</th>
 				
-				
-				<th scope='col' id='farm-name'>Name</th>
-				<th scope='col' id='owner'>Owner</th>
+				<th scope='col' id='farm-name'>Barangay</th>
+				<th scope='col' id='farm-name'>Farm Name</th>
+				<th scope='col' id='owner'>Farm Owner</th>
 				<th scope='col' id='cntct'>Contact No.</th>
-             
-                <th scope='col' id='edit'>View Batches</th>
-                <th scope='col' id='delete'>Edit</th>
-				
 				
 			</tr>	  
 			</thead>";
@@ -59,7 +62,7 @@ if ($result = $conn->query($query)){
    
         	echo"<tr>";
             	echo "<td hidden id=' farmid' >" .$row['farmID']. "</td>";
-				
+				echo "<td id=' farmname '>" .$row['baranggay']. "</td>";
             	echo "<td id=' farmname '>" .$row['farmname']. "</td>";
             	echo "<td id=' owner '>" .$row['farmowner']. "</td>";
             	echo "<td id=' cntct '>" .$row['contactno']. "</td>";
@@ -69,7 +72,7 @@ if ($result = $conn->query($query)){
                     <a href="view-batchesx.php?farmID='.$row['farmID'].'"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-eye" viewBox="0 0 20 20">
                     <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
                     <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
-                  </svg>View </a>
+                  </svg>View Batch </a>
                  </button>
                  </div>
                     </td>';
@@ -93,7 +96,7 @@ if ($result = $conn->query($query)){
                     </div>
                     <div class="modal-body">
                     <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingInput" readonly  value= "'.$baranggayID. '" placeholder="brgyID" name="farmID" required="true">
+                    <input type="text" class="form-control" id="floatingInput" readonly hidden value= "'.$baranggayID. '" placeholder="name" name="farmID" required="true">
                     <label for="floatingInput" hidden>User ID</label>
                 </div>
                      <div class="form-floating mb-3">
@@ -135,7 +138,7 @@ if ($result = $conn->query($query)){
 	"</table>";
 
 
-    }
+    
 ?>
 
     </section>

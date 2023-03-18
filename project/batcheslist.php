@@ -9,7 +9,7 @@ $batch= "SELECT * FROM batch WHERE farmID = $farmID ";
 
 if ($result = $data->query($batch)){
   echo ' 
-  <form method="post" action="view-batches.php" id="form1" rel="nofollow">
+  <form method="post" action="updateqry.php" id="form1" rel="nofollow">
   
   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
   Add Batch
@@ -35,10 +35,9 @@ if ($result = $data->query($batch)){
                 placeholder="Batch Name" required="true">
             <label for="floatingInput">Batch Name</label>
         </div>
-        <input type="" hidden name="farmID" value='. $farmID .'> 
+        <input type="" hidden name="farmID" value='. $farmID .' required="true"> 
         <select class="form-select form-select-sm" name="unit"
-            aria-label=".form-select-sm example">
-            <option disable selected>Select Farm Unit</option>
+            aria-label=".form-select-sm example required="true"">
             <option value="layer">Layer</option>
             <option value="broiler">Broiler</option>
         </select>
@@ -51,7 +50,7 @@ if ($result = $data->query($batch)){
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button class="btn btn-primary" type="submit" name="submit" id="submit" value="">Add Batch</button>
+          <button class="btn btn-primary" type="submit" name="add-batch" id="submit" value="">Add Batch</button>
         </div>
       </div>
     </div>

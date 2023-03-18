@@ -20,169 +20,146 @@
 include 'connect.php';
 
 
-$sql = "SELECT * FROM farm";
-$data = mysqli_query($data, $sql);
 
-
-
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-    $searchTerm = htmlspecialchars($_POST['search']);
-    
-
-    $filteredData = array();
-    foreach ($data as $item) {
-        if (stripos($item['farmname'], $searchTerm) !== false) {
-            $filteredData[] = $item;
-        }
-    }
+if(isset($_POST['search'])) {
+   
+    $search = mysqli_real_escape_string($conn, $_POST['search']);
+ 
+    $sql = "SELECT baranggay.baranggay, farm.farmname, farm.farmowner,
+    farm.contactno, farm.farmID, baranggay.baranggayID
+    FROM baranggay INNER JOIN farm ON baranggay.baranggayID = farm.baranggayID where farm.farmname LIKE '%$search%' order by baranggay.baranggay ASC";;
 } else {
-
-    $filteredData = $data;
+   
+    $sql = "SELECT baranggay.baranggay, farm.farmname, farm.farmowner,
+    farm.contactno, farm.farmID, baranggay.baranggayID
+    FROM baranggay INNER JOIN farm ON baranggay.baranggayID = farm.baranggayID order by baranggay.baranggay ASC";;
 }
+
+$result = mysqli_query($conn, $sql);
+
+
+if (mysqli_num_rows($result) > 0) {
+    echo "<table class='table table-striped'>
+        <thead>	  
+        <tr>
+            
+            <th scope='col' hidden id='count'>Farm ID</th>
+            
+            <th scope='col' id='farm-name'>Barangay</th>
+            <th scope='col' id='farm-name'>Farm Name</th>
+            <th scope='col' id='owner'>Farm Owner</th>
+            <th scope='col' id='cntct'>Contact No.</th>
+            
+        </tr>	  
+        </thead>";
+    }
+
+    while ($row = $result->fetch_assoc()) {
+ 
+
+
+        echo"<tr>";
+            echo "<td hidden id=' farmid' >" .$row['farmID']. "</td>";
+            echo "<td id=' farmname '>" .$row['baranggay']. "</td>";
+            echo "<td id=' farmname '>" .$row['farmname']. "</td>";
+            echo "<td id=' owner '>" .$row['farmowner']. "</td>";
+            echo "<td id=' cntct '>" .$row['contactno']. "</td>";
+                echo'<td>
+                <div class="viewbatch-button">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal" >
+                <a href="view-batchesx.php?farmID='.$row['farmID'].'"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-eye" viewBox="0 0 20 20">
+                <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
+                <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
+              </svg>View Batch </a>
+             </button>
+             </div>
+                </td>';
+
+
+                echo '<td > 
+
+
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editfarm'.$row['farmID'].'">
+                Edit
+            </button>
+
+
+            <div class="modal fade" id="editfarm'.$row['farmID'].'" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                <form action="updateqry.php" method="POST">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit User</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" readonly hidden value=  "'.$row['baranggayID']. '" placeholder="name" name="farmID" required="true">
+                <label for="floatingInput" hidden>User ID</label>
+            </div>
+                 <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="floatingInput" readonly hidden value= "'.$row['farmID']. '" placeholder="name" name="farmID" required="true">
+                                <label for="floatingInput" hidden>User ID</label>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="floatingInput" value= "'.$row['farmname']. '" placeholder="name" name="farmname" required="true">
+                                <label for="floatingInput">Farm Name</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="floatingInput" value= "'.$row['farmowner']. '"placeholder="name" name="farmowner" required="true">
+                                <label for="floatingInput">Farm Owner</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="floatingInput" value="'.$row['contactno']. '" placeholder="name" name="contactno" required="true">
+                                <label for="floatingInput">Contact No.</label>
+                            </div>
+
+                        
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button name="edit-farm" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> Save</button>
+                </div>
+             
+                </div>
+                </form>
+            </div>
+            </div>
+
+                
+        </td>';  
+        echo"</tr>";
+          
+    }
+"</table>";
+
+
 
 ?>
 
+</section>
 
-        <form method="post">
-            <div class="search-area">
-                <label for="search"></label>
-                <input class="" type="text" placeholder="search..." id="search" name="search"
-                    value="<?php echo $searchTerm ?? ''; ?>">
-                <a><button type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="black"
-                            class="bi bi-search" viewBox="0 0 16 16">
-                            <path
-                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                        </svg></button></a>
-            </div>
-        </form>
+<form action="" method="post">
+    <input type="text" name="search" placeholder="Search...">
+    <input type="submit" value="Search">
+</form>
 
 
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Farm Name</th>
-                    <th>Farm Owner</th>
-                    <th>Contact No.</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($filteredData as $item): ?>
-                <tr>
-                    <td>
-                        <p id="p"><?php echo $item["farmname"]; ?></p>
-                    </td>
-                    <td>
-                        <p id="p"><?php echo $item['farmowner']; ?></p>
-                    </td>
-                    <td>
-                        <p id="p"><?php echo $item['contactno']; ?></p>
-                    </td>
-
-
-
-                    <td>
-                        <div class="viewbatch-button">
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target="#editModal">
-                                <a href="view-batchesx.php?farmID=<?php echo $item['farmID']; ?>"> <svg
-                                        xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                        class="bi bi-eye" viewBox="0 0 20 20">
-                                        <path
-                                            d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
-                                        <path
-                                            d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
-                                    </svg>View </a>
-                            </button>
-                        </div>
-                    </td>
-
-                    <td>
-
-
-
-
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target="#editfarm<?php echo $item['farmID']; ?>">
-                            Edit
-                        </button>
-
-
-                        <div class="modal fade"  id="editfarm<?php echo $item['farmID']; ?>" data-bs-backdrop="static"
-                            data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content">
-                                    <form action="updateqry.php" method="POST">
-                                        <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Batch</h1>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-
-                                            <div class="form-floating mb-3">
-                                                <input type="text" name="farmname" class="form-control"
-                                                    id="floatingInput" placeholder="name"
-                                                    value="<?php echo $item["farmname"]; ?>">
-                                                <label for="floatingInput">Farm Name</label>
-                                            </div>
-                                            <div class="form-floating mb-3">
-                                                <input type="text" name="farmowner" class="form-control"
-                                                    id="floatingInput" placeholder="name"
-                                                    value="<?php echo $item['farmowner']; ?>">
-                                                <label for="floatingInput">Farm Owner</label>
-                                            </div>
-                                            <div class="form-floating mb-3">
-                                                <input type="number" name="contactno" class="form-control"
-                                                    id="floatingInput" placeholder="name"
-                                                    value="<?php echo $item['contactno']; ?>">
-                                                <label for="floatingInput">Contact Number</label>
-                                            </div>
-                                            <div class="form-floating mb-3">
-                                                <input type="text" name="farmID" class="form-control" id="floatingInput"
-                                                    readonly hidden value="<?php echo $item['farmID']; ?>" placeholder="name">
-                                                <label for="floatingInput" hidden>Farm ID</label>
-                                            </div>
-
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Cancel</button>
-                                            <button name="edit-farm" class="btn btn-primary"><span
-                                                    class="glyphicon glyphicon-save"></span> Save</button>
-                                        </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-                    </td>
-                </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
-
-
-
-    </section>
-
-
-    <div class="add">
-        <div class="add-user-page">
-            <a href="add-farm.php"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                    class="bi bi-plus-circle" viewBox="0 0 20 20">
-                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                    <path
-                        d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-                </svg>Add Farm</a>
-        </div>
+<div class="add">
+    <div class="add-user-page">
+        <a href="add-farm.php"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                class="bi bi-plus-circle" viewBox="0 0 20 20">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                <path
+                    d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+            </svg>Add Farm</a>
     </div>
-
-
 </div>
+</div>
+
+
 
 <style type="text/css">
 .wrapper {

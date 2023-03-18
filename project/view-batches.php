@@ -49,39 +49,7 @@ include('header.php');
             <?php
 
    
-if(isset($_POST['submit'])){
-
-    $batch = $_POST['batch'];
-    $farmID = $_POST['farmID'];
-    $date = $_POST['date'];
-    $unit = $_POST['unit'];
-    $initial = $_POST['initial'];
-
-  //  $batch_filter= "SELECT * from `batch` where batch = $batch";
-
-   // $result_batch = mysqli_query($data, $batch_filter);
-
-   // if(mysqli_num_rows($result_batch) > 0){
-
-
-     //   echo '<script type="text/javascript">window.alert("Batch Already Existed");</script>';
-
-
-
-  //  }
-
-  //  else{
-
-    $insert = " INSERT INTO `batch`(`farmID`, `batch`, `unit`, `initial`, `date`) 
-        VALUES ('$farmID','$batch','$unit','$initial','$date') ";
-mysqli_query($data, $insert);
-
-        echo '<script type="text/javascript">window.alert("Batch Added");</script>';
-   // };
-
-
-}
-            ?>
+         ?>
 
 
         </section>
