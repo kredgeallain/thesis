@@ -94,7 +94,7 @@ if (isset($_POST['start_date']) && isset($_POST['end_date'])) {
             echo "<td>" . $row['mortality'] . "</td>";
             echo "<td>" . $row['current'] . "</td>";
             if ($new_mortality_rate >= $rate) {
-                echo "<td style='color:red'> $new_mortality_rate % Danger!</td>";
+                echo "<td style='color:red'> $new_mortality_rate % </td>";
             } else {
                 echo "<td style='color:green'> $new_mortality_rate % </td>";
             }
