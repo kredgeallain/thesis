@@ -8,7 +8,7 @@
 		$sql="SELECT * from baranggay where baranggay='".$b."' ";
 		$result = mysqli_query($data, $sql);
 
-		if(mysqli_num_rows($result) > 0){
+		if(mysqli_num_rows($result) > 1){
 
 			
 			echo '<script language="javascript" type="text/javascript">
@@ -83,7 +83,7 @@
 		$check_batch= "SELECT * from batch WHERE batch = '".$batch."' AND unit ='".$unit."' ";
 		$result = mysqli_query($conn, $check_batch);
 
-		if(mysqli_num_rows($result) > 0){
+		if(mysqli_num_rows($result) > 1){
 
 		echo '<script language="javascript" type="text/javascript">
 		alert("Batch Already Existed");
@@ -105,6 +105,42 @@
 
 	
 		}
+	
+	}
+
+	if(isset($_POST['edit-batch'])){
+
+		$batch = $_POST['batch'];
+		$farmID = $_POST['farmID'];
+		$batchID = $_POST['batchID'];
+		$date = $_POST['date'];
+		$unit = $_POST['unit'];
+		$initial = $_POST['initial'];
+
+		$check_batch= "SELECT * from batch WHERE batch = '".$batch."' AND unit ='".$unit."' ";
+		$result = mysqli_query($conn, $check_batch);
+
+		if(mysqli_num_rows($result) > 1){
+
+		echo '<script language="javascript" type="text/javascript">
+		alert("Batch Already Existed");
+		window.location = "view-batches.php";
+		</script>';
+
+		}
+
+		else{
+	
+			mysqli_query($data, "UPDATE `batch` SET `batch`='$batch',`date`='$date',`unit`='$unit',
+			`initial`='$initial' WHERE batchID = '$batchID' ");
+	
+			echo '<script language="javascript" type="text/javascript">
+			alert("Batch Updated");
+			window.location = "view-batches.php";
+			</script>';
+
+	
+		}	
 	
 	}
 

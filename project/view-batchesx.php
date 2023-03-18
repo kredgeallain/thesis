@@ -44,6 +44,55 @@ $query = "SELECT * FROM batch where farmID=$farmID";
 
 
 if ($result = $mysqli->query($query)){
+    echo ' 
+  <form method="post" action="updateqry.php" id="form1" rel="nofollow">
+  
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Add Batch
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add Batch</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+        <div class="card card-body">
+        <input type="date" class="form-control" id="date" name="date"
+            aria-describedby="emailHelp" required="true">
+
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="batch" name="batch"
+                placeholder="Batch Name" required="true">
+            <label for="floatingInput">Batch Name</label>
+        </div>
+        <input type="" hidden name="farmID" value='. $farmID .' required="true"> 
+        <select class="form-select form-select-sm" name="unit"
+            aria-label=".form-select-sm example required="true"">
+            <option value="layer">Layer</option>
+            <option value="broiler">Broiler</option>
+        </select>
+        <div class="form-floating mb-3">
+            <input type="number" class="form-control" id="intial" name="initial"
+                placeholder="Initial Number" required="true">
+            <label for="floatingInput">Initial Number</label>
+        </div>
+    </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button class="btn btn-primary" type="submit" name="add-batch" id="submit" value="">Add Batch</button>
+        </div>
+      </div>
+    </div>
+    </form>
+  </div>';
+    
     echo "<table class='table table-striped'>
     <thead>	  
     <tr>
@@ -77,6 +126,62 @@ if ($result = $mysqli->query($query)){
          </button>
          </div>
             </td>';
+
+            echo '<td > 
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edituser'.$row['batchID'].'">
+                                        Edit
+                                    </button>
+ 
+
+                                    <div class="modal fade" id="edituser'.$row['batchID'].'" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                    <form action="updateqry.php" method="POST">
+                                        <div class="modal-content">
+                                        
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Batch</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                        <div class="card card-body">
+                                        <input type="date" class="form-control" id="date" value="'.$row['date'].'" name="date"
+                                            aria-describedby="emailHelp" required="true">
+                                
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="batch" value="'.$row['batch'].'" name="batch"
+                                                placeholder="Batch Name" required="true">
+                                            <label for="floatingInput">Batch Name</label>
+                                        </div>
+                                        <input type=""  name="farmID" hidden value='. $farmID .' required="true"> 
+                                        <input type=""  name="batchID" hidden value="'.$row['batchID'].'" required="true"> 
+                                        <select class="form-select form-select-sm" name="unit"
+                                            aria-label=".form-select-sm example required="true"">
+                                            <option value="layer">Layer</option>
+                                            <option value="broiler">Broiler</option>
+                                        </select>
+                                        <div class="form-floating mb-3">
+                                            <input type="number" class="form-control" id="intial" value="'.$row['initial'].'" name="initial"
+                                                placeholder="Initial Number" required="true">
+                                            <label for="floatingInput">Initial Number</label>
+                                        </div>
+                                    </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                          <button class="btn btn-primary" type="submit" name="edit-batch" id="submit" value="">Save</button>
+                                        </div>
+                                      </div>
+                                        </div>
+                                        </form>
+                                    </div>
+                                    
+                                    </div>
+                                   
+
+                        
+                </td>
+                </form>';      
+        
 			echo"</tr>";
               
 		}
@@ -86,22 +191,7 @@ if ($result = $mysqli->query($query)){
     }
 ?>
 
-    </section>
-
-   
-
-                        <div class="addbatch-button">
-   
-                                <a type="button" class="btn btn-primary" href="add-batch.php?farmID=<?php echo $farmID ?>"><svg
-                                        xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                        class="bi bi-plus-square" viewBox="0 0 20 20">
-                                        <path
-                                            d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
-                                        <path
-                                            d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-                                    </svg>Add Batch</a>
-                        </div>
-                    
+    
 <!--style-->
 
 <style type="text/css">

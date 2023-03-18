@@ -19,10 +19,21 @@
 
         <?php
     
-$query = "SELECT * FROM user order by position ASC";
 
 
-if ($result = $conn->query($query)){
+
+if(isset($_POST['search'])) {
+   
+    $search = mysqli_real_escape_string($conn, $_POST['search']);
+ 
+    $sql = "SELECT * FROM user where username LIKE '%$search%' OR user.name LIKE '%$search%' order by user.name ASC";
+} else {
+    $sql = "SELECT * FROM user order by position ASC";
+    
+}
+
+
+if ($result = $conn->query($sql)){
 		echo "<table class='table table-striped'>
 			<thead>	  
 			<tr>
@@ -159,10 +170,13 @@ if ($result = $conn->query($query)){
 
 ?>
 
-    </section>
-
+<form action="" method="post">
+    <input type="text" name="search" placeholder="Search...">
+    <input type="submit" value="search">
+</form>
 
     <div class="add">
+  
         <div class="add-user-page">
             <a href="add-user.php"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
                     class="bi bi-person-plus" viewBox="0 0 20 20">
