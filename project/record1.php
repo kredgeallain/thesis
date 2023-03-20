@@ -93,7 +93,7 @@ if (isset($_SESSION['username'])) {
         $mortality = $_POST['mortality'];
 
         $insert = " INSERT INTO `broiler`(`broilerID`, `batchID`, `userID`, `broiler_weight`, `Bcurrent`, `mortality`, `date`) 
-        VALUES ('','$batchID','$userID','$broiler_weight','$Bcurrent','$mortality','$date')";
+        VALUES ('','$batchID','$user','$broiler_weight','$Bcurrent','$mortality','$date')";
             mysqli_query($data, $insert);
             sleep(1);
             

@@ -148,7 +148,7 @@
 
 		else{
 	
-			mysqli_query($data, "UPDATE `batch` SET `batch`='$batch',`date`='$date',`unit`='$unit',
+			mysqli_query($data, "UPDATE `batch` SET `batch`='$batch',`date`='$date',
 			`initial`='$initial' WHERE batchID = '$batchID' ");
 	
 			echo '<script language="javascript" type="text/javascript">

@@ -110,11 +110,7 @@ if ($result = $data->query($batch)){
                                         </div>
                                         <input type=""  name="farmID" hidden value='. $farmID .' required="true"> 
                                         <input type=""  name="batchID" hidden value="'.$row['batchID'].'" required="true"> 
-                                        <select class="form-select form-select-sm" name="unit"
-                                            aria-label=".form-select-sm example required="true"">
-                                            <option value="layer">Layer</option>
-                                            <option value="broiler">Broiler</option>
-                                        </select>
+                                        <input type=""  name="unit" hidden value="'.$row['unit'].'" required="true">
                                         <div class="form-floating mb-3">
                                             <input type="number" class="form-control" id="intial" value="'.$row['initial'].'" name="initial"
                                                 placeholder="Initial Number" required="true">

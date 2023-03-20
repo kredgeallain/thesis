@@ -11,7 +11,7 @@ $sql = "SELECT * FROM user where username='".$username."'";
 $data = mysqli_query($data, $sql);
 $row=mysqli_fetch_array($data);
 
-$user = $row['userID'];
+$userID = $row['userID'];
 
 
 
@@ -79,11 +79,11 @@ if($row["unit"]=="layer")
 <div class="mortality">
 <div class="mortality">
     <label for="dead" hidden >User ID</label>
-    <input  class="form-control" type="number" hidden readonly name="userID" id="mortality" value='. $user .' required="true">
+    <input  class="form-control" type="number" hidden readonly name="userID" id="mortality" value=<?php echo $userID ?> required="true">
 </div>
 <div class="mortality">
     <label for="dead" hidden Batch ID</label>
-    <input  class="form-control" type="number" hidden readonly name="batchID" id="mortality"  value='. $batchID .' required="true">
+    <input  class="form-control" type="number" hidden readonly name="batchID" id="mortality"  value=<?php echo $batchID ?> required="true">
 </div>
 </section>
 
@@ -121,7 +121,7 @@ if($row["unit"]=="layer")
 </section>
 <div class="mortality">
     <label for="dead">Initial No. of Chicken</label>
-    <input  class="form-control" type="number" readonly name="" id="mortality" value=<?php echo $init ?>required="true">
+    <input  class="form-control" type="number" readonly name="" id="mortality" value="<?php echo $init; ?>" required="true">
 </div>
 
 <section class="current">
@@ -136,11 +136,11 @@ if($row["unit"]=="layer")
     </div>
     <div class="mortality">
     <label for="dead" hidden >User ID</label>
-    <input  class="form-control" type="number" hidden readonly name="userID" id="mortality" value='. $user .' required="true">
+    <input  class="form-control" type="number" hidden readonly name="userID" id="mortality" value="<?php echo $userID; ?>" required="true">
 </div>
 <div class="mortality">
     <label for="dead" hidden >Batch ID</label>
-    <input  class="form-control" type="number" hidden readonly name="batchID" id="mortality"  value='. $batchID .' required="true">
+    <input  class="form-control" type="number" hidden readonly name="batchID" id="mortality"  value="<?php echo $batchID; ?>" required="true">
 </div>
 </section>
     
@@ -152,7 +152,7 @@ if($row["unit"]=="layer")
     
 
 
-    </form>';
+    </form>
 <?php
 
 }
