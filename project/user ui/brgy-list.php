@@ -1,6 +1,6 @@
 <?php
 
-require_once 'connect.php';
+require_once '../connect.php';
 
 
 
@@ -35,7 +35,7 @@ if(isset($_POST['submit'])){
 
 ?>
 
-<?php include ("head.php");  ?>
+<?php include ("../head.php");  ?>
 
 <div class="wrapper-add">
 
@@ -58,12 +58,9 @@ if(isset($_POST['submit'])){
     <form method="POST" action="#">
 </form>
 <div class="wrapper-list" id='brgy-list'>
-    <h4>List of Barangay</h4>
-
-
     <?php
     
-    @include 'connect.php';
+    @include '../connect.php';
 $query = "SELECT * FROM baranggay";
 
 
