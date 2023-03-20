@@ -20,15 +20,16 @@
         <?php
     
 
-
+  $pos = "admin";
 
 if(isset($_POST['search'])) {
    
+
     $search = mysqli_real_escape_string($conn, $_POST['search']);
  
-    $sql = "SELECT * FROM user where username LIKE '%$search%' OR user.name LIKE '%$search%' order by user.name ASC";
+    $sql = "SELECT * FROM user where user.username LIKE '%$search%' OR user.name LIKE '%$search%'  ORDER BY user.name ASC";
 } else {
-    $sql = "SELECT * FROM user order by position ASC";
+    $sql = "SELECT * FROM user order by user.name ASC";
     
 }
 

@@ -22,7 +22,10 @@
 	
 		mysqli_query($data, "UPDATE `baranggay` SET `baranggay` = '$b' WHERE `baranggayID` = '$bID'");
 
-		header("location:add-brgy.php");
+		echo '<script language="javascript" type="text/javascript">
+					alert("Barangay Updated!");
+					window.location = "add-brgy.php";
+					</script>';
 	}
 
 }
@@ -41,8 +44,8 @@
 
 			
 			echo '<script language="javascript" type="text/javascript">
-					alert("Farm Already Existed");
-					window.location = "view-farm.php";
+					alert("Farm Already Existed!");
+					window.location = "homepage.php";
 					</script>';
 	  
 		 }
@@ -50,7 +53,10 @@
 	
 		mysqli_query($data, "UPDATE `farm` SET `farmname` = '$f', `farmowner` = '$fown',`contactno` = '$no' WHERE `farmID` = '$fID' ");
 
-		header("location: view-farm.php");
+		echo '<script language="javascript" type="text/javascript">
+					alert("Farm Updated!");
+					window.location = "homepage.php";
+					</script>';
 
 	  }
 	}
@@ -63,25 +69,27 @@
 		$position = $_POST["position"];
 		$status = $_POST["status"];
 		$contact= $_POST["no"];
-		$sql="SELECT * from user where username='$f' and userID NOT IN ('$userID') ";
+		$sql="SELECT * from user where username='$username' and userID NOT IN ('$userID') ";
 		$result = mysqli_query($data, $sql);
 
 		if(mysqli_num_rows($result) > 0){
 			echo '<script language="javascript" type="text/javascript">
 			alert("Username Already Existed");
-			window.location = "view-farm.php";
+			window.location = "homepage.php";
 			</script>';
 
 			 }
 			else {
 	
 		mysqli_query($data, "UPDATE `user` SET `name`='$name',`username`='$username',`position`='$position',`password`='$password',`status`='$status',`mobile_no`='$contact' WHERE userID = '$userID' ");
+	
+	
 		echo '<script language="javascript" type="text/javascript">
-		alert("User Updated");
-		window.location = "view-user.php";
+		alert("User Updated!");
+		window.location = "homepage.php";
 		</script>';
 
-		header("location: view-user.php");
+		
 	}
 
 }
@@ -104,7 +112,7 @@
 
 		echo '<script language="javascript" type="text/javascript">
 		alert("Batch Already Existed");
-		window.location = "view-batches.php";
+		window.location = "homepage.php";
 		</script>';
 
 		}
@@ -117,7 +125,7 @@
 	
 			echo '<script language="javascript" type="text/javascript">
 			alert("Batch Added");
-			window.location = "view-batches.php";
+			window.location = "homepage.php";
 			</script>';
 
 	
@@ -141,7 +149,7 @@
 
 		echo '<script language="javascript" type="text/javascript">
 		alert("Batch Already Existed");
-		window.location = "view-batches.php";
+		window.location = "homepage.php";
 		</script>';
 
 		}
@@ -153,7 +161,7 @@
 	
 			echo '<script language="javascript" type="text/javascript">
 			alert("Batch Updated");
-			window.location = "view-batches.php";
+			window.location = "homepage.php";
 			</script>';
 
 	
@@ -175,11 +183,32 @@
 	
 			echo '<script language="javascript" type="text/javascript">
 			alert("Production Updated");
-			window.location = "record1.php";
+			window.location = "homepage.php";
 			</script>';
 
 	
 		}	
+
+
+		if(isset($_POST['edit-broiler'])){
+
+			$broilerID = $_POST['broilerID'];
+			$batchID = $_POST['batchID'];
+			$bw = $_POST['broiler_weight'];
+			$bc = $_POST['Bcurrent'];
+			$m = $_POST['mortality'];
+			
+		
+				mysqli_query($data, "UPDATE `broiler` SET `broiler_weight`='$bw',`Bcurrent`='$bc',
+				`mortality`='$m' WHERE broilerID = '$broilerID' ");
+		
+				echo '<script language="javascript" type="text/javascript">
+				alert("Production Updated");
+				window.location = "homepage.php";
+				</script>';
+	
+		
+			}	
 	
 	
 

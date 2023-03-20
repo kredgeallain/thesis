@@ -77,6 +77,53 @@ if ($result = $data->query($sql)){
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editfarm'.$row['broilerID'].'">
             Edit
         </button>
+
+        <div class="modal fade" id="editfarm'.$row['broilerID'].'" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                    <form action="updateqry.php" method="POST">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Production</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                    <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput" readonly hidden value=  "'.$row['broilerID']. '" placeholder="name" name="broilerID" required="true">
+                    <label for="floatingInput" hidden>User ID</label>
+                </div>
+                     <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="floatingInput" readonly  hidden value= "'.$row['batchID']. '" 
+                                    placeholder="name" name="batchID" required="true">
+                                    <label for="floatingInput" hidden>User ID</label>
+                                </div>
+    
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="floatingInput" value= "'.$row['broiler_weight']. '" placeholder="name" name="broiler_weight" required="true">
+                                    <label for="floatingInput">Broiler Weight</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="floatingInput" value= "'.$row['Bcurrent']. '"placeholder="name" name="Bcurrent" required="true">
+                                    <label for="floatingInput">Current no. of Chicken</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="floatingInput" value="'.$row['mortality']. '" placeholder="name" name="mortality" required="true">
+                                <label for="floatingInput"> Mortality </label>
+                            </div>
+                        
+                       
+    
+                            
+    
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button name="edit-broiler" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> Save</button>
+                    </div>
+                 
+                    </div>
+                    </form>
+                </div>
+                </div>
             
         </td>';
 
