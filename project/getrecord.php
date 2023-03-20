@@ -17,7 +17,6 @@ $user = $row['userID'];
 
 $batchID= $_POST['batch_data'];
 
-echo "HTML here";
 
 $b= "SELECT * FROM batch where batchID=$batchID";
 $q= mysqli_query ($conn, $b);

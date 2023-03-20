@@ -43,8 +43,8 @@ if ($result = $conn->query($sql)){
 				<th scope='col' id='u-name'>Username</th>
                 <th scope='col' id='brgy'>Barangay</th>
 				<th scope='col' id='pos'>Position</th>
+                <th scope='col' id='cntct'>Contact No</th>
                 <th scope='col' id='delete'> Status </th>
-				<th scope='col' id='cntct'>Contact No</th>
 				<th scope='col' id='edit'> Edit </th>
 				<th scope='col' id='delete'> Delete </th>
                
@@ -62,8 +62,9 @@ if ($result = $conn->query($sql)){
             	echo "<td id='u-name'>" .$row['username']. "</td>";
                 echo "<td id='brgy'>" .$row['baranggay']. "</td>";
             	echo "<td id='pos'>" .$row['position']. "</td>";
-                echo "<td id='pos'>" .$row['status']. "</td>";
-	        	echo "<td id='cntct'>" .$row['mobile_no']. "</td>";				
+                
+	        	echo "<td id='cntct'>" .$row['mobile_no']. "</td>";	
+                echo "<td id='pos'>" .$row['status']. "</td>";			
             	echo '<td > 
            
 
@@ -170,121 +171,121 @@ if ($result = $conn->query($sql)){
 
 ?>
 
-<form action="" method="post">
-    <input type="text" name="search" placeholder="Search...">
-    <input type="submit" value="search">
-</form>
+        <form action="" method="post">
+            <input type="text" name="search" placeholder="Search...">
+            <input type="submit" value="search">
+        </form>
 
-    <div class="add">
-  
-        <div class="add-user-page">
-            <a href="add-user.php"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                    class="bi bi-person-plus" viewBox="0 0 20 20">
-                    <path
-                        d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
-                    <path fill-rule="evenodd"
-                        d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z" />
-                </svg>Add User</a>
+        <div class="add">
+
+            <div class="add-user-page">
+                <a href="add-user.php"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+                        fill="currentColor" class="bi bi-person-plus" viewBox="0 0 20 20">
+                        <path
+                            d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
+                        <path fill-rule="evenodd"
+                            d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z" />
+                    </svg>Add User</a>
+            </div>
         </div>
-    </div>
 
-</section>
-<!--style-->
+    </section>
+    <!--style-->
 
-<style type="text/css">
-.wrapper {
-    margin-top: 10px;
-}
+    <style type="text/css">
+    .wrapper {
+        margin-top: 10px;
+    }
 
-.view {
-    padding-top: 10px;
-    margin: 10px;
-}
+    .view {
+        padding-top: 10px;
+        margin: 10px;
+    }
 
-.view-user {
-    display: flex;
-    margin-top: 10px;
-    justify-content: center;
-}
+    .view-user {
+        display: flex;
+        margin-top: 10px;
+        justify-content: center;
+    }
 
-.view-user h2 {
-    font-size: 30px;
-    font-weight: bold;
-}
+    .view-user h2 {
+        font-size: 30px;
+        font-weight: bold;
+    }
 
-.add {
+    .add {
 
-    display: flex;
-    justify-content: flex-end;
-}
+        display: flex;
+        justify-content: flex-end;
+    }
 
-.add-user-page {
-    background-color: darkblue;
-    padding: 10px 25px 10px 25px;
-    margin-bottom: 30px;
-    margin-right: 80px;
-    border-radius: 5px;
-}
+    .add-user-page {
+        background-color: darkblue;
+        padding: 10px 25px 10px 25px;
+        margin-bottom: 30px;
+        margin-right: 80px;
+        border-radius: 5px;
+    }
 
-.add-user-page a {
-    text-decoration: none;
-    color: white;
-}
+    .add-user-page a {
+        text-decoration: none;
+        color: white;
+    }
 
-.add-user-page:hover {
-    margin-right: 80px;
-    background-color: blue;
-    color: white;
-}
+    .add-user-page:hover {
+        margin-right: 80px;
+        background-color: blue;
+        color: white;
+    }
 
-.add-user-page a:hover {
-    color: white;
-}
+    .add-user-page a:hover {
+        color: white;
+    }
 
-tr td button a {
-    text-decoration: none;
-    color: white;
-}
+    tr td button a {
+        text-decoration: none;
+        color: white;
+    }
 
-a:hover {
-    color: white;
+    a:hover {
+        color: white;
 
-}
+    }
 
-tr:hover {
-    background-color: #b0b4b2;
-}
+    tr:hover {
+        background-color: #b0b4b2;
+    }
 
-.delete-button button {
-    border: none;
-    background-color: red;
-}
+    .delete-button button {
+        border: none;
+        background-color: red;
+    }
 
-.delete-button button:hover {
-    border: none;
-    background-color: darkred;
-    color: white;
-}
+    .delete-button button:hover {
+        border: none;
+        background-color: darkred;
+        color: white;
+    }
 
-#delete-yes {
-    padding-left: 20px;
-    padding-right: 20px;
-    text-decoration: none;
-}
+    #delete-yes {
+        padding-left: 20px;
+        padding-right: 20px;
+        text-decoration: none;
+    }
 
-#delete-btn {
-    padding-left: 0;
-    padding-right: 0;
-}
+    #delete-btn {
+        padding-left: 0;
+        padding-right: 0;
+    }
 
-a {
-    text-decoration: none !important;
-}
+    a {
+        text-decoration: none !important;
+    }
 
-#select {
-    margin-bottom: 18px;
-}
-</style>
-</body>
+    #select {
+        margin-bottom: 18px;
+    }
+    </style>
+    </body>
 
-</html>
+    </html>

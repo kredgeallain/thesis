@@ -91,7 +91,7 @@ if ($result = $data->query($batch)){
 
                                     <div class="modal fade" id="edituser'.$row['batchID'].'" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered">
-                                    <form action="updateqry.php" method="POST">
+                                    <form action="updateqry.php" method="POST" id="form1" >
                                         <div class="modal-content">
                                         
                                         <div class="modal-header">
@@ -100,7 +100,7 @@ if ($result = $data->query($batch)){
                                         </div>
                                         <div class="modal-body">
                                         <div class="card card-body">
-                                        <input type="date" class="form-control" id="date" value="'.$row['date'].'" name="date"
+                                        <input type="date" class="form-control" id="date" readonly value="'.$row['date'].'" name="date"
                                             aria-describedby="emailHelp" required="true">
                                 
                                         <div class="form-floating mb-3">

@@ -9,13 +9,6 @@ if (isset($_SESSION['username'])) {
 }
 
 
-/*$sql = "SELECT * FROM user where username='".$username."'";
-$data = mysqli_query($data, $sql);
-$row=mysqli_fetch_array($data);
-
-$user = $row['userID'];
-
-echo $user; */
 
 
 ?>
