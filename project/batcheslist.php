@@ -3,7 +3,7 @@ include_once '..\project\connect.php';
 
 $farmID= $_POST['farm_data'];
 
-$batch= "SELECT * FROM batch WHERE farmID = $farmID ";
+$batch= "SELECT * FROM batch WHERE farmID = $farmID order by batch.date DESC ";
 
 
 if ($result = $data->query($batch)){

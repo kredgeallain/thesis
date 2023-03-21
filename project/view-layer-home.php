@@ -60,7 +60,8 @@ if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()){
         $current = $row['current'];
         $mortality = $row['mortality'];
-        $mortality_rate = ( $mortality / $current ) * 100;
+        $tc = $mortality+$current;
+        $mortality_rate = ( $mortality / $tc ) * 100;
         $new_mortality_rate = number_format($mortality_rate, 2) ;
         $rate = 20;
         $month = $row['month'];

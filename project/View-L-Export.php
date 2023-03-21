@@ -32,7 +32,7 @@ if (isset($_POST['start_date']) && isset($_POST['end_date'])) {
 
 
     $sql = "SELECT 
-    baranggay.baranggay, farm.farmname, batch.batch,
+    baranggay.baranggay, farm.farmname, batch.batch as b, batch.unit,
 
     SUM(layer.no_eggs) as eggs,
     SUM(layer.reject_eggs) as rej_eggs,
@@ -64,7 +64,8 @@ if (isset($_POST['start_date']) && isset($_POST['end_date'])) {
 
     <th scope='col' id='count'> Baranggay </th>
     <th scope='col' id='name'> Farm </th>
-    <th scope='col' id='u-name'> Batch </th>
+    <th scope='col' id='batch'> Batch </th>
+    <th scope='col' id='batch'> Unit </th>
     <th scope='col' id='u-name'> Total Eggs </th>
     <th scope='col' id='u-name'> Reject Eggs </th>
     <th scope='col' id='u-name'> Mortality </th>
@@ -88,7 +89,8 @@ if (isset($_POST['start_date']) && isset($_POST['end_date'])) {
 
             echo "<td>" . $row['baranggay'] . "</td>";
             echo "<td>" . $row['farmname'] . "</td>";
-            echo "<td>" . $row['batch'] . "</td>";
+            echo "<td>" . $row['b'] . "</td>";
+            echo "<td>" . $row['unit'] . "</td>";
             echo "<td>" . $row['eggs'] . "</td>";
             echo "<td>" . $row['rej_eggs'] . "</td>";
             echo "<td>" . $row['mortality'] . "</td>";

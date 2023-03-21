@@ -17,7 +17,7 @@ baranggay.baranggay, farm.farmname, batch.batch,
 SUM(broiler.broiler_weight) as weight,
 
 SUM(broiler.mortality) as mortality,
-SUM(broiler.Bcurrent) as current,
+MIN(broiler.Bcurrent) as current,
 MONTH(broiler.date) as month,
 YEAR(broiler.date) as year
 FROM baranggay INNER JOIN farm ON baranggay.baranggayID = farm.baranggayID 
@@ -55,7 +55,9 @@ if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()){
         $current = $row['current'];
         $mortality = $row['mortality'];
-        $mortality_rate = ( $mortality / $current ) * 100;
+
+        $tc = $mortality+$current;
+        $mortality_rate = ( $mortality / $tc ) * 100;
         $new_mortality_rate = number_format($mortality_rate, 2) ;
         $rate = 20;
         $month = $row['month'];

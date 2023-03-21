@@ -40,7 +40,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
     $date = date('Y-m-d'); 
 
-$query = "SELECT * FROM batch where farmID=$farmID";
+$query = "SELECT * FROM batch where farmID=$farmID order by batch.date DESC";
 
 
 
@@ -108,11 +108,7 @@ if ($result = $mysqli->query($query)){
                                         </div>
                                         <input type=""  name="farmID" hidden value='. $farmID .' required="true"> 
                                         <input type=""  name="batchID" hidden value="'.$row['batchID'].'" required="true"> 
-                                        <select class="form-select form-select-sm" name="unit"
-                                            aria-label=".form-select-sm example required="true"">
-                                            <option value="layer">Layer</option>
-                                            <option value="broiler">Broiler</option>
-                                        </select>
+                                      
                                         <div class="form-floating mb-3">
                                             <input type="number" class="form-control" id="intial" value="'.$row['initial'].'" name="initial"
                                                 placeholder="Initial Number" required="true">

@@ -42,7 +42,7 @@ if($row["unit"]=="layer")
 
 <div class="date">
 <label for="">Date</label>
-<input  class="form-control" type="date" name="date" id="date"  value=<?php echo $date ?> readonly required="true">
+<input  class="form-control" type="date" name="date" id="date"  value=<?php echo $date ?>  required="true">
 </div>
 
 
