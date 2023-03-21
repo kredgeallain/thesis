@@ -17,15 +17,15 @@ if(isset($_POST['submit'])){
     if(mysqli_num_rows($result) > 0){
 
         header('location:add-brgy.php?add=error');
-  
-     }
 
-     else{
+    }
+
+    else{
         $insert = "INSERT INTO baranggay(baranggay) VALUES('$brgy')";
         mysqli_query($data, $insert);
 		    sleep(1);
         header('location:add-brgy.php?add=success');
-   }
+}
 
 
 

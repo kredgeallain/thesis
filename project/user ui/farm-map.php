@@ -9,7 +9,7 @@ include '..\connect.php';
 
 <style type="text/css">
 #map {
-    height: 78%;
+    height: 100%;
 
 }
 
@@ -57,7 +57,7 @@ p {
 <?php
 include '..\connect.php';
 
-include 'header.php'; ?>
+include 'header2.php'; ?>
 
 <script type="text/javascript"
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2_vL53nszxM8EsMd8rVkZRr4Fw9Va7sE&callback=initMap" async
@@ -157,5 +157,3 @@ window.initMap = initMap;
 <div onload="initMap()">
     <div id="map"></div>
 </div>
-
-<?php include ("footer.php");  ?>

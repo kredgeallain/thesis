@@ -5,33 +5,33 @@
 $bfetch= '';
 
  $sqlb = "SELECT * FROM baranggay ";
- $statement = $data1->prepare($sqlb);
- $statement->execute();
- $result = $statement->fetchAll();
- foreach($result as $row)
- {
-  $bfetch .= '<option value="   '.$row["baranggay"].'  ">    '.$row["baranggay"].'      </option>';
- }
+$statement = $data1->prepare($sqlb);
+$statement->execute();
+$result = $statement->fetchAll();
+foreach($result as $row)
+{
+$bfetch .= '<option value="   '.$row["baranggay"].'  ">    '.$row["baranggay"].'      </option>';
+}
 
 if(isset($_POST['submit'])){
 
-   $name = mysqli_real_escape_string($data, $_POST['name']);
-   $username = mysqli_real_escape_string($data, $_POST['username']);
-   $password = ($_POST['password']);
-   $repassword =($_POST['repassword']);
-   $baranggay = $_POST['baranggay'];
-   $mobile_no = $_POST['mobile_no'];
-   $position = $_POST['position'];
+$name = mysqli_real_escape_string($data, $_POST['name']);
+$username = mysqli_real_escape_string($data, $_POST['username']);
+$password = ($_POST['password']);
+$repassword =($_POST['repassword']);
+$baranggay = $_POST['baranggay'];
+$mobile_no = $_POST['mobile_no'];
+$position = $_POST['position'];
 
    $sql="SELECT * from user where username='".$username."' OR name='".$name."' ";
 
-   $result = mysqli_query($data, $sql);
+$result = mysqli_query($data, $sql);
 
-   if(mysqli_num_rows($result) > 0){
+if(mysqli_num_rows($result) > 0){
 
-	  header('location:add-user.php?add=error');
+header('location:add-user.php?add=error');
 
-   }
+}
 
 
     if(($password != '' && $repassword != '') && ($password != $repassword)){
@@ -39,14 +39,14 @@ if(isset($_POST['submit'])){
     header('location:add-user.php?add=passworderror');
 
 
-   }
-   
-   else{
+}
+
+else{
         $insert = "INSERT INTO user(name, username, password,repassword, baranggay, mobile_no, position) VALUES('$name','$username','$password','$repassword','$baranggay','$mobile_no','$position')";
         mysqli_query($data, $insert);
 		    sleep(1);
         header('location:add-user.php?add=success');
-   }
+}
 
 };
 ?>
@@ -80,7 +80,7 @@ if(isset($_POST['submit'])){
 	
 		
 		
-	 };
+        };
     	?>
 
         <form action="#" method="POST">
@@ -107,56 +107,7 @@ if(isset($_POST['submit'])){
                                     <option disabled>Add Barangay if your Barangay don't exist!</option>
                                 </select>
                             </div>
-                            <!---->
 
-                            <div class="add-brgy-button">
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal"><svg xmlns="http://www.w3.org/2000/svg" width="20"
-                                        height="20" fill="currentColor" class="bi bi-plus-square-fill"
-                                        viewBox="0 0 20 20">
-                                        <path
-                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
-                                    </svg>Add Barangay</button>
-                            </div>
-
-
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                                aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered ">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="exampleModalLabel"><svg
-                                                    xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                                    fill="currentColor" class="bi bi-plus-square-fill"
-                                                    viewBox="0 0 20 20">
-                                                    <path
-                                                        d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
-                                                </svg>Add Barangay</h1>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-
-                                            <div class="input-group flex-nowrap">
-                                                <span class="input-group-text" id="addon-wrapping">Barangay</span>
-                                                <input type="text" class="form-control" placeholder="Name"
-                                                    aria-label="Name" aria-describedby="addon-wrapping">
-                                            </div>
-
-
-
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Cancel</button>
-                                                <button type="button" class="btn btn-primary">Add</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <!---->
                         </div>
                     </div>
                     <div class="col">

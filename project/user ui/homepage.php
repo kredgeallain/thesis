@@ -18,16 +18,14 @@ if(isset($_POST['submit'])){
 
         header('location:add-brgy.php?add=error');
   
-     }
+}
 
-     else{
+else{
         $insert = "INSERT INTO baranggay(baranggay) VALUES('$brgy')";
         mysqli_query($data, $insert);
 		    sleep(1);
         header('location:add-brgy.php?add=success');
-   }
-
-
+}
 
 
 }
@@ -48,13 +46,12 @@ if(isset($_POST['submit'])){
       <section class="user-info">
         <div class="row">
             <div class="col">
-              <img src="../../image/user2.png" class="img-fluid" alt="logo" width="60px">
+              <img src="../../image/user.png" class="img-fluid" alt="logo" width="60px">
             </div>
             <div class="col">
-             <h2 id="user-info">user1</h2>
-             <p id="p"><i>Welcome!</i></p>
+            <h2 id="user-info">user1</h2>
+            <p id="p"><i>Welcome!</i></p>
             </div>
-
 
             <div class="col">
               <div class="logout-icon">
@@ -63,7 +60,7 @@ if(isset($_POST['submit'])){
                 <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
               </svg></a>
             </div>
-             </div>
+            </div>
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                           <div class="modal-dialog modal-dialog-centered">
@@ -73,7 +70,7 @@ if(isset($_POST['submit'])){
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                               </div>
                               <div class="modal-body">
-                               <h2>Are you sure to log out?</h2>
+                              <h2>Are you sure to log out?</h2>
                               </div>
                               <div class="modal-footer">
                                 <a type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</a>
@@ -86,14 +83,93 @@ if(isset($_POST['submit'])){
       </section>
 
       <section class="body" id="main1">
+<?php
+include('../connect.php');
+
+$sql1 = "SELECT COUNT(farmname) as totalfarm FROM farm";
+$result1 = $conn->query($sql1);
+
+$sql = "SELECT COUNT(baranggay) as totalbaranggay FROM baranggay";
+$result = $conn->query($sql);
+
+// Get the result as an array
+$row1 = $result1->fetch_assoc();
+
+$row = $result->fetch_assoc();
+?>
+
+        <section class="nav2">
+
+        <section class="farm-brgy-summary">
+
+        <section class="brgy-summary">
+              <div class="brgy-number">
+              <a href=""><h2> <?php echo "<p>".$row['totalbaranggay']."<p>" ?></h2></a>
+              </div>
+              <div class="rgtr">
+                  <p>Number of Barangays</p>
+              </div>
+          </section>
+
+          <section class="farm-summary">
+              <div class="farm-number">
+                  <a href=""><h2> <?php echo "<p>".$row1['totalfarm']."<p>" ?></h2></a>
+              </div>
+              <div class="rgtr">
+                  <p>Registered Farms</p>
+              </div>
+          </section>
+                </section>
+
+            <section id="brgy-list" class="brgy-list">
+              <div class="table">
+                <div class="brgy-name">
+                  <h4><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+</svg>View Poultry Batches</h4>
+                </div>
+                <div class="brgy-nxt">
+                <a href="view-batches.php"><h9>〉</h9></a>
+                </div>
+              </div>
+            </section>
+
+            <section id="brgy-list" class="brgy-list">
+              <div class="table">
+                <div class="brgy-name">
+                  <h4><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+  <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+</svg>Record Productions</h4>
+                </div>
+                <div class="brgy-nxt">
+                <a href="record-home.php"><h9>〉</h9></a>
+                </div>
+              </div>
+            </section>
+
+            <section id="brgy-list" class="brgy-list">
+              <div class="table">
+                <div class="brgy-name">
+                  <h4><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+  <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+  <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+</svg>View Farm Map</h4>
+                </div>
+                <div class="brgy-nxt">
+                <a href="farm-map.php"><h9>〉</h9></a>
+                </div>
+              </div>
+            </section>
+
         <!--
         <div class="row">
           <div  class="col">
-           <div class="row">
+          <div class="row">
             <div class="col">
               <div class="card">
                 <div class="card-body">
-                 <a href="record.php"> <img src="../../image/edit-data2.png" class="img-fluid" alt="logo" width="100px"></a>
+                <a href="record.php"> <img src="../../image/edit-data2.png" class="img-fluid" alt="logo" width="100px"></a>
                   <a href="record.php" class="btn btn-primary">Record</a>
                 </div>
               </div>
@@ -113,12 +189,12 @@ if(isset($_POST['submit'])){
       <section class="body" id="main2">
         <div class="row">
           <div class="col">
-           <div class="row">
+          <div class="row">
             <div class="col">
               <div class="card">
                 <div class="card-body">
                 <div class="dropdown-center">
-                 <a type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false"> <img src="../../image/batches.png" class="img-fluid" alt="logo" width="100px"></a>
+                <a type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false"> <img src="../../image/batches.png" class="img-fluid" alt="logo" width="100px"></a>
                   <a type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false">Batches</a>
                   <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="#">Add</a></li>
@@ -152,126 +228,12 @@ if(isset($_POST['submit'])){
   </div>
 -->
   </section>  
-
-
-  <div class="wrapper-add">
-
-<?php
-      if(isset($_GET['add'])){
-  $add = $_GET['add'];
-  if($add=='success'){
-    echo ' <div class ="d-flex justify-content-center"> <span class="alert alert-success">Barangay Successfuly Added</span> </div>';
-  }
-
-  else if($add=='error'){
-    echo ' <div class ="d-flex justify-content-center"> <span class="alert alert-danger">Barangay Already Existed</span> </div>';
-  }
-
-
-
-};
-  ?>
-
-<form method="POST" action="#">
-</form>
-<div class="wrapper-list" id='brgy-list'>
-<?php
-
-@include '../connect.php';
-$query = "SELECT * FROM baranggay";
-
-
-if ($result = $data->query($query)){
-echo "<table id='tbl-list' class='table'>
-  <thead>	  
-  <tr>
-    
-    <th scope='col' hidden id='count'>BaranggayID</th>
-    <th scope='col' id='name'>Barangay</th>
-            <th scope='col' id='edit'> Edit </th>
-            <th scope='col' id='edit'> Farm </th>
-  </tr>	  
-  </thead>";
-}
-
-    while ($row = $result->fetch_array()) {
-
-
-
-
-      echo"<tr>";
-          echo "<td hidden >" .$row['baranggayID']. "</td>";
-          echo "<td id='name'>" .$row['baranggay']. "</td>";
-            echo '<td> 
-        
-
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addbatch-modal'.$row['baranggayID'].'">
-          Edit
-          </button>
-
-
-          <div class="modal fade" id="addbatch-modal'.$row['baranggayID'].'" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-              <form action="updateqry.php" method="POST">
-              <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Barangay</h1>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-
-                          <div class="form-floating mb-3">
-                              <input name="baranggay" type="text" value= "'  .$row['baranggay']. '" class="form-control" id="floatingInput" placeholder="name" >
-                              <label for="floatingInput">Barangay</label>
-                          </div>
-                          <div class="form-floating mb-3">
-                          <input type="text" name="baranggayID" class="form-control" value= "'  .$row['baranggayID']. '" hidden readonly id="floatingInput" placeholder="name">
-                          <label for="floatingInput"></label>
-                      </div>
-
-              </div>
-              <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                  <button name="update" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> Save</button>
-              </div>
-
-              </form>
-              </div>
-
-          </div>
-          </div>
-      
-        
-    </td>';    
-
-
-
-   
-    
-    
-    echo '<td > 
-    <div class="addbatch-button">
-     
-      <a type="button" class="btn btn-primary" href= "view-farmx.php?baranggayID='.$row['baranggayID'].'"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 20 20">
-      <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
-      <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
-    </svg>View Farm</a>
-    </div>
-     </td>';
-        
-  
-
-        }
-        "</table>";
-
-
-?>
-
   </Section>
 </main>
 
 <!--style-->
 <style type="text/css">
+
 
   .wrapper{
     display:flex;
@@ -281,24 +243,24 @@ echo "<table id='tbl-list' class='table'>
 .user-info{
     padding: 5px;
     margin-top: 30px;
-    background-color: #0e2a83;
+    background-color: #179f1b;
     box-shadow: 2px 2px 7px 5px skyblue;
     border-radius: 10px;
 
   }
-  #user-info{
+#user-info{
     padding-bottom: 5px;
     margin-bottom: -3px;
     color: white;
   }
 
-   #p{
+#p{
     font-size: 10px !important;
     color: white;
     margin-bottom: -5px;
   }
 
-  #a{
+#a{
     font-size: 15px;
     display: flex !important;
     justify-content: flex-end !important;
@@ -309,18 +271,18 @@ echo "<table id='tbl-list' class='table'>
     padding-right: 20px;
   }
 
-  .user-info img{
+.user-info img{
     display: flex !important;
     justify-content: flex-start !important;
     align-items: center !important;
     padding-right: 0;
     margin-right: -20px;
   }
-  .logout-icon{
+.logout-icon{
     padding-top: 5px;
   }
 
-  .footer {
+.footer {
     position: absolute;
     left:0;
     right: 0;
@@ -330,7 +292,7 @@ echo "<table id='tbl-list' class='table'>
     
   }
 
-  .footer a{
+.footer a{
     font-size: 15px;
     border: 1px solid black;
     font-weight: bold;
@@ -348,34 +310,15 @@ echo "<table id='tbl-list' class='table'>
     border: none;
   }
 
-  .home a:hover{
+.home a:hover{
     background-color: transparent;
     color: blue;
   }
   
-  .body{
-    display:flex;
-    justify-content:space-evenly;
-    flex-grow: 1;
-    padding: 20px;
-
-  }
-  .body a{
-    border: none;
-    background-color: transparent;
-    color: darkblue;
-    font-weight: bold;
- 
-  }
-
   .card{
     margin-top: 10px;
     background-color: transparent !important;
     border: none;
-  }
-
-  .modal-header{
-   
   }
 
   .modal-content{
@@ -412,6 +355,7 @@ echo "<table id='tbl-list' class='table'>
   #yes:hover{
     background-color:blue;
   }
+
 /**/
 
   .card-body{
@@ -426,10 +370,6 @@ echo "<table id='tbl-list' class='table'>
 
   .card-body a{
     padding:0;
-  }
-
-  .body{
-    padding:20px 0 0 0;
   }
 
   .dropdown-center{
@@ -490,10 +430,8 @@ justify-content: center;
 font-weight: bold;
 }
 
-#brgy-list {
+.brgy-list{
 display: flex;
-justify-content: center;
-flex-direction: column;
 align-items: center;
 align-content: center;
 }
@@ -507,9 +445,129 @@ max-width: 500px;
 color: white !important;
 }
 
+.farm-brgy-summary{
+  
+
+  padding:10px;
+  display:flex;
+  gap:50px;
+  justify-content:center;
+  align-items:center;
+}
+
+.farm-brgy-summary a{
+  color:black;
+text-decoration:none;
+
+}
+  
+.farm-summary {
+  padding:10px;
+  border-radius:15px;
+    margin:15px;
+    display: grid;
+    place-items:center;
+
+}
+
+.farm-summary h2 {
+  font-size:50px;
+}
+
+.brgy-summary {
+  padding:10px;
+  border-radius:15px;
+    margin:15px;
+    display: grid;
+    place-items:space-evenly;
+
+}
+
+.farm-summary a{
+  color:black;
+text-decoration:none;
+}
+
+.brgy-summary h2 {
+  font-size:50px;
+}
+
+
+.table{
+  background: rgb(138,237,69);
+background: linear-gradient(270deg, rgba(138,237,69,0.4766281512605042) 29%, rgba(5,255,0,0.6026785714285714) 94%);
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  gap:300px;
+  padding:5px;
+  border-radius:10px;
+}
+.brgy-text{
+  color:grey;
+  display:flex;
+  justify-content:flex-start;
+  margin:5px;
+}
+
+.brgy-text h4{
+  font-size:15px;
+}
+.brgy-name{
+
+  display:flex;
+  justify-content:flex-start;
+}
+
+.brgy-name h4{
+  margin:0 !important;
+  font-size:18px;
+  font-weight:bold;
+  color:white;
+}
+.brgy-nxt{
+  display:flex;
+  justify-content:flex-end;
+}
+.brgy-nxt a{
+  margin-left:0px;
+  padding:20px;
+  text-decoration:none;
+  color:grey;
+}
+.brgy-nxt h9{
+  font-weight:bold;
+  color:grey;
+}
+
+.brgy-text{
+  margin-top:30px;
+  margin-bottom:10px;
+}
+
+@media screen and (max-width: 800px){
+  .table{
+  align-items:center;
+  gap:60px;
+}
+.brgy-summary{
+  padding:0 5px 0 5px;
+}
+
+.farm-summary{
+  padding:0 5px 0 5px;
+}
+
+.rgtr{
+  font-size:13px;
+}
+  }
+
+  h9{
+    font-weight:bold;
+    font-size:20px;
+  }
 
 </style>
-
-
 </body>
 </html>

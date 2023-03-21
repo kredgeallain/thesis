@@ -46,9 +46,12 @@
       display:none;
 }
 
+#sidebar-btn{
+
+}
 
 .header{
-    padding:20px;
+    padding:30px;
     background-color: darkgreen;
   }
 
@@ -57,30 +60,6 @@
     justify-content:center;
   display:flex;
 }
-
-#text2-nav h2{
-  font-size:20px;
-}
-
-.logo{
-    position:absolute;
-    top:0;
-    left:20px;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    width:25px;
-  }
-
-  #sidebar-btn{
-    position:absolute;
-    top:0;
-    right:0;
-    color:white;
-    font-size:20px;
-  }
-
-
-
 
 
   }
@@ -94,10 +73,16 @@
 
   .logo{
     position:absolute;
-    top:0;
+    top:10px;
     left:20px;
     padding-top: 3px;
     padding-bottom: 3px;
+  }
+
+  .logo button{
+    background-color:transparent;
+    color:white;
+    border:none;
   }
 
   .sidenav {
@@ -157,42 +142,13 @@ background: linear-gradient(93deg, rgba(232,242,239,0.08167016806722693) 52%, rg
 background: linear-gradient(285deg, rgba(232,242,239,0.08167016806722693) 52%, rgba(197,241,199,0.6334908963585435) 100%) !important;
 }
 
-#modal-content{
-  border-radius:100px;
+.modal-content{
   border:none;
-  background: rgb(138,237,69);
-background: radial-gradient(circle, rgba(138,237,69,0.3841911764705882) 81%, rgba(189,227,176,1) 100%);
+  background-color:transparent;
 }
-#modal-header{
+.modal-header{
   border:none;
 }
-
-.center-nav{
-  gap:70px;
-  display:grid;
-  place-items:center;
-}
-
-.center-nav a{
-text-decoration:none;
-color:white !important;
-font-weight:bold;
-}
-
-.right-left{
-  gap:110px;
-  display:flex;
-  justify-content:space-around;
-}
-.right{
-  display:grid;
-  place-items:center;
-}
-.left{
-  display:grid;
-  place-items:center;
-}
-
 </style>
 </head>
 <body>
@@ -205,7 +161,11 @@ font-weight:bold;
     </div>
   </section>
   <div class="logo">
-      <img src="../../image/logo.png" class="img-fluid" alt="logo" width="50px">
+    <button>
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+</svg>
+    </button>
     </div>
 
   <div>
@@ -244,8 +204,7 @@ font-weight:bold;
 </div>
   </header>
 
-
-  <!-- Button trigger modal -->
+    <!-- Button trigger modal -->
 <div class="open-navigation">
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#navigation">
 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-caret-left" viewBox="0 0 16 16">
@@ -257,35 +216,11 @@ font-weight:bold;
 <!-- Modal -->
 <div class="modal fade" id="navigation" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content" id="modal-content">
-      <div class="modal-header" id="modal-header">
+    <div class="modal-content">
+      <div class="modal-header">
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body" id="modal-body">
-
-      <section class="center-nav">
-      <div class="top">
-        <a href="farm-map.php"><img src="../../image/mortality-rate.png" alt="Farm map" width="100px"> View Map</a>
-      </div>
-
-      <div class="right-left">
-
-        <div class="right">
-        <a href="farm-map.php"><img src="../../image/batches.png" alt="Farm map" width="100px">Add Batch</a>
-        </div>
-
-        <div class="left">
-        <a href="farm-map.php"><img src="../../image/record-icon.png" alt="Farm map" width="100px"> View Map</a>
-        </div>
-      </div>
-
-      <div class="bottom">
-          <a href="homepage.php"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 20 20">
-  <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z"/>
-  <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z"/>
-</svg>Home</a>
-      </div>
-      </section>
+      <div class="modal-body">
 
       </div>
     </div>
