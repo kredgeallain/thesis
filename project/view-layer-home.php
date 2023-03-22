@@ -15,7 +15,7 @@ $mysqli = new mysqli("localhost", $username, $password, $database);
 @include('connect.php');
 
 $sql = "SELECT 
-baranggay.baranggay, farm.farmname, batch.batch, user.name,
+baranggay.baranggay, farm.farmname, batch.batch, user.name, batch.initial,
 SUM(layer.no_eggs) as eggs,
 SUM(layer.reject_eggs) as rej_eggs,
 SUM(layer.mortality) as mortality,
@@ -49,6 +49,7 @@ if ($result->num_rows > 0) {
 <th scope='col' id='u-name'> Batch </th>
 <th scope='col' id='u-name'> Total Eggs </th>
 <th scope='col' id='u-name'> Reject Eggs </th>
+<th scope='col' id='u-name'> Initial </th>
 <th scope='col' id='u-name'> Mortality </th>
 <th scope='col' id='u-name'> Current </th>
 <th scope='col' id='u-name'> Mortality Rate </th>
@@ -75,6 +76,7 @@ if ($result->num_rows > 0) {
         echo "<td>".$row['batch']."</td>";
         echo "<td>".$row['eggs']."</td>";
         echo "<td>".$row['rej_eggs']."</td>";
+        echo "<td>".$row['initial']."</td>";
         echo "<td>".$row['mortality']."</td>";
         echo "<td>".$row['current']."</td>";
         if ($new_mortality_rate >= $rate ) {
