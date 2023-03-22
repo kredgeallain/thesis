@@ -210,6 +210,52 @@
 		
 			}	
 	
+			if(isset($_POST['change'])){
+
+				$cpass = $_POST['cpass'];
+				$npass = $_POST['npass'];
+				$rpass = $_POST['rpass'];
+				$userID = $_POST['userID'];
+
+				$sql = "SELECT * FROM user where userID='".$userID."'";
+				$data = mysqli_query($data, $sql);
+				$row=mysqli_fetch_array($data);
+				
+				if($row["password"]==$cpass){
+
+					if(($npass != '' && $rpass != '') && ($npass != $rpass)){
+
+						echo '<script language="javascript" type="text/javascript">
+						alert("Password fields do not match");
+						window.location = "cpass.php";
+						</script>';
+	
+					
+					}
+					else{
+
+						mysqli_query($conn, "UPDATE `user` SET `password`='$npass' WHERE userID = '$userID' ");
+				
+						echo '<script language="javascript" type="text/javascript">
+						alert("Password Updated");
+						window.location = "homepage.php";
+						</script>';
+					}
+
+				}
+			else{
+				 echo '<script language="javascript" type="text/javascript">
+				alert("Wrong Current Password");
+				window.location = "cpass.php";
+				</script>'; 
+
+			}
+			
+				
+		
+			
+				}	
+		
 	
 
 ?>
