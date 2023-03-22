@@ -4,7 +4,7 @@
  		$result = mysqli_query($conn,$query);	
  		?>
 <?php
-include('header.php');
+include('header2.php');
 ?>
 
 
@@ -107,12 +107,23 @@ include('header.php');
 
         }
 
+        .wrapper{
+            margin:10px;
+        }
+
+        @media screen and (max-width: 800px){
+        select{
+            font-size:10px !important;
+        }
+
+}
+
         .wrapper-brgy select {
             padding-top: 10px;
             padding-bottom: 10px;
             padding-right: 100px;
-            margin: 30px;
-            margin-left: 10px;
+            margin-top:20px;
+            margin-bottom:20px;
             border-radius: 5px;
         }
 
@@ -133,11 +144,6 @@ include('header.php');
             cursor: pointer;
         }
 
-
-        .wrapper {
-            margin-right: 80px;
-            margin-left: 80px;
-        }
 
         .wrapper-brgy {
             display: flex;

@@ -184,12 +184,34 @@ include('header2.php');
 
         }
 
-        .wrapper-brgy select {
-            display:flex;
-            justify-content:space-around;
-            margin: 10px;
+        .wrapper{
+            margin:10px;
+        }
+
+        @media screen and (max-width: 800px){
+            .wrapper-brgy select {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-right: 50px !important;
             border-radius: 5px;
         }
+
+        select{
+            font-size:10px !important;
+        }
+
+}
+
+        .wrapper-brgy select {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-right: 100px;
+            margin-top: 20px;
+            margin-bottom:20px;
+            border-radius: 5px;
+        }
+
+
 
 
         .wrapper-brgy input[type=submit] {
@@ -207,11 +229,6 @@ include('header2.php');
         }
 
 
-        .wrapper {
-            margin-right: 80px;
-            margin-left: 80px;
-        }
-
         .wrapper-brgy {
             display: flex;
             justify-content: space-evenly;
@@ -221,15 +238,6 @@ include('header2.php');
         .fetch {
             border: 1px;
             margin: 50px;
-        }
-
-        .brgy{
-            display:flex !important;
-            justify-content:space-evenly !important;
-        }
-
-        select{
-           width: 100px !important;
         }
 
             </style>
