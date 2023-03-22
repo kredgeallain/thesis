@@ -2,8 +2,10 @@
 <?php
 include_once 'connect.php'; 
 
-$farmID= $_POST['farm_data'];
 $date = date('Y-m-d'); 
+
+$farmID= $_POST['farm_data'];
+
 
 
 $batch= "SELECT * FROM batch WHERE farmID = $farmID order by batch.date DESC ";
@@ -37,7 +39,7 @@ if ($result = $data->query($batch)){
       <label for="floatingInput">Batch Name</label>
   </div>
   <input type="" hidden name="farmID" value='. $farmID .' required="true">  
-  <select class="form-select form-select-sm mb-3" name="unit"
+  <select class="form-select form-select-sm mb-5" name="unit"
   aria-label=".form-select-sm example required="true"">
   <option value="layer">Layer</option>
   <option value="broiler">Broiler</option>

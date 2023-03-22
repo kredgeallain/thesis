@@ -62,7 +62,7 @@ function initMap() {
 
     var myOptions = {
         center: myLatLng,
-        zoom: 15.8,
+        zoom: 18.0,
         mapTypeId: google.maps.MapTypeId.HYBRID
 
     };

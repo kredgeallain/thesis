@@ -98,7 +98,7 @@ if (isset($_SESSION['username'])) {
 
         $insert = " INSERT INTO `broiler`(`broilerID`, `batchID`, `userID`, `broiler_weight`, `Bcurrent`, `mortality`, `date`) 
         VALUES ('','$batchID','$user','$broiler_weight','$Bcurrent','$mortality','$date')";
-            mysqli_query($data, $insert);
+          $success=  mysqli_query($data, $insert);
             sleep(1);
 
             echo '<script language="javascript" type="text/javascript">
@@ -106,6 +106,11 @@ if (isset($_SESSION['username'])) {
             window.location = "homepage.php";
             </script>';
             
+            
+            if ($succcess) {
+                mysqli_query($data, "UPDATE `batch` SET `status` = '$f', `farmowner` = '$fown',`contactno` = '$no' WHERE `farmID` = '$fID' ");
+      
+                  }
 }
 
         

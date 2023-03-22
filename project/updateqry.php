@@ -32,12 +32,12 @@
 
 	if(ISSET($_POST['edit-farm'])){
 		
-		$f = $_POST['farmname'];
+		$f = $_POST["farmname"];
 		$fown =$_POST["farmowner"];
 		$no =$_POST["contactno"];
         $fID = $_POST['farmID'];
 
-		$sql="SELECT * from farm where farmname='$f' And farmID NOT IN ('$fID') ";
+		$sql="SELECT * from farm where farmname= '$f' And farmID NOT IN ('$fID') ";
 		$result = mysqli_query($data, $sql);
 
 		if(mysqli_num_rows($result) > 0){
@@ -51,7 +51,7 @@
 		 }
 	  else {
 	
-		mysqli_query($data, "UPDATE `farm` SET `farmname` = '$f', `farmowner` = '$fown',`contactno` = '$no' WHERE `farmID` = '$fID' ");
+		mysqli_query($data, "UPDATE farm SET `farmname` = '$f', `farmowner` = '$fown',`contactno` = '$no' WHERE `farmID` = '$fID' ");
 
 		echo '<script language="javascript" type="text/javascript">
 					alert("Farm Updated!");
@@ -105,7 +105,7 @@
 		$unit = $_POST['unit'];
 		$initial = $_POST['initial'];
 
-		$check_batch= "SELECT * from batch WHERE batch = '$batch' AND unit ='$unit' ";
+		$check_batch= "SELECT * from batch WHERE batch = '$batch' AND unit ='$unit' and farmID ='$farmID' ";
 		$result = mysqli_query($conn, $check_batch);
 
 		if(mysqli_num_rows($result) > 0){

@@ -42,7 +42,7 @@ header('location:add-user.php?add=error');
 }
 
 else{
-        $insert = "INSERT INTO user(name, username, password,repassword, baranggay, mobile_no, position) VALUES('$name','$username','$password','$repassword','$baranggay','$mobile_no','$position')";
+        $insert = "INSERT INTO user(name, username, password, baranggay, mobile_no, position) VALUES('$name','$username','$password','$baranggay','$mobile_no','$position')";
         mysqli_query($data, $insert);
 		    sleep(1);
         header('location:add-user.php?add=success');
@@ -104,7 +104,7 @@ else{
                                     id="baranggay" placeholder="Select Barangay" required="true">
                                     <option disabled selected>Select Barangay</option>
                                     <?php echo $bfetch; ?>
-                                    <option disabled>Add Barangay if your Barangay don't exist!</option>
+                             
                                 </select>
                             </div>
 

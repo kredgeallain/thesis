@@ -23,16 +23,15 @@ include 'connect.php';
         <?php
 if($_SERVER['REQUEST_METHOD'] == 'GET'){
 	
-	if(!isset($_GET["batchID"])){
-		header("location:add-brgy.php");
-		sleep(2);
-		exit; 
-	}
+	if(isset($_GET["batchID"])){
+		
+	
 	$batchID = $_GET["batchID"];
     
 }
+}
 $query = "SELECT * FROM batch where batchID=$batchID";
-$res=mysqli_query($data,$query);
+$res=mysqli_query($conn,$query);
 
 $verify=mysqli_fetch_array($res);
 
@@ -43,7 +42,7 @@ if($verify["unit"]=="broiler") {
 
 $sql = "SELECT broiler.broilerID, broiler.batchID, broiler.broiler_weight, broiler.Bcurrent, broiler.mortality, broiler.date, user.name FROM broiler 
 INNER JOIN user ON broiler.userID = user.userID where broiler.batchID=$batchID";
-if ($result = $data->query($sql)){
+if ($result = $conn->query($sql)){
     echo "<table class='table table-striped'>
     <thead class='thead-dark'>	  
     <tr>
@@ -143,7 +142,7 @@ if ($result = $data->query($sql)){
         $sql = "SELECT layer.layerID, layer.batchID, layer.no_eggs, layer.reject_eggs, layer.Lcurrent, layer.mortality, layer.date,
         user.name FROM layer inner join user on layer.userID = user.userID where batchID=$batchID";
         
-        if ($result = $data->query($sql)){
+        if ($result = $conn->query($sql)){
             echo "<table class='table table-striped'>
             <thead class='thead-dark'>	  
             <tr>

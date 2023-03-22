@@ -20,7 +20,7 @@
         <?php
     
 
-  $pos = "admin";
+  $pos = "agent";
 
 if(isset($_POST['search'])) {
    

@@ -60,7 +60,7 @@ include('header.php');
             $Lcurrent = $_POST['Lcurrent'];
             $mortality = $_POST['mortality'];
             $userID =  $_POST['userID'];
-            
+           
 
 
             $insert = " INSERT INTO `layer`(`layerID`, `batchID`, `no_eggs`, `reject_eggs`, `Lcurrent`, `mortality`, `date`, `userID`) 
@@ -84,16 +84,22 @@ include('header.php');
         $Bcurrent = $_POST['current'];
         $mortality = $_POST['mortality'];
         $userID =  $_POST['userID'];
+        $status = "off";
 
         $insert = " INSERT INTO `broiler`(`broilerID`, `batchID`, `broiler_weight`, `Bcurrent`, `mortality`, `date`, `userID`) 
         VALUES ('','$batchID','$broiler_weight','$Bcurrent','$mortality','$date','$userID')";
-            mysqli_query($data, $insert);
+          $success =  mysqli_query($data, $insert);
             sleep(1);
+            
+            if ($success) {
+          mysqli_query($data, "UPDATE `batch` SET `status` = '$status' WHERE `batchID` = '$batchID' ");
 
-            echo '<script language="javascript" type="text/javascript">
+            
+          echo '<script language="javascript" type="text/javascript">
             alert("Production Data Added!");
             window.location = "homepage.php";
             </script>';
+          }
             
 }
 
@@ -102,11 +108,6 @@ include('header.php');
 ?>
 
         <div id="record">
-
-            <?php	//$batchID= $_POST['batch_data']; 
-	
-	
-	?>
 
         </div>
 
