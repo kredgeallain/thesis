@@ -8,6 +8,12 @@ if (isset($_SESSION['username'])) {
 }
 
 
+$sql = "SELECT * FROM user where username='".$username."'";
+$data = mysqli_query($data, $sql);
+$row=mysqli_fetch_array($data);
+
+$name = $row['name'];
+
 ?>
 
 <!DOCTYPE html>
@@ -598,7 +604,7 @@ html{
                         <?php
  
 
-          echo "$username";
+          echo "$name";
        ?></h2>
                 </div>
 

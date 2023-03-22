@@ -1,17 +1,21 @@
 <?php 
-		include_once '..\connect.php'; 
+		 include_once 'connect.php'; 
 		 $query = "SELECT * FROM baranggay "; 
-$result = mysqli_query($conn,$query);	
+ 		$result = mysqli_query($conn,$query);	
+ 		?>
+<?php
+include('header.php');
 ?>
+
+
+
 
 <body>
 
 
 
 
-<?php
-include("header2.php");
-?>
+
 
     <section class="wrapper">
 
@@ -35,7 +39,7 @@ include("header2.php");
                     <option disabled selected> Select Farm</option>
 
                         
-                
+                   
 
                 </select>
             </div>
@@ -45,7 +49,10 @@ include("header2.php");
 
         </section>
         <section class="frm-btch" id="batch1" class="fetch">
-            <?php?>
+            <?php
+
+   
+         ?>
 
 
         </section>
@@ -77,7 +84,7 @@ include("header2.php");
 
             $.ajax({
                 type: "POST",
-                url: "../batcheslist.php",
+                url: "batcheslist.php",
                 data: {
                     farm_data: farmID
                 },
@@ -101,11 +108,15 @@ include("header2.php");
         }
 
         .wrapper-brgy select {
-            display:flex;
-            justify-content:space-around;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-right: 100px;
             margin: 30px;
+            margin-left: 10px;
             border-radius: 5px;
         }
+
+
 
 
         .wrapper-brgy input[type=submit] {
@@ -137,15 +148,6 @@ include("header2.php");
         .fetch {
             border: 1px;
             margin: 50px;
-        }
-
-        .brgy{
-            display:flex !important;
-            justify-content:space-evenly !important;
-        }
-
-        select{
-           width: 150px !important;
         }
         </style>
 

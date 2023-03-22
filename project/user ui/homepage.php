@@ -1,6 +1,20 @@
 <?php
-
+session_start();
 require_once '../connect.php';
+
+if(isset($_SESSION['username'])){
+  $username = $_SESSION['username'];
+ 
+}
+else {
+  header('location:login-user.php');
+}
+
+$sql = "SELECT * FROM user where username='".$username."'";
+$data = mysqli_query($data, $sql);
+$row=mysqli_fetch_array($data);
+$name = $row['name'];
+
 
 
 
@@ -49,7 +63,7 @@ else{
               <img src="../../image/user.png" class="img-fluid" alt="logo" width="60px">
             </div>
             <div class="col">
-            <h2 id="user-info">user1</h2>
+            <h2 id="user-info"><?php echo $name; ?></h2>
             <p id="p"><i>Welcome!</i></p>
             </div>
 
