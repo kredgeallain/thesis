@@ -60,7 +60,7 @@ include('header.php');
             $Lcurrent = $_POST['Lcurrent'];
             $mortality = $_POST['mortality'];
             $userID =  $_POST['userID'];
-            $status = "project";
+           
 
 
             $insert = " INSERT INTO `layer`(`layerID`, `batchID`, `no_eggs`, `reject_eggs`, `Lcurrent`, `mortality`, `date`, `userID`) 
@@ -84,22 +84,22 @@ include('header.php');
         $Bcurrent = $_POST['current'];
         $mortality = $_POST['mortality'];
         $userID =  $_POST['userID'];
+        $status = "off";
 
         $insert = " INSERT INTO `broiler`(`broilerID`, `batchID`, `broiler_weight`, `Bcurrent`, `mortality`, `date`, `userID`) 
         VALUES ('','$batchID','$broiler_weight','$Bcurrent','$mortality','$date','$userID')";
           $success =  mysqli_query($data, $insert);
             sleep(1);
+            
+            if ($success) {
+          mysqli_query($data, "UPDATE `batch` SET `status` = '$status' WHERE `batchID` = '$batchID' ");
 
-            echo '<script language="javascript" type="text/javascript">
+            
+          echo '<script language="javascript" type="text/javascript">
             alert("Production Data Added!");
             window.location = "homepage.php";
             </script>';
-
-            
-            if ($succcess) {
-          mysqli_query($data, "UPDATE `batch` SET `status` = '$f', `farmowner` = '$fown',`contactno` = '$no' WHERE `farmID` = '$fID' ");
-
-            }
+          }
             
 }
 

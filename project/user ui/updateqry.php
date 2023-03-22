@@ -105,7 +105,7 @@
 		$unit = $_POST['unit'];
 		$initial = $_POST['initial'];
 
-		$check_batch= "SELECT * from batch WHERE batch = '$batch' AND unit ='$unit' ";
+		$check_batch= "SELECT * from batch WHERE batch = '$batch' AND unit ='$unit' and farmID ='$farmID'";
 		$result = mysqli_query($conn, $check_batch);
 
 		if(mysqli_num_rows($result) > 0){

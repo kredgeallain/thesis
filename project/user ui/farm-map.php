@@ -70,7 +70,7 @@ var locations = [
 			
 			if($result->num_rows > 0){
             while($row = $result->fetch_assoc()){
-                echo '["'.$row['farmname'].'", '.$row['lat'].', '.$row['lng'].',  "'.$row['farmowner'].'", ],';
+                echo '["'.$row['farmname'].'", '.$row['lat'].', '.$row['lng'].',  "'.$row['farmowner'].'", "'.$row['contactno'].'", ],';
             }
         }
         ?>
@@ -89,7 +89,7 @@ function initMap() {
 
     var myOptions = {
         center: myLatLng,
-        zoom: 15.8,
+        zoom: 18.0,
         mapTypeId: google.maps.MapTypeId.HYBRID
 
     };
@@ -114,6 +114,7 @@ function setMarkers(map, locations) {
         var lat = locations[i][1]
         var long = locations[i][2]
         var owner = locations[i][3]
+        var contact = locations[i][4]
 
         latlngset = new google.maps.LatLng(lat, long);
 
@@ -129,7 +130,7 @@ function setMarkers(map, locations) {
         map.setCenter(marker.getPosition())
 
 
-        var content = " <h6> " + farmname + '</h6>' + " <p> " + owner + '</p>'
+        var content = " <h6> " + farmname + '</h6>' + " <p> " + owner + '</p>'  + " <p> " + contact + '</p>' 
 
         var infowindow = new google.maps.InfoWindow()
 
@@ -141,7 +142,7 @@ function setMarkers(map, locations) {
 
                 setTimeout(function() {
                     infowindow.close();
-                }, 1500);
+                }, 1700);
 
             };
         })(marker, content, infowindow));
