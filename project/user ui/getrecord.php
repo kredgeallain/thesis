@@ -1,8 +1,16 @@
 <?php
-//session_start();
 
+session_start();
+include 'connect.php'; 
 
-include '..\connect.php'; 
+if (isset($_SESSION['username'])) {
+    $username = $_SESSION['username'];
+}
+$sql = "SELECT * FROM user where username='".$username."'";
+$data = mysqli_query($data, $sql);
+$row=mysqli_fetch_array($data);
+
+$userID = $row['userID'];
 
 $batchID= $_POST['batch_data'];
 
@@ -10,14 +18,17 @@ $batchID= $_POST['batch_data'];
 
 $b= "SELECT * FROM batch where batchID=$batchID";
 $q= mysqli_query ($conn, $b);
+$date = date('Y-m-d'); 
 
-$row=mysqli_fetch_array($q);
+$row2=mysqli_fetch_array($q);
+
+$init= $row2['initial'];
 
 
 
-if($row["unit"]=="layer")
+if($row2["unit"]=="layer")
 { echo '
-<form method="post" action="record1.php" id="form1">
+<form method="post" action="record.php" id="form1">
 
 <div class="record-wrapper">
 <h1>Layer</h1>
@@ -25,7 +36,7 @@ if($row["unit"]=="layer")
 
 <div class="date">
 <label for="">Date</label>
-<input  class="form-control" type="date" name="date" id="date" required="true">
+<input  class="form-control" type="date" name="date" id="date" value='. $date .' required="true">
 </div>
 
 
@@ -45,6 +56,10 @@ if($row["unit"]=="layer")
 
 
 <section class="broiler">
+<div class="Bcurrent">
+    <label for="">Initial Number</label>
+    <input  class="form-control" type="number"readonly name="Lcurrent" id="Lcurrent"  value='. $init .'  required="true">
+</div>
 
 <div class="Bcurrent">
     <label for=""> Current</label>
@@ -57,7 +72,7 @@ if($row["unit"]=="layer")
 </div>
 </section>
     <input type="" hidden name="batchID" value='. $batchID .'> 
-
+    <input type="" hidden name="userID" value='. $userID .'> 
     <div class="submit">
 </div>
         <button class="btn btn-primary" type="submit" name="submit" id="submit" value="">Add Data</button>
@@ -73,7 +88,7 @@ if($row["unit"]=="layer")
 else {
  
    echo '
-    <form method="post" action="record1.php" id="form2">
+    <form method="post" action="record.php" id="form2">
 
 <div class="record-wrapper">  
 
@@ -81,7 +96,7 @@ else {
 
     <div class="date">
     <label for="">Date</label>
-    <input  class="form-control" type="date" name="date" id="date" required="true">
+    <input  class="form-control" type="date" name="date" id="date" value='. $date .' required="true">
     </div>
 
 <section class="weight">
@@ -92,6 +107,11 @@ else {
 </section>
 
 <section class="current">
+<div class="Bcurrent">
+    <label for="">Initial Number</label>
+    <input  class="form-control" type="number" readonly name="Lcurrent" id="Lcurrent"  value='. $init .'  required="true">
+</div>
+
     <div class="current">
         <label for="">Current</label>
         <input  class="form-control" type="number" name="current" id="current" required="true" >
@@ -103,6 +123,7 @@ else {
     </div>
 </section>
         <input type="" hidden name="batchID" value='. $batchID .'> 
+        <input type="" hidden name="userID" value='. $userID .'> 
    
 
             <button class="btn btn-primary" type="submit" name="submit1" id="submit"> Add Data</button>

@@ -79,10 +79,14 @@ if (isset($_SESSION['username'])) {
             $insert = " INSERT INTO `layer`(`layerID`, `batchID`, `userID`, `no_eggs`, `reject_eggs`, `Lcurrent`, `mortality`, `date`) 
                 VALUES ('','$batchID','$user','$no_eggs','$rej_eggs','$Lcurrent','$mortality','$date') ";
 
-                
-
                 mysqli_query($data, $insert);
-                sleep(1);// }
+                sleep(1);
+
+                echo '<script language="javascript" type="text/javascript">
+					alert("Production Data Added!");
+					window.location = "homepage.php";
+					</script>';
+
     }elseif(isset($_POST['submit1'])){
 
         $batchID = $_POST['batchID'];
@@ -96,6 +100,11 @@ if (isset($_SESSION['username'])) {
         VALUES ('','$batchID','$user','$broiler_weight','$Bcurrent','$mortality','$date')";
             mysqli_query($data, $insert);
             sleep(1);
+
+            echo '<script language="javascript" type="text/javascript">
+            alert("Production Data Added!");
+            window.location = "homepage.php";
+            </script>';
             
 }
 

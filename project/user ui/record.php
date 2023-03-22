@@ -59,16 +59,23 @@ include('header.php');
             $rej_eggs = $_POST['rej-eggs'];
             $Lcurrent = $_POST['Lcurrent'];
             $mortality = $_POST['mortality'];
+            $userID =  $_POST['userID'];
             
 
 
-            $insert = " INSERT INTO `layer`(`layerID`, `batchID`, `no_eggs`, `reject_eggs`, `Lcurrent`, `mortality`, `date`) 
-                VALUES ('','$batchID','$no_eggs','$rej_eggs','$Lcurrent','$mortality','$date') ";
+            $insert = " INSERT INTO `layer`(`layerID`, `batchID`, `no_eggs`, `reject_eggs`, `Lcurrent`, `mortality`, `date`, `userID`) 
+                VALUES ('','$batchID','$no_eggs','$rej_eggs','$Lcurrent','$mortality','$date','$userID') ";
 
                 
 
                 mysqli_query($data, $insert);
                 sleep(1);// }
+
+                echo '<script language="javascript" type="text/javascript">
+                alert("Production Data Added!");
+                window.location = "homepage.php";
+                </script>';
+
     }elseif(isset($_POST['submit1'])){
 
         $batchID = $_POST['batchID'];
@@ -76,11 +83,17 @@ include('header.php');
         $broiler_weight = $_POST['weight'];
         $Bcurrent = $_POST['current'];
         $mortality = $_POST['mortality'];
+        $userID =  $_POST['userID'];
 
-        $insert = " INSERT INTO `broiler`(`broilerID`, `batchID`, `broiler_weight`, `Bcurrent`, `mortality`, `date`) 
-        VALUES ('','$batchID','$broiler_weight','$Bcurrent','$mortality','$date')";
+        $insert = " INSERT INTO `broiler`(`broilerID`, `batchID`, `broiler_weight`, `Bcurrent`, `mortality`, `date`, `userID`) 
+        VALUES ('','$batchID','$broiler_weight','$Bcurrent','$mortality','$date','$userID')";
             mysqli_query($data, $insert);
             sleep(1);
+
+            echo '<script language="javascript" type="text/javascript">
+            alert("Production Data Added!");
+            window.location = "homepage.php";
+            </script>';
             
 }
 
