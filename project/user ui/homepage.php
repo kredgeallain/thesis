@@ -135,6 +135,31 @@ $row = $result->fetch_assoc();
           </section>
                 </section>
 
+            <section class="history">
+                <details>
+                  <summary>
+                    <img src="../../image/history-36.png" alt="history logo" width="70px">
+                  </summary>
+
+                <section class="history-main">
+                  <div class="history-head">
+                      Record History
+                  </div>
+                  <div class="history-content">
+                    <div class="history-broiler">
+                      <a href="">Broiler</a>
+                    </div>
+
+                    <div class="history-layer">
+                      <a href="">Layer</a>
+                    </div>
+                    
+                  </div>
+                </section>
+                </details>
+            </section>
+
+
             <section id="brgy-list" class="brgy-list">
               <div class="table">
                 <div class="brgy-name">
@@ -244,6 +269,12 @@ $row = $result->fetch_assoc();
   </section>  
   </Section>
 </main>
+
+<script>
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover();   
+});
+</script>
 
 <!--style-->
 <style type="text/css">
@@ -575,6 +606,12 @@ background: linear-gradient(270deg, rgba(138,237,69,0.4766281512605042) 29%, rgb
 .rgtr{
   font-size:13px;
 }
+
+.history-main{
+  position:absolute !important;
+  right:27% !important;
+  bottom:43% !important;
+}
   }
 
   h9{
@@ -582,6 +619,59 @@ background: linear-gradient(270deg, rgba(138,237,69,0.4766281512605042) 29%, rgb
     font-size:20px;
   }
 
+.pop-over{
+  margin:20px;
+  display:flex;
+  justify-content:flex-end;
+}
+
+.history{
+  display:flex;
+  justify-content:flex-end;
+  margin-right:20px;
+}
+
+.history-main{
+  border-radius:20px;
+  padding:10px 20px 10px 20px;
+  border:1px solid grey;
+  background-color:white;
+  position:absolute !important;
+  right:30%;
+  bottom:43%;
+}
+
+.history-broiler{
+  padding:10px;
+}
+
+.history-layer{
+  padding:10px;
+}
+
+.history-main{
+  border-radius:20px;
+  padding:10px 20px 10px 20px;
+  border:1px solid grey;
+  background-color:white;
+  position:absolute !important;
+  right:15%;
+  bottom:35%;
+}
+
+.history-content a{
+  text-decoration:none;
+  color:black;
+}
+
+.history-head{
+  color:grey;
+}
+
+summary{
+  list-style: none;
+
+}
 </style>
 </body>
 </html>

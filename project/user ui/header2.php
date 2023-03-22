@@ -151,10 +151,37 @@ background: linear-gradient(285deg, rgba(232,242,239,0.08167016806722693) 52%, r
 
 .modal-content{
   border:none;
-  background-color:transparent;
 }
 .modal-header{
   border:none;
+}
+
+.center-nav{
+  display:grid;
+  place-items:center;
+}
+
+.center-nav a{
+  color:darkblue;
+text-decoration:none;
+font-weight:bold;
+}
+
+.right-left{
+  gap:110px;
+  display:flex;
+  justify-content:space-around;
+}
+.right{
+  display:grid;
+  place-items:center;
+}
+.left{
+  display:grid;
+  place-items:center;
+}
+.bottom{
+  margin-top:40px !important;
 }
 </style>
 </head>
@@ -228,7 +255,29 @@ background: linear-gradient(285deg, rgba(232,242,239,0.08167016806722693) 52%, r
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-          <a href="farm-map.php">map</a>
+      <section class="center-nav">
+      <div class="top">
+        <a href="farm-map.php"><img src="../../image/mortality-rate2.png" alt="Farm map" width="100px"> View Map</a>
+      </div>
+
+      <div class="right-left">
+
+        <div class="right">
+        <a href="farm-map.php"><img src="../../image/batches.png" alt="Farm map" width="100px">Add Batch</a>
+        </div>
+
+        <div class="left">
+        <a href="farm-map.php"><img src="../../image/record-icon2.png" alt="Farm map" width="100px">Record</a>
+        </div>
+      </div>
+
+      <div class="bottom">
+          <a href="homepage.php"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 20 20">
+  <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z"/>
+  <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z"/>
+</svg>Home</a>
+      </div>
+      </section>
       </div>
     </div>
   </div>

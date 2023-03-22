@@ -158,24 +158,19 @@ background: linear-gradient(285deg, rgba(232,242,239,0.08167016806722693) 52%, r
 }
 
 #modal-content{
-  border-radius:100px;
   border:none;
-  background: rgb(138,237,69);
-background: radial-gradient(circle, rgba(138,237,69,0.3841911764705882) 81%, rgba(189,227,176,1) 100%);
 }
 #modal-header{
   border:none;
 }
 
 .center-nav{
-  gap:70px;
   display:grid;
   place-items:center;
 }
 
 .center-nav a{
 text-decoration:none;
-color:white !important;
 font-weight:bold;
 }
 
@@ -192,7 +187,9 @@ font-weight:bold;
   display:grid;
   place-items:center;
 }
-
+.bottom{
+  margin-top:40px !important;
+}
 </style>
 </head>
 <body>
@@ -245,7 +242,7 @@ font-weight:bold;
   </header>
 
 
-  <!-- Button trigger modal -->
+  <!-- 
 <div class="open-navigation">
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#navigation">
 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-caret-left" viewBox="0 0 16 16">
@@ -253,6 +250,7 @@ font-weight:bold;
 </svg>
 </button>
 </div>
+Button trigger modal -->
 
 <!-- Modal -->
 <div class="modal fade" id="navigation" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -265,7 +263,7 @@ font-weight:bold;
 
       <section class="center-nav">
       <div class="top">
-        <a href="farm-map.php"><img src="../../image/mortality-rate.png" alt="Farm map" width="100px"> View Map</a>
+        <a href="farm-map.php"><img src="../../image/mortality-rate2.png" alt="Farm map" width="100px"> View Map</a>
       </div>
 
       <div class="right-left">
@@ -275,7 +273,7 @@ font-weight:bold;
         </div>
 
         <div class="left">
-        <a href="farm-map.php"><img src="../../image/record-icon.png" alt="Farm map" width="100px"> View Map</a>
+        <a href="farm-map.php"><img src="../../image/record-icon2.png" alt="Farm map" width="100px">Record</a>
         </div>
       </div>
 
@@ -286,7 +284,6 @@ font-weight:bold;
 </svg>Home</a>
       </div>
       </section>
-
       </div>
     </div>
   </div>

@@ -1,21 +1,13 @@
 <?php 
-		 include_once 'connect.php'; 
+		include_once 'connect.php'; 
 		 $query = "SELECT * FROM baranggay "; 
- 		$result = mysqli_query($conn,$query);	
- 		?>
+$result = mysqli_query($conn,$query);	
+?>
 <?php
 include('header2.php');
 ?>
 
-
-
-
 <body>
-
-
-
-
-
 
     <section class="wrapper">
 
@@ -38,21 +30,16 @@ include('header2.php');
 
                     <option disabled selected> Select Farm</option>
 
-                        
-                   
-
                 </select>
             </div>
-
-
 
 
         </section>
         <section class="frm-btch" id="batch1" class="fetch">
             <?php
 
-   
-         ?>
+
+        ?>
 
 
         </section>
@@ -97,20 +84,16 @@ include('header2.php');
         </script>
 
 
-
-
         <style type="text/css">
         * {
             font-family: tahoma;
             padding: 0px;
             margin: 0px;
-
         }
 
         .wrapper{
             margin:10px;
         }
-
         @media screen and (max-width: 800px){
         select{
             font-size:10px !important;
@@ -148,7 +131,6 @@ include('header2.php');
         .wrapper-brgy {
             display: flex;
             justify-content: space-evenly;
-
         }
 
         .fetch {
@@ -156,7 +138,5 @@ include('header2.php');
             margin: 50px;
         }
         </style>
-
 </body>
-
 </html>
