@@ -735,7 +735,7 @@ html{
 
               <section class="batch">
                 <details>
-                  <summary><img src="../image/batches-admin.png" width="100px"></summary>
+                  <summary><a href="view-batches.php"><img src="../image/batches-admin.png" width="100px"></a></summary>
                   <section class="batch-dropdown" style="z-index:2">
                     <ul id="ul">
                     <li id="li"><a href="add-farm-batch.php"><img id="add-brgy" src="../image/add-barangay1.png" width="60px">ADD BATCH</a></li>

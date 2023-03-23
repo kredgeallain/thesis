@@ -507,6 +507,24 @@ html{
         <a id="nav-a" href="map.php"><img src="../image/mortality-rate.png" alt="generate report icon" width="30px">View farm Map</a>
         </details>
 
+         <!--batch-->
+         <details>
+            <summary>
+            <div id="barangay" class="production">
+            <a id="nav-brgy" href="add-brgy.php"><img src="../image/batches-admin.png" alt="production-logo" height="25px" width="25px"><b>
+                <p>BATCH</p>
+            </b></a>
+        </div>
+        </summary>
+
+        <a id="nav-a" href="view-batches.php"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 20 20">
+  <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+  <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+</svg>View Batches</a>
+</details>
+
+  
+
         <!--production-->
         <details>
             <summary>
@@ -539,23 +557,7 @@ html{
             </ul>
         
             </details>
-        <!--batch-->
-        <details>
-            <summary>
-        <div class="production">
-            <img src="../image/batches-admin.png" alt="production-logo" width="25px"><b>
-                <p>BATCH</p>
-            </b>
-        </div>
-        </summary>
-
-        <a id="nav-a" href="view-batches.php"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 20 20">
-  <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
-  <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
-</svg>View Batches</a>
-</details>
-
-  
+       
         <!--user-->
         <details>
         <summary>
