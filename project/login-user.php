@@ -76,12 +76,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="col-sm-8">
 
               <div class="animated-text">
-              <h2 class="typing-text">MONITORING ○ RECORDING ○ MAPPING</h2>
+              <h2 class="typing-text">MONITORING ○ INVENTORY ○ MAPPING</h2>
             </div>
             <div class="wrapper-photo">
                 <div class="system-title">
               <div class="title">
-                <h2>Inventory and Recording System for Poultry Production</h2>
+                <h2>Monitoring and Inventory System for Poultry Production</h2>
               </div>
             </div>
     
