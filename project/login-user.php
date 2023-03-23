@@ -1,52 +1,52 @@
 <?php
+// Turn on error reporting
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-@include 'connect.php';
+include 'connect.php';
 
 session_start();
 
-if($_SERVER["REQUEST_METHOD"]=="POST")
-{
-	$username=$_POST["username"];
-	$password=$_POST["password"];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  
+    $username = mysqli_real_escape_string($conn, $_POST["username"]);
+    $password = mysqli_real_escape_string($conn, $_POST["password"]);
 
 
-	$sql="select * from user where username='".$username."' AND password='".$password."' ";
+    $sql="select * from user where username='".$username."' ";
+      $result=mysqli_query($conn,$sql);
 
-	$result=mysqli_query($data,$sql);
+    	$row=mysqli_fetch_array($result);
 
-	$row=mysqli_fetch_array($result);
-	if($row["status"]=="off")
-	{
+      $hashed = $row["password"];
 
-		header('location:login-user.php?login=deactivated');
-	}
 
-	elseif($row["position"]=="agent")
-	{	
+      if (password_verify($password, $hashed)) {
+        if ($row["status"] == "off") {
+            header('location:login-user.php?login=deactivated');
+            exit();
+        }
 
-		$_SESSION["username"]=$username;
-		sleep(1);
+        if ($row["position"] == "agent") {
+            $_SESSION["username"] = $username;
+            sleep(1);
+            header("location:user ui/homepage.php");
+            exit();
+        }
 
-		header("location:user ui/homepage.php");
-	}
-
-	elseif($row["position"]=="admin")
-	{
-
-		$_SESSION["username"]=$username;
-		sleep(1);
-		header("location:homepage.php");
-	}
-
-	else
-	{
-		header('location:login-user.php?login=error');
-	}
-
+        if ($row["position"] == "admin") {
+            $_SESSION["username"] = $username;
+            sleep(1);
+            header("location:homepage.php");
+            exit();
+        }
+    } else {
+        header('location:login-user.php?login=error');
+        exit();
+    }
 }
-
-
 ?>
+
 
 
 

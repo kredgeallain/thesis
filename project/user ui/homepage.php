@@ -147,11 +147,11 @@ $row = $result->fetch_assoc();
                   </div>
                   <div class="history-content">
                     <div class="history-broiler">
-                      <a href="">Broiler</a>
+                      <a href="bhistory.php">Broiler</a>
                     </div>
 
                     <div class="history-layer">
-                      <a href="">Layer</a>
+                      <a href="lhistory.php">Layer</a>
                     </div>
                     
                   </div>

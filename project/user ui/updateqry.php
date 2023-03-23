@@ -216,38 +216,45 @@
 				$npass = $_POST['npass'];
 				$rpass = $_POST['rpass'];
 				$userID = $_POST['userID'];
+				$hash = password_hash($npass, PASSWORD_BCRYPT);
 
-				$sql = "SELECT * FROM user where userID='".$userID."'";
-				$data = mysqli_query($data, $sql);
-				$row=mysqli_fetch_array($data);
+			
+				$sql="select * from user where userID='".$userID."' ";
+				$result=mysqli_query($conn,$sql);
+		  
+				$row=mysqli_fetch_array($result);
+		  
+				$hashed = $row["password"];
 				
-				if($row["password"]==$cpass){
+				if (password_verify($cpass, $hashed)) {
 
 					if(($npass != '' && $rpass != '') && ($npass != $rpass)){
 
 						echo '<script language="javascript" type="text/javascript">
 						alert("Password fields do not match");
 						window.location = "cpass.php";
-						</script>';
+						</script>'; 
 	
 					
 					}
 					else{
 
-						mysqli_query($conn, "UPDATE `user` SET `password`='$npass' WHERE userID = '$userID' ");
+						mysqli_query($conn, "UPDATE `user` SET `password`='$hash' WHERE userID = '$userID' ");
 				
 						echo '<script language="javascript" type="text/javascript">
 						alert("Password Updated");
 						window.location = "homepage.php";
-						</script>';
+						</script>';  
 					}
 
 				}
 			else{
+
+				
 				 echo '<script language="javascript" type="text/javascript">
 				alert("Wrong Current Password");
 				window.location = "cpass.php";
-				</script>'; 
+				</script>';  
 
 			}
 			

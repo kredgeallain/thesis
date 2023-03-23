@@ -65,7 +65,6 @@
 		$userID = $_POST['userID'];
 		$name = $_POST['name'];
 		$username = $_POST['username'];
-		$password = $_POST['password'];
 		$position = $_POST["position"];
 		$status = $_POST["status"];
 		$contact= $_POST["no"];
@@ -81,7 +80,7 @@
 			 }
 			else {
 	
-		mysqli_query($data, "UPDATE `user` SET `name`='$name',`username`='$username',`position`='$position',`password`='$password',`status`='$status',`mobile_no`='$contact' WHERE userID = '$userID' ");
+		mysqli_query($data, "UPDATE `user` SET `name`='$name',`username`='$username',`position`='$position', `status`='$status',`mobile_no`='$contact' WHERE userID = '$userID' ");
 	
 	
 		echo '<script language="javascript" type="text/javascript">
@@ -209,6 +208,46 @@
 	
 		
 			}	
+
+
+			
+			if(isset($_POST['change'])){
+
+				$npass = $_POST['npass'];
+				$rpass = $_POST['rpass'];
+				$userID = $_POST['userID'];
+				$hash = password_hash($npass, PASSWORD_BCRYPT);
+
+			
+				$sql="select * from user where userID='".$userID."' ";
+				$result=mysqli_query($conn,$sql);
+		  
+				$row=mysqli_fetch_array($result);
+		  
+				$hashed = $row["password"];
+
+					if(($npass != '' && $rpass != '') && ($npass != $rpass)){
+
+						echo '<script language="javascript" type="text/javascript">
+						alert("Password fields do not match");
+						window.location = "view-user.php";
+						</script>'; 
+	
+					
+					}
+					else{
+
+						mysqli_query($conn, "UPDATE `user` SET `password`='$hash' WHERE userID = '$userID' ");
+				
+						echo '<script language="javascript" type="text/javascript">
+						alert("Password Updated");
+						window.location = "homepage.php";
+						</script>';  
+					}
+				
+		
+			
+				}	
 	
 	
 

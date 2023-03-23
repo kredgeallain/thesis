@@ -13,6 +13,8 @@
     header('location:login-user.php');
   }
 
+  
+
   $sql = "SELECT * FROM user where username='".$username."'";
 $data = mysqli_query($data, $sql);
 $row=mysqli_fetch_array($data);
@@ -42,7 +44,9 @@ $userID = $row['userID'];
               <label for="exampleInputPassword1">Confirm New Password</label>
               <input type="password" name="rpass" class="form-control" id="exampleInputPassword1" placeholder="Password">
             </div>
+            <DIV> 
             <button type="submit" name="change" class="btn btn-primary">Submit</button>
+            </DIV>
           </form>
         </div>
       </div>

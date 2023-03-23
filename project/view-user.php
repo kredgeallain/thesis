@@ -46,8 +46,6 @@ if ($result = $conn->query($sql)){
 				<th scope='col' id='pos'>Position</th>
                 <th scope='col' id='cntct'>Contact No</th>
                 <th scope='col' id='delete'> Status </th>
-				<th scope='col' id='edit'> Edit </th>
-				<th scope='col' id='delete'> Delete </th>
                
 				
 			</tr>	  
@@ -96,11 +94,7 @@ if ($result = $conn->query($sql)){
                                                         <input type="text" class="form-control" id="floatingInput" value= "'.$row['username']. '"placeholder="name" name="username" required="true">
                                                         <label for="floatingInput">Username</label>
                                                     </div>
-                                                    <div class="form-floating mb-3">
-                                                        <input type="password" class="form-control" id="floatingInput" value="'.$row['password']. '" placeholder="name" name="password" required="true">
-                                                        <label for="floatingInput">Password</label>
-                                                    </div>
-
+                                             
                                                     <select id="select" class="form-select" aria-label="Default select example" name="position" required="true">
                                                     <option disabled selected>Select Position</option>
                                                     <option value="admin" selected>Administrator</option>
@@ -130,10 +124,55 @@ if ($result = $conn->query($sql)){
                                     </div>
 
                         
-                </td>';      
+                </td>     
+
+                <td > 
+           
+
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changepass'.$row['userID'].'">
+                                        Change Password
+                                    </button>
+ 
+
+                                    <div class="modal fade" id="changepass'.$row['userID'].'" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                        <form action="updateqry.php" method="POST">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit User</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                         <div class="form-floating mb-3">
+                                                        <input type="text" class="form-control" id="floatingInput" readonly hidden value= "'.$row['userID']. '" placeholder="name" name="userID" required="true">
+                                                        <label for="floatingInput" hidden>User ID</label>
+                                                    </div>
+
+                                                    <div class="form-floating mb-3">
+                                                        <input type="password" class="form-control" id="floatingInput" placeholder="name" name="npass" required="true">
+                                                        <label for="floatingInput">New Password</label>
+                                                    </div>
+                                                    <div class="form-floating mb-3">
+                                                    <input type="password" class="form-control" id="floatingInput" placeholder="name" name="rpass" required="true">
+                                                    <label for="floatingInput">Confirm Password</label>
+                                                </div>
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                            <button name="change" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> Save</button>
+                                        </div>
+                                     
+                                        </div>
+                                        </form>
+                                    </div>
+                                    </div>
+
+                        
+                </td>     
                     
 				
-				echo '
+				
 					<td>
                     <div class="delete-button">
 						<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#deleteModal'.$row["userID"].'">

@@ -18,7 +18,7 @@ if(isset($_POST['submit'])){
 $name = mysqli_real_escape_string($data, $_POST['name']);
 $username = mysqli_real_escape_string($data, $_POST['username']);
 $password = ($_POST['password']);
-$repassword =($_POST['repassword']);
+$hash = password_hash($password, PASSWORD_BCRYPT);
 $baranggay = $_POST['baranggay'];
 $mobile_no = $_POST['mobile_no'];
 $position = $_POST['position'];
@@ -42,7 +42,7 @@ header('location:add-user.php?add=error');
 }
 
 else{
-        $insert = "INSERT INTO user(name, username, password, baranggay, mobile_no, position) VALUES('$name','$username','$password','$baranggay','$mobile_no','$position')";
+        $insert = "INSERT INTO user(name, username, password, baranggay, mobile_no, position) VALUES('$name','$username','$hash','$baranggay','$mobile_no','$position')";
         mysqli_query($data, $insert);
 		    sleep(1);
         header('location:add-user.php?add=success');
