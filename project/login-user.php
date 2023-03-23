@@ -90,7 +90,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               </div>
             </div>
       
-         
+        
 
             </div>
 
@@ -134,7 +134,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                   <a id="a" href="forgot-pass.php">Forgot password?</a>
                   <div class="login-button">
                   <div class="d-grid gap-2">
-                   
                       <button class="btn btn-primary" type="submit" name="submit" value="Log in">Login</button> 
                     </div>
                     </div>
@@ -176,6 +175,31 @@ showPasswordCheckbox.addEventListener('change', function() {
 
 
 </script>
+
+<style>
+    @media screen and (max-width: 800px){
+      #preloader {
+    background-color: white;
+    z-index: 9999;
+}
+
+#preloader img {
+  width:300px !important;
+    position: absolute;
+    top: 15%;
+    left: 13%;
+    animation: reveal 2s linear infinite;
+}
+
+#preloader h1 {
+    font-weight: bold;
+    position: absolute;
+    top: 70%;
+    left: 35%;
+    animation: reveal 2s linear infinite;
+}
+  }
+</style>
 
 </body>
 </html>
