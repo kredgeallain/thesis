@@ -2,10 +2,23 @@
 
 @include 'config.php';
 
+@include('connect.php');
+
 session_start();
 
 if(!isset($_SESSION['username'])){
    header('location:login-user.php');
+}
+else{
+$usern = $_SESSION['username'];
+$sql="select * from user where username='".$usern."' ";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($result);
+if ($row['position'] !== 'admin') {
+    header('Location:denied.php');
+    exit();
+}
+
 }
 
 ?>

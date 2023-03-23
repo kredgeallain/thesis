@@ -1,11 +1,10 @@
 <?php 
 		 include_once '..\project\connect.php'; 
+         include('header.php');
 		 $query = "SELECT * FROM baranggay "; 
  		$result = mysqli_query($conn,$query);	
+         
  		?>
-<?php
-include('header.php');
-?>
 
 
 

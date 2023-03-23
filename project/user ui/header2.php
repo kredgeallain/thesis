@@ -1,3 +1,25 @@
+<?php
+
+session_start();
+$username = $_SESSION['username'];
+
+if(!isset($_SESSION['username'])){
+   header('location:../login-user.php');
+}
+
+else {
+$sql="select * from user where username='".$username."' ";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($result);
+if ($row['position'] !== 'agent') {
+    header('Location:denied.php');
+    exit();
+}
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

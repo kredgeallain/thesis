@@ -45,7 +45,7 @@ $query = "SELECT * FROM batch where farmID=$farmID order by batch.date DESC";
 
 
 
-if ($result = $mysqli->query($query)){
+if ($result = $conn->query($query)){
     
     echo "<table class='table table-striped'>
     <thead>	  

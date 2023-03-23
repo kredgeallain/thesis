@@ -1,6 +1,8 @@
 <?php
 
 require_once 'connect.php';
+ include ("header.php");
+
 
 
 
@@ -35,7 +37,6 @@ if(isset($_POST['submit'])){
 
 ?>
 
-<?php include ("header.php");  ?>
 
 <div class="wrapper-add">
     <div class="text">

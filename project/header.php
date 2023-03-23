@@ -2,18 +2,23 @@
   @include('connect.php');
 session_start();
 
+$username = $_SESSION['username'];
 
-if (isset($_SESSION['username'])) {
-    $username = $_SESSION['username'];
+if(!isset($_SESSION['username'])){
+    header('location:login-user.php');
+ }
+ 
+
+else {
+ $sql="select * from user where username='".$username."' ";
+ $result = mysqli_query($conn, $sql);
+ $row = mysqli_fetch_assoc($result);
+ if ($row['position'] !== 'admin') {
+     header('Location:denied.php');
+     exit();
+ }
+
 }
-
-
-$sql = "SELECT * FROM user where username='".$username."'";
-$data = mysqli_query($data, $sql);
-$row=mysqli_fetch_array($data);
-
-$name = $row['name'];
-
 ?>
 
 <!DOCTYPE html>
