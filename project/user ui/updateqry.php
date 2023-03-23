@@ -141,6 +141,7 @@
 		$date = $_POST['date'];
 		$unit = $_POST['unit'];
 		$initial = $_POST['initial'];
+		$status = $_POST['status'];
 
 		$check_batch= "SELECT * from batch WHERE batch = '$batch' AND unit ='$unit' and batchID NOT IN ('$batchID') ";
 		$result = mysqli_query($conn, $check_batch);
@@ -156,7 +157,7 @@
 
 		else{
 	
-			mysqli_query($data, "UPDATE `batch` SET `batch`='$batch',`date`='$date',
+			mysqli_query($data, "UPDATE `batch` SET `batch`='$batch',`date`='$date',`status`='$status',
 			`initial`='$initial' WHERE batchID = '$batchID' ");
 	
 			echo '<script language="javascript" type="text/javascript">
@@ -196,10 +197,11 @@
 			$batchID = $_POST['batchID'];
 			$bw = $_POST['broiler_weight'];
 			$bc = $_POST['Bcurrent'];
+			$r = $_POST['reject'];
 			$m = $_POST['mortality'];
 			
 		
-				mysqli_query($data, "UPDATE `broiler` SET `broiler_weight`='$bw',`Bcurrent`='$bc',
+				mysqli_query($data, "UPDATE `broiler` SET `broiler_weight`='$bw',`Bcurrent`='$bc',`reject`='$r',
 				`mortality`='$m' WHERE broilerID = '$broilerID' ");
 		
 				echo '<script language="javascript" type="text/javascript">

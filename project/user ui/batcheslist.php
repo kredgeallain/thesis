@@ -33,17 +33,19 @@ if ($result = $data->query($batch)){
   <input type="date" class="form-control" id="date" readonly value="'.$date.'" name="date"
       aria-describedby="emailHelp" required="true">
 
-  <div class="form-floating mb-3">
+  <div class="form-floating mb-2">
       <input type="text" class="form-control" id="batch" value="" name="batch"
           placeholder="Batch Name" required="true">
       <label for="floatingInput">Batch Name</label>
   </div>
   <input type="" hidden name="farmID" value='. $farmID .' required="true">  
-  <select class="form-select form-select-sm mb-5" name="unit"
+  <div class="form-floating mb-1">
+  <select class="form-select form-select-sm mb-2" name="unit"
   aria-label=".form-select-sm example required="true"">
   <option value="layer">Layer</option>
   <option value="broiler">Broiler</option>
 </select>
+</div>
 
   <div class="form-floating mb-3">
       <input type="number" class="form-control" id="intial" value="" name="initial"
@@ -74,6 +76,7 @@ if ($result = $data->query($batch)){
             <th scope='col' id='name'>Batch</th>
             <th scope='col' id='name'>Unit</th>
             <th scope='col' id='name'>Chicken Initial No.</th>
+            <th scope='col' id='name'>Status</th>
             <th scope='col' id='name'>Date Started</th>
             
         </tr>	  
@@ -81,8 +84,15 @@ if ($result = $data->query($batch)){
     }
 
     while ($row = $result->fetch_assoc()) {
+        $status= $row["status"];
 
+        if ($row["status"] == "on") {
+           $stat="Ongoing";
+        }
 
+        if ($row["status"] == "off") {
+            $stat="Ended";
+        }
 
 
         echo"<tr>";
@@ -90,6 +100,7 @@ if ($result = $data->query($batch)){
             echo "<td id='name'>" .$row['batch']. "</td>";
             echo "<td id='name'>" .$row['unit']. "</td>";
             echo "<td id='name'>" .$row['initial']. "</td>";
+            echo "<td id='name'>" .$stat. "</td>";
             echo "<td id='name'>" .$row['date']. "</td>";
 
             echo '<td > 
@@ -125,6 +136,13 @@ if ($result = $data->query($batch)){
                                                 placeholder="Initial Number" required="true">
                                             <label for="floatingInput">Initial Number</label>
                                         </div>
+                                        <div class="form-floating mb-3">
+                                        <select id="select" class="form-select" aria-label="Default select example"  required="true" name="status">
+                                                    <option disabled selected >Status</option>
+                                                    <option value="on"' . ($status == 'on' ? ' selected' : '') . '>Ongoing</option>
+                                                    <option value="off"' . ($status == 'off' ? ' selected' : '') . '>Ended</option>
+                                      </select>
+                                      </div>
                                     </div>
                                         </div>
                                         <div class="modal-footer">

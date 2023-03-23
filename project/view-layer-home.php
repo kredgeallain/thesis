@@ -19,7 +19,6 @@ baranggay.baranggay, farm.farmname, batch.batch, user.name, batch.initial,
 SUM(layer.no_eggs) as eggs,
 SUM(layer.reject_eggs) as rej_eggs,
 SUM(layer.mortality) as mortality,
-MIN(layer.Lcurrent) as current,
 MONTH(layer.date) as month,
 YEAR(layer.date) as year
 FROM baranggay INNER JOIN farm ON baranggay.baranggayID = farm.baranggayID 
@@ -59,10 +58,11 @@ if ($result->num_rows > 0) {
 </tr>	  
 </thead>";
     while($row = $result->fetch_assoc()){
-        $current = $row['current'];
+        $initial = $row['initial'];
         $mortality = $row['mortality'];
-        $tc = $mortality+$current;
-        $mortality_rate = ( $mortality / $tc ) * 100;
+        $current = $initial-$mortality;
+       // $tc = $mortality+$current;
+        $mortality_rate = ( $mortality / $initial ) * 100;
         $new_mortality_rate = number_format($mortality_rate, 2) ;
         $rate = 20;
         $month = $row['month'];
@@ -78,7 +78,7 @@ if ($result->num_rows > 0) {
         echo "<td>".$row['rej_eggs']."</td>";
         echo "<td>".$row['initial']."</td>";
         echo "<td>".$row['mortality']."</td>";
-        echo "<td>".$row['current']."</td>";
+        echo "<td>".$current."</td>";
         if ($new_mortality_rate >= $rate ) {
             echo "<td style='color:red'> $new_mortality_rate % Danger!</td>";
             }else{

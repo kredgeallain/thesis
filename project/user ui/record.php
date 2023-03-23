@@ -1,12 +1,9 @@
 <?php 
-		 include_once '..\connect.php'; 
+		 include 'connect.php'; 
+     include('header.php');
 		 $query = "SELECT * FROM baranggay "; 
  		$result = mysqli_query($conn,$query);	
  		?>
-<?php
-include('header.php');
-?>
-
 
 <body>
     
@@ -57,14 +54,13 @@ include('header.php');
             $date = $_POST['date'];
             $no_eggs = $_POST['no-eggs'];
             $rej_eggs = $_POST['rej-eggs'];
-            $Lcurrent = $_POST['Lcurrent'];
             $mortality = $_POST['mortality'];
             $userID =  $_POST['userID'];
            
 
 
-            $insert = " INSERT INTO `layer`(`layerID`, `batchID`, `no_eggs`, `reject_eggs`, `Lcurrent`, `mortality`, `date`, `userID`) 
-                VALUES ('','$batchID','$no_eggs','$rej_eggs','$Lcurrent','$mortality','$date','$userID') ";
+            $insert = " INSERT INTO `layer`(`layerID`, `batchID`, `no_eggs`, `reject_eggs`, `mortality`, `date`, `userID`) 
+                VALUES ('','$batchID','$no_eggs','$rej_eggs',,'$mortality','$date','$userID') ";
 
                 
 
@@ -82,23 +78,24 @@ include('header.php');
         $date = $_POST['date'];
         $broiler_weight = $_POST['weight'];
         $Bcurrent = $_POST['current'];
+        $reject = $_POST['reject'];
         $mortality = $_POST['mortality'];
         $userID =  $_POST['userID'];
         $status = "off";
 
-        $insert = " INSERT INTO `broiler`(`broilerID`, `batchID`, `broiler_weight`, `Bcurrent`, `mortality`, `date`, `userID`) 
-        VALUES ('','$batchID','$broiler_weight','$Bcurrent','$mortality','$date','$userID')";
+        $insert = " INSERT INTO `broiler`(`broilerID`, `batchID`, `broiler_weight`, `Bcurrent`, `reject`, `mortality`, `date`, `userID`) 
+        VALUES ('','$batchID','$broiler_weight','$Bcurrent','$reject','$mortality','$date','$userID')";
           $success =  mysqli_query($data, $insert);
             sleep(1);
             
             if ($success) {
           mysqli_query($data, "UPDATE `batch` SET `status` = '$status' WHERE `batchID` = '$batchID' ");
 
-            
           echo '<script language="javascript" type="text/javascript">
-            alert("Production Data Added!");
-            window.location = "homepage.php";
-            </script>';
+          alert("Production Data Added!");
+          window.location = "homepage.php";
+          </script>';
+         
           }
             
 }

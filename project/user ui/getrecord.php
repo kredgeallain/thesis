@@ -27,8 +27,23 @@ $init= $row2['initial'];
 
 
 if($row2["unit"]=="layer")
-{ echo '
-<form method="post" action="record.php" id="form1">
+{ 
+
+    $sql ="SELECT SUM(layer.mortality) as mortality,batch.initial FROM batch 
+    INNER JOIN layer ON batch.batchID = layer.batchID  where batch.batchID=$batchID";
+   $result = $conn->query($sql);
+   $row = $result->fetch_assoc();
+
+   $mortality = $row['mortality'];
+   $initial = $row['initial'];
+
+   $current = $initial-$mortality;
+    
+    
+    
+    
+    echo '
+<form method="post" action="record-home.php" id="form1">
 
 <div class="record-wrapper">
 <h1>Layer</h1>
@@ -63,7 +78,7 @@ if($row2["unit"]=="layer")
 
 <div class="Bcurrent">
     <label for=""> Current</label>
-    <input  class="form-control" type="number" name="Lcurrent" id="Lcurrent"  required="true">
+    <input  class="form-control" type="number"  readonly value='. $current .' name="" id="Lcurrent"  required="true">
 </div>
 
 <div class="mortality">
@@ -86,9 +101,10 @@ if($row2["unit"]=="layer")
 
 
 else {
+    
  
    echo '
-    <form method="post" action="record.php" id="form2">
+    <form method="post" action="record-home.php" id="form2">
 
 <div class="record-wrapper">  
 
@@ -113,9 +129,14 @@ else {
 </div>
 
     <div class="current">
-        <label for="">Current</label>
+        <label for="">Harvested</label>
         <input  class="form-control" type="number" name="current" id="current" required="true" >
     </div>
+    <div class="current">
+    <label for="">Rejected</label>
+    <input  class="form-control" type="number" name="reject" id="current" required="true" >
+</div>
+
 
     <div class="mortality">
         <label for="dead">Mortality</label>

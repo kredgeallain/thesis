@@ -14,12 +14,12 @@ $mysqli = new mysqli("localhost", $username, $password, $database);
 @include('connect.php');
 
 $sql = "SELECT 
-baranggay.baranggay, farm.farmname, batch.batch,
+baranggay.baranggay, farm.farmname, batch.batch, batch.initial, broiler.reject,
 
 SUM(broiler.broiler_weight) as weight,
 
 SUM(broiler.mortality) as mortality,
-MIN(broiler.Bcurrent) as current,
+SUM(broiler.Bcurrent) as harvest,
 MONTH(broiler.date) as month,
 YEAR(broiler.date) as year
 FROM baranggay INNER JOIN farm ON baranggay.baranggayID = farm.baranggayID 
@@ -47,18 +47,20 @@ if ($result->num_rows > 0) {
 <th scope='col' id='name'> Farm </th>
 <th scope='col' id='u-name'> Batch </th>
 <th scope='col' id='u-name'> Total Weight </th>
+<th scope='col' id='u-name'> Reject </th>
 <th scope='col' id='u-name'> Mortality </th>
-<th scope='col' id='u-name'> Current </th>
+<th scope='col' id='u-name'> Harvest </th>
 <th scope='col' id='u-name'> Mortality Rate </th>
 
 
 </tr>	  
 </thead>";
     while($row = $result->fetch_assoc()){
-        $current = $row['current'];
+        $harvest = $row['harvest'];
+        $initial = $row['initial'];
         $mortality = $row['mortality'];
-        $tc = $mortality+$current;
-        $mortality_rate = ( $mortality / $tc ) * 100;
+        $current = $initial-$mortality;
+        $mortality_rate = ( $mortality / $initial ) * 100;
         $new_mortality_rate = number_format($mortality_rate, 2) ;
         $rate = 20;
         $month = $row['month'];
@@ -71,9 +73,9 @@ if ($result->num_rows > 0) {
         echo "<td>".$row['farmname']."</td>";
         echo "<td>".$row['batch']."</td>";
         echo "<td>".$row['weight']."</td>";
-  
+        echo "<td>".$row['reject']."</td>";
         echo "<td>".$row['mortality']."</td>";
-        echo "<td>".$row['current']."</td>";
+        echo "<td>".$row['harvest']."</td>";
         if ($new_mortality_rate >= $rate ) {
             echo "<td style='color:red'> $new_mortality_rate % Danger!</td>";
             }else{

@@ -1,6 +1,7 @@
 <?php
- session_start();
+
 include 'connect.php';
+include ("header2.php");
 
 
 if(isset($_SESSION['username'])){
@@ -20,7 +21,6 @@ $userID = $row['userID'];
 
 ?>
 
-<?php include ("header2.php");  ?>
 
 <div class="wrapper">
 
@@ -42,18 +42,23 @@ $userID = $row['userID'];
 
 
 
-$sql = "SELECT * from layer where userID=$userID order by date DESC";
+$sql ="SELECT layer.mortality, layer.no_eggs, layer.reject_eggs, layer.date, layer.layerID, layer.userID, batch.batchID, batch.batch, batch.initial FROM layer 
+INNER JOIN batch ON layer.batchID = batch.batchID
+where layer.userID=$userID order by layer.date DESC";
 
 if ($result = $conn->query($sql)){
+    
+ 
+
     echo "<table class='table table-striped'>
     <thead class='thead-dark'>	  
     <tr>
         
         <th scope='col' hidden  id='count'>Layer ID</th>
         <th scope='col' hidden id='count'>Batch ID</th>
+        <th scope='col' id='name'>Batch</th>
         <th scope='col' id='name'>No. of Eggs</th>
         <th scope='col' id='name'>No. of Rejected Eggs</th>
-        <th scope='col' id='name'>Current number per Heads</th>
         <th scope='col' id='name'>Mortality</th>
         <th scope='col' id='name'>Date Recorded</th>
         <th scope='col' id='name'>Recorded by</th>
@@ -62,13 +67,18 @@ if ($result = $conn->query($sql)){
         }
 
         while ($row = $result->fetch_assoc()) { 
+
+            $mortality = $row['mortality'];
+            $initial = $row['initial'];
+         
+            $current = $initial-$mortality;
            
             echo"<tr>";
             echo "<td id='name' hidden >" .$row['layerID']. " </td>";
             echo "<td id='name' hidden >" .$row['batchID']. "</td>";
+            echo "<td id='name' >" .$row['batch']. "</td>";
             echo "<td id='name' >" .$row['no_eggs']. "</td>";
             echo "<td id='name'>" .$row['reject_eggs']. "</td>";
-            echo "<td id='name'>" .$row['Lcurrent']. "</td>";
             echo "<td id='name'>" .$row['mortality']. "</td>";
             echo "<td id='name'>" .$row['date']. "</td>";
 
@@ -108,7 +118,7 @@ if ($result = $conn->query($sql)){
                             <label for="floatingInput">No. of Rejected Eggs</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingInput" value="'.$row['Lcurrent']. '" placeholder="name" name="Lcurrent" required="true">
+                            <input type="text" class="form-control" id="floatingInput" value="'.$current. '" placeholder="name" name="Lcurrent" required="true">
                             <label for="floatingInput">Currenct No. of Chickens </label>
                         </div>
                         <div class="form-floating mb-3">

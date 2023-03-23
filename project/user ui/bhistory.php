@@ -1,7 +1,7 @@
 <?php
- session_start();
-include 'connect.php';
 
+include 'connect.php';
+include ("header2.php"); 
 
 if(isset($_SESSION['username'])){
     $username = $_SESSION['username'];
@@ -20,7 +20,6 @@ $userID = $row['userID'];
 
 ?>
 
-<?php include ("header2.php");  ?>
 
 <div class="wrapper">
 
@@ -29,7 +28,7 @@ $userID = $row['userID'];
                 viewBox="0 2 20 16">
                 <path
                     d="M5.793 1a1 1 0 0 1 1.414 0l.647.646a.5.5 0 1 1-.708.708L6.5 1.707 2 6.207V12.5a.5.5 0 0 0 .5.5.5.5 0 0 1 0 1A1.5 1.5 0 0 1 1 12.5V7.207l-.146.147a.5.5 0 0 1-.708-.708L5.793 1Zm3 1a1 1 0 0 1 1.414 0L12 3.793V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v3.293l1.854 1.853a.5.5 0 0 1-.708.708L15 8.207V13.5a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 4 13.5V8.207l-.146.147a.5.5 0 1 1-.708-.708L8.793 2Zm.707.707L5 7.207V13.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5V7.207l-4.5-4.5Z" />
-            </svg>Production Details</h2>
+            </svg>Broiler Production Details</h2>
     </section>
 
     <section class="view">
@@ -42,7 +41,9 @@ $userID = $row['userID'];
 
 
 
-$sql = "SELECT * from broiler where userID=$userID";
+$sql ="SELECT broiler.mortality, broiler.broiler_weight, broiler.Bcurrent, broiler.date, broiler.broilerID, broiler.reject, broiler.userID, batch.batchID, batch.batch, batch.initial FROM broiler 
+INNER JOIN batch ON broiler.batchID = batch.batchID
+where broiler.userID=$userID order by broiler.date DESC";
 
 if ($result = $conn->query($sql)){
     echo "<table class='table table-striped'>
@@ -51,8 +52,10 @@ if ($result = $conn->query($sql)){
         
         <th scope='col' hidden id='name'>Broiler ID</th>
         <th scope='col' hidden id='name'>Batch ID</th>
+        <th scope='col' id='name'>Batch</th>       
         <th scope='col' id='name'>Broiler Weight</th>
-        <th scope='col' id='name'>Current Number per Head</th>
+        <th scope='col' id='name'>Harvested</th>
+        <th scope='col' id='name'>Rejected</th>
         <th scope='col' id='name'>Mortality</th>
         <th scope='col' id='name'>Date Recorded</th>
         
@@ -65,8 +68,10 @@ if ($result = $conn->query($sql)){
             echo"<tr>";
             echo "<td id='name' hidden >" .$row['broilerID']. "</td>";
             echo "<td id='name' hidden >" .$row['batchID']. "</td>";
+            echo "<td id='name'>" .$row['batch']. "</td>";
             echo "<td id='name'>" .$row['broiler_weight']. "</td>";
             echo "<td id='name'>" .$row['Bcurrent']. "</td>";
+            echo "<td id='name'>" .$row['reject']. "</td>";
             echo "<td id='name'>" .$row['mortality']. "</td>";
             echo "<td id='name'>" .$row['date']. "</td>";
 
@@ -102,8 +107,12 @@ if ($result = $conn->query($sql)){
                                     <label for="floatingInput">Broiler Weight</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="floatingInput" value= "'.$row['Bcurrent']. '"placeholder="name" name="Bcurrent" required="true">
-                                    <label for="floatingInput">Current no. of Chicken</label>
+                                <input type="text" class="form-control" id="floatingInput" value= "'.$row['Bcurrent']. '"placeholder="name" name="Bcurrent" required="true">
+                                <label for="floatingInput">Harvested</label>
+                            </div>
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="floatingInput" value= "'.$row['reject']. '"placeholder="name" name="reject" required="true">
+                                    <label for="floatingInput">Rejcted</label>
                                 </div>
                                 <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="floatingInput" value="'.$row['mortality']. '" placeholder="name" name="mortality" required="true">
