@@ -3,7 +3,7 @@
 
 
  session_start();
- @include 'header.php';
+ @include 'header2.php';
 
  if(isset($_SESSION['username'])){
     $username = $_SESSION['username'];

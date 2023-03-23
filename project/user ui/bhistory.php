@@ -20,7 +20,7 @@ $userID = $row['userID'];
 
 ?>
 
-<?php include ("header.php");  ?>
+<?php include ("header2.php");  ?>
 
 <div class="wrapper">
 
