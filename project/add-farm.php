@@ -121,7 +121,7 @@ if(isset($_POST['submit'])){
                         <p id="optional">(optional)</p>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="farmname" name="farmname" placeholder="Farm Name" required="true">
+                        <input type="text" pattern="[a-zA-Z0-9\s]+" class="form-control" id="farmname" name="farmname" placeholder="Farm Name" required="true">
                         <label for="floatingInput" id="label">Name</label>
                     </div>
                 </div>
@@ -131,14 +131,14 @@ if(isset($_POST['submit'])){
                         <p>Farm Owner</p>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" name="farmowner" id="farmowner" placeholder="Farm Owner" required="true">
+                        <input type="text" class="form-control" name="farmowner" id="farmowner" placeholder="Farm Owner" pattern="[a-zA-Z0-9\s.]+" required="true">
                         <label for="floatingInput" required="true" id="label">Firstname/ M.I / Lastname</label>
                     </div>
                 </div>
 
                 <div class="content-input">
                     <div class="form-floating mb-3">
-                        <input type="contact" class="form-control" name="contactno" id="contactno"
+                        <input type="contact" class="form-control" name="contactno" id="contactno" pattern="[0-9\s+]+"
                             placeholder="Contact No." required="true">
                         <label for="floatingInput" required="true" d>Contact No.</label>
                     </div>
@@ -457,6 +457,22 @@ form {
 .content-input {
     margin-top: 30px;
 }
+
+input:invalid {
+        animation: shake 0.5s;
+        border: 1px solid red !important;
+      }
+
+      input:valid{
+        border:1px solid green !important;
+      }
+      
+      @keyframes shake {
+        0% { transform: translateX(0); }
+        25% { transform: translateX(-10px); }
+        50% { transform: translateX(10px); }
+        75% { transform: translateX(-10px); }
+        
 </style>
 
 </body>

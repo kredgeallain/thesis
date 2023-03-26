@@ -101,16 +101,16 @@ if ($result = $conn->query($query)){
                     <label for="floatingInput" hidden>User ID</label>
                 </div>
                      <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="floatingInput" readonly hidden value= "'.$row['farmID']. '" placeholder="name" name="farmID" required="true">
+                                    <input type="text" class="form-control" id="floatingInput" readonly hidden value= "'.$row['farmID']. '" placeholder="name" name="farmID"  required="true">
                                     <label for="floatingInput" hidden>User ID</label>
                                 </div>
 
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="floatingInput" value= "'.$row['farmname']. '" placeholder="name" name="farmname" required="true">
+                                    <input type="text" pattern="[a-zA-Z0-9\s]+" class="form-control" id="floatingInput" value= "'.$row['farmname']. '" placeholder="name" name="farmname" required="true">
                                     <label for="floatingInput">Farm Name</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="floatingInput" value= "'.$row['farmowner']. '"placeholder="name" name="farmowner" required="true">
+                                    <input type="text" pattern="[a-zA-Z0-9\s.]+" class="form-control" id="floatingInput" value= "'.$row['farmowner']. '"placeholder="name" name="farmowner" required="true">
                                     <label for="floatingInput">Farm Owner</label>
                                 </div>
                                 <div class="form-floating mb-3">
@@ -270,6 +270,23 @@ tr:hover {
 a {
     text-decoration: none !important;
 }
+input:invalid {
+        animation: shake 0.5s;
+        border: 1px solid red !important;
+      }
+
+      input:valid{
+        border:1px solid green !important;
+      }
+      
+      @keyframes shake {
+        0% { transform: translateX(0); }
+        25% { transform: translateX(-10px); }
+        50% { transform: translateX(10px); }
+        75% { transform: translateX(-10px); }
+        100% { transform: translateX(0); }
+      }
+</style>
 </style>
 </body>
 

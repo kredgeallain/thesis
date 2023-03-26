@@ -115,7 +115,7 @@ else{
 
 
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" name="name" id="name" placeholder="Name"
+                                <input type="text" class="form-control" name="name" id="name" placeholder="Name" pattern="[a-zA-Z0-9\s.]+"
                                     required="true">
                                 <label for="floatingInput">Firstname/ M.I / Lastname </label>
                             </div>
@@ -123,7 +123,7 @@ else{
 
 
                             <div class="form-floating mb-3">
-                                <input type="username" class="form-control" name="username" id="username"
+                                <input type="username" class="form-control" name="username" id="username" pattern="[a-zA-Z0-9\s]+"
                                     placeholder="username" required="true">
                                 <label for="floatingInput">Username</label>
                             </div>
@@ -145,7 +145,7 @@ else{
 
                             <div class="form-floating mb-3">
                                 <input type="password" class="form-control" name="repassword" id="repassword"
-                                    placeholder="Password">
+                                    placeholder="Password" required="true">
                                 <label for="floatingPassword">Re-enter Password</label>
                             </div>
 
@@ -287,6 +287,22 @@ select {
     border: none;
     background-color: #007FFF;
 }
+      input:invalid {
+        animation: shake 0.5s;
+        border: 1px solid red !important;
+      }
+
+      input:valid{
+        border:1px solid green !important;
+      }
+      
+      @keyframes shake {
+        0% { transform: translateX(0); }
+        25% { transform: translateX(-10px); }
+        50% { transform: translateX(10px); }
+        75% { transform: translateX(-10px); }
+        100% { transform: translateX(0); }
+      }
 </style>
 </body>
 

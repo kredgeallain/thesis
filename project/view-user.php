@@ -87,14 +87,14 @@ if ($result = $conn->query($sql)){
                                                     </div>
 
                                                     <div class="form-floating mb-3">
-                                                        <input type="text" class="form-control" id="floatingInput" value= "'.$row['name']. '" placeholder="name" name="name" required="true">
+                                                        <input type="text" class="form-control" pattern="[a-zA-Z0-9\s.]+" id="floatingInput" value= "'.$row['name']. '" placeholder="name" name="name" required="true">
                                                         <label for="floatingInput">Name</label>
                                                     </div>
                                                     <div class="form-floating mb-3">
-                                                        <input type="text" class="form-control" id="floatingInput" value= "'.$row['username']. '"placeholder="name" name="username" required="true">
+                                                        <input type="text" class="form-control" pattern="[a-zA-Z0-9\s]+" id="floatingInput" value= "'.$row['username']. '"placeholder="name" name="username" required="true">
                                                         <label for="floatingInput">Username</label>
                                                     </div>
-                                             
+                                            
                                                     <select id="select" class="form-select" aria-label="Default select example" name="position" required="true">
                                                     <option disabled selected>Select Position</option>
                                                     <option value="admin" selected>Administrator</option>
@@ -117,7 +117,7 @@ if ($result = $conn->query($sql)){
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                                             <button name="edit-user" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> Save</button>
                                         </div>
-                                     
+                                    
                                         </div>
                                         </form>
                                     </div>
@@ -212,8 +212,8 @@ if ($result = $conn->query($sql)){
 ?>
 
         <form action="" method="post">
-            <input type="text" name="search" placeholder="Search...">
-            <input type="submit" value="search">
+            <input id="search" type="text" name="search" placeholder="Search...">
+            <input type="submit" id="search" value="search">
         </form>
 
         <div class="add">
@@ -325,6 +325,26 @@ if ($result = $conn->query($sql)){
     #select {
         margin-bottom: 18px;
     }
+
+    input:invalid {
+        animation: shake 0.5s;
+        border: 1px solid red !important;
+      }
+
+      input:valid{
+        border:1px solid green !important;
+      }
+      
+      @keyframes shake {
+        0% { transform: translateX(0); }
+        25% { transform: translateX(-10px); }
+        50% { transform: translateX(10px); }
+        75% { transform: translateX(-10px); }
+        100% { transform: translateX(0); }
+      }
+      #search{
+        border:1px solid grey !important;
+      }
     </style>
     </body>
 

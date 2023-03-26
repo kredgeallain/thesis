@@ -104,15 +104,15 @@ if (mysqli_num_rows($result) > 0) {
                             </div>
 
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="floatingInput" value= "'.$row['farmname']. '" placeholder="name" name="farmname" required="true">
+                                <input type="text" class="form-control" id="floatingInput" value= "'.$row['farmname']. '" placeholder="name" name="farmname" pattern="[a-zA-Z0-9\s]+" required="true">
                                 <label for="floatingInput">Farm Name</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="floatingInput" value= "'.$row['farmowner']. '"placeholder="name" name="farmowner" required="true">
+                                <input type="text" class="form-control" id="floatingInput" value= "'.$row['farmowner']. '"placeholder="name" name="farmowner" pattern="[a-zA-Z0-9\s.]+" required="true">
                                 <label for="floatingInput">Farm Owner</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="floatingInput" value="'.$row['contactno']. '" placeholder="name" name="contactno" required="true">
+                                <input type="text" class="form-control" id="floatingInput" value="'.$row['contactno']. '" placeholder="name" name="contactno"  required="true">
                                 <label for="floatingInput">Contact No.</label>
                             </div>
 
@@ -143,8 +143,8 @@ if (mysqli_num_rows($result) > 0) {
 </section>
 
 <form action="" method="post">
-    <input type="text" name="search" placeholder="Search...">
-    <input type="submit" value="Search">
+    <input id="search" type="text" name="search" placeholder="Search...">
+    <input id="search" type="submit" value="Search">
 </form>
 
 
@@ -317,6 +317,27 @@ td {
 #select-unit {
     margin-bottom: 18px;
 }
+
+input:invalid {
+        animation: shake 0.5s;
+        border: 1px solid red !important;
+      }
+
+input:valid{
+        border:1px solid green !important;
+      }
+      
+      @keyframes shake {
+        0% { transform: translateX(0); }
+        25% { transform: translateX(-10px); }
+        50% { transform: translateX(10px); }
+        75% { transform: translateX(-10px); }
+        100% { transform: translateX(0); }
+      }
+
+    #search{
+        border:1px solid grey !important;
+    }
 </style>
 </body>
 

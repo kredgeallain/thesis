@@ -119,17 +119,18 @@ if ($result = $data->query($query)){
                   <form action="updateqry.php" method="POST">
                   <div class="modal-header">
                       <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Barangay</h1>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" ></button>
                   </div>
                   <div class="modal-body">
 
                               <div class="form-floating mb-3">
-                                  <input name="baranggay" type="text" value= "'  .$row['baranggay']. '" class="form-control" id="floatingInput" placeholder="name" >
+                                  <input name="baranggay" type="text" value= "'  .$row['baranggay']. '" class="form-control" id="floatingInput" placeholder="name" pattern="[a-zA-Z0-9\s]+" require >
                                   <label for="floatingInput">Barangay</label>
                               </div>
                               <div class="form-floating mb-3">
                               <input type="text" name="baranggayID" class="form-control" value= "'  .$row['baranggayID']. '" hidden readonly id="floatingInput" placeholder="name">
                               <label for="floatingInput"></label>
+                             
                           </div>
 
                   </div>
@@ -229,5 +230,31 @@ if ($result = $data->query($query)){
     #edit-list {
         color: white !important;
     }
+
+    input:invalid {
+        animation: shake 0.5s;
+        border: 1px solid red !important;
+      }
+
+      input:valid{
+        border:1px solid green !important;
+      }
+      
+      @keyframes shake {
+        0% { transform: translateX(0); }
+        25% { transform: translateX(-10px); }
+        50% { transform: translateX(10px); }
+        75% { transform: translateX(-10px); }
+        100% { transform: translateX(0); }
+      }
+
+#error-message{
+    display:none !important;
+}
+
+input [invalid] #error-message{
+    display:flex;
+}
+</style>
 
     </style>
