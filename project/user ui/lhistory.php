@@ -6,18 +6,17 @@ include ("header2.php");
 
 if(isset($_SESSION['username'])){
     $username = $_SESSION['username'];
-   
-  }
-  else {
+
+}
+else {
     header('location:login-user.php');
-  }
+}
 
   $sql = "SELECT * FROM user where username='".$username."'";
 $data = mysqli_query($data, $sql);
 $row=mysqli_fetch_array($data);
 
 $userID = $row['userID'];
-
 
 ?>
 
@@ -48,9 +47,12 @@ where layer.userID=$userID order by layer.date DESC";
 
 if ($result = $conn->query($sql)){
     
- 
 
-    echo "<table class='table table-striped'>
+
+    echo "
+    <div class='main'>
+    <table class='table table-striped'>
+
     <thead class='thead-dark'>	  
     <tr>
         
@@ -61,7 +63,6 @@ if ($result = $conn->query($sql)){
         <th scope='col' id='name'>No. of Rejected Eggs</th>
         <th scope='col' id='name'>Mortality</th>
         <th scope='col' id='name'>Date Recorded</th>
-        <th scope='col' id='name'>Recorded by</th>
     </tr>	  
     </thead>";
         }
@@ -70,9 +71,9 @@ if ($result = $conn->query($sql)){
 
             $mortality = $row['mortality'];
             $initial = $row['initial'];
-         
+        
             $current = $initial-$mortality;
-           
+        
             echo"<tr>";
             echo "<td id='name' hidden >" .$row['layerID']. " </td>";
             echo "<td id='name' hidden >" .$row['batchID']. "</td>";
@@ -103,7 +104,7 @@ if ($result = $conn->query($sql)){
             <input type="text" class="form-control" id="floatingInput" readonly hidden value=  "'.$row['layerID']. '" placeholder="name" name="layerID" required="true">
             <label for="floatingInput" hidden>User ID</label>
         </div>
-             <div class="form-floating mb-3">
+            <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="floatingInput" readonly  hidden value= "'.$row['batchID']. '" 
                             placeholder="name" name="batchID" required="true">
                             <label for="floatingInput" hidden>User ID</label>
@@ -126,7 +127,7 @@ if ($result = $conn->query($sql)){
                         <label for="floatingInput"> Mortality </label>
                     </div>
                 
-               
+            
 
                     
 
@@ -135,7 +136,7 @@ if ($result = $conn->query($sql)){
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                 <button name="edit-layer" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> Save</button>
             </div>
-         
+        
             </div>
             </form>
         </div>
@@ -144,10 +145,8 @@ if ($result = $conn->query($sql)){
             
     </td>';  
 
-     
-              
         }
-    "</table>";
+    "</table></div>";
 
 
     
@@ -268,6 +267,21 @@ tr:hover {
 
 a {
     text-decoration: none !important;
+}
+
+@media screen and (max-width: 800px){
+.view{
+    width:50% !important;
+}
+th{
+    font-size:12px;
+}
+td{
+    font-size:13px;
+}
+button{
+    font-size:10px;
+}
 }
 </style>
 </body>
