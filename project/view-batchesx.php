@@ -102,9 +102,14 @@ if ($result = $conn->query($query)){
             
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control" id="batch" value="'.$row['batch'].'" name="batch"
-                            placeholder="Batch Name"  pattern="[a-zA-Z0-9\s/]+" required="true">
+                            placeholder="Batch Name"  pattern="[a-zA-Z0-9]+" required="true">
                         <label for="floatingInput">Batch Name</label>
                     </div>
+                    <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="batch" value="'.$row['unit'].'" hidden name="unit"
+                        placeholder="Batch Name"  pattern="[a-zA-Z0-9]+" required="true">
+                    
+                </div>
                     <input type=""  name="farmID" hidden value='. $farmID .' required="true"> 
                     <input type=""  name="batchID" hidden value="'.$row['batchID'].'" required="true"> 
                 
@@ -160,7 +165,7 @@ if ($result = $conn->query($query)){
             aria-describedby="emailHelp" required="true">
 
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="batch" name="batch" pattern="[a-zA-Z0-9\s/]+"
+            <input type="text" class="form-control" id="batch" name="batch" pattern="[a-zA-Z0-9]+"
                 placeholder="Batch Name" required="true">
             <label for="floatingInput">Batch Name</label>
         </div>

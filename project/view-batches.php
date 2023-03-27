@@ -38,7 +38,7 @@
                     <option disabled selected> Select Farm</option>
 
                         
-                   
+                
 
                 </select>
             </div>
@@ -51,7 +51,7 @@
             <?php
 
    
-         ?>
+        ?>
 
 
         </section>

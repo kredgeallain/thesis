@@ -31,7 +31,7 @@ if ($result = $data->query($batch)){
 
         <div class="form-floating mb-3">
             <input type="text" class="form-control" id="batch" name="batch"
-                placeholder="Batch Name" required="true">
+                placeholder="Batch Name" required="true" pattern="[a-zA-Z0-9]+">
             <label for="floatingInput">Batch Name</label>
         </div>
         <input type="" hidden name="farmID" value='. $farmID .' required="true"> 
@@ -87,51 +87,49 @@ if ($result = $data->query($batch)){
                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edituser'.$row['batchID'].'">
                                         Edit
                                     </button>
- 
-
-                                    <div class="modal fade" id="edituser'.$row['batchID'].'" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered">
-                                    <form action="updateqry.php" method="POST" id="form1" >
-                                        <div class="modal-content">
-                                        
-                                        <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Batch</h1>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                        <div class="card card-body">
-                                        <input type="date" class="form-control" id="date" readonly value="'.$row['date'].'" name="date"
-                                            aria-describedby="emailHelp" required="true">
-                                
-                                        <div class="form-floating mb-3">
-                                            <input type="text" class="form-control" id="batch" value="'.$row['batch'].'" name="batch"
-                                                placeholder="Batch Name" required="true">
-                                            <label for="floatingInput">Batch Name</label>
-                                        </div>
-                                        <input type=""  name="farmID" hidden value='. $farmID .' required="true"> 
-                                        <input type=""  name="batchID" hidden value="'.$row['batchID'].'" required="true"> 
-                                        <input type=""  name="unit" hidden value="'.$row['unit'].'" required="true">
-                                        <div class="form-floating mb-3">
-                                            <input type="number" class="form-control" id="intial" value="'.$row['initial'].'" name="initial"
-                                                placeholder="Initial Number" required="true">
-                                            <label for="floatingInput">Initial Number</label>
-                                        </div>
-                                    </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                          <button class="btn btn-primary" type="submit" name="edit-batch" id="submit" value="">Save</button>
-                                        </div>
-                                      </div>
-                                        </div>
-                                        </form>
-                                    </div>
-                                    
-                                    </div>
-                                   
-
-                        
                 </td>
+                
+                <div class="modal fade" id="edituser'.$row['batchID'].'" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                <form action="updateqry.php" method="POST" id="form1" >
+                    <div class="modal-content">
+                    
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Batch</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                    <div class="card card-body">
+                    <input type="date" class="form-control" id="date" readonly value="'.$row['date'].'" name="date"
+                        aria-describedby="emailHelp" required="true">
+            
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="batch" value="'.$row['batch'].'" name="batch"
+                            placeholder="Batch Name" required="true" pattern="[a-zA-Z0-9]+">
+                        <label for="floatingInput">Batch Name</label>
+                    </div>
+                    <input type=""  name="farmID" hidden value='. $farmID .' required="true"> 
+                    <input type=""  name="batchID" hidden value="'.$row['batchID'].'" required="true"> 
+                    <input type=""  name="unit" hidden value="'.$row['unit'].'" required="true">
+                    <div class="form-floating mb-3">
+                        <input type="number" class="form-control" id="intial" value="'.$row['initial'].'" name="initial"
+                            placeholder="Initial Number" required="true">
+                        <label for="floatingInput">Initial Number</label>
+                    </div>
+                </div>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Close</button>
+                      <button class="btn btn-primary" type="submit" name="edit-batch" id="submit" value="">Save</button>
+                    </div>
+                  </div>
+                    </div>
+                    </form>
+                </div>
+                
+                </div>
+              
+
                 </form>';      
         
         
@@ -143,3 +141,22 @@ if ($result = $data->query($batch)){
         
 
 ?>
+
+<style>
+    #batch:invalid {
+        animation: shake 0.5s !important;
+        border: 1px solid red !important;
+      }
+
+#batch:valid{
+        border:1px solid green !important;
+      }
+      
+      @keyframes shake {
+        0% { transform: translateX(0); }
+        25% { transform: translateX(-10px); }
+        50% { transform: translateX(10px); }
+        75% { transform: translateX(-10px); }
+        100% { transform: translateX(0); }
+      }
+</style>

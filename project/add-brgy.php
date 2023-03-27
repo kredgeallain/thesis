@@ -64,7 +64,7 @@ include ("header.php");
         <div class="add-brgy-button">
             <div class="input-group flex-nowrap">
                 <span class="input-group-text" id="addon-wrapping">Barangay</span>
-                <input type="text" class="form-control" placeholder="Name" name="brgy" required="true"
+                <input type="text" class="form-control" value="Name" name="brgy" pattern="[a-zA-Z0-9\s]+" required="true"
                     aria-describedby="addon-wrapping">
             </div>
             <button type="submit" class="btn btn-primary" id="brgy-btn" name="submit">Add</button>

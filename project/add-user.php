@@ -100,11 +100,11 @@ else{
                             </div>
 
                             <div class="input2">
-                                <select class="form-select" aria-label="Default select example" name="baranggay"
-                                    id="baranggay" placeholder="Select Barangay" required="true">
-                                    <option disabled selected>Select Barangay</option>
-                                    <?php echo $bfetch; ?>
-                             
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" name="name" id="name" placeholder="Name"
+                                    required="true">
+                                <label for="floatingInput">Address</label>
+                            </div>
                                 </select>
                             </div>
 
@@ -250,8 +250,7 @@ input {
 
 select {
     padding: 10px;
-    margin: 30px;
-    margin-left: 10px;
+    margin-bottom: 30px;
     outline: 0;
     background-image: none;
     border: 1px solid black;

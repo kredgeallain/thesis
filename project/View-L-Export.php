@@ -35,12 +35,11 @@ if (isset($_POST['start_date']) && isset($_POST['end_date'])) {
 
 
     $sql = "SELECT 
-    baranggay.baranggay, farm.farmname, batch.batch as b, batch.unit,
+    baranggay.baranggay, farm.farmname, batch.batch as b, batch.unit, batch.initial,
 
     SUM(layer.no_eggs) as eggs,
     SUM(layer.reject_eggs) as rej_eggs,
     SUM(layer.mortality) as mortality,
-    MIN(layer.Lcurrent) as current,
     MONTH(layer.date) as month,
     YEAR(layer.date) as year
     FROM baranggay INNER JOIN farm ON baranggay.baranggayID = farm.baranggayID 
@@ -79,8 +78,9 @@ if (isset($_POST['start_date']) && isset($_POST['end_date'])) {
     </tr>	  
     </thead>";
         while ($row = $result->fetch_assoc()) {
-            $current = $row['current'];
+            $initial = $row['initial'];
             $mortality = $row['mortality'];
+            $current = $initial-$mortality;
             $mortality_rate = ($mortality / $current) * 100;
             $new_mortality_rate = number_format($mortality_rate, 2);
             $rate = 20;
@@ -97,7 +97,7 @@ if (isset($_POST['start_date']) && isset($_POST['end_date'])) {
             echo "<td>" . $row['eggs'] . "</td>";
             echo "<td>" . $row['rej_eggs'] . "</td>";
             echo "<td>" . $row['mortality'] . "</td>";
-            echo "<td>" . $row['current'] . "</td>";
+            echo "<td>" . $current . "</td>";
             if ($new_mortality_rate >= $rate) {
                 echo "<td style='color:red'> $new_mortality_rate % </td>";
             } else {

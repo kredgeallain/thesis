@@ -111,8 +111,12 @@ if(isset($_POST['submit'])){
     <form action="#" method="POST">
         <div class="form-body">
             <!--Form-->
-            <div class="cotent-input">
 
+<div class="container text-center">
+  <div class="row">
+    <div class="col">
+    
+            <div class="cotent-input">
                 <select class="form-select" name="baranggayID" aria-label="Default select example" required="true">
                     <option disabled selected>Barangay</option>
                     <?php echo $bfetch; ?>
@@ -124,7 +128,7 @@ if(isset($_POST['submit'])){
                         <p>Farm Name</p>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" pattern="[a-zA-Z0-9\s]+" class="form-control" id="farmname" name="farmname" placeholder="Farm Name" required="true">
+                        <input size="75" type="text" pattern="[a-zA-Z0-9\s]+" class="form-control" id="farmname" name="farmname" placeholder="Farm Name" required="true">
                         <label for="floatingInput" id="label">Use unique farm name or add 'branch' if already exists.</label>
                     </div>
                 </div>
@@ -133,7 +137,7 @@ if(isset($_POST['submit'])){
                         <p>Farm Size</p>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="number" pattern="[a-zA-Z0-9\s]+" class="form-control" id="farmname" name="farm_size" placeholder="Farm Name" required="true">
+                        <input type="text" pattern="[0-9.]+" class="form-control" id="farmname" name="farm_size" placeholder="Farm Name" required="true">
                         <label for="floatingInput" id="label">Sq. meter</label>
                     </div>
                 </div>
@@ -147,6 +151,10 @@ if(isset($_POST['submit'])){
                     </div>
                 </div>
 
+
+    </div>
+    <div class="col">
+    
                 <div class="content-input">
                     <div class="input-label">
                         <p>Farm Owner</p>
@@ -183,6 +191,11 @@ if(isset($_POST['submit'])){
                     </div>
                 </div>
             </div>
+    
+    </div>
+  </div>
+</div>
+
             <!--Add batch
             <p>
 
@@ -199,7 +212,7 @@ if(isset($_POST['submit'])){
                 -->
 
                 <!--farm location-->
-
+            <div class="submit">
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" id="farmlocation-button"
                     data-bs-target="#staticBackdrop1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                         fill="currentColor" class="bi bi-pin-map" viewBox="0 0 20 20">
@@ -210,7 +223,7 @@ if(isset($_POST['submit'])){
                     </svg>
                     Farm Location
                 </button>
-
+            </div>
 
             <!--plot map Modal -->
             <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false"
@@ -357,6 +370,19 @@ if(isset($_POST['submit'])){
 <!--style-->
 
 <style type="text/css">
+
+    #farmlocation-button{
+        margin-top:30px;
+        margin-bottom:20px;
+    }
+
+.wrapper{
+    width:100%;
+    display:flex;
+    justify-content:center;
+}
+
+
 #map {
     height: 300px;
     width: 420px;
@@ -368,17 +394,20 @@ if(isset($_POST['submit'])){
     display: grid !important;
     justify-content: center !important;
     align-items: center !important;
-    margin-top: 20px !important;
     margin-bottom: 20px;
     background-color: #f9faff;
     border-radius: 10px;
     padding: 20px 0 20px 0 !important;
-
 }
 
 .form-title h2 {
     margin-bottom: 40px;
     font-weight: bold;
+}
+
+.form-title{
+    display:grid;
+    place-items:center;
 }
 
 .sec1 {
@@ -406,6 +435,7 @@ if(isset($_POST['submit'])){
 }
 
 input {
+    
     padding-left: 10px !important;
     padding-right: 10px !important;
 }
@@ -434,12 +464,6 @@ input {
 
 form {
     display: grid;
-}
-
-.form-body {
-    display: grid;
-    align-content: center;
-    align-items: center;
 }
 
 .form-body p {
@@ -493,25 +517,30 @@ form {
 
 }
 
+
 .content-input {
     margin-top: 30px;
+}
+.row{
+    gap:50px;
 }
 
 input:invalid {
         animation: shake 0.5s;
         border: 1px solid red !important;
-      }
+    }
 
-      input:valid{
+    input:valid{
         border:1px solid green !important;
-      }
-      
-      @keyframes shake {
+    }
+    
+    @keyframes shake {
         0% { transform: translateX(0); }
         25% { transform: translateX(-10px); }
         50% { transform: translateX(10px); }
         75% { transform: translateX(-10px); }
         
+    }
 </style>
 
 </body>
