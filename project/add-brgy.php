@@ -1,8 +1,6 @@
 <?php
 
 require_once 'connect.php';
- include ("header.php");
-
 
 
 
@@ -34,7 +32,7 @@ if(isset($_POST['submit'])){
 
 }
 
-
+include ("header.php");
 ?>
 
 
@@ -62,7 +60,7 @@ if(isset($_POST['submit'])){
 	 };
     	?>
 
-    <form method="POST" action="#">
+    <form method="POST" action="">
         <div class="add-brgy-button">
             <div class="input-group flex-nowrap">
                 <span class="input-group-text" id="addon-wrapping">Barangay</span>

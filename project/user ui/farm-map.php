@@ -65,12 +65,15 @@ include 'header2.php'; ?>
 <script type="text/javascript">
 var locations = [
     <?php 
-			$result = $conn->query("SELECT * FROM farm");
+				$result = $conn->query("SELECT baranggay.baranggay, farm.farmname, farm.farmowner, farm.farm_size, farm.lat,farm.lng,
+                farm.contactno, farm.farmID, baranggay.baranggayID
+                FROM baranggay INNER JOIN farm ON baranggay.baranggayID = farm.baranggayID");
+                
 			
 			
 			if($result->num_rows > 0){
             while($row = $result->fetch_assoc()){
-                echo '["'.$row['farmname'].'", '.$row['lat'].', '.$row['lng'].',  "'.$row['farmowner'].'", "'.$row['contactno'].'", ],';
+                echo '["'.$row['farmname'].'", '.$row['lat'].', '.$row['lng'].',  "'.$row['farmowner'].'", "'.$row['farm_size'].'", "'.$row['baranggay'].'", "'.$row['contactno'].'", ],';
             }
         }
         ?>
@@ -114,7 +117,9 @@ function setMarkers(map, locations) {
         var lat = locations[i][1]
         var long = locations[i][2]
         var owner = locations[i][3]
-        var contact = locations[i][4]
+        var size = locations[i][4]
+        var brgy = locations[i][5]
+        var contact = locations[i][6]
 
         latlngset = new google.maps.LatLng(lat, long);
 
@@ -130,8 +135,7 @@ function setMarkers(map, locations) {
         map.setCenter(marker.getPosition())
 
 
-        var content = " <h6> " + farmname + '</h6>' + " <p> " + owner + '</p>'  + " <p> " + contact + '</p>' 
-
+        var content = " <h6> " + farmname + '</h6>' + " <p> " + brgy + '</p>'  + " <p> " + size + ' Sq. meter</p>'  + " <p> " + owner + '</p>'  + " <p> " + contact + '</p>' 
         var infowindow = new google.maps.InfoWindow()
 
         google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) {

@@ -61,7 +61,6 @@ if ($result->num_rows > 0) {
         $initial = $row['initial'];
         $mortality = $row['mortality'];
         $current = $initial-$mortality;
-       // $tc = $mortality+$current;
         $mortality_rate = ( $mortality / $initial ) * 100;
         $new_mortality_rate = number_format($mortality_rate, 2) ;
         $rate = 20;

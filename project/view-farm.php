@@ -26,12 +26,12 @@ if(isset($_POST['search'])) {
    
     $search = mysqli_real_escape_string($conn, $_POST['search']);
  
-    $sql = "SELECT baranggay.baranggay, farm.farmname, farm.farmowner,
+    $sql = "SELECT baranggay.baranggay, farm.farmname, farm.farmowner, farm.farm_size,
     farm.contactno, farm.farmID, baranggay.baranggayID
     FROM baranggay INNER JOIN farm ON baranggay.baranggayID = farm.baranggayID where farm.farmname LIKE '%$search%' order by baranggay.baranggay ASC";;
 } else {
    
-    $sql = "SELECT baranggay.baranggay, farm.farmname, farm.farmowner,
+    $sql = "SELECT baranggay.baranggay, farm.farmname, farm.farmowner, farm.farm_size,
     farm.contactno, farm.farmID, baranggay.baranggayID
     FROM baranggay INNER JOIN farm ON baranggay.baranggayID = farm.baranggayID order by baranggay.baranggay ASC";;
 }
@@ -48,6 +48,7 @@ if (mysqli_num_rows($result) > 0) {
             
             <th scope='col' id='farm-name'>Barangay</th>
             <th scope='col' id='farm-name'>Farm Name</th>
+            <th scope='col' id='farm-name'>Farm Area</th>
             <th scope='col' id='owner'>Farm Owner</th>
             <th scope='col' id='cntct'>Contact No.</th>
             
@@ -63,6 +64,7 @@ if (mysqli_num_rows($result) > 0) {
             echo "<td hidden id=' farmid' >" .$row['farmID']. "</td>";
             echo "<td id=' farmname '>" .$row['baranggay']. "</td>";
             echo "<td id=' farmname '>" .$row['farmname']. "</td>";
+            echo "<td id=' farmname '>" .$row['farm_size']." Sq. meter </td>";
             echo "<td id=' owner '>" .$row['farmowner']. "</td>";
             echo "<td id=' cntct '>" .$row['contactno']. "</td>";
                 echo'<td>

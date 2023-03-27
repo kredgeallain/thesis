@@ -21,6 +21,10 @@ if(isset($_POST['submit'])){
     $q = $_POST['lt'];
 	$a =$_POST['lg'];
 	$date = $_POST['date'];
+    $size = $_POST['farm_size'];
+    $no_f = $_POST['no_farmers'];
+    $bday = $_POST['bday'];
+    $exp = $_POST['exp'];
 	$batch = $_POST ['batch'];
 	$unit = $_POST ['unit'];
 	$initial = $_POST ['initial'];
@@ -40,8 +44,8 @@ if(isset($_POST['submit'])){
 		mysqli_query($data, $sql);
 
 		
-		$sqlInsert = "INSERT INTO farm (farmname, farmowner, contactno, baranggayID, lat, lng) 
-					VALUES ('$fname', '$fowner', '$contactno', '$brgy', '$q', '$a');";	
+		$sqlInsert = "INSERT INTO farm (farmname,farm_size,no_farmers, farmowner,bday,exp, contactno, baranggayID, lat, lng) 
+					VALUES ('$fname','$size','$no_f', '$fowner','$bday','$exp', '$contactno', '$brgy', '$q', '$a');";	
 		$sql2 = mysqli_query($data, $sqlInsert);
 		$farmID = mysqli_insert_id($data);
 
@@ -107,22 +111,39 @@ if(isset($_POST['submit'])){
     <form action="#" method="POST">
         <div class="form-body">
             <!--Form-->
-            <div class="inputs">
+            <div class="cotent-input">
 
                 <select class="form-select" name="baranggayID" aria-label="Default select example" required="true">
                     <option disabled selected>Barangay</option>
                     <?php echo $bfetch; ?>
-                    <option disabled>Add Barangay if your Barangay don't exist!</option>
+                    <option disabled> Barangay if your Barangay don't exist!</option>
                 </select>
                 </div>
                 <div class="content-input">
                     <div class="input-label">
                         <p>Farm Name</p>
-                        <p id="optional">(optional)</p>
                     </div>
                     <div class="form-floating mb-3">
                         <input type="text" pattern="[a-zA-Z0-9\s]+" class="form-control" id="farmname" name="farmname" placeholder="Farm Name" required="true">
-                        <label for="floatingInput" id="label">Name</label>
+                        <label for="floatingInput" id="label">Use unique farm name or add 'branch' if already exists.</label>
+                    </div>
+                </div>
+                <div class="content-input">
+                    <div class="input-label">
+                        <p>Farm Size</p>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="number" pattern="[a-zA-Z0-9\s]+" class="form-control" id="farmname" name="farm_size" placeholder="Farm Name" required="true">
+                        <label for="floatingInput" id="label">Sq. meter</label>
+                    </div>
+                </div>
+                <div class="content-input">
+                    <div class="input-label">
+                        <p>No. of Farmers </p>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="number" pattern="[a-zA-Z0-9\s]+" class="form-control" id="farmname" name="no_farmers" placeholder="Farm Name" required="true">
+                        <label for="floatingInput" id="label">Number of farmers manning the farm.</label>
                     </div>
                 </div>
 
@@ -135,8 +156,26 @@ if(isset($_POST['submit'])){
                         <label for="floatingInput" required="true" id="label">Firstname/ M.I / Lastname</label>
                     </div>
                 </div>
+                
 
                 <div class="content-input">
+                    <div class="form-floating mb-3">
+                        <input type="date" class="form-control" name="bday" id="contactno" pattern="[0-9\s+]+"
+                            placeholder="Contact No." required="true">
+                        <label for="floatingInput" required="true" d>Date of Birth</label>
+                    </div>
+                </div>
+
+                
+                <div class="content-input">
+                    <div class="form-floating mb-3">
+                        <input type="number" class="form-control" name="exp" id="contactno" pattern="[0-9\s+]+"
+                            placeholder="Contact No." required="true">
+                        <label for="floatingInput" required="true" d>Years of experience</label>
+                    </div>
+                </div>
+
+                <div class="content-input"> 
                     <div class="form-floating mb-3">
                         <input type="contact" class="form-control" name="contactno" id="contactno" pattern="[0-9\s+]+"
                             placeholder="Contact No." required="true">
