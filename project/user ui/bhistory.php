@@ -53,7 +53,7 @@ if ($result = $conn->query($sql)){
         <th scope='col' hidden id='name'>Broiler ID</th>
         <th scope='col' hidden id='name'>Batch ID</th>
         <th scope='col' id='name'>Batch</th>       
-        <th scope='col' id='name'>Broiler Weight</th>
+        <th scope='col' id='name'>Weight</th>
         <th scope='col' id='name'>Harvested</th>
         <th scope='col' id='name'>Rejected</th>
         <th scope='col' id='name'>Mortality</th>
@@ -170,8 +170,9 @@ if ($result = $conn->query($sql)){
 }
 
 .view-user h2 {
-    font-size: 30px;
-    font-weight: bold;
+
+    font-size: 20px;
+ 
 }
 
 .add {
@@ -263,6 +264,23 @@ tr:hover {
 
 a {
     text-decoration: none !important;
+}
+
+@media screen and (max-width: 800px){
+
+
+th{
+    font-size:10px;
+}
+td{
+    padding:0;
+    margin:0;
+    font-size:10px;
+}
+button{
+   margin:0;
+   padding:0;
+}
 }
 </style>
 </body>

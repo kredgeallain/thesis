@@ -94,7 +94,10 @@ $result = mysqli_query($conn,$query);
             margin:10px;
         }
         @media screen and (max-width: 800px){
-        select{
+        #farm{
+            font-size:10px !important;
+        }
+        #baranggay{
             font-size:10px !important;
         }
 

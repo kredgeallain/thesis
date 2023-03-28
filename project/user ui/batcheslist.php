@@ -68,14 +68,14 @@ if ($result = $data->query($batch)){
 </form>';      
 
 
-    echo "<table class='table table-striped'>
+    echo "<table class='table table-striped' id='table'>
         <thead class='thead-dark'>	  
         <tr>
             
             <th scope='col' hidden id='count'>BaranggayID</th>
             <th scope='col' id='name'>Batch</th>
             <th scope='col' id='name'>Unit</th>
-            <th scope='col' id='name'>Chicken Initial No.</th>
+            <th scope='col' id='name'>Initial No.</th>
             <th scope='col' id='name'>Status</th>
             <th scope='col' id='name'>Date Started</th>
             
@@ -109,10 +109,12 @@ if ($result = $data->query($batch)){
                                     </button>
  
 
+                        
+
                                     <div class="modal fade" id="edituser'.$row['batchID'].'" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered">
                                     <form action="updateqry.php" method="POST" id="form1" >
-                                        <div class="modal-content">
+                                        <div class="modal-content" id="modal-content">
                                         
                                         <div class="modal-header">
                                             <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Batch</h1>
@@ -146,19 +148,18 @@ if ($result = $data->query($batch)){
                                     </div>
                                         </div>
                                         <div class="modal-footer">
-                                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                          <button class="btn btn-primary" type="submit" name="edit-batch" id="submit" value="">Save</button>
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Close</button>
+                                          <button class="btn btn-primary" type="submit" name="edit-batch" id="submit" >Save</button>
                                         </div>
                                       </div>
                                         </div>
                                         </form>
                                     </div>
                                     
-                                    </div>
-                                   
+                                    </div>                             
+                        </td>
 
-                        
-                </td>
+
                 </form>';      
         
         
@@ -170,3 +171,19 @@ if ($result = $data->query($batch)){
         
 
 ?>
+<style>
+    th{
+        font-size:12px !important;
+    }
+    #modal-content{
+        width:100%;
+    }
+    @media screen and (max-width: 800px){
+        #table{
+            width:100% !important;
+            max-width:100px !important;
+        }
+
+}
+
+</style>

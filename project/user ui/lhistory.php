@@ -174,8 +174,7 @@ if ($result = $conn->query($sql)){
 }
 
 .view-user h2 {
-    font-size: 30px;
-    font-weight: bold;
+    font-size: 20px;
 }
 
 .add {
