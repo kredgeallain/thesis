@@ -41,7 +41,7 @@ if($verify["unit"]=="broiler") {
 
 
 $sql = "SELECT broiler.broilerID, broiler.batchID, broiler.broiler_weight, broiler.Bcurrent, broiler.mortality, broiler.date, user.name FROM broiler 
-INNER JOIN user ON broiler.userID = user.userID where broiler.batchID=$batchID";
+INNER JOIN user ON broiler.userID = user.userID where broiler.batchID=$batchID ORDER BY broiler.date DESC";
 if ($result = $conn->query($sql)){
     echo "<table class='table table-striped'>
     <thead class='thead-dark'>	  
@@ -139,8 +139,10 @@ if ($result = $conn->query($sql)){
 
 
 
-        $sql = "SELECT layer.layerID, layer.batchID, layer.no_eggs, layer.reject_eggs, layer.Lcurrent, layer.mortality, layer.date,
-        user.name FROM layer inner join user on layer.userID = user.userID where batchID=$batchID";
+        $sql = "SELECT layer.layerID, layer.batchID, layer.no_eggs, layer.reject_eggs, layer.Lcurrent,
+         layer.mortality, layer.date,
+        user.name FROM layer 
+        inner join user on layer.userID = user.userID where batchID=$batchID order by layer.date DESC";
         
         if ($result = $conn->query($sql)){
             echo "<table class='table table-striped'>
@@ -151,7 +153,6 @@ if ($result = $conn->query($sql)){
                 <th scope='col' hidden id='count'>Batch ID</th>
                 <th scope='col' id='name'>No. of Eggs</th>
                 <th scope='col' id='name'>No. of Rejected Eggs</th>
-                <th scope='col' id='name'>Current number per Heads</th>
                 <th scope='col' id='name'>Mortality</th>
                 <th scope='col' id='name'>Date Recorded</th>
                 <th scope='col' id='name'>Recorded by</th>
@@ -166,72 +167,9 @@ if ($result = $conn->query($sql)){
                     echo "<td id='name' hidden >" .$row['batchID']. "</td>";
                     echo "<td id='name' >" .$row['no_eggs']. "</td>";
                     echo "<td id='name'>" .$row['reject_eggs']. "</td>";
-                    echo "<td id='name'>" .$row['Lcurrent']. "</td>";
                     echo "<td id='name'>" .$row['mortality']. "</td>";
                     echo "<td id='name'>" .$row['date']. "</td>";
                     echo "<td id='name'>" .$row['name']. "</td>";
-
-                    
-                    echo '<td > 
-
-
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editfarm'.$row['layerID'].'">
-                    Edit
-                </button>
-
-                <div class="modal fade" id="editfarm'.$row['layerID'].'" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                    <form action="updateqry.php" method="POST">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Production</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                    <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingInput" readonly hidden value=  "'.$row['layerID']. '" placeholder="name" name="layerID" required="true">
-                    <label for="floatingInput" hidden>User ID</label>
-                </div>
-                     <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="floatingInput" readonly  hidden value= "'.$row['batchID']. '" 
-                                    placeholder="name" name="batchID" required="true">
-                                    <label for="floatingInput" hidden>User ID</label>
-                                </div>
-    
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="floatingInput" value= "'.$row['no_eggs']. '" placeholder="name" name="no_eggs" required="true">
-                                    <label for="floatingInput">No. of Eggs</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="floatingInput" value= "'.$row['reject_eggs']. '"placeholder="name" name="reject_eggs" required="true">
-                                    <label for="floatingInput">No. of Rejected Eggs</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="floatingInput" value="'.$row['Lcurrent']. '" placeholder="name" name="Lcurrent" required="true">
-                                    <label for="floatingInput">Currenct No. of Chickens </label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="floatingInput" value="'.$row['mortality']. '" placeholder="name" name="mortality" required="true">
-                                <label for="floatingInput"> Mortality </label>
-                            </div>
-                        
-                       
-    
-                            
-    
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <button name="edit-layer" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> Save</button>
-                    </div>
-                 
-                    </div>
-                    </form>
-                </div>
-                </div>
-    
-                    
-            </td>';  
     
              
                       

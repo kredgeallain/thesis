@@ -51,7 +51,7 @@ if($row2["unit"]=="layer")
 
 <div class="date">
 <label for="">Date</label>
-<input  class="form-control" type="date" name="date" id="date" value='. $date .' required="true">
+<input  class="form-control" type="date" name="date" id="date" readonly value='. $date .' required="true">
 </div>
 
 
@@ -112,7 +112,7 @@ else {
 
     <div class="date">
     <label for="">Date</label>
-    <input  class="form-control" type="date" name="date" id="date" value='. $date .' required="true">
+    <input  class="form-control" type="date" name="date" id="date" readonly value='. $date .' required="true">
     </div>
 
 <section class="weight">

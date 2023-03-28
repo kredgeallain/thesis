@@ -15,7 +15,7 @@ $mysqli = new mysqli("localhost", $username, $password, $database);
 @include('connect.php');
 
 $sql = "SELECT 
-baranggay.baranggay, farm.farmname, batch.batch, user.name, batch.initial,
+baranggay.baranggay, farm.farmname, batch.batch, user.name, batch.initial, batch.batchID,
 SUM(layer.no_eggs) as eggs,
 SUM(layer.reject_eggs) as rej_eggs,
 SUM(layer.mortality) as mortality,
@@ -84,6 +84,8 @@ if ($result->num_rows > 0) {
             echo "<td style='color:green'> $new_mortality_rate % </td>";
             }
         echo "<td>".$row['name']."</td>";
+
+        
     }
 }
 ?>

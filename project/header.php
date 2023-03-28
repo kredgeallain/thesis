@@ -553,7 +553,7 @@ details[open] summary #arrow {
         </div>
         </summary>
 
-        <a id="nav-a" href="record1.php"><img src="../image/record-icon.png" alt="generate report icon" width="30px"> Enter Reports</a>
+       
         <ul>
             <li class="dropdown-view">
         <a ><img src="../image/view-data.png" alt="view record icon" width="30px"> View Records</a>
