@@ -66,14 +66,40 @@
 
                 
 
-                mysqli_query($data, $insert);
+                $success = mysqli_query($data, $insert);
+
+             if ($success) {
+                $verfy = " SELECT SUM(layer.mortality) as mortality, batch.initial FROM layer 
+                inner join batch on layer.batchID = batch.batchID where layer.batchID = $batchID";
+
+                $result = $conn->query($verfy);
+                $row = $result->fetch_assoc();
+
+                $initial = $row['initial'];
+                $mortality = $row['mortality'];
+                $current = $initial-$mortality;
+                $status = "off";
+                
+                if ($current<='0'){
+
+                    mysqli_query($data, "UPDATE `batch` SET `status` = '$status' WHERE `batchID` = '$batchID' ");
+
+                    sleep(1);
+                    echo '<script language="javascript" type="text/javascript">
+                    alert("Production Data Added!");
+                    window.location = "homepage.php";
+                    </script>';
+
+                }
+                else {
                 sleep(1);
                 echo '<script language="javascript" type="text/javascript">
                 alert("Production Data Added!");
                 window.location = "homepage.php";
                 </script>';
-               
-                
+       
+                }
+             }
 
             }elseif(isset($_POST['submit1'])){
 

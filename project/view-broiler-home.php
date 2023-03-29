@@ -14,7 +14,7 @@ $mysqli = new mysqli("localhost", $username, $password, $database);
 @include('connect.php');
 
 $sql = "SELECT 
-baranggay.baranggay, farm.farmname, batch.batch, batch.initial, broiler.reject,
+baranggay.baranggay, farm.farmname, batch.batch,  user.name, batch.initial, broiler.reject,
 
 SUM(broiler.broiler_weight) as weight,
 
@@ -25,6 +25,7 @@ YEAR(broiler.date) as year
 FROM baranggay INNER JOIN farm ON baranggay.baranggayID = farm.baranggayID 
 INNER JOIN batch ON farm.farmID = batch.farmID 
 INNER JOIN broiler ON batch.batchID = broiler.batchID
+INNER JOIN user ON broiler.userID = user.userID
 
 GROUP BY baranggay.baranggay, farm.farmname, batch.batchID,
 MONTH(broiler.date),
@@ -47,10 +48,12 @@ if ($result->num_rows > 0) {
 <th scope='col' id='name'> Farm </th>
 <th scope='col' id='u-name'> Batch </th>
 <th scope='col' id='u-name'> Total Weight </th>
+<th scope='col' id='u-name'> Initial </th>
 <th scope='col' id='u-name'> Reject </th>
 <th scope='col' id='u-name'> Mortality </th>
 <th scope='col' id='u-name'> Harvest </th>
 <th scope='col' id='u-name'> Mortality Rate </th>
+<th scope='col' id='u-name'> Recorded by </th>
 
 
 </tr>	  
@@ -72,7 +75,8 @@ if ($result->num_rows > 0) {
         echo "<td>".$row['baranggay']."</td>";
         echo "<td>".$row['farmname']."</td>";
         echo "<td>".$row['batch']."</td>";
-        echo "<td>".$row['weight']."</td>";
+        echo "<td>".$row['weight']." kg. </td>";
+        echo "<td>".$row['initial']."</td>";
         echo "<td>".$row['reject']."</td>";
         echo "<td>".$row['mortality']."</td>";
         echo "<td>".$row['harvest']."</td>";
@@ -81,6 +85,8 @@ if ($result->num_rows > 0) {
             }else{
             echo "<td style='color:green'> $new_mortality_rate % </td>";
             }
+        
+            echo "<td>".$row['name']."</td>";
 
     }
 }

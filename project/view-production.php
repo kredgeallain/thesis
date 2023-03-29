@@ -40,7 +40,7 @@ if($verify["unit"]=="broiler") {
 
 
 
-$sql = "SELECT broiler.broilerID, broiler.batchID, broiler.broiler_weight, broiler.Bcurrent, broiler.mortality, broiler.date, user.name FROM broiler 
+$sql = "SELECT broiler.broilerID, broiler.batchID,broiler.reject, broiler.broiler_weight, broiler.Bcurrent, broiler.mortality, broiler.date, user.name FROM broiler 
 INNER JOIN user ON broiler.userID = user.userID where broiler.batchID=$batchID ORDER BY broiler.date DESC";
 if ($result = $conn->query($sql)){
     echo "<table class='table table-striped'>
@@ -50,7 +50,8 @@ if ($result = $conn->query($sql)){
         <th scope='col' hidden id='name'>Broiler ID</th>
         <th scope='col' hidden id='name'>Batch ID</th>
         <th scope='col' id='name'>Broiler Weight</th>
-        <th scope='col' id='name'>Current Number per Head</th>
+        <th scope='col' id='name'>Harvested</th>
+        <th scope='col' id='name'>Rejected</th>
         <th scope='col' id='name'>Mortality</th>
         <th scope='col' id='name'>Date Recorded</th>
         <th scope='col' id='name'>Recorded by</th>
@@ -64,8 +65,9 @@ if ($result = $conn->query($sql)){
             echo"<tr>";
             echo "<td id='name' hidden >" .$row['broilerID']. "</td>";
             echo "<td id='name' hidden >" .$row['batchID']. "</td>";
-            echo "<td id='name'>" .$row['broiler_weight']. "</td>";
+            echo "<td id='name'>" .$row['broiler_weight']. " kg. </td>";
             echo "<td id='name'>" .$row['Bcurrent']. "</td>";
+            echo "<td id='name'>" .$row['reject']. "</td>";
             echo "<td id='name'>" .$row['mortality']. "</td>";
             echo "<td id='name'>" .$row['date']. "</td>";
             echo "<td id='name'>" .$row['name']. "</td>";
