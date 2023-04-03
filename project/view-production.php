@@ -27,6 +27,14 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 		
 	
 	$batchID = $_GET["batchID"];
+    $month = $_GET["month"];
+    $year = $_GET["year"];
+   
+    $month_num = date_parse($month)['month'];
+   
+    
+    $date = $year . '-' . str_pad($month_num, 2, '0', STR_PAD_LEFT);
+
     
 }
 }
@@ -41,7 +49,7 @@ if($verify["unit"]=="broiler") {
 
 
 $sql = "SELECT broiler.broilerID, broiler.batchID,broiler.reject, broiler.broiler_weight, broiler.Bcurrent, broiler.mortality, broiler.date, user.name FROM broiler 
-INNER JOIN user ON broiler.userID = user.userID where broiler.batchID=$batchID ORDER BY broiler.date DESC";
+INNER JOIN user ON broiler.userID = user.userID where broiler.batchID=$batchID order by broiler.date DESC";
 if ($result = $conn->query($sql)){
     echo "<table class='table table-striped'>
     <thead class='thead-dark'>	  
@@ -144,7 +152,7 @@ if ($result = $conn->query($sql)){
         $sql = "SELECT layer.layerID, layer.batchID, layer.no_eggs, layer.reject_eggs, layer.Lcurrent,
          layer.mortality, layer.date,
         user.name FROM layer 
-        inner join user on layer.userID = user.userID where batchID=$batchID order by layer.date DESC";
+        inner join user on layer.userID = user.userID where batchID=$batchID and DATE_FORMAT(layer.date, '%Y-%m') = '$date'";
         
         if ($result = $conn->query($sql)){
             echo "<table class='table table-striped'>
@@ -156,7 +164,7 @@ if ($result = $conn->query($sql)){
                 <th scope='col' id='name'>No. of Eggs</th>
                 <th scope='col' id='name'>No. of Rejected Eggs</th>
                 <th scope='col' id='name'>Mortality</th>
-                <th scope='col' id='name'>Date Recorded</th>
+                <th scope='col' id='name'>Date Recorded</th>    
                 <th scope='col' id='name'>Recorded by</th>
             </tr>	  
             </thead>";
