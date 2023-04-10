@@ -10,7 +10,7 @@ if ($result = $data->query($batch)){
   echo ' 
   <form method="post" action="updateqry.php" id="form1" rel="nofollow">
   
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  <button id="add-btn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
   Add Batch
   </button>
   
@@ -143,6 +143,10 @@ if ($result = $data->query($batch)){
 ?>
 
 <style>
+  #add-btn{
+    background-color:darkblue;
+    border:none;
+  }
     #batch:invalid {
         animation: shake 0.5s !important;
         border: 1px solid red !important;
