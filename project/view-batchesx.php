@@ -72,8 +72,11 @@ if ($result = $conn->query($query)){
 
 
             echo '<td > 
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edituser'.$row['batchID'].'">
-                                        Edit
+                                    <button  type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edituser'.$row['batchID'].'">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 20 20">
+                                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                </svg>Edit
                                     </button>
                 </td>
                 <div class="modal fade" id="edituser'.$row['batchID'].'" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -135,7 +138,7 @@ if ($result = $conn->query($query)){
 
 <form method="post" action="updateqry.php" id="form1" rel="nofollow">
   
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  <button type="button" id="add-btn" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
   Add Batch
   </button>
   
@@ -185,6 +188,10 @@ if ($result = $conn->query($query)){
 <!--style-->
 
 <style type="text/css">
+    #add-btn{
+        background-color:darkblue;
+        border:none;
+    }
 .wrapper {
     margin-top: 10px;
 }

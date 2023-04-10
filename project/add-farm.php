@@ -128,7 +128,7 @@ if(isset($_POST['submit'])){
                         <p>Farm Name</p>
                     </div>
                     <div class="form-floating mb-3">
-                        <input size="75" type="text" pattern="[a-zA-Z0-9\s]+" class="form-control" id="farmname" name="farmname" placeholder="Farm Name" required="true">
+                        <input size="75" type="text" pattern="[a-zA-Z\s]+" class="form-control" id="farmname" name="farmname" placeholder="Farm Name" required="true">
                         <label for="floatingInput" id="label">Use unique farm name or add 'branch' if already exists.</label>
                     </div>
                 </div>
