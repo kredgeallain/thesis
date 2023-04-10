@@ -34,75 +34,82 @@ if (isset($_POST['start_date']) && isset($_POST['end_date'])) {
 
 
     $sql = "SELECT 
-baranggay.baranggay, farm.farmname, batch.batch,
-
-SUM(broiler.broiler_weight) as weight,
-
-SUM(broiler.mortality) as mortality,
-SUM(broiler.Bcurrent) as current,
-MONTH(broiler.date) as month,
-YEAR(broiler.date) as year
-FROM baranggay INNER JOIN farm ON baranggay.baranggayID = farm.baranggayID 
-INNER JOIN batch ON farm.farmID = batch.farmID 
-INNER JOIN broiler ON batch.batchID = broiler.batchID
-WHERE broiler.date BETWEEN '$start_date' AND '$end_date'
-GROUP BY baranggay.baranggay, farm.farmname, batch.batchID,
-MONTH(broiler.date),
-YEAR(broiler.date) 
-ORDER BY MONTH(broiler.date),
-YEAR(broiler.date) ASC";
-
-
+    baranggay.baranggay, farm.farmname, batch.batch,  user.name, batch.initial, broiler.reject,
+    
+    SUM(broiler.broiler_weight) as weight,
+    
+    SUM(broiler.mortality) as mortality,
+    SUM(broiler.Bcurrent) as harvest,
+    MONTH(broiler.date) as month,
+    YEAR(broiler.date) as year
+    FROM baranggay INNER JOIN farm ON baranggay.baranggayID = farm.baranggayID 
+    INNER JOIN batch ON farm.farmID = batch.farmID 
+    INNER JOIN broiler ON batch.batchID = broiler.batchID
+    INNER JOIN user ON broiler.userID = user.userID
+    
+    GROUP BY baranggay.baranggay, farm.farmname, batch.batchID,
+    MONTH(broiler.date),
+    YEAR(broiler.date) 
+    ORDER BY MONTH(broiler.date),
+    YEAR(broiler.date) ASC";
+    
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
         echo "<table id='exportdata' class='table table-striped'>
  
-<thead>
-<tr>
-<th scope='col' id='count'> Month </th>
-<th scope='col' id='name'> Year </th>
-
-
-<th scope='col' id='count'> Baranggay </th>
-<th scope='col' id='name'> Farm </th>
-<th scope='col' id='u-name'> Batch </th>
-<th scope='col' id='u-name'> Total Weight </th>
-<th scope='col' id='u-name'> Mortality </th>
-<th scope='col' id='u-name'> Current </th>
-<th scope='col' id='u-name'> Mortality Rate </th>
-
-
-</tr>	  
-</thead>";
-
-        while ($row = $result->fetch_assoc()) {
-            $current = $row['current'];
-            $mortality = $row['mortality'];
-            $mortality_rate = ($mortality / $current) * 100;
-            $new_mortality_rate = number_format($mortality_rate, 2);
-            $rate = 20;
-            $month = $row['month'];
-            $month_letter = date("F", mktime(0, 0, 0, $month, 1));
-            echo "<tr>";
-            echo "<td > $month_letter </td>";
-            echo "<td >" . $row['year'] . "</td>";
-
-            echo "<td>" . $row['baranggay'] . "</td>";
-            echo "<td>" . $row['farmname'] . "</td>";
-            echo "<td>" . $row['batch'] . "</td>";
-            echo "<td>" . $row['weight'] . "</td>";
-
-            echo "<td>" . $row['mortality'] . "</td>";
-            echo "<td>" . $row['current'] . "</td>";
-            if ($new_mortality_rate >= $rate) {
-                echo "<td style='color:red'> $new_mortality_rate % </td>";
-            } else {
-                echo "<td style='color:green'> $new_mortality_rate % </td>";
+        <thead>	  
+        <tr>
+        <th scope='col' id='count'> Month </th>
+        <th scope='col' id='name'> Year </th>
+        
+        
+        <th scope='col' id='count'> Baranggay </th>
+        <th scope='col' id='name'> Farm </th>
+        <th scope='col' id='u-name'> Batch </th>
+        <th scope='col' id='u-name'> Total Weight </th>
+        <th scope='col' id='u-name'> Initial </th>
+        <th scope='col' id='u-name'> Reject </th>
+        <th scope='col' id='u-name'> Mortality </th>
+        <th scope='col' id='u-name'> Harvest </th>
+        <th scope='col' id='u-name'> Mortality Rate </th>
+        <th scope='col' id='u-name'> Recorded by </th>
+        
+        
+        </tr>	  
+        </thead>";
+            while($row = $result->fetch_assoc()){
+                $harvest = $row['harvest'];
+                $initial = $row['initial'];
+                $mortality = $row['mortality'];
+                $current = $initial-$mortality;
+                $mortality_rate = ( $mortality / $initial ) * 100;
+                $new_mortality_rate = number_format($mortality_rate, 2) ;
+                $rate = 20;
+                $month = $row['month'];
+                $month_letter = date("F", mktime(0, 0, 0, $month, 1));
+                echo "<tr>";
+                echo "<td > $month_letter </td>";    
+                echo "<td >".$row['year']."</td>";
+        
+                echo "<td>".$row['baranggay']."</td>";
+                echo "<td>".$row['farmname']."</td>";
+                echo "<td>".$row['batch']."</td>";
+                echo "<td>".$row['weight']." kg. </td>";
+                echo "<td>".$row['initial']."</td>";
+                echo "<td>".$row['reject']."</td>";
+                echo "<td>".$row['mortality']."</td>";
+                echo "<td>".$row['harvest']."</td>";
+                if ($new_mortality_rate >= $rate ) {
+                    echo "<td style='color:red'> $new_mortality_rate % Danger!</td>";
+                    }else{
+                    echo "<td style='color:green'> $new_mortality_rate % </td>";
+                    }
+                
+                    echo "<td>".$row['name']."</td>";
+        
             }
-
         }
-    }
 }
 ?>
 </div>
