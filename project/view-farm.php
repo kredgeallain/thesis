@@ -114,7 +114,7 @@ if (mysqli_num_rows($result) > 0) {
                                 <label for="floatingInput">Farm Owner</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="floatingInput" value="'.$row['contactno']. '" placeholder="name" name="contactno"  required="true">
+                                <input type="text" class="form-control" id="floatingInput" value="'.$row['contactno']. '" placeholder="name" name="contactno"  pattern="[0-9\s+]+" required="true">
                                 <label for="floatingInput">Contact No.</label>
                             </div>
 
