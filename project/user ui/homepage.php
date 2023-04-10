@@ -190,7 +190,7 @@ $row = $result->fetch_assoc();
 </svg>Record Productions</h4>
                 </div>
                 <div class="brgy-nxt">
-                <a href="record.php"><h9>〉</h9></a>
+                <a href="record-home.php"><h9>〉</h9></a>
                 </div>
               </div>
             </section>
