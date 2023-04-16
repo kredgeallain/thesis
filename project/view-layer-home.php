@@ -46,20 +46,22 @@ if ($result->num_rows > 0) {
 <th scope='col' id='count'> Baranggay </th>
 <th scope='col' id='name'> Farm </th>
 <th scope='col' id='u-name'> Batch </th>
-<th scope='col' id='u-name'> Total Eggs </th>
-<th scope='col' id='u-name'> Reject Eggs </th>
-<th scope='col' id='u-name'> Initial </th>
+<th scope='col' id='u-name'> Good<br>Eggs Total</th>
+<th scope='col' id='u-name'> Reject<br>Eggs Total</th>
+<th scope='col' id='u-name'> Total Eggs Count</th>
+<th scope='col' id='u-name'> Initial Chicken Count/Head</th>
 <th scope='col' id='u-name'> Mortality </th>
-<th scope='col' id='u-name'> Current </th>
 <th scope='col' id='u-name'> Mortality Rate </th>
 <th scope='col' id='u-name'> Recorded by </th>
-
 
 </tr>	  
 </thead>";
     while($row = $result->fetch_assoc()){
         $initial = $row['initial'];
         $mortality = $row['mortality'];
+        $reggs = $row['eggs'];
+        $geggs = $row['rej_eggs'];
+        $tegss = $reggs+$geggs;
         $current = $initial-$mortality;
         $mortality_rate = ( $mortality / $initial ) * 100;
         $new_mortality_rate = number_format($mortality_rate, 2) ;
@@ -69,15 +71,14 @@ if ($result->num_rows > 0) {
         echo "<tr>";
         echo "<td > $month_letter </td>";    
         echo "<td >".$row['year']."</td>";
-
         echo "<td>".$row['baranggay']."</td>";
         echo "<td>".$row['farmname']."</td>";
         echo "<td>".$row['batch']."</td>";
         echo "<td>".$row['eggs']."</td>";
         echo "<td>".$row['rej_eggs']."</td>";
+        echo "<td>".$tegss."</td>";
         echo "<td>".$row['initial']."</td>";
         echo "<td>".$row['mortality']."</td>";
-        echo "<td>".$current."</td>";
         if ($new_mortality_rate >= $rate ) {
             echo "<td style='color:red'> $new_mortality_rate % Danger!</td>";
             }else{

@@ -12,7 +12,7 @@ include 'connect.php';
                 viewBox="0 2 20 16">
                 <path
                     d="M5.793 1a1 1 0 0 1 1.414 0l.647.646a.5.5 0 1 1-.708.708L6.5 1.707 2 6.207V12.5a.5.5 0 0 0 .5.5.5.5 0 0 1 0 1A1.5 1.5 0 0 1 1 12.5V7.207l-.146.147a.5.5 0 0 1-.708-.708L5.793 1Zm3 1a1 1 0 0 1 1.414 0L12 3.793V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v3.293l1.854 1.853a.5.5 0 0 1-.708.708L15 8.207V13.5a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 4 13.5V8.207l-.146.147a.5.5 0 1 1-.708-.708L8.793 2Zm.707.707L5 7.207V13.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5V7.207l-4.5-4.5Z" />
-            </svg>Production Details</h2>
+            </svg>Production Inputs</h2>
     </section>
 
     <section class="view">
@@ -29,6 +29,8 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 	$batchID = $_GET["batchID"];
     $month = $_GET["month"];
     $year = $_GET["year"];
+    $farm = $_GET["farm"];
+    $batch = $_GET["batch"];
    
     $month_num = date_parse($month)['month'];
    
@@ -52,8 +54,8 @@ $sql = "SELECT broiler.broilerID, broiler.batchID,broiler.reject, broiler.broile
 INNER JOIN user ON broiler.userID = user.userID where broiler.batchID=$batchID order by broiler.date DESC";
 if ($result = $conn->query($sql)){
     echo "<table class='table table-striped'>
-    <thead class='thead-dark'>	  
-    <tr>
+    <thead class='thead-success'>	  
+    <tr class='table-header'>
         
         <th scope='col' hidden id='name'>Broiler ID</th>
         <th scope='col' hidden id='name'>Batch ID</th>
@@ -80,65 +82,7 @@ if ($result = $conn->query($sql)){
             echo "<td id='name'>" .$row['date']. "</td>";
             echo "<td id='name'>" .$row['name']. "</td>";
 
-            echo '<td > 
-
-
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editfarm'.$row['broilerID'].'">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 20 20">
-            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-        </svg>Edit
-        </button>
-
-        <div class="modal fade" id="editfarm'.$row['broilerID'].'" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                    <form action="updateqry.php" method="POST">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Production</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                    <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingInput" readonly hidden value=  "'.$row['broilerID']. '" placeholder="name" name="broilerID" required="true">
-                    <label for="floatingInput" hidden>User ID</label>
-                </div>
-                    <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="floatingInput" readonly  hidden value= "'.$row['batchID']. '" 
-                                    placeholder="name" name="batchID" required="true">
-                                    <label for="floatingInput" hidden>User ID</label>
-                                </div>
-    
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="floatingInput" value= "'.$row['broiler_weight']. '" placeholder="name" name="broiler_weight" required="true">
-                                    <label for="floatingInput">Broiler Weight</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="floatingInput" value= "'.$row['Bcurrent']. '"placeholder="name" name="Bcurrent" required="true">
-                                    <label for="floatingInput">Current no. of Chicken</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="floatingInput" value="'.$row['mortality']. '" placeholder="name" name="mortality" required="true">
-                                <label for="floatingInput"> Mortality </label>
-                            </div>
-                        
-                       
-    
-                            
-    
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <button name="edit-broiler" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> Save</button>
-                    </div>
-                 
-                    </div>
-                    </form>
-                </div>
-                </div>
-            
-        </td>';
-
+          
 
 			echo"</tr>";
               
@@ -159,8 +103,8 @@ if ($result = $conn->query($sql)){
         
         if ($result = $conn->query($sql)){
             echo "<table class='table table-striped'>
-            <thead class='thead-dark'>	  
-            <tr>
+            <thead>	  
+            <tr class='table-header'>
                 
                 <th scope='col' hidden  id='count'>Layer ID</th>
                 <th scope='col' hidden id='count'>Batch ID</th>
@@ -194,6 +138,15 @@ if ($result = $conn->query($sql)){
     
 ?>
 
+<div>
+  <h3><?php echo $batch;
+        echo " of ";
+        echo $farm;
+    
+    
+    ?> </h3>
+
+        </div>
 
 <!--style-->
 
@@ -205,6 +158,11 @@ if ($result = $conn->query($sql)){
 .view {
     padding: 10px;
     margin: 10px;
+}
+
+.table-header th {
+  background-color: #0047AB;
+  color: white;
 }
 
 

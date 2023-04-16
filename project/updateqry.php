@@ -36,6 +36,10 @@
 		$fown =$_POST["farmowner"];
 		$no =$_POST["contactno"];
         $fID = $_POST['farmID'];
+		$fs = $_POST["farm_size"];
+		$nf = $_POST["no_farmers"];
+		$a = $_POST["address"];
+		$e = $_POST["exp"];
 
 		$sql="SELECT * from farm where farmname= '$f' And farmID NOT IN ('$fID') ";
 		$result = mysqli_query($data, $sql);
@@ -45,17 +49,18 @@
 			
 			echo '<script language="javascript" type="text/javascript">
 					alert("Farm Already Existed!");
-					window.location = "homepage.php";
+					window.location = "view-farm.php";
 					</script>';
 	  
 		 }
 	  else {
 	
-		mysqli_query($data, "UPDATE farm SET `farmname` = '$f', `farmowner` = '$fown',`contactno` = '$no' WHERE `farmID` = '$fID' ");
+		mysqli_query($data, "UPDATE farm SET `farmname` = '$f', `farmowner` = '$fown',
+		`contactno` = '$no', `farm_size` = '$fs', `no_farmers` = '$nf', `address` = '$a', `exp` = '$e' WHERE `farmID` = '$fID' ");
 
 		echo '<script language="javascript" type="text/javascript">
 					alert("Farm Updated!");
-					window.location = "homepage.php";
+					window.location = "view-farm.php";
 					</script>';
 
 	  }

@@ -12,15 +12,12 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
 
 
-    $sql = "SELECT baranggay.baranggay, farm.farmname, farm.farmowner, farm.farm_size, farm.exp, farm.bday,farm.no_farmers,
+    $sql = "SELECT baranggay.baranggay, farm.farmname, farm.farmowner, farm.farm_size, farm.exp, farm.address,farm.no_farmers,
     farm.contactno, farm.farmID, baranggay.baranggayID
     FROM baranggay INNER JOIN farm ON baranggay.baranggayID = farm.baranggayID where farm.farmID=$farmID order by baranggay.baranggay ASC";
     $result = mysqli_query($conn, $sql);
 
     $row = $result->fetch_assoc();
-
-    $date = $row['bday'];
-    $bday = date("F j, Y", strtotime($date));
 
 
     $sql1 = "SELECT COUNT(batch) as totalbatch FROM batch where farmID = $farmID";
@@ -43,7 +40,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
         $row2 = $result2->fetch_array();
         $mortality = $row2['mortality'];
 
-        echo $mortality;
+
  
        
 
@@ -57,7 +54,6 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
        $row3 = $result3->fetch_array();
        $initial = $row3['initial'];
 
-       echo $initial;
 
     
        
@@ -142,7 +138,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
             <div class="owner-personal-info">
                 <h2><?php echo $row['farmowner']; ?></h2>
                 <p>Years of Experience: <?php echo $row['exp']; ?> years</p>
-                <p>Date of Birth: <?php echo $bday; ?></p>
+                <p>Address: <?php echo  $row['address']; ?></p>
                 <p>Contact Number: <?php echo $row['contactno']; ?> </p>
             </div>
         </div>
@@ -151,7 +147,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
             <div class="">
                 <h2><?php echo $row['farmname']; ?></h2>
                 <p>Barangay: <?php echo $row['baranggay']; ?></p>
-                <p>Farm Area:<?php echo $row['farm_size']; ?></p>
+                <p>Farm Area: <?php echo $row['farm_size']; ?> sq. meter/s</p>
                 <p>No. of Farmers manning the farm: <?php echo $row['no_farmers']; ?>  </p>
             </div>
         </div>

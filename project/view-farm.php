@@ -26,12 +26,12 @@ if(isset($_POST['search'])) {
    
     $search = mysqli_real_escape_string($conn, $_POST['search']);
  
-    $sql = "SELECT baranggay.baranggay, farm.farmname, farm.farmowner, farm.farm_size,
+    $sql = "SELECT baranggay.baranggay, farm.farmname, farm.farmowner, farm.farm_size, farm.no_farmers, farm.address, farm.exp,
     farm.contactno, farm.farmID, baranggay.baranggayID
     FROM baranggay INNER JOIN farm ON baranggay.baranggayID = farm.baranggayID where farm.farmname LIKE '%$search%' order by baranggay.baranggay ASC";;
 } else {
    
-    $sql = "SELECT baranggay.baranggay, farm.farmname, farm.farmowner, farm.farm_size,
+    $sql = "SELECT baranggay.baranggay, farm.farmname, farm.farmowner, farm.farm_size, farm.no_farmers, farm.address, farm.exp,
     farm.contactno, farm.farmID, baranggay.baranggayID
     FROM baranggay INNER JOIN farm ON baranggay.baranggayID = farm.baranggayID order by baranggay.baranggay ASC";;
 }
@@ -110,7 +110,7 @@ if (mysqli_num_rows($result) > 0) {
                 </div>
                 <div class="modal-body">
                 <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingInput" readonly hidden value=  "'.$row['baranggayID']. '" placeholder="name" name="farmID" required="true">
+                <input type="text" class="form-control" id="floatingInput" readonly hidden value=  "'.$row['baranggayID']. '" placeholder="name" name="baranggayID" required="true">
                 <label for="floatingInput" hidden>User ID</label>
             </div>
                 <div class="form-floating mb-3">
@@ -123,9 +123,25 @@ if (mysqli_num_rows($result) > 0) {
                                 <label for="floatingInput">Farm Name</label>
                             </div>
                             <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floatingInput" value= "'.$row['farm_size']. '" placeholder="name" name="farm_size" pattern="[0-9\s+]+" required="true">
+                            <label for="floatingInput">Farm Area(Sq. meter)</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floatingInput" value= "'.$row['no_farmers']. '" placeholder="name" name="no_farmers" pattern="[0-9\s+]+" required="true">
+                            <label for="floatingInput">Number of farmers manning the farm.</label>
+                            </div>
+                            <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="floatingInput" value= "'.$row['farmowner']. '"placeholder="name" name="farmowner" pattern="[a-zA-Z0-9\s.]+" required="true">
                                 <label for="floatingInput">Farm Owner</label>
                             </div>
+                            <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floatingInput" value= "'.$row['address']. '"placeholder="name" name="address" pattern="[a-zA-Z0-9\s.]+" required="true">
+                            <label for="floatingInput">Farm Owner Address</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingInput" value= "'.$row['exp']. '" placeholder="name" name="exp" pattern="[0-9\s+]+" required="true">
+                        <label for="floatingInput">Farming Years of Experience</label>
+                        </div>
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="floatingInput" value="'.$row['contactno']. '" placeholder="name" name="contactno"  pattern="[0-9\s+]+" required="true">
                                 <label for="floatingInput">Contact No.</label>

@@ -47,11 +47,11 @@ if ($result->num_rows > 0) {
 <th scope='col' id='count'> Baranggay </th>
 <th scope='col' id='name'> Farm </th>
 <th scope='col' id='u-name'> Batch </th>
-<th scope='col' id='u-name'> Total Weight  Harvested (Kilogram)</th>
-<th scope='col' id='u-name'> Initial No.of Chicken </th>
-<th scope='col' id='u-name'> Rejected Chicken (per Heads) </th>
-<th scope='col' id='u-name'> Total Mortality </th>
-<th scope='col' id='u-name'> Total No. Harvested (per Head) </th>
+<th scope='col' id='u-name'> Total Meat Harvested(kg)</th>
+<th scope='col' id='u-name'> Initial Chicken Count/Head </th>
+<th scope='col' id='u-name'> Rejected Chicken/Head</th>
+<th scope='col' id='u-name'> Total Harvested/Head </th>
+<th scope='col' id='u-name'> Mortality </th>
 <th scope='col' id='u-name'> Mortality Rate </th>
 <th scope='col' id='u-name'> Recorded by </th>
 
@@ -78,8 +78,8 @@ if ($result->num_rows > 0) {
         echo "<td>".$row['weight']." kg. </td>";
         echo "<td>".$row['initial']."</td>";
         echo "<td>".$row['reject']."</td>";
-        echo "<td>".$row['mortality']."</td>";
         echo "<td>".$row['harvest']."</td>";
+        echo "<td>".$row['mortality']."</td>";
         if ($new_mortality_rate >= $rate ) {
             echo "<td style='color:red'> $new_mortality_rate % Danger!</td>";
             }else{
