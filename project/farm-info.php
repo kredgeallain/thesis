@@ -42,6 +42,8 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
         $result2 = $conn->query($sql2);
         $row2 = $result2->fetch_array();
         $mortality = $row2['mortality'];
+
+        echo $mortality;
  
        
 
@@ -54,6 +56,8 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
        $result3 = $conn->query($sql3);
        $row3 = $result3->fetch_array();
        $initial = $row3['initial'];
+
+       echo $initial;
 
     
        

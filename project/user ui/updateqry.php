@@ -143,14 +143,14 @@
 		$initial = $_POST['initial'];
 		$status = $_POST['status'];
 
-		$check_batch= "SELECT * from batch WHERE batch = '$batch' AND unit ='$unit' and batchID NOT IN ('$batchID') ";
+		$check_batch= "SELECT * from batch WHERE batch = '$batch' AND unit ='$unit' AND batchID NOT IN ('$batchID') ";
 		$result = mysqli_query($conn, $check_batch);
 
 		if(mysqli_num_rows($result) > 0){
 
 		echo '<script language="javascript" type="text/javascript">
 		alert("Batch Already Existed");
-		window.location = "homepage.php";
+		window.location = "homepage.php";	
 		</script>';
 
 		}

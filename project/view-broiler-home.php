@@ -47,11 +47,11 @@ if ($result->num_rows > 0) {
 <th scope='col' id='count'> Baranggay </th>
 <th scope='col' id='name'> Farm </th>
 <th scope='col' id='u-name'> Batch </th>
-<th scope='col' id='u-name'> Total Weight </th>
-<th scope='col' id='u-name'> Initial </th>
-<th scope='col' id='u-name'> Reject </th>
-<th scope='col' id='u-name'> Mortality </th>
-<th scope='col' id='u-name'> Harvest </th>
+<th scope='col' id='u-name'> Total Weight  Harvested (Kilogram)</th>
+<th scope='col' id='u-name'> Initial No.of Chicken </th>
+<th scope='col' id='u-name'> Rejected Chicken (per Heads) </th>
+<th scope='col' id='u-name'> Total Mortality </th>
+<th scope='col' id='u-name'> Total No. Harvested (per Head) </th>
 <th scope='col' id='u-name'> Mortality Rate </th>
 <th scope='col' id='u-name'> Recorded by </th>
 

@@ -132,7 +132,7 @@ if ($result = $data->query($batch)){
                                         </div>
                                         <input type=""  name="farmID" hidden value='. $farmID .' required="true"> 
                                         <input type=""  name="batchID" hidden value="'.$row['batchID'].'" required="true"> 
-                                        <input type=""  name="unit" hidden value="'.$row['unit'].'" required="true">
+                                        <input type=""  name="unit" hidden readonly  value= '.$row['unit'].' required="true">
                                         <div class="form-floating mb-3">
                                             <input type="number" class="form-control" id="intial" value="'.$row['initial'].'" name="initial"
                                                 placeholder="Initial Number" required="true">
@@ -172,12 +172,14 @@ if ($result = $data->query($batch)){
 
 ?>
 <style>
+
     th{
         font-size:12px !important;
     }
     #modal-content{
-        width:100%;
+        width:500px !important;
     }
+      
     @media screen and (max-width: 800px){
         #table{
             width:100% !important;

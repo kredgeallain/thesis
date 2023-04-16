@@ -7,6 +7,7 @@ include 'connect.php';
 
 session_start();
 
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   
     $username = mysqli_real_escape_string($conn, $_POST["username"]);

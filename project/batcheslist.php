@@ -87,7 +87,7 @@ if ($result = $data->query($batch)){
                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edituser'.$row['batchID'].'">
                                         Edit
                                     </button>
-                </td>
+               
                 
                 <div class="modal fade" id="edituser'.$row['batchID'].'" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
@@ -120,7 +120,10 @@ if ($result = $data->query($batch)){
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Close</button>
-                      <button class="btn btn-primary" type="submit" name="edit-batch" id="submit" value="">Save</button>
+
+
+                    <buttonname="edit-batch" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> Save</button>
+                   
                     </div>
                   </div>
                     </div>
@@ -128,7 +131,7 @@ if ($result = $data->query($batch)){
                 </div>
                 
                 </div>
-              
+                </td>
 
                 </form>';      
         
