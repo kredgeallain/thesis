@@ -73,12 +73,12 @@ if($row2["unit"]=="layer")
 <section class="broiler">
 <div class="Bcurrent">
     <label for="">Initial Number</label>
-    <input  class="form-control" type="number"readonly name="Lcurrent" id="Lcurrent"  value='. $init .'  required="true">
+    <input  class="form-control" type="number"readonly name="initial" id="Lcurrent"  value='. $init .'  required="true">
 </div>
 
 <div class="Bcurrent">
     <label for=""> Current</label>
-    <input  class="form-control" type="number"  readonly value='. $current .' name="" id="Lcurrent"  required="true">
+    <input  class="form-control" type="number"  readonly value='. $current .' name="crr" id="Lcurrent"  required="true">
 </div>
 
 <div class="mortality">

@@ -57,7 +57,21 @@
             $rej_eggs = $_POST['rej-eggs'];
             $mortality = $_POST['mortality'];
             $userID = $_POST['userID'];
+            $crr = $_POST['crr'];
+
+
+            if ($mortality>$crr) {
             
+
+                sleep(1);
+                echo '<script language="javascript" type="text/javascript">
+                alert("Mortality Exceed Limit");
+                window.location = "record-home.php";
+                </script>';
+
+            }
+
+            else{
             
 
 
@@ -87,7 +101,7 @@
                     sleep(1);
                     echo '<script language="javascript" type="text/javascript">
                     alert("Production Data Added!");
-                    window.location = "homepage.php";
+                    window.location = "record-home.php";
                     </script>';
 
                 }
@@ -95,11 +109,13 @@
                 sleep(1);
                 echo '<script language="javascript" type="text/javascript">
                 alert("Production Data Added!");
-                window.location = "homepage.php";
+                window.location = "record-home.php";
                 </script>';
        
                 }
              }
+            }
+            
 
             }elseif(isset($_POST['submit1'])){
 
@@ -110,7 +126,23 @@
                 $reject = $_POST['reject'];
                 $mortality = $_POST['mortality'];
                 $userID =  $_POST['userID'];
+                $initial =  $_POST['initial'];
                 $status = "off";
+
+                $t = $Bcurrent+$reject+$mortality;
+
+                if($t>$initial){
+
+                    sleep(1);
+                    echo '<script language="javascript" type="text/javascript">
+                    alert("Total count ecxeed the initial count!");
+                    window.location = "record-home.php";
+                    </script>';
+
+                }
+
+
+                else{
         
                 $insert = " INSERT INTO `broiler`(`broilerID`, `batchID`, `broiler_weight`, `Bcurrent`, `reject`, `mortality`, `date`, `userID`) 
                 VALUES ('','$batchID','$broiler_weight','$Bcurrent','$reject','$mortality','$date','$userID')";
@@ -122,12 +154,13 @@
         
                   echo '<script language="javascript" type="text/javascript">
                   alert("Production Data Added!");
-                  window.location = "homepage.php";
+                  window.location = "record-home.php";
                   </script>';
                  
                   }
                     
         }
+    }
         
 
 ?>
