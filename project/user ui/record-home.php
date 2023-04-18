@@ -2,8 +2,9 @@
 		 include_once '..\connect.php'; 
          include('header2.php');
 		 $query = "SELECT * FROM baranggay "; 
- 		$result = mysqli_query($conn,$query);	
+ 		$result = mysqli_query($conn,$query);
  		?>
+
 
 
 <body>
@@ -58,7 +59,8 @@
             $mortality = $_POST['mortality'];
             $userID = $_POST['userID'];
             $crr = $_POST['crr'];
-
+            $fdate = $_POST['f_date'];
+            $tdate = $_POST['t_date'];
 
             if ($mortality>$crr) {
             
@@ -75,8 +77,8 @@
             
 
 
-            $insert = " INSERT INTO `layer`(`layerID`, `batchID`, `no_eggs`, `reject_eggs`, `mortality`, `date`,`userID` ) 
-                VALUES ('','$batchID','$no_eggs','$rej_eggs','$mortality','$date','$userID') ";
+            $insert = " INSERT INTO `layer`(`layerID`, `batchID`, `no_eggs`, `reject_eggs`, `mortality`, `date`,`userID`,`f_date`,`t_date` ) 
+                VALUES ('','$batchID','$no_eggs','$rej_eggs','$mortality','$date','$userID','$fdate','$tdate') ";
 
                 
 

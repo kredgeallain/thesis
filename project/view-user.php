@@ -42,7 +42,7 @@ if ($result = $conn->query($sql)){
 				<th scope='col' hidden id='count'>UserID</th>
 				<th scope='col' id='name'>Name</th>
 				<th scope='col' id='u-name'>Username</th>
-                <th scope='col' id='brgy'>Barangay</th>
+                <th scope='col' id='brgy'>Address</th>
 				<th scope='col' id='pos'>Position</th>
                 <th scope='col' id='cntct'>Contact No</th>
                 <th scope='col' id='delete'> Status </th>
@@ -96,6 +96,11 @@ if ($result = $conn->query($sql)){
                                                     <div class="form-floating mb-3">
                                                         <input type="text" class="form-control" pattern="[a-zA-Z0-9\s]+" id="floatingInput" value= "'.$row['username']. '"placeholder="name" name="username" required="true">
                                                         <label for="floatingInput">Username</label>
+                                                    </div>
+
+                                                    <div class="form-floating mb-3">
+                                                        <input type="text" class="form-control" pattern="[a-zA-Z0-9\s]+" id="floatingInput" value= "'.$row['baranggay']. '"placeholder="name" name="baranggay" required="true">
+                                                        <label for="floatingInput">Address</label>
                                                     </div>
                                             
                                                     <select id="select" class="form-select" aria-label="Default select example" name="position" required="true">

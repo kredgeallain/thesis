@@ -107,7 +107,7 @@ function setMarkers(map, locations) {
         map.setCenter(marker.getPosition())
 
 
-        var content = " <h6> Farm Name: " + farmname + '</h6>' + " <p> Barangay: " + brgy + '</p>'  + " <p> Farm Area:" 
+        var content = " <b><h6> Farm Name: </b>" + farmname + '</h6>' + " <p> Barangay: " + brgy + '</p>'  + " <p> Farm Area:" 
         + size + ' Sq. meter</p>'  + " <p>  Farm Owner:" + owner + '</p>'  + " <p> Contact No.:" + contact + '</p>' 
 
         var infowindow = new google.maps.InfoWindow()

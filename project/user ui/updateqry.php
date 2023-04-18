@@ -175,16 +175,17 @@
 		$layerID = $_POST['layerID'];
 		$batchID = $_POST['batchID'];
 		$no_eggs = $_POST['no_eggs'];
+		$f = $_POST['f_date'];
+		$t = $_POST['t_date'];
 		$reject_eggs = $_POST['reject_eggs'];
-		$Lcurrent = $_POST['Lcurrent'];
 		$mortality = $_POST['mortality'];
 	
-			mysqli_query($data, "UPDATE `layer` SET `no_eggs`='$no_eggs',`reject_eggs`='$reject_eggs',`Lcurrent`='$Lcurrent',
+			mysqli_query($data, "UPDATE `layer` SET `no_eggs`='$no_eggs',`reject_eggs`='$reject_eggs',`f_date`='$f', `t_date`='$t',
 			`mortality`='$mortality' WHERE layerID = '$layerID' ");
 	
 			echo '<script language="javascript" type="text/javascript">
 			alert("Production Updated");
-			window.location = "homepage.php";
+			window.location = "lhistory.php";
 			</script>';
 
 	
@@ -206,7 +207,7 @@
 		
 				echo '<script language="javascript" type="text/javascript">
 				alert("Production Updated");
-				window.location = "homepage.php";
+				window.location = "bhistory.php";
 				</script>';
 	
 		

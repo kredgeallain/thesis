@@ -101,7 +101,7 @@ else{
 
                             <div class="input2">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" name="name" id="name" placeholder="Name"
+                                <input type="text" class="form-control" name="baranggay" id="name" placeholder="Name"
                                     required="true">
                                 <label for="floatingInput">Address</label>
                             </div>

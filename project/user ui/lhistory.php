@@ -41,9 +41,11 @@ $userID = $row['userID'];
 
 
 
-$sql ="SELECT layer.mortality, layer.no_eggs, layer.reject_eggs, layer.date, layer.layerID, layer.userID, batch.batchID, batch.batch, batch.initial FROM layer 
-INNER JOIN batch ON layer.batchID = batch.batchID
-where layer.userID=$userID order by layer.date DESC";
+$sql ="SELECT layer.mortality, layer.no_eggs, layer.reject_eggs, layer.date, layer.f_date, layer.t_date,
+        layer.layerID, layer.userID, batch.batchID, batch.batch, batch.initial
+        FROM layer 
+        INNER JOIN batch ON layer.batchID = batch.batchID
+        where layer.userID=$userID order by layer.date DESC";
 
 if ($result = $conn->query($sql)){
     
@@ -59,9 +61,12 @@ if ($result = $conn->query($sql)){
         <th scope='col' hidden  id='count'>Layer ID</th>
         <th scope='col' hidden id='count'>Batch ID</th>
         <th scope='col' id='name'>Batch</th>
-        <th scope='col' id='name'>No. of Eggs</th>
-        <th scope='col' id='name'>No. of Rejected Eggs</th>
+        <th scope='col' id='name'>Good Eggs</th>
+        <th scope='col' id='name'>Rejected Eggs</th>
         <th scope='col' id='name'>Mortality</th>
+        <th scope='col' id='name'>Date Harvested From</th>
+        <th scope='col' id='name'>Date Harvested To</th>
+        <th scope='col' id='name'>Harvest Range(Days)</th>
         <th scope='col' id='name'>Date Recorded</th>
     </tr>	  
     </thead>";
@@ -73,6 +78,15 @@ if ($result = $conn->query($sql)){
             $initial = $row['initial'];
         
             $current = $initial-$mortality;
+
+            $f = $row['f_date'];
+            $t = $row['t_date'];
+
+            $from = new DateTime($f);
+            $to = new DateTime($t);
+            $interval = $to->diff($from);
+            $days_harvested = $interval->days + 1;
+            
         
             echo"<tr>";
             echo "<td id='name' hidden >" .$row['layerID']. " </td>";
@@ -81,9 +95,10 @@ if ($result = $conn->query($sql)){
             echo "<td id='name' >" .$row['no_eggs']. "</td>";
             echo "<td id='name'>" .$row['reject_eggs']. "</td>";
             echo "<td id='name'>" .$row['mortality']. "</td>";
+            echo "<td id='name'>" .$row['f_date']. "</td>";
+            echo "<td id='name'>" .$row['t_date']. "</td>";
+            echo "<td id='name'>" .$days_harvested . " day/s</td>";
             echo "<td id='name'>" .$row['date']. "</td>";
-
-            
             echo '<td > 
 
 
@@ -104,6 +119,15 @@ if ($result = $conn->query($sql)){
             <input type="text" class="form-control" id="floatingInput" readonly hidden value=  "'.$row['layerID']. '" placeholder="name" name="layerID" required="true">
             <label for="floatingInput" hidden>User ID</label>
         </div>
+
+                <div class="form-floating mb-3">
+                <input type="date" class="form-control" id="floatingInput" value="'.$row['f_date']. '" placeholder="name" name="f_date" required="true">
+                <label for="floatingInput"> Date Harvest From </label>
+            </div>
+            <div class="form-floating mb-3">
+            <input type="date" class="form-control" id="floatingInput" value="'.$row['t_date']. '" placeholder="name" name="t_date" required="true">
+            <label for="floatingInput"> Date Harvest To </label>
+        </div>
             <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="floatingInput" readonly  hidden value= "'.$row['batchID']. '" 
                             placeholder="name" name="batchID" required="true">
@@ -118,10 +142,7 @@ if ($result = $conn->query($sql)){
                             <input type="text" class="form-control" id="floatingInput" value= "'.$row['reject_eggs']. '"placeholder="name" name="reject_eggs" required="true">
                             <label for="floatingInput">No. of Rejected Eggs</label>
                         </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingInput" value="'.$current. '" placeholder="name" name="Lcurrent" required="true">
-                            <label for="floatingInput">Currenct No. of Chickens </label>
-                        </div>
+                       
                         <div class="form-floating mb-3">
                         <input type="text" class="form-control" id="floatingInput" value="'.$row['mortality']. '" placeholder="name" name="mortality" required="true">
                         <label for="floatingInput"> Mortality </label>

@@ -1,4 +1,6 @@
 <?php
+include ("../head.php")?>
+<?php
 
 session_start();
 include 'connect.php'; 
@@ -50,21 +52,40 @@ if($row2["unit"]=="layer")
 
 
 <div class="date">
-<label for="">Date</label>
-<input  class="form-control" type="date" name="date" id="date" readonly value='. $date .' required="true">
+
+<input  class="form-control" type="date" hidden name="date" id="date" readonly value='. $date .' required="true">
+</div>
+
+
+
+<div class="date">
+<label  id="label" for="">Harvest Date Range</label>
+<div  id="date">
+<div class="form-floating mb-3">
+<input size="200" type="date" class="form-control" name="f_date" id="contactno" pattern="[0-9\s+]+" required="true">
+<label for="floatingInput" required="true">Harvested from</label>
+</div>
+<div class="form-floating mb-3">
+<input type="date" class="form-control" name="t_date" id="contactno" pattern="[0-9\s+]+" required="true">
+<label for="floatingInput" required="true">Harvested to</label>
+</div>
+
+</div>
+
+
 </div>
 
 
 
 <div class="no-eggs">
-    <label for="no-eggs">Number of Eggs</label>
+    <label id="label" for="no-eggs">Number of Eggs</label>
     <input  class="form-control" type="number" name="no-eggs" id="no-eggs"  required="true">
 </div>
 
 
 
 <div class="rej-eggs">
-    <label for="rej-eggs">Reject Eggs</label>
+    <label id="label" for="rej-eggs">Reject Eggs</label>
     <input  class="form-control" type="number" name="rej-eggs" id="rej-eggs"  required="true">
 </div>
 
@@ -72,17 +93,17 @@ if($row2["unit"]=="layer")
 
 <section class="broiler">
 <div class="Bcurrent">
-    <label for="">Initial Number</label>
+    <label id="label" for="">Initial Chicken Count/Head</label>
     <input  class="form-control" type="number"readonly name="initial" id="Lcurrent"  value='. $init .'  required="true">
 </div>
 
 <div class="Bcurrent">
-    <label for=""> Current</label>
+    <label id="label" for="">Previous Headcount of Chicken</label>
     <input  class="form-control" type="number"  readonly value='. $current .' name="crr" id="Lcurrent"  required="true">
 </div>
 
 <div class="mortality">
-    <label for="dead">Mortality</label>
+    <label id="label" for="dead">Mortality</label>
     <input  class="form-control" type="number" name="mortality" id="mortality" required="true">
 </div>
 </section>
@@ -111,35 +132,35 @@ else {
 <h1>Broiler</h1>
 
     <div class="date">
-    <label for="">Date</label>
+    <label id="label" for="">Date</label>
     <input  class="form-control" type="date" name="date" id="date" readonly value='. $date .' required="true">
     </div>
 
 <section class="weight">
     <div class="weight">
-        <label for="">Meat in Kg</label>
+        <label id="label" for="">Meat in Kg</label>
         <input  class="form-control" type="kilo" name="weight" id="weight"  required="true">
     </div>
 </section>
 
 <section class="current">
 <div class="Bcurrent">
-    <label for="">Initial Number</label>
+    <label id="label" for="">Initial Number</label>
     <input  class="form-control" type="number" readonly name="Lcurrent" id="Lcurrent"  value='. $init .'  required="true">
 </div>
 
     <div class="current">
-        <label for="">Harvested</label>
+        <label id="label" for="">Harvested</label>
         <input  class="form-control" type="number" name="current" id="current" required="true" >
     </div>
     <div class="current">
-    <label for="">Rejected</label>
+    <label id="label" for="">Rejected</label>
     <input  class="form-control" type="number" name="reject" id="current" required="true" >
 </div>
 
 
     <div class="mortality">
-        <label for="dead">Mortality</label>
+        <label id="label" for="dead">Mortality</label>
         <input  class="form-control" type="number" name="mortality" id="mortality"  required="true">
     </div>
 </section>
@@ -171,6 +192,7 @@ else {
 }
 
 .record-wrapper h1{
+    width:100% !important;
     font-weight:bold;
     font-size:25px;
     display:flex;
@@ -192,8 +214,13 @@ input{
     background-color:blue;
     border:none;
 }
-label{
+#label{
     dispaly:block;
     margin-top:20px;
+}
+
+#date{
+    display:flex;
+    gap:20px;
 }
 </style>

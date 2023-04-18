@@ -71,6 +71,7 @@
 		$name = $_POST['name'];
 		$username = $_POST['username'];
 		$position = $_POST["position"];
+		$brgy = $_POST["baranggay"];
 		$status = $_POST["status"];
 		$contact= $_POST["no"];
 		$sql="SELECT * from user where username='$username' and userID NOT IN ('$userID') ";
@@ -85,12 +86,13 @@
 			 }
 			else {
 	
-		mysqli_query($data, "UPDATE `user` SET `name`='$name',`username`='$username',`position`='$position', `status`='$status',`mobile_no`='$contact' WHERE userID = '$userID' ");
+		mysqli_query($data, "UPDATE `user` SET `name`='$name',`username`='$username',`position`='$position', `status`='$status',  `baranggay`='$brgy',
+		`mobile_no`='$contact' WHERE userID = '$userID' ");
 	
 	
 		echo '<script language="javascript" type="text/javascript">
 		alert("User Updated!");
-		window.location = "homepage.php";
+		window.location = "view-user.php";
 		</script>';
 
 		
