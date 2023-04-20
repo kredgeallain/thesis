@@ -68,7 +68,9 @@ if ($result = $data->query($batch)){
 </form>';      
 
 
-    echo "<table class='table table-striped' id='table'>
+    echo "
+    <div  class='table-responsive'>
+    <table class='table table-striped' id='table'>
         <thead class='thead-dark'>	  
         <tr>
             
@@ -166,7 +168,7 @@ if ($result = $data->query($batch)){
         
 
         }
-        "</table>";
+        "</table></div>";
 
         
 

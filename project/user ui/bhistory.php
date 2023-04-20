@@ -46,7 +46,9 @@ INNER JOIN batch ON broiler.batchID = batch.batchID
 where broiler.userID=$userID order by broiler.date DESC";
 
 if ($result = $conn->query($sql)){
-    echo "<table class='table table-striped'>
+    echo "
+    <div  class='table-responsive'>
+    <table class='table table-striped'>
     <thead class='thead-dark'>	  
     <tr>
         
@@ -140,7 +142,8 @@ if ($result = $conn->query($sql)){
 			echo"</tr>";
               
 		}
-	"</table>";
+	"</table>
+    </div>";
 
 
 
