@@ -150,7 +150,7 @@
 
 		echo '<script language="javascript" type="text/javascript">
 		alert("Batch Already Existed");
-		window.location = "homepage.php";	
+		window.location = "view-batches.php";	
 		</script>';
 
 		}
@@ -162,7 +162,7 @@
 	
 			echo '<script language="javascript" type="text/javascript">
 			alert("Batch Updated");
-			window.location = "homepage.php";
+			window.location = "view-batches.php";
 			</script>';
 
 	
