@@ -75,9 +75,9 @@ if ($result = $data->query($batch)){
         <tr>
             
             <th scope='col' hidden id='count'>BaranggayID</th>
-            <th scope='col' id='name'>Batch</th>
+            <th scope='col' id='name'>Batch </th>
             <th scope='col' id='name'>Unit</th>
-            <th scope='col' id='name'>Initial No.</th>
+            <th scope='col' id='name'>Initial Chicken Count/Head </th>
             <th scope='col' id='name'>Status</th>
             <th scope='col' id='name'>Date Started</th>
             

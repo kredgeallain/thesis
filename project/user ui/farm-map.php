@@ -135,7 +135,9 @@ function setMarkers(map, locations) {
         map.setCenter(marker.getPosition())
 
 
-        var content = " <h6> " + farmname + '</h6>' + " <p> " + brgy + '</p>'  + " <p> " + size + ' Sq. meter</p>'  + " <p> " + owner + '</p>'  + " <p> " + contact + '</p>' 
+        var content = " <b><h6> Farm Name: </b>" + farmname + '</h6>' + " <p> Barangay: " + brgy + '</p>'  + " <p> Farm Area:" 
+        + size + ' Sq. meter</p>'  + " <p>  Farm Owner:" + owner + '</p>'  + " <p> Contact No.:" + contact + '</p>' 
+
         var infowindow = new google.maps.InfoWindow()
 
         google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) {

@@ -41,8 +41,11 @@ $userID = $row['userID'];
 
 
 
-$sql ="SELECT broiler.mortality, broiler.broiler_weight, broiler.Bcurrent, broiler.date, broiler.broilerID, broiler.reject, broiler.userID, batch.batchID, batch.batch, batch.initial FROM broiler 
+$sql ="SELECT broiler.mortality, broiler.broiler_weight, broiler.Bcurrent, broiler.date, broiler.broilerID, broiler.reject, broiler.userID, 
+batch.batchID, batch.batch, batch.initial, farm.farmname
+FROM broiler 
 INNER JOIN batch ON broiler.batchID = batch.batchID
+INNER JOIN farm ON batch.farmID = farm.farmID
 where broiler.userID=$userID order by broiler.date DESC";
 
 if ($result = $conn->query($sql)){
@@ -54,10 +57,11 @@ if ($result = $conn->query($sql)){
         
         <th scope='col' hidden id='name'>Broiler ID</th>
         <th scope='col' hidden id='name'>Batch ID</th>
+        <th scope='col' id='name'>Farm</th>      
         <th scope='col' id='name'>Batch</th>       
-        <th scope='col' id='name'>Weight</th>
-        <th scope='col' id='name'>Harvested</th>
-        <th scope='col' id='name'>Rejected</th>
+        <th scope='col' id='name'>Meat Harvested(kg)</th>
+        <th scope='col' id='name'>Harvested/Head</th>
+        <th scope='col' id='name'>Rejected/Head</th>
         <th scope='col' id='name'>Mortality</th>
         <th scope='col' id='name'>Date Recorded</th>
         
@@ -70,6 +74,7 @@ if ($result = $conn->query($sql)){
             echo"<tr>";
             echo "<td id='name' hidden >" .$row['broilerID']. "</td>";
             echo "<td id='name' hidden >" .$row['batchID']. "</td>";
+            echo "<td id='name'>" .$row['farmname']. "</td>";
             echo "<td id='name'>" .$row['batch']. "</td>";
             echo "<td id='name'>" .$row['broiler_weight']. " kg. </td>";
             echo "<td id='name'>" .$row['Bcurrent']. "</td>";

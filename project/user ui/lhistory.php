@@ -42,9 +42,10 @@ $userID = $row['userID'];
 
 
 $sql ="SELECT layer.mortality, layer.no_eggs, layer.reject_eggs, layer.date, layer.f_date, layer.t_date,
-        layer.layerID, layer.userID, batch.batchID, batch.batch, batch.initial
+        layer.layerID, layer.userID, batch.batchID, batch.batch, batch.initial, farm.farmname, farm.farmID, batch.farmID
         FROM layer 
         INNER JOIN batch ON layer.batchID = batch.batchID
+        INNER JOIN farm on batch.farmID = farm.farmID
         where layer.userID=$userID order by layer.date DESC";
 
 if ($result = $conn->query($sql)){
@@ -60,6 +61,7 @@ if ($result = $conn->query($sql)){
         
         <th scope='col' hidden  id='count'>Layer ID</th>
         <th scope='col' hidden id='count'>Batch ID</th>
+        <th scope='col' id='name'>Farm</th>
         <th scope='col' id='name'>Batch</th>
         <th scope='col' id='name'>Good Eggs</th>
         <th scope='col' id='name'>Rejected Eggs</th>
@@ -91,6 +93,7 @@ if ($result = $conn->query($sql)){
             echo"<tr>";
             echo "<td id='name' hidden >" .$row['layerID']. " </td>";
             echo "<td id='name' hidden >" .$row['batchID']. "</td>";
+            echo "<td id='name' >" .$row['farmname']. "</td>";
             echo "<td id='name' >" .$row['batch']. "</td>";
             echo "<td id='name' >" .$row['no_eggs']. "</td>";
             echo "<td id='name'>" .$row['reject_eggs']. "</td>";
