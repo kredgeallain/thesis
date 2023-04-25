@@ -146,7 +146,7 @@ else {
 <section class="current">
 <div class="Bcurrent">
     <label id="label" for="">Initial Number</label>
-    <input  class="form-control" type="number" readonly name="Lcurrent" id="Lcurrent"  value='. $init .'  required="true">
+    <input  class="form-control" type="number" readonly name="initial" id="Lcurrent"  value='. $init .'  required="true">
 </div>
 
     <div class="current">
