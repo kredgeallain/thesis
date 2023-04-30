@@ -48,7 +48,7 @@ if ($result = $data->query($batch)){
 </div>
 
   <div class="form-floating mb-3">
-      <input type="number" class="form-control" id="intial" value="" name="initial"
+      <input type="number" class="form-control" id="intial" value="" min="1" name="initial"
           placeholder="Initial Number" required="true">
       <label for="floatingInput">Initial Number</label>
   </div>
@@ -137,7 +137,7 @@ if ($result = $data->query($batch)){
                                         <input type=""  name="unit" hidden readonly  value= '.$row['unit'].' required="true">
                                         <div class="form-floating mb-3">
                                             <input type="number" class="form-control" id="intial" value="'.$row['initial'].'" name="initial"
-                                                placeholder="Initial Number" required="true">
+                                                placeholder="Initial Number"  min="1" required="true">
                                             <label for="floatingInput">Initial Number</label>
                                         </div>
                                         <div class="form-floating mb-3">
@@ -189,5 +189,21 @@ if ($result = $data->query($batch)){
         }
 
 }
+input:invalid {
+        animation: shake 0.5s;
+        border: 1px solid red !important;
+    }
+
+    input:valid{
+        border:1px solid green !important;
+    }
+    
+    @keyframes shake {
+        0% { transform: translateX(0); }
+        25% { transform: translateX(-10px); }
+        50% { transform: translateX(10px); }
+        75% { transform: translateX(-10px); }
+        
+    }
 
 </style>

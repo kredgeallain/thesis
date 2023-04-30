@@ -113,17 +113,15 @@ if ($result = $data->query($batch)){
                     <input type=""  name="unit" hidden value="'.$row['unit'].'" required="true">
                     <div class="form-floating mb-3">
                         <input type="number" class="form-control" id="intial" value="'.$row['initial'].'" name="initial"
-                            placeholder="Initial Number" required="true">
+                            placeholder="Initial Number" min="1" required="true">
                         <label for="floatingInput">Initial Number</label>
                     </div>
                 </div>
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Close</button>
-
-
-                    <buttonname="edit-batch" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> Save</button>
-                   
+                    <button name="edit-batch" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> Save</button>
+                  
                     </div>
                   </div>
                     </div>
