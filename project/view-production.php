@@ -52,9 +52,9 @@ if ($result = $conn->query($sql)){
         
         <th scope='col' hidden id='name'>Broiler ID</th>
         <th scope='col' hidden id='name'>Batch ID</th>
-        <th scope='col' id='name'>Broiler Weight</th>
-        <th scope='col' id='name'>Harvested</th>
-        <th scope='col' id='name'>Rejected</th>
+        <th scope='col' id='name'>Meat Harvested(kg)</th>
+        <th scope='col' id='name'>Harvested/Head</th>
+        <th scope='col' id='name'>Rejected/Head</th>
         <th scope='col' id='name'>Mortality</th>
         <th scope='col' id='name'>Date Recorded</th>
         <th scope='col' id='name'>Recorded by</th>
@@ -89,7 +89,7 @@ if ($result = $conn->query($sql)){
 
 
 
-        $sql = "SELECT layer.layerID, layer.batchID, layer.no_eggs, layer.reject_eggs, 
+        $sql = "SELECT layer.layerID, layer.batchID, layer.no_eggs, layer.reject_eggs, layer.f_date, layer.t_date,
          layer.mortality, layer.date,
         user.name FROM layer 
         inner join user on layer.userID = user.userID where batchID=$batchID and DATE_FORMAT(layer.date, '%Y-%m') = '$date'";
@@ -99,28 +99,46 @@ if ($result = $conn->query($sql)){
             <thead>	  
             <tr class='table-header'>
                 
-                <th scope='col' hidden  id='count'>Layer ID</th>
-                <th scope='col' hidden id='count'>Batch ID</th>
-                <th scope='col' id='name'>No. of Eggs</th>
-                <th scope='col' id='name'>No. of Rejected Eggs</th>
-                <th scope='col' id='name'>Mortality</th>
-                <th scope='col' id='name'>Date Recorded</th>    
-                <th scope='col' id='name'>Recorded by</th>
+            <th scope='col' hidden  id='count'>Layer ID</th>
+            <th scope='col' hidden id='count'>Batch ID</th>
+            <th scope='col' id='name'>Good Eggs</th>
+            <th scope='col' id='name'>Rejected Eggs</th>
+            <th scope='col' id='name'>Mortality</th>
+            <th scope='col' id='name'>Date Harvested From</th>
+            <th scope='col' id='name'>Date Harvested To</th>
+            <th scope='col' id='name'>Harvest Range(Days)</th>
+            <th scope='col' id='name'>Date Recorded</th>
             </tr>	  
             </thead>";
                 }
         
                 while ($row = $result->fetch_assoc()) { 
                    
-                    echo"<tr>";
-                    echo "<td id='name' hidden >" .$row['layerID']. " </td>";
-                    echo "<td id='name' hidden >" .$row['batchID']. "</td>";
-                    echo "<td id='name' >" .$row['no_eggs']. "</td>";
-                    echo "<td id='name'>" .$row['reject_eggs']. "</td>";
-                    echo "<td id='name'>" .$row['mortality']. "</td>";
-                    echo "<td id='name'>" .$row['date']. "</td>";
-                    echo "<td id='name'>" .$row['name']. "</td>";
-    
+                  
+            $mortality = $row['mortality'];
+          //  $initial = $row['initial'];
+        
+          //  $current = $initial-$mortality;
+
+            $f = $row['f_date'];
+            $t = $row['t_date'];
+
+            $from = new DateTime($f);
+            $to = new DateTime($t);
+            $interval = $to->diff($from);
+            $days_harvested = $interval->days + 1;
+            
+        
+            echo"<tr>";
+            echo "<td id='name' hidden >" .$row['layerID']. " </td>";
+            echo "<td id='name' hidden >" .$row['batchID']. "</td>";
+            echo "<td id='name' >" .$row['no_eggs']. "</td>";
+            echo "<td id='name'>" .$row['reject_eggs']. "</td>";
+            echo "<td id='name'>" .$row['mortality']. "</td>";
+            echo "<td id='name'>" .$row['f_date']. "</td>";
+            echo "<td id='name'>" .$row['t_date']. "</td>";
+            echo "<td id='name'>" .$days_harvested . " day/s</td>";
+            echo "<td id='name'>" .$row['date']. "</td>";
              
                       
                 }

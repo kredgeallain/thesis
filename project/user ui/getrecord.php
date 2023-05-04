@@ -132,29 +132,29 @@ else {
 <h1>Broiler</h1>
 
     <div class="date">
-    <label id="label" for="">Date</label>
-    <input  class="form-control" type="date" name="date" id="date" readonly value='. $date .' required="true">
+    <label id="label" hidden for="">Date</label>
+    <input  class="form-control" type="date" name="date" id="date" hidden readonly value='. $date .' required="true">
     </div>
 
 <section class="weight">
     <div class="weight">
-        <label id="label" for="">Meat in Kg</label>
+        <label id="label" for="">Meat Harvested(kg)</label>
         <input  class="form-control" type="kilo" name="weight" id="weight"  required="true">
     </div>
 </section>
 
 <section class="current">
 <div class="Bcurrent">
-    <label id="label" for="">Initial Number</label>
+    <label id="label" for="">Initial Chicken Count/Head</label>
     <input  class="form-control" type="number" readonly name="initial" id="Lcurrent"  value='. $init .'  required="true">
 </div>
 
     <div class="current">
-        <label id="label" for="">Harvested</label>
+        <label id="label" for="">Harvested/Head</label>
         <input  class="form-control" type="number" name="current" id="current" required="true" >
     </div>
     <div class="current">
-    <label id="label" for="">Rejected</label>
+    <label id="label" for="">Rejected Chicken/Head</label>
     <input  class="form-control" type="number" name="reject" id="current" required="true" >
 </div>
 
